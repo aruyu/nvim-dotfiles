@@ -1,0 +1,113 @@
+snippet //=
+/*
+ *  ${0}
+ */
+endsnippet
+
+snippet __comment=
+/*
+ *  NOTE      - `!v expand('%:t')`
+ *  Author    - Eira Chae
+ *
+ *  Created   - `date +%Y.%m.%d`
+ *  Github    - https://github.com/vine91
+ *  Contact   - vine9151@gmail.com
+ */
+endsnippet
+
+snippet module=
+static int __init ${1}_init(void)
+{
+    ${3}
+
+    return 0;
+}
+
+static void __exit $1_exit(void)
+{
+    ${0}
+}
+
+module_init($1_init);
+module_exit($1_exit);
+
+MODULE_LICENSE("GPL");
+MODULE_AUTHOR("Eira Chae");
+MODULE_DESCRIPTION("${2:$1}");
+endsnippet
+
+snippet main=
+int main()
+{
+    ${0}
+
+    return 0;
+}
+endsnippet
+
+snippet for=
+for (int ${1:i}=0; $1${2}; $1++)
+{
+    ${0}
+}
+endsnippet
+
+snippet while=
+while (${1:true})
+{
+    ${0}
+}
+endsnippet
+
+snippet if=
+if (${1})
+{
+    ${0}
+}
+endsnippet
+
+snippet else=
+else
+{
+    ${0}
+}
+endsnippet
+
+snippet elif=
+else if (${1})
+{
+    ${0}
+}
+endsnippet
+
+snippet ifelse=
+if (${1})
+{
+    ${2}
+}
+
+else
+{
+    ${0}
+}
+endsnippet
+
+snippet switch=
+switch (${1})
+{
+case ${2:0}:
+    ${0}
+    break;
+
+default:
+    break;
+}
+endsnippet
+
+snippet #include=
+#include <${0}.h>
+endsnippet
+
+snippet "([\S]+(\-[\S]+)+)" "kebab-case to snake_case" r
+`!p snip.rv = re.sub('-','_', match.group(1))`$0
+endsnippet

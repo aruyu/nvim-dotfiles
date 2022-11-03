@@ -1,0 +1,104 @@
+--[[
+--  NOTE      - vscode-configs.lua
+--  Author    - Eira Chae
+--
+--  Created   - 2022.10.31
+--  Github    - https://github.com/vine91
+--  Contact   - vine9151@gmail.com
+/]]
+
+
+-- Dark theme
+vim.o.background = 'dark'
+require('vscode').change_style('dark')
+
+-- Light theme
+--[[
+vim.o.background = 'light'
+require('vscode').change_style('light')
+]]
+
+
+
+-- =========================== --
+--   Additional User Queries   --
+-- =========================== --
+
+-- Syntax colors
+--[[
+    vscFront = '#D4D4D4',
+    vscGray = '#808080',
+    vscViolet = '#646695',
+    vscBlue = '#569CD6',
+    vscDarkBlue = '#223E55',
+    vscMediumBlue = '#18a2fe',
+    vscLightBlue = '#9CDCFE',
+    vscGreen = '#6A9955',
+    vscBlueGreen = '#4EC9B0',
+    vscLightGreen = '#B5CEA8',
+    vscRed = '#F44747',
+    vscOrange = '#CE9178',
+    vscLightRed = '#D16969',
+    vscYellowOrange = '#D7BA7D',
+    vscYellow = '#DCDCAA',
+    vscPink = '#C586C0',
+]]
+
+
+-- Check error
+local status_ok, colors = pcall(require, "vscode.colors")
+if not status_ok then
+    return
+end
+
+-- Local variables for config
+local hl = vim.api.nvim_set_hl
+
+
+-- C
+hl(0, '@c_variable', { fg = colors.vscLightBlue, bg = 'NONE' })
+
+hl(0, '@c_keyword_value', { fg = colors.vscBlueGreen, bg = 'NONE' })
+hl(0, '@c_attribute', { fg = colors.vscBlueGreen, bg = 'NONE' })
+
+hl(0, '@c_type', { fg = colors.vscBlue, bg = 'NONE' })
+hl(0, '@c_boolean', { fg = colors.vscBlue, bg = 'NONE' })
+hl(0, '@c_keyword', { fg = colors.vscBlue, bg = 'NONE' })
+hl(0, '@c_constant', { fg = colors.vscBlue, bg = 'NONE' })
+
+hl(0, '@c_function', { fg = colors.vscYellow, bg = 'NONE' })
+hl(0, '@c_function_call', { fg = colors.vscYellow, bg = 'NONE' })
+
+hl(0, '@c_repeat', { fg = colors.vscPink, bg = 'NONE' })
+hl(0, '@c_conditional', { fg = colors.vscPink, bg = 'NONE' })
+hl(0, '@c_preproc', { fg = colors.vscPink, bg = 'NONE' })
+
+hl(0, '@c_bracket', { fg = colors.vscYellowOrange, bg = 'NONE' })
+hl(0, '@c_operator', { fg = colors.vscFront, bg = 'NONE' })
+hl(0, '@c_punctuation', { fg = colors.vscFront, bg = 'NONE' })
+
+hl(0, '@c_string', { fg = colors.vscOrange, bg = 'NONE' })
+hl(0, '@c_string_escape', { fg = colors.vscYellowOrange, bg = 'NONE' })
+
+
+-- Verilog
+hl(0, '@v_variable', { fg = colors.vscLightBlue, bg = 'NONE' })
+
+hl(0, '@v_module_value', { fg = colors.vscBlueGreen, bg = 'NONE' })
+
+hl(0, '@v_type', { fg = colors.vscBlue, bg = 'NONE' })
+
+hl(0, '@v_module', { fg = colors.vscYellow, bg = 'NONE' })
+hl(0, '@v_function', { fg = colors.vscYellow, bg = 'NONE' })
+hl(0, '@v_task', { fg = colors.vscYellow, bg = 'NONE' })
+
+hl(0, '@v_keyword', { fg = colors.vscPink, bg = 'NONE' })
+hl(0, '@v_repeat', { fg = colors.vscPink, bg = 'NONE' })
+hl(0, '@v_conditional', { fg = colors.vscPink, bg = 'NONE' })
+hl(0, '@v_preproc', { fg = colors.vscPink, bg = 'NONE' })
+
+hl(0, '@v_bracket', { fg = colors.vscYellowOrange, bg = 'NONE' })
+hl(0, '@v_operator', { fg = colors.vscFront, bg = 'NONE' })
+hl(0, '@v_punctuation', { fg = colors.vscFront, bg = 'NONE' })
+
+hl(0, '@v_string', { fg = colors.vscOrange, bg = 'NONE' })
