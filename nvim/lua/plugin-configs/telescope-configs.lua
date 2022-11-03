@@ -30,21 +30,41 @@ telescope.setup {
                 -- e.g. git_{create, delete, ...}_branch for the git_branches picker
                 ["<TAB>"] = actions.move_selection_previous,
                 ["<S-TAB>"] = actions.move_selection_next,
+
+                ["<F5>"] = actions.move_to_bottom,
+                ["<F6>"] = actions.move_to_bottom,
+                ["<F7>"] = actions.move_to_bottom,
+                ["<F8>"] = actions.move_to_bottom,
+                ["<F29>"] = actions.move_to_bottom,
+                ["<F30>"] = actions.move_to_bottom,
+                ["<F31>"] = actions.move_to_bottom,
+                ["<F32>"] = actions.move_to_bottom,
             },
       
             n = {
                 -- map actions.which_key to <C-h> (default: <C-/>)
                 -- actions.which_key shows the mappings for your picker,
                 -- e.g. git_{create, delete, ...}_branch for the git_branches picker
+                ["<ESC>"] = actions.move_to_bottom,
                 ["<TAB>"] = actions.move_selection_previous,
                 ["<S-TAB>"] = actions.move_selection_next,
+
+                ["<F1>"] = actions.close,
+                ["<F5>"] = actions.move_to_bottom,
+                ["<F6>"] = actions.move_to_bottom,
+                ["<F7>"] = actions.move_to_bottom,
+                ["<F8>"] = actions.move_to_bottom,
+                ["<F29>"] = actions.move_to_bottom,
+                ["<F30>"] = actions.move_to_bottom,
+                ["<F31>"] = actions.move_to_bottom,
+                ["<F32>"] = actions.move_to_bottom,
             },
         },
 
         layout_config = {
             horizontal = {
-                width = 0.8,
-                height = 0.8,
+                width = math.floor(vim.o.columns * 0.82),
+                height = math.floor(vim.o.lines * 0.77),
             },
             -- other layout configuration here
         },

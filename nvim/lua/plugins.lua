@@ -108,6 +108,10 @@ function(use)
         'nvim-telescope/telescope.nvim',
         requires = 'nvim-lua/plenary.nvim'
     }
+    use {
+        'akinsho/toggleterm.nvim',
+        tag = '*',
+    }
     use 'windwp/nvim-autopairs'
     use 'SirVer/ultisnips'
 

@@ -100,7 +100,7 @@ keyset('v', '<C-S>',    '<ESC><ESC>:w<CR>', noremap_opt)
 keyset('v', '<C-Z>',    '<ESC><ESC>u', noremap_opt)
 keyset('v', '<C-X>',    'd<ESC><ESC>', noremap_opt)
 keyset('v', '<C-C>',    'y<ESC><ESC>', noremap_opt)
-keyset('v', '<C-V>',    'd<ESC><ESC>p<ESC><ESC>', remap_opt)
+keyset('v', '<C-V>',    'd<ESC><ESC>P<ESC><ESC>', remap_opt)
 keyset('v', 'v',        '<C-V>', noremap_opt)
 keyset('v', '<S-TAB>',  '<C-V>:s/^/  /g<CR>:noh<CR>', noremap_opt)
 
