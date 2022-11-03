@@ -43,9 +43,14 @@ toggleterm.setup({
 
 
 -- Terminal window keymaps
+function get_date()
+    return tostring(vim.fn.strftime('%y%m%d_%H_%M'))
+end
+
 function _G.set_terminal_keymaps()
-  local opts = {buffer = 0}
-  vim.keymap.set('t', '<F1>', '<cmd>close<CR>', opts)
+    local opts = {buffer = 0}
+    --vim.keymap.set('t', '<F8>', '<CMD>lua get_date()<CR>', opts)
+    vim.keymap.set('t', '<F10>', '<CMD>close<CR>', opts)
 end
 
 vim.cmd('autocmd! TermOpen term://* lua set_terminal_keymaps()')
@@ -63,7 +68,7 @@ local lazygit = Terminal:new({
     -- function to run on opening the terminal
     on_open = function(term)
         vim.cmd('startinsert!')
-        vim.api.nvim_buf_set_keymap(term.bufnr, 'n', 'q', '<cmd>close<CR>', {noremap = true, silent = true})
+        vim.api.nvim_buf_set_keymap(term.bufnr, 'n', 'q', '<CMD>close<CR>', {noremap = true, silent = true})
     end,
     -- function to run on closing the terminal
     on_close = function(term)
@@ -79,6 +84,6 @@ end
 -- Nvim keymaps
 vim.api.nvim_set_keymap('n', 'tt', ':ToggleTerm dir=~/ direction=float<CR>', {noremap = true, silent = true})
 
-vim.api.nvim_set_keymap('n', '<F8>', '<cmd>lua _lazygit_toggle()<CR>', {noremap = true, silent = true})
-vim.api.nvim_set_keymap('i', '<F8>', '<ESC><ESC><cmd>lua _lazygit_toggle()<CR>', {noremap = true, silent = true})
-vim.api.nvim_set_keymap('v', '<F8>', '<ESC><ESC><cmd>lua _lazygit_toggle()<CR>', {noremap = true, silent = true})
+vim.api.nvim_set_keymap('n', '<F8>', '<CMD>lua _lazygit_toggle()<CR>', {noremap = true, silent = true})
+vim.api.nvim_set_keymap('i', '<F8>', '<ESC><ESC><CMD>lua _lazygit_toggle()<CR>', {noremap = true, silent = true})
+vim.api.nvim_set_keymap('v', '<F8>', '<ESC><ESC><CMD>lua _lazygit_toggle()<CR>', {noremap = true, silent = true})
