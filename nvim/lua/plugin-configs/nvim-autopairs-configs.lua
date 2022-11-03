@@ -25,8 +25,8 @@ nvim_autopairs.setup {}
 -- =========================== --
 
 -- Remove rules
-nvim_autopairs.get_rule("'")[1].not_filetypes = { "scheme", "lisp", "verilog", "systemverilog" }
-nvim_autopairs.get_rule('`').not_filetypes = { "verilog", "systemverilog" }
+nvim_autopairs.get_rule("'")[1].not_filetypes = { 'scheme', 'lisp', 'verilog', 'systemverilog' }
+nvim_autopairs.get_rule('`').not_filetypes = { 'verilog', 'systemverilog' }
 
 
 -- Fix <CR> in Coc
@@ -36,8 +36,8 @@ nvim_autopairs.setup({map_cr=false})
 _G.MUtils= {}
 
 MUtils.completion_confirm=function()
-    if vim.fn["coc#pum#visible"]() ~= 0  then
-        return vim.fn["coc#pum#confirm"]()
+    if vim.fn['coc#pum#visible']() ~= 0  then
+        return vim.fn['coc#pum#confirm']()
     else
         return nvim_autopairs.autopairs_cr()
     end

@@ -8,5 +8,6 @@
 /]]
 
 
-require("configs")
+-- plugins.lua must be at the first to install Packer automatically --
 require("plugins")
+require("configs")

@@ -98,7 +98,7 @@ function(use)
     }
     use {
         'nvim-treesitter/nvim-treesitter',
-        run = ':TSUpdate'
+        run = 'TSUpdate'
     }
     use 'nvim-treesitter/playground'
     
