@@ -25,4 +25,3 @@ vgit.setup()
 --    Additional User setup    --
 -- =========================== --
 
--- Additional configs
