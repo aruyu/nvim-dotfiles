@@ -1,2 +1,18 @@
 gui:
-    showIcons: true
+  showIcons: true
+
+keybinding:
+  universal:
+    pushFiles: 'p'
+    pullFiles: 'P'
+    undo: '<C-Z>'
+    redo: 'z'
+    submitEditorText: '<A-Enter>'
+    appendNewline: '<Enter>'
+  files:
+    commitChanges: 'C'
+    commitChangesWithEditor: 'c'
+  branches:
+    pushTag: 'p'
+
+#git config --global core.editor "nvim"
