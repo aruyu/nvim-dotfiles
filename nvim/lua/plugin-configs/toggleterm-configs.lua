@@ -36,7 +36,7 @@ toggleterm.setup({
         -- not natively supported but implemented in this plugin.
         --border = 'single' | 'double' | 'shadow' | 'curved' | ... other options supported by win open
         -- like `size`, width and height can be a number or function which is passed the current terminal
-        width = math.floor(vim.o.columns * 0.8),
+        width = math.floor(vim.o.columns * 0.79),
         height = math.floor(vim.o.lines * 0.75),
     },
 })

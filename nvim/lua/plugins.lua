@@ -105,12 +105,16 @@ function(use)
 
     -- === Editor Plugins === --
     use {
+        'akinsho/toggleterm.nvim',
+        tag = '*'
+    }
+    use {
         'nvim-telescope/telescope.nvim',
         requires = 'nvim-lua/plenary.nvim'
     }
     use {
-        'akinsho/toggleterm.nvim',
-        tag = '*',
+        'tanvirtin/vgit.nvim',
+        requires = 'nvim-lua/plenary.nvim'
     }
     use 'windwp/nvim-autopairs'
     use 'SirVer/ultisnips'

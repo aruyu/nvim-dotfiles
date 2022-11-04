@@ -19,6 +19,7 @@ require("plugin-configs.nvim-treesitter-configs")
 require("plugin-configs.telescope-configs")
 require("plugin-configs.toggleterm-configs")
 require("plugin-configs.ultisnips-configs")
+require("plugin-configs.vgit-configs")
 --require("plugin-configs.vim-airline-configs")
 require("plugin-configs.vscode-configs")
 

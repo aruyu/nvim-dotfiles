@@ -61,7 +61,7 @@ telescope.setup {
 
         layout_config = {
             horizontal = {
-                width = math.floor(vim.o.columns * 0.82),
+                width = math.floor(vim.o.columns * 0.8),
                 height = math.floor(vim.o.lines * 0.77),
             },
             -- other layout configuration here
