@@ -43,13 +43,8 @@ toggleterm.setup({
 
 
 -- Terminal window keymaps
-function get_date()
-    return tostring(vim.fn.strftime('%y%m%d_%H_%M'))
-end
-
 function _G.set_terminal_keymaps()
     local opts = {buffer = 0}
-    --vim.keymap.set('t', '<F8>', '<CMD>lua get_date()<CR>', opts)
     vim.keymap.set('t', '<F10>', '<CMD>close<CR>', opts)
 end
 

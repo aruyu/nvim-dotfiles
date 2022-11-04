@@ -66,16 +66,23 @@ vimset.tags = '/home/docker/work/gncs/tags'
 -- =     other options     =
 -- ========================= --
 vim.cmd([[
+    autocmd VimEnter * if &filetype ==# 'gitcommit' | echo 'gitcommit' | else | exec "normal \<F48>" | endif
     autocmd BufNewFile,BufReadPost Makefile set noexpandtab
     "autocmd BufWritePost *.c,*.h silent! !ctags -R &
-    autocmd VimEnter * exec "normal \<F48>"
-    "autocmd BufEnter * nested :call tagbar#autoopen(0)
+
+    augroup gitcommit_autoclose
+        autocmd!
+        autocmd FileType gitcommit nnoremap <C-S> :wq<CR>
+        autocmd FileType gitcommit inoremap <C-S> <ESC><ESC>:wq<CR>
+        autocmd FileType gitcommit vnoremap <C-S> <ESC><ESC>:wq<CR>
+    augroup END
+
     augroup help_as_buffer
         autocmd!
         autocmd FileType help exec "normal L"
         autocmd FileType help set buflisted
     augroup END
-    
+
     syntax on
     "colorscheme codedark
 ]])
