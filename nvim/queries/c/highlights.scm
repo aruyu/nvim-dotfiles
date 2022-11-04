@@ -193,7 +193,6 @@ declarator: (type_identifier) @c_keyword_value
 
 ;; FINAL
 
-(escape_sequence) @c_string_escape
 [
     (string_literal)
     (system_lib_string)

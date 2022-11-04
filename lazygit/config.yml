@@ -10,5 +10,8 @@ keybinding:
   files:
     commitChanges: 'C'
     commitChangesWithEditor: 'c'
+  commits:
+    renameCommit: 'R'
+    renameCommitWithEditor: 'r'
 
 #git config --global core.editor "nvim"

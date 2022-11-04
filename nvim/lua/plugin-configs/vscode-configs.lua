@@ -26,12 +26,15 @@ require('vscode').change_style('light')
 
 -- Syntax colors
 --[[
+    vscLeftMid = '#373737',
+    vscLeftLight = '#636369',
+
     vscFront = '#D4D4D4',
     vscGray = '#808080',
     vscViolet = '#646695',
     vscBlue = '#569CD6',
     vscDarkBlue = '#223E55',
-    vscMediumBlue = '#18a2fe',
+    vscMediumBlue = '#18A2FE',
     vscLightBlue = '#9CDCFE',
     vscGreen = '#6A9955',
     vscBlueGreen = '#4EC9B0',
@@ -53,6 +56,10 @@ end
 
 -- Local variables for config
 local hl = vim.api.nvim_set_hl
+
+
+-- Universal
+hl(0, 'SpecialChar', { fg = colors.vscYellowOrange, bg = 'NONE' })
 
 
 -- C
@@ -78,7 +85,6 @@ hl(0, '@c_operator', { fg = colors.vscFront, bg = 'NONE' })
 hl(0, '@c_punctuation', { fg = colors.vscFront, bg = 'NONE' })
 
 hl(0, '@c_string', { fg = colors.vscOrange, bg = 'NONE' })
-hl(0, '@c_string_escape', { fg = colors.vscYellowOrange, bg = 'NONE' })
 
 
 -- Verilog

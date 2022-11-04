@@ -19,9 +19,26 @@ end
 -- Empty setup using defaults
 vgit.setup()
 
+vim.o.updatetime = 300
+vim.o.incsearch = false
+vim.wo.signcolumn = 'yes'
+
 
 
 -- =========================== --
 --    Additional User setup    --
 -- =========================== --
 
+vgit.setup({
+    settings = {
+        hls = {
+            GitComment = {
+                gui = nil,
+                fg = '#636369',
+                bg = nil,
+                sp = nil,
+                override = false,
+            },
+        },
+    },
+})
