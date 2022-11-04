@@ -16,10 +16,6 @@ snippet __comment=
  */
 endsnippet
 
-snippet '
-'
-endsnippet
-
 snippet module=
 module ${1} #(
     ${2}
@@ -110,11 +106,11 @@ endsnippet
 snippet casebegin=
 case (${1})
     (${2:0}): begin
-	${3} <= ${4};
+        ${3} <= ${4};
     end
 
     default: begin
-	${0}
+        ${0}
     end
 endcase
 endsnippet
