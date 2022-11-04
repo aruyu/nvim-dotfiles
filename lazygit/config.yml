@@ -3,8 +3,6 @@ gui:
 
 keybinding:
   universal:
-    pushFiles: 'p'
-    pullFiles: 'P'
     undo: '<C-Z>'
     redo: 'z'
     submitEditorText: '<A-Enter>'
@@ -12,7 +10,5 @@ keybinding:
   files:
     commitChanges: 'C'
     commitChangesWithEditor: 'c'
-  branches:
-    pushTag: 'p'
 
 #git config --global core.editor "nvim"
