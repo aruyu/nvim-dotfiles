@@ -10,7 +10,7 @@
 
 
 -- ================================================== --
--- Check error
+-- Check errors.
 local status1_ok, mason = pcall(require, "mason")
 if not status1_ok then
     return
@@ -20,7 +20,7 @@ if not status2_ok then
     return
 end
 
--- Local functions for config
+-- Local variables for config.
 local mason_lspconfig = require("mason-lspconfig")
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
 -- ================================================== --
@@ -29,11 +29,11 @@ local capabilities = require("cmp_nvim_lsp").default_capabilities()
 -- =========================== --
 --   Additional User Configs   --
 -- =========================== --
--- Empty setup using defaults
+-- Empty setup using defaults.
 mason.setup()
 mason_lspconfig.setup()
 
--- Configure setup with some options
+-- Configure setup with some options.
 mason.setup({
     ui = {
         -- Whether to automatically check for new versions when opening the :Mason window.
@@ -44,11 +44,11 @@ mason.setup({
 
         icons = {
             -- The list icon to use for installed packages.
-            package_installed = '◍',
+            package_installed = "✓",
             -- The list icon to use for packages that are installing, or queued for installation.
-            package_pending = '◍',
+            package_pending = "➜",
             -- The list icon to use for packages that are not installed.
-            package_uninstalled = '◍',
+            package_uninstalled = "✗",
         },
 
         keymaps = {
@@ -89,10 +89,40 @@ mason_lspconfig.setup({
     automatic_installation = true
 })
 
--- LSP server configs
+-- LSP server setup.
+lspconfig.bashls.setup {
+    capabilities = capabilities
+}
+
 lspconfig.clangd.setup {
-  capabilities = capabilities,
+    capabilities = capabilities
 }
+
 lspconfig.sumneko_lua.setup {
-  capabilities = capabilities,
+    settings = {
+        Lua = {
+            diagnostics = {
+                -- Get the language server to recognize the `vim` global
+                globals = {'vim'},
+            },
+        },
+    },
+
+    capabilities = capabilities
 }
+
+lspconfig.pyright.setup {
+    capabilities = capabilities
+}
+
+lspconfig.verible.setup {
+    capabilities = capabilities
+}
+
+-- Neovim's diagnostic config.
+vim.diagnostic.config({
+    virtual_text = true,
+    signs = true,
+    underline = true,
+    update_in_insert = true
+})

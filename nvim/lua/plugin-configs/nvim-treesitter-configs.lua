@@ -10,7 +10,7 @@
 
 
 -- ================================================== --
--- Check error
+-- Check error.
 local status_ok, nvim_treesitter = pcall(require, "nvim-treesitter.configs")
 if not status_ok then
     return
@@ -21,7 +21,7 @@ end
 -- =========================== --
 --   Additional User Configs   --
 -- =========================== --
--- Configure setup with some options
+-- Configure setup with some options.
 nvim_treesitter.setup({
     ensure_installed = { 'c', 'make', 'verilog', 'lua', 'dart', 'python' },
     sync_install = false,

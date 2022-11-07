@@ -10,7 +10,7 @@
 
 
 -- ================================================== --
--- Check error
+-- Check error.
 local status1_ok, cmp = pcall(require, "cmp")
 if not status1_ok then
     return
@@ -21,7 +21,7 @@ end
 -- =========================== --
 --   Additional User Configs   --
 -- =========================== --
--- Configure setup with some options
+-- Configure setup with some options.
 cmp.setup({
     snippet = {
         -- REQUIRED - you must specify a snippet engine
@@ -39,11 +39,24 @@ cmp.setup({
     },
 
     mapping = cmp.mapping.preset.insert({
+        -- Default keymaps.
         ['<C-b>'] = cmp.mapping.scroll_docs(-4),
         ['<C-f>'] = cmp.mapping.scroll_docs(4),
         ['<C-Space>'] = cmp.mapping.complete(),
         ['<C-e>'] = cmp.mapping.abort(),
-        ['<CR>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+
+        -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+        ['<CR>'] = cmp.mapping.confirm({ select = true }),
+        ['<TAB>'] = cmp.mapping.confirm({ select = true }),
+
+        -- <ESC> to close.
+        ['<ESC>'] = function (fallback)
+            if cmp.visible() then
+                cmp.close()
+            else
+                fallback()
+            end
+        end
     }),
 
     sources = cmp.config.sources({

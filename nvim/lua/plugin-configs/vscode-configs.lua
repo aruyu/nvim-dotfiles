@@ -10,17 +10,17 @@
 
 
 -- ================================================== --
--- Check error
+-- Check error.
 local status_ok,vscode = pcall(require, "vscode")
 if not status_ok then
     return
 end
 
--- Dark theme
+-- Dark theme.
 vim.o.background = 'dark'
 vscode.change_style('dark')
 
--- Light theme
+-- Light theme.
 --[[
 vim.o.background = 'light'
 vscode.change_style('light')
@@ -32,11 +32,11 @@ vscode.change_style('light')
 -- =========================== --
 --   Additional User Configs   --
 -- =========================== --
--- Local variables for config
+-- Local variables for config.
 local colors = require("vscode.colors")
 local hl = vim.api.nvim_set_hl
 
--- Syntax colors
+-- Syntax colors.
 --[[
     vscLeftMid = '#373737',
     vscLeftLight = '#636369',
@@ -60,11 +60,11 @@ local hl = vim.api.nvim_set_hl
 ]]
 
 
--- Universal
+-- Universal Syntax.
 hl(0, 'SpecialChar', { fg = colors.vscYellowOrange, bg = 'NONE' })
 
 
--- C
+-- C Syntax.
 hl(0, '@c_variable', { fg = colors.vscLightBlue, bg = 'NONE' })
 
 hl(0, '@c_keyword_value', { fg = colors.vscBlueGreen, bg = 'NONE' })
@@ -89,7 +89,7 @@ hl(0, '@c_punctuation', { fg = colors.vscFront, bg = 'NONE' })
 hl(0, '@c_string', { fg = colors.vscOrange, bg = 'NONE' })
 
 
--- Verilog
+-- Verilog Syntax.
 hl(0, '@v_variable', { fg = colors.vscLightBlue, bg = 'NONE' })
 
 hl(0, '@v_module_value', { fg = colors.vscBlueGreen, bg = 'NONE' })

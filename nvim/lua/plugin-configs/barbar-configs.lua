@@ -10,7 +10,7 @@
 
 
 -- ================================================== --
--- Check error
+-- Check error.
 local status_ok, bufferline = pcall(require, "bufferline")
 if not status_ok then
     return
@@ -21,7 +21,7 @@ end
 -- =========================== --
 --   Additional User Configs   --
 -- =========================== --
--- Configure setup with some options
+-- Configure setup with some options.
 bufferline.setup {
     -- Enable/disable animations
     animation = true,

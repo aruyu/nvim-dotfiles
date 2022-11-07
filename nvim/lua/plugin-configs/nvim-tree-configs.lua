@@ -13,28 +13,29 @@
 --vim.g.tagbar_width = 20
 vim.g.tagbar_position = 'rightbelow'
 
--- disable netrw at the very start of your init.lua (strongly advised)
-vim.g.loaded_netrw = 1
-vim.g.loaded_netrwPlugin = 1
-
 
 
 -- ================================================== --
--- Check error
+-- Check error.
 local status_ok, nvim_tree = pcall(require, "nvim-tree")
 if not status_ok then
     return
 end
+
+-- Local variables for config.
+-- disable netrw at the very start of your init.lua (strongly advised)
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
 -- ================================================== --
 
 
 -- =========================== --
 --   Additional User Configs   --
 -- =========================== --
--- Empty setup using defaults
+-- Empty setup using defaults.
 nvim_tree.setup()
 
--- Configure setup with some options
+-- Configure setup with some options.
 nvim_tree.setup({
     view = {
         width = 40,

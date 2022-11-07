@@ -8,7 +8,7 @@
 ]]
 
 
--- Automatic install Packer
+-- Automatic install Packer.
 local ensure_packer = function()
     local fn = vim.fn
     local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
@@ -23,7 +23,7 @@ end
 local packer_bootstrap = ensure_packer()
 
 
--- Automatic install Plugins
+-- Automatic install Plugins.
 vim.cmd([[
     augroup packer_user_config
         autocmd!
@@ -32,14 +32,14 @@ vim.cmd([[
 ]])
 
 
--- Check error
+-- Check error.
 local status_ok, packer = pcall(require, "packer")
 if not status_ok then
     return
 end
 
 
--- Initialize Packer
+-- Initialize Packer.
 packer.init{
     opt_default = false, -- Default to using opt (as opposed to start) plugins
     display = {
@@ -59,10 +59,10 @@ packer.init{
 }
 
 
--- Startup Packer
+-- Startup Packer.
 return packer.startup(
 function(use)
-    -- Default
+    -- Default call.
     use 'wbthomason/packer.nvim'
 
 
@@ -119,8 +119,10 @@ function(use)
         'hrsh7th/cmp-cmdline',
         'hrsh7th/nvim-cmp'
     }
-    use 'L3MON4D3/LuaSnip'
-    use 'saadparwaiz1/cmp_luasnip'
+    use {
+        'L3MON4D3/LuaSnip',
+        'saadparwaiz1/cmp_luasnip'
+    }
 
 
     -- Syntax Plugins === --
@@ -142,7 +144,7 @@ function(use)
 
 
 
-    -- Check 
+    -- Check call.
     if packer_bootstrap then
         require("packer").sync()
     end

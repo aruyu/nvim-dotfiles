@@ -10,13 +10,13 @@
 
 
 -- ================================================== --
--- Check error
+-- Check error.
 local status_ok, telescope = pcall(require, "telescope")
 if not status_ok then
     return
 end
 
--- Local variables for config
+-- Local variables for config.
 local builtin = require("telescope.builtin")
 local actions = require("telescope.actions")
 -- ================================================== --
@@ -25,7 +25,7 @@ local actions = require("telescope.actions")
 -- =========================== --
 --   Additional User Configs   --
 -- =========================== --
--- Configure setup with some options
+-- Configure setup with some options.
 telescope.setup {
     defaults = {
         -- Default configuration for telescope goes here:
@@ -47,7 +47,7 @@ telescope.setup {
                 ['<F31>'] = actions.move_to_bottom,
                 ['<F32>'] = actions.move_to_bottom,
             },
-      
+
             n = {
                 -- map actions.which_key to <C-h> (default: <C-/>)
                 -- actions.which_key shows the mappings for your picker,
@@ -91,5 +91,5 @@ telescope.setup {
         --   extension_config_key = value,
         -- }
         -- please take a look at the readme of the extension you want to configure
-    },
+    }
 }

@@ -10,7 +10,7 @@
 
 
 -- ================================================== --
--- Check error
+-- Check error.
 local status_ok, toggleterm = pcall(require, "toggleterm")
 if not status_ok then
     return
@@ -21,10 +21,10 @@ end
 -- =========================== --
 --   Additional User Configs   --
 -- =========================== --
--- Empty setup using defaults
+-- Empty setup using defaults.
 toggleterm.setup()
 
--- Configure setup with some options
+-- Configure setup with some options.
 toggleterm.setup({
     insert_mappings = true, -- whether or not the open mapping applies in insert mode
     terminal_mappings = true,
@@ -42,7 +42,7 @@ toggleterm.setup({
 })
 
 
--- Terminal window keymaps
+-- Terminal window keymaps.
 function _G.set_terminal_keymaps()
     local opts = {buffer = 0}
     vim.keymap.set('t', '<F10>', '<CMD>close<CR>', opts)
@@ -51,7 +51,7 @@ end
 vim.cmd('autocmd! TermOpen term://* lua set_terminal_keymaps()')
 
 
--- Lazygit configs
+-- Lazygit configs.
 local Terminal  = require("toggleterm.terminal").Terminal
 local lazygit = Terminal:new({
     cmd = 'lazygit',
@@ -60,12 +60,12 @@ local lazygit = Terminal:new({
     float_opts = {
         border = 'double',
     },
-    -- function to run on opening the terminal
+    -- function to run on opening the terminal.
     on_open = function(term)
         vim.cmd('startinsert!')
         vim.api.nvim_buf_set_keymap(term.bufnr, 'n', 'q', '<CMD>close<CR>', {noremap = true, silent = true})
     end,
-    -- function to run on closing the terminal
+    -- function to run on closing the terminal.
     on_close = function(term)
         vim.cmd('startinsert!')
     end,
@@ -76,7 +76,7 @@ function _lazygit_toggle()
 end
 
 
--- Nvim keymaps
+-- Nvim keymaps.
 vim.api.nvim_set_keymap('n', 'tt', ':ToggleTerm dir=~/ direction=float<CR>', {noremap = true, silent = true})
 
 vim.api.nvim_set_keymap('n', '<F8>', '<CMD>lua _lazygit_toggle()<CR>', {noremap = true, silent = true})

@@ -10,13 +10,13 @@
 
 
 -- ================================================== --
--- Check error
+-- Check error.
 local status_ok, lualine = pcall(require, "lualine")
 if not status_ok then
     return
 end
 
--- Local functions for config
+-- Local functions for config.
 local function get_words()
     return tostring(vim.fn.wordcount().words) .. ' words'
 end
@@ -36,7 +36,7 @@ end
 -- =========================== --
 --   Additional User Configs   --
 -- =========================== --
--- Configure setup with some options
+-- Configure setup with some options.
 lualine.setup {
     options = {
         icons_enabled = true,

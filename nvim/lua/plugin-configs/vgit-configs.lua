@@ -10,7 +10,7 @@
 
 
 -- ================================================== --
--- Check error
+-- Check error.
 local status_ok, vgit = pcall(require, "vgit")
 if not status_ok then
     return
@@ -21,14 +21,14 @@ end
 -- =========================== --
 --   Additional User Configs   --
 -- =========================== --
--- Empty setup using defaults
+-- Empty setup using defaults.
 vgit.setup()
 
 vim.o.updatetime = 300
 vim.o.incsearch = false
 vim.wo.signcolumn = 'yes'
 
--- Configure setup with some options
+-- Configure setup with some options.
 vgit.setup({
     settings = {
         hls = {
