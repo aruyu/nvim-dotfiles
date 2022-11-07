@@ -8,21 +8,33 @@
 ]]
 
 
+
+-- ================================================== --
+-- Check error
+local status_ok,vscode = pcall(require, "vscode")
+if not status_ok then
+    return
+end
+
 -- Dark theme
 vim.o.background = 'dark'
-require('vscode').change_style('dark')
+vscode.change_style('dark')
 
 -- Light theme
 --[[
 vim.o.background = 'light'
-require('vscode').change_style('light')
+vscode.change_style('light')
 ]]
+-- ================================================== --
 
 
 
 -- =========================== --
---   Additional User Queries   --
+--   Additional User Configs   --
 -- =========================== --
+-- Local variables for config
+local colors = require("vscode.colors")
+local hl = vim.api.nvim_set_hl
 
 -- Syntax colors
 --[[
@@ -46,16 +58,6 @@ require('vscode').change_style('light')
     vscYellow = '#DCDCAA',
     vscPink = '#C586C0',
 ]]
-
-
--- Check error
-local status_ok, colors = pcall(require, "vscode.colors")
-if not status_ok then
-    return
-end
-
--- Local variables for config
-local hl = vim.api.nvim_set_hl
 
 
 -- Universal

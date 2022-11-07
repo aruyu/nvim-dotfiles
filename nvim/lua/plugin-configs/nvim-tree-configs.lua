@@ -18,17 +18,23 @@ vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
 
+
+-- ================================================== --
 -- Check error
 local status_ok, nvim_tree = pcall(require, "nvim-tree")
 if not status_ok then
     return
 end
+-- ================================================== --
 
 
--- empty setup using defaults
+-- =========================== --
+--   Additional User Configs   --
+-- =========================== --
+-- Empty setup using defaults
 nvim_tree.setup()
 
--- OR setup with some options
+-- Configure setup with some options
 nvim_tree.setup({
     view = {
         width = 40,

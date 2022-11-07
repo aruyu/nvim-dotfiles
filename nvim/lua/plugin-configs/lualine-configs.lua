@@ -8,6 +8,8 @@
 ]]
 
 
+
+-- ================================================== --
 -- Check error
 local status_ok, lualine = pcall(require, "lualine")
 if not status_ok then
@@ -28,8 +30,13 @@ local function get_lines()
     local column_value = '' .. tostring(vim.fn.col('.'))
     return ' ' .. line_value .. column_value .. ' '
 end
+-- ================================================== --
 
 
+-- =========================== --
+--   Additional User Configs   --
+-- =========================== --
+-- Configure setup with some options
 lualine.setup {
     options = {
         icons_enabled = true,

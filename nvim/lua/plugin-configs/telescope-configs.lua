@@ -8,6 +8,8 @@
 ]]
 
 
+
+-- ================================================== --
 -- Check error
 local status_ok, telescope = pcall(require, "telescope")
 if not status_ok then
@@ -17,8 +19,13 @@ end
 -- Local variables for config
 local builtin = require("telescope.builtin")
 local actions = require("telescope.actions")
+-- ================================================== --
 
 
+-- =========================== --
+--   Additional User Configs   --
+-- =========================== --
+-- Configure setup with some options
 telescope.setup {
     defaults = {
         -- Default configuration for telescope goes here:

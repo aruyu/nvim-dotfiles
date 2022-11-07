@@ -48,7 +48,7 @@ keyset('n', '<F10>',    '<CMD>NvimTreeClose<CR>:silent! close<CR><CMD>NvimTreeOp
 keyset('n', '<F34>',    '<CMD>NvimTreeClose<CR>:silent! close!<CR><CMD>NvimTreeOpen<CR>15-l', noremap_silent_opt)
 keyset('n', '<F11>',    'vL', noremap_opt)
 keyset('n', '<F35>',    'L', noremap_opt)
-keyset('n', '<F24>',    '<CMD>UltiSnipsEdit<CR>L', noremap_opt)
+--keyset('n', '<F24>',    '<CMD>UltiSnipsEdit<CR>L', noremap_opt)
 keyset('n', '<F36>',    '<CMD>TSPlaygroundToggle<CR><CMD>TSEditQuery highlights<CR><CMD>BufferPrevious<CR>', noremap_opt)
 keyset('n', '<F48>',    '<CMD>NvimTreeClose<CR><CMD>NvimTreeOpen<CR>15-l', noremap_opt)
 
@@ -89,7 +89,7 @@ keyset('i', '<F10>',    '<ESC><ESC><CMD>NvimTreeClose<CR>:silent! close<CR><CMD>
 keyset('i', '<F34>',    '<ESC><ESC><CMD>NvimTreeClose<CR>:silent! close!<CR><CMD>NvimTreeOpen<CR>15-l', noremap_silent_opt)
 keyset('i', '<F11>',    '<ESC><ESC>vL', noremap_opt)
 keyset('i', '<F35>',    '<ESC><ESC>L', noremap_opt)
-keyset('i', '<F24>',    '<ESC><ESC><CMD>UltiSnipsEdit<CR>L', noremap_opt)
+--keyset('i', '<F24>',    '<ESC><ESC><CMD>UltiSnipsEdit<CR>L', noremap_opt)
 keyset('i', '<F36>',    '<ESC><ESC><CMD>TSPlaygroundToggle<CR><CMD>TSEditQuery highlights<CR><CMD>BufferPrevious<CR>', noremap_opt)
 keyset('i', '<F48>',    '<ESC><ESC><CMD>NvimTreeClose<CR><CMD>NvimTreeOpen<CR>15-l', noremap_opt)
 
@@ -116,7 +116,7 @@ keyset('v', '<F10>',    '<ESC><ESC><CMD>NvimTreeClose<CR>:silent! close<CR><CMD>
 keyset('v', '<F34>',    '<ESC><ESC><CMD>NvimTreeClose<CR>:silent! close!<CR><CMD>NvimTreeOpen<CR>15-l', noremap_silent_opt)
 keyset('v', '<F11>',    '<ESC><ESC>vL', noremap_opt)
 keyset('v', '<F35>',    '<ESC><ESC>L', noremap_opt)
-keyset('v', '<F24>',    '<ESC><ESC><CMD>UltiSnipsEdit<CR>L', noremap_opt)
+--keyset('v', '<F24>',    '<ESC><ESC><CMD>UltiSnipsEdit<CR>L', noremap_opt)
 keyset('v', '<F36>',    '<ESC><ESC><CMD>TSPlaygroundToggle<CR><CMD>TSEditQuery highlights<CR><CMD>BufferPrevious<CR>', noremap_opt)
 keyset('v', '<F48>',    '<ESC><ESC><CMD>NvimTreeClose<CR><CMD>NvimTreeOpen<CR>15-l', noremap_opt)
 

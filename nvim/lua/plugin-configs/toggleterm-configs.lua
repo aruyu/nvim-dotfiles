@@ -8,23 +8,23 @@
 ]]
 
 
+
+-- ================================================== --
 -- Check error
 local status_ok, toggleterm = pcall(require, "toggleterm")
 if not status_ok then
     return
 end
+-- ================================================== --
 
 
+-- =========================== --
+--   Additional User Configs   --
+-- =========================== --
 -- Empty setup using defaults
 toggleterm.setup()
 
-
-
--- =========================== --
---    Additional User setup    --
--- =========================== --
-
--- Additional configs
+-- Configure setup with some options
 toggleterm.setup({
     insert_mappings = true, -- whether or not the open mapping applies in insert mode
     terminal_mappings = true,

@@ -91,18 +91,6 @@ function(use)
     --use 'puremourning/vimspector'
 
 
-    -- === LSP & Syntax Plugins === --
-    use {
-        'neoclide/coc.nvim',
-        branch = 'release'
-    }
-    use {
-        'nvim-treesitter/nvim-treesitter',
-        run = 'TSUpdate'
-    }
-    use 'nvim-treesitter/playground'
-    
-
     -- === Editor Plugins === --
     use {
         'akinsho/toggleterm.nvim',
@@ -116,11 +104,35 @@ function(use)
         'tanvirtin/vgit.nvim',
         requires = 'nvim-lua/plenary.nvim'
     }
-    use 'windwp/nvim-autopairs'
-    use 'SirVer/ultisnips'
+
+
+    -- === LSP & Snips Plugins === --
+    use {
+        "williamboman/mason.nvim",
+        "williamboman/mason-lspconfig.nvim",
+        "neovim/nvim-lspconfig",
+    }
+    use {
+        'hrsh7th/cmp-nvim-lsp',
+        'hrsh7th/cmp-buffer',
+        'hrsh7th/cmp-path',
+        'hrsh7th/cmp-cmdline',
+        'hrsh7th/nvim-cmp'
+    }
+    use 'L3MON4D3/LuaSnip'
+    use 'saadparwaiz1/cmp_luasnip'
+
+
+    -- Syntax Plugins === --
+    use {
+        'nvim-treesitter/nvim-treesitter',
+        run = 'TSUpdate'
+    }
+    use 'nvim-treesitter/playground'
 
 
     -- === Others === --
+    use 'windwp/nvim-autopairs'
     use 'svermeulen/vim-cutlass'
     use 'lambdalisue/suda.vim'
 
