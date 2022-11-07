@@ -1,11 +1,11 @@
 --[[
---  NOTE      - nvim-autopairs-configs.lua
---  Author    - Eira Chae
---
---  Created   - 2022.11.03
---  Github    - https://github.com/vine91
---  Contact   - vine9151@gmail.com
-/]]
+-   NOTE      - nvim-autopairs-configs.lua
+-   Author    - Eira Chae
+-
+-   Created   - 2022.11.03
+-   Github    - https://github.com/vine91
+-   Contact   - vine9151@gmail.com
+]]
 
 
 -- Check error
@@ -26,6 +26,7 @@ nvim_autopairs.setup {}
 
 -- Remove rules
 nvim_autopairs.get_rule("'")[1].not_filetypes = { 'scheme', 'lisp', 'verilog', 'systemverilog' }
+nvim_autopairs.get_rule('"').not_filetypes = { 'vim' }
 nvim_autopairs.get_rule('`').not_filetypes = { 'verilog', 'systemverilog' }
 
 

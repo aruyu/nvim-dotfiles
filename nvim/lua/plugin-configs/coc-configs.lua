@@ -1,11 +1,11 @@
 --[[
---  NOTE      - coc-nvim-configs.lua
---  Author    - Eira Chae
---
---  Created   - 2022.10.27
---  Github    - https://github.com/vine91
---  Contact   - vine9151@gmail.com
-/]]
+-   NOTE      - coc-nvim-configs.lua
+-   Author    - Eira Chae
+-
+-   Created   - 2022.10.27
+-   Github    - https://github.com/vine91
+-   Contact   - vine9151@gmail.com
+]]
 
 
 -- Some servers have issues with backup files, see #649.

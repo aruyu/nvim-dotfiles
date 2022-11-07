@@ -1,11 +1,11 @@
 --[[
---  NOTE      - toggleterm-configs.lua
---  Author    - Eira Chae
---
---  Created   - 2022.11.03
---  Github    - https://github.com/vine91
---  Contact   - vine9151@gmail.com
-/]]
+-   NOTE      - toggleterm-configs.lua
+-   Author    - Eira Chae
+-
+-   Created   - 2022.11.03
+-   Github    - https://github.com/vine91
+-   Contact   - vine9151@gmail.com
+]]
 
 
 -- Check error

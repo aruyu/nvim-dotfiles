@@ -1,11 +1,11 @@
 --[[
---  NOTE      - options.lua
---  Author    - Eira Chae
---
---  Created   - 2022.10.27
---  Github    - https://github.com/vine91
---  Contact   - vine9151@gmail.com
-/]]
+-   NOTE      - options.lua
+-   Author    - Eira Chae
+-
+-   Created   - 2022.10.27
+-   Github    - https://github.com/vine91
+-   Contact   - vine9151@gmail.com
+]]
 
 
 

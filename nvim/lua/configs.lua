@@ -1,11 +1,11 @@
 --[[
---  NOTE      - configs.lua
---  Author    - Eira Chae
---
---  Created   - 2022.10.21
---  Github    - https://github.com/vine91
---  Contact   - vine9151@gmail.com
-/]]
+-   NOTE      - configs.lua
+-   Author    - Eira Chae
+-
+-   Created   - 2022.10.21
+-   Github    - https://github.com/vine91
+-   Contact   - vine9151@gmail.com
+]]
 
 
 -- Configs for Plugins

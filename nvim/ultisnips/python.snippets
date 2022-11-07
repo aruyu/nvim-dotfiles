@@ -1,4 +1,4 @@
-snippet #=
+snippet ##=
 """
  *  ${0}
 """
@@ -15,22 +15,30 @@ snippet __comment=
 """
 endsnippet
 
-snippet class=
+snippet class= "automake class" b
 class ${1}:
     """ Class of ${2:$1} """
 
     def __init__(self${3:, parameter}):
         `!p
-def formatParameterName(path):
-  parts = path.split(', ')
+
+def format_parameter_name(path):
+  parts = path.split(',')
   basic = 'self.'
   cr = '\n        '
   retval = ''
+
   for part in parts:
     if part != '':
-      retval += basic + part + ' = ' + part + cr
+      if part.startswith(' '):
+        temp = part.lstrip()
+      else:
+        temp = part
+      retval += basic + temp + ' = ' + temp + cr
+
   return retval
-snip.rv = formatParameterName(t[3])
+
+snip.rv = format_parameter_name(t[3])
 `$0
 endsnippet
 
@@ -70,15 +78,18 @@ except Exception as ${2:error}:
     ${4:"${3}".format($1)}$0
 endsnippet
 
-snippet import= "magic import" b
+snippet import= "automake import" b
 from ${1} import ${2:`!p
-def formatImportName(path):
+
+def format_import_name(path):
   parts = path.split('.')
+
   if len(parts) > 1:
     return re.sub(r'[_\-]', '', parts[-1].title())
   else:
     return re.sub(r'[_\-]', '', parts[0].title())
-snip.rv = formatImportName(t[1])
+
+snip.rv = format_import_name(t[1])
 `}$0
 endsnippet
 

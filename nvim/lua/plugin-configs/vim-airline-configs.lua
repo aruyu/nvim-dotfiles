@@ -1,11 +1,11 @@
 --[[
---  NOTE      - vim-airline-configs.lua
---  Author    - Eira Chae
---
---  Created   - 2022.10.22
---  Github    - https://github.com/vine91
---  Contact   - vine9151@gmail.com
-/]]
+-   NOTE      - vim-airline-configs.lua
+-   Author    - Eira Chae
+-
+-   Created   - 2022.10.22
+-   Github    - https://github.com/vine91
+-   Contact   - vine9151@gmail.com
+]]
 
 
 -- Local variables to config Airline

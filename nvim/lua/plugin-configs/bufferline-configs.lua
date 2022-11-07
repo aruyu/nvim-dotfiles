@@ -1,11 +1,11 @@
 --[[
---  NOTE      - bufferline-configs.lua
---  Author    - Eira Chae
---
---  Created   - 2022.10.31
---  Github    - https://github.com/vine91
---  Contact   - vine9151@gmail.com
-/]]
+-   NOTE      - bufferline-configs.lua
+-   Author    - Eira Chae
+-
+-   Created   - 2022.10.31
+-   Github    - https://github.com/vine91
+-   Contact   - vine9151@gmail.com
+]]
 
 
 --vim.opt.termguicolors = true

@@ -1,11 +1,11 @@
 --[[
---  NOTE      - telescope-configs.lua
---  Author    - Eira Chae
---
---  Created   - 2022.11.02
---  Github    - https://github.com/vine91
---  Contact   - vine9151@gmail.com
-/]]
+-   NOTE      - telescope-configs.lua
+-   Author    - Eira Chae
+-
+-   Created   - 2022.11.02
+-   Github    - https://github.com/vine91
+-   Contact   - vine9151@gmail.com
+]]
 
 
 -- Check error
