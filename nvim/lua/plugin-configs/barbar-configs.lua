@@ -75,7 +75,7 @@ bufferline.setup {
     icon_separator_active = '▎',
     icon_separator_inactive = '',
     icon_close_tab = '',
-    icon_close_tab_modified = '●',
+    icon_close_tab_modified = '',
     icon_pinned = '',
 
     -- If true, new buffers will be inserted at the start/end of the list.
@@ -110,12 +110,12 @@ bufferline.setup {
 
 -- Configure nvim-tree offset.
 nvim_tree_events.subscribe('TreeOpen', function()
-    bufferline_api.set_offset(get_tree_size(), '')
+    bufferline_api.set_offset(get_tree_size(), '')
     vim.api.nvim_command('TagbarOpen')
 end)
 
 nvim_tree_events.subscribe('Resize', function()
-    bufferline_api.set_offset(get_tree_size(), '')
+    bufferline_api.set_offset(get_tree_size(), '')
     vim.api.nvim_command('TagbarOpen')
 end)
 

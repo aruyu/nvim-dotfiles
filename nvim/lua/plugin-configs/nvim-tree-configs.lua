@@ -53,7 +53,7 @@ nvim_tree.setup({
 
     renderer = {
         icons = {
-            symlink_arrow = "  ",
+            symlink_arrow = '  ',
             glyphs = {
                 default = '',
                 symlink = '',
@@ -69,15 +69,24 @@ nvim_tree.setup({
                     symlink_open = '',
                 },
                 git = {
-                    unstaged = "",
-                    staged = "",
-                    unmerged = "",
-                    renamed = "",
-                    untracked = "",
-                    deleted = "",
-                    ignored = "",
+                    unstaged = '',
+                    staged = '',
+                    unmerged = '',
+                    renamed = '',
+                    untracked = '',
+                    deleted = '',
+                    ignored = '',
                 },
             },
         },
     },
+
+    diagnostics = {
+        icons = {
+            hint = '',
+            info = '',
+            warning = '',
+            error = '',
+        },
+    }
 })

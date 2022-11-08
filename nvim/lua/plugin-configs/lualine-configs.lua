@@ -16,18 +16,16 @@ if not status_ok then
     return
 end
 
--- Global functions for config lualine.
-function _G.get_words()
+-- Local functions for config lualine.
+local get_words = function()
     return tostring(vim.fn.wordcount().words) .. ' words'
 end
 
--- Global functions for config lualine.
-function _G.get_time()
+local get_time = function()
     return os.date('%H:%M')
 end
 
--- Global functions for config lualine.
-function _G.get_lines()
+local get_lines = function()
     local line_value = '' .. tostring(vim.fn.line('.'))
     local column_value = '' .. tostring(vim.fn.col('.'))
     return ' ' .. line_value .. column_value .. ' '
@@ -43,11 +41,11 @@ lualine.setup {
     options = {
         icons_enabled = true,
         theme = 'vscode',
-        component_separators = { left = ' ', right = ' ' },
+        component_separators = { left = '  ', right = '  ' },
         section_separators = { left = ' ', right = ' ' },
         disabled_filetypes = {
-            statusline = {},
-            winbar = {},
+            'NvimTree',
+            'tagbar',
         },
         ignore_focus = {},
         always_divide_middle = true,
@@ -60,9 +58,28 @@ lualine.setup {
     },
 
     sections = {
-        lualine_a = { 'mode' },
-        lualine_b = { 'branch', 'diff', 'diagnostics' },
-        lualine_c = { 'filename' },
+        lualine_a = {
+            {
+                'branch',
+                icon = '',
+            }
+        },
+        lualine_b = {
+            {
+                'diff',
+                symbols = { added = ' ', modified = ' ', removed = ' ' },
+            }
+        },
+        lualine_c = {
+            {
+                'diagnostics',
+                sources = { 'nvim_diagnostic', 'nvim_lsp' },
+                sections = { 'error', 'warn' },
+                symbols = { error = ' ', warn = ' ', info = ' ', hint = ' ' },
+                update_in_insert = true,
+                always_visible = true,
+            }
+        },
         lualine_x = { get_words, 'filetype' },
         lualine_y = { get_time },
         lualine_z = { get_lines },
@@ -72,21 +89,13 @@ lualine.setup {
         lualine_a = {},
         lualine_b = {},
         lualine_c = {},
-        lualine_x = { 'filetype' },
-        lualine_y = {},
+        lualine_x = {},
+        lualine_y = { 'filetype' },
         lualine_z = {},
     },
 
     tabline = {},
     winbar = {},
     inactive_winbar = {},
-    extensions = {},
+    extensions = {}
 }
---[[
-vim.cmd([[
-    autocmd BufEnter * if &filetype ==# 'NvimTree' | lua require("lualine").setup{ sections = {lualine_a = {}, lualine_b = {}, lualine_c = {}, lualine_x = { 'filetype' }, lualine_y = {}, lualine_z = {},} }
-                | else if | &filetype ==# 'tagbar' | lua require("lualine").setup{ sections = {lualine_a = {}, lualine_b = {}, lualine_c = {}, lualine_x = { 'filetype' }, lualine_y = {}, lualine_z = {},} }
-                | else | lua require("lualine").setup{ sections = {lualine_a = { 'mode' }, lualine_b = { 'branch', 'diff', 'diagnostics' }, lualine_c = { 'filename' }, lualine_x = { get_words, 'filetype' }, lualine_y = { get_time }, lualine_z = { get_lines },} }
-                | endif
-])
-]]

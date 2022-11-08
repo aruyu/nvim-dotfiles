@@ -23,7 +23,7 @@ end
 -- =========================== --
 -- Configure setup with some options.
 nvim_treesitter.setup({
-    ensure_installed = { 'bash', 'c', 'dart', 'lua', 'make', 'python', 'verilog' },
+    ensure_installed = { 'bash', 'c', 'dart', 'lua', 'make', 'python', 'query', 'verilog' },
     sync_install = false,
     auto_install = true,
     ignore_install = { '' },

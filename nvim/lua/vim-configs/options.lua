@@ -44,7 +44,7 @@ vimset.numberwidth = 5          --number off set size 5
 --set laststatus                --remember 2 last status
 vimset.wrapscan = true          --auto back when searching
 vimset.ignorecase = true        --ignore CAPS when searching
-vimset.incsearch = true         --keyword search increasing
+vimset.incsearch = false        --disable auto move in searching
 vimset.hlsearch = true          --last search highlighting
 
 vimset.encoding = 'utf-8'       --file encoding settings
