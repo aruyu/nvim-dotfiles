@@ -16,16 +16,18 @@ if not status_ok then
     return
 end
 
--- Local functions for config.
-local get_words = function()
+-- Global functions for config lualine.
+function _G.get_words()
     return tostring(vim.fn.wordcount().words) .. ' words'
 end
 
-local get_time = function()
+-- Global functions for config lualine.
+function _G.get_time()
     return os.date('%H:%M')
 end
 
-local get_lines = function()
+-- Global functions for config lualine.
+function _G.get_lines()
     local line_value = '' .. tostring(vim.fn.line('.'))
     local column_value = '' .. tostring(vim.fn.col('.'))
     return ' ' .. line_value .. column_value .. ' '
@@ -80,3 +82,11 @@ lualine.setup {
     inactive_winbar = {},
     extensions = {},
 }
+--[[
+vim.cmd([[
+    autocmd BufEnter * if &filetype ==# 'NvimTree' | lua require("lualine").setup{ sections = {lualine_a = {}, lualine_b = {}, lualine_c = {}, lualine_x = { 'filetype' }, lualine_y = {}, lualine_z = {},} }
+                | else if | &filetype ==# 'tagbar' | lua require("lualine").setup{ sections = {lualine_a = {}, lualine_b = {}, lualine_c = {}, lualine_x = { 'filetype' }, lualine_y = {}, lualine_z = {},} }
+                | else | lua require("lualine").setup{ sections = {lualine_a = { 'mode' }, lualine_b = { 'branch', 'diff', 'diagnostics' }, lualine_c = { 'filename' }, lualine_x = { get_words, 'filetype' }, lualine_y = { get_time }, lualine_z = { get_lines },} }
+                | endif
+])
+]]
