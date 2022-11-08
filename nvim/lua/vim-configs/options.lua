@@ -52,7 +52,7 @@ vimset.fencs = 'utf-8,cp949,cp932,euc-jp,shift-jis,ucs-2le,latin1,big5'
 vimset.clipboard = 'unnamedplus'
 --set t_Co=256                  --theme settings
 --set t_ut=
---vimset.completeopt = 'menu,menuone,noselect'
+--set completeopt=menu,menuone,noselect
 
 
 
@@ -73,9 +73,9 @@ vim.cmd([[
 
     augroup gitcommit_autoclose
         autocmd!
-        autocmd FileType gitcommit nnoremap <C-S> :wq<CR>
-        autocmd FileType gitcommit inoremap <C-S> <ESC><ESC>:wq<CR>
-        autocmd FileType gitcommit vnoremap <C-S> <ESC><ESC>:wq<CR>
+        autocmd FileType gitcommit nnoremap <C-s> :wq<CR>
+        autocmd FileType gitcommit inoremap <C-s> <ESC><ESC>:wq<CR>
+        autocmd FileType gitcommit vnoremap <C-s> <ESC><ESC>:wq<CR>
     augroup END
 
     augroup help_as_buffer

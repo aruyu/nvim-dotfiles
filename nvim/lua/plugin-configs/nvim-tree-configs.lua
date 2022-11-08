@@ -20,10 +20,6 @@ end
 -- disable netrw at the very start of your init.lua (strongly advised) --
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
--- reposition tagbar --
---vim.g.tagbar_left = 1
---vim.g.tagbar_width = 20
-vim.g.tagbar_position = 'rightbelow'
 -- ================================================== --
 
 
@@ -57,19 +53,29 @@ nvim_tree.setup({
 
     renderer = {
         icons = {
+            symlink_arrow = "  ",
             glyphs = {
-                default = '',
-                symlink = '',
-                bookmark = '',
+                default = '',
+                symlink = '',
+                bookmark = '',
                 folder = {
                     arrow_closed = '',
                     arrow_open = '',
-                    default = '',
-                    open = '',
+                    default = '',
+                    open = '',
                     empty = '',
                     empty_open = '',
-                    symlink = '',
-                    symlink_open = '', 
+                    symlink = '',
+                    symlink_open = '',
+                },
+                git = {
+                    unstaged = "",
+                    staged = "",
+                    unmerged = "",
+                    renamed = "",
+                    untracked = "",
+                    deleted = "",
+                    ignored = "",
                 },
             },
         },

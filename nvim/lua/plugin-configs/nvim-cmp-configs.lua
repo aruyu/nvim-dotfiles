@@ -31,56 +31,31 @@ cmp.setup {
     snippet = {
         -- REQUIRED - you must specify a snippet engine
         expand = function(args)
-            vim.fn["UltiSnips#Anon"](args.body) -- For `ultisnips` users.
-            --vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` users.
-            -- require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
-            -- require('snippy').expand_snippet(args.body) -- For `snippy` users.
+            vim.fn['UltiSnips#Anon'](args.body) -- For `ultisnips` users.
+            --vim.fn['vsnip#anonymous'](args.body) -- For `vsnip` users.
+            --require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
+            --require('snippy').expand_snippet(args.body) -- For `snippy` users.
         end,
     },
     sources = cmp.config.sources({
         { name = 'nvim_lsp' },
         { name = 'ultisnips' }, -- For ultisnips users.
-        -- { name = 'vsnip' }, -- For vsnip users.
-        -- { name = 'luasnip' }, -- For luasnip users.
-        -- { name = 'snippy' }, -- For snippy users.
+        --{ name = 'vsnip' }, -- For vsnip users.
+        --{ name = 'luasnip' }, -- For luasnip users.
+        --{ name = 'snippy' }, -- For snippy users.
     }, {
         { name = 'buffer' },
     }),
     window = {
-        -- completion = cmp.config.window.bordered(),
-        -- documentation = cmp.config.window.bordered(),
+        --completion = cmp.config.window.bordered(),
+        --documentation = cmp.config.window.bordered(),
     },
     completion = {
         completeopt = 'menu,menuone,noinsert'
     },
 
     mapping = cmp.mapping.preset.insert({
-        ["<Tab>"] = cmp.mapping({
-            c = function(fallback)
-                if cmp.visible() then
-                    cmp.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = false })
-                else
-                    fallback()
-                end
-            end,
-            i = function(fallback)
-                if cmp.visible() then
-                    cmp.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = false })
-                elseif vim.fn["UltiSnips#CanJumpForwards"]() == 1 then
-                    vim.api.nvim_feedkeys(t("<Plug>(ultisnips_jump_forward)"), 'm', true)
-                else
-                    fallback()
-                end
-            end,
-            s = function(fallback)
-                if vim.fn["UltiSnips#CanJumpForwards"]() == 1 then
-                    vim.api.nvim_feedkeys(t("<Plug>(ultisnips_jump_forward)"), 'm', true)
-                else
-                    fallback()
-                end
-            end
-        }),
-        ["<S-Tab>"] = cmp.mapping({
+        ['<TAB>'] = cmp.mapping({
             c = function()
                 if cmp.visible() then
                     cmp.select_next_item({ behavior = cmp.SelectBehavior.Insert })
@@ -90,23 +65,48 @@ cmp.setup {
             end,
             i = function(fallback)
                 if cmp.visible() then
-                    cmp.select_next_item({ behavior = cmp.SelectBehavior.Insert })
-                elseif vim.fn["UltiSnips#CanJumpBackwards"]() == 1 then
-                    return vim.api.nvim_feedkeys( t("<Plug>(ultisnips_jump_backward)"), 'm', true)
+                    cmp.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = false })
+                elseif vim.fn['UltiSnips#CanJumpForwards']() == 1 then
+                    vim.api.nvim_feedkeys(t('<Plug>(ultisnips_jump_forward)'), 'm', true)
                 else
                     fallback()
                 end
             end,
             s = function(fallback)
-                if vim.fn["UltiSnips#CanJumpBackwards"]() == 1 then
-                    return vim.api.nvim_feedkeys( t("<Plug>(ultisnips_jump_backward)"), 'm', true)
+                if vim.fn['UltiSnips#CanJumpForwards']() == 1 then
+                    vim.api.nvim_feedkeys(t('<Plug>(ultisnips_jump_forward)'), 'm', true)
                 else
                     fallback()
                 end
             end
         }),
-        ['<Down>'] = cmp.mapping(cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Select }), {'i'}),
-        ['<Up>'] = cmp.mapping(cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Select }), {'i'}),
+        ['<S-TAB>'] = cmp.mapping({
+            c = function()
+                if cmp.visible() then
+                    cmp.select_prev_item({ behavior = cmp.SelectBehavior.Insert })
+                else
+                    cmp.complete()
+                end
+            end,
+            i = function(fallback)
+                if cmp.visible() then
+                    cmp.select_next_item({ behavior = cmp.SelectBehavior.Insert })
+                elseif vim.fn['UltiSnips#CanJumpBackwards']() == 1 then
+                    return vim.api.nvim_feedkeys( t('<Plug>(ultisnips_jump_backward)'), 'm', true)
+                else
+                    fallback()
+                end
+            end,
+            s = function(fallback)
+                if vim.fn['UltiSnips#CanJumpBackwards']() == 1 then
+                    return vim.api.nvim_feedkeys( t('<Plug>(ultisnips_jump_backward)'), 'm', true)
+                else
+                    fallback()
+                end
+            end
+        }),
+        ['<Down>'] = cmp.mapping(cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Select }), {'i', 'c'}),
+        ['<Up>'] = cmp.mapping(cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Select }), {'i', 'c'}),
         ['<C-n>'] = cmp.mapping({
             c = function()
                 if cmp.visible() then
@@ -143,50 +143,43 @@ cmp.setup {
         ['<C-f>'] = cmp.mapping(cmp.mapping.scroll_docs(4), {'i', 'c'}),
         ['<C-Space>'] = cmp.mapping(cmp.mapping.complete(), {'i', 'c'}),
         ['<C-e>'] = cmp.mapping({ i = cmp.mapping.close(), c = cmp.mapping.close() }),
-        ['<CR>'] = cmp.mapping({
-            c = function(fallback)
+        ['<CR>'] = cmp.mapping({ i = cmp.mapping.confirm({behavior = cmp.ConfirmBehavior.Replace, select = false}) }),
+        ['<ESC>'] = cmp.mapping({
+            i = function(fallback)
                 if cmp.visible() then
-                    cmp.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = false })
+                    cmp.close()
                 else
                     fallback()
                 end
-            end,
-            i = cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = false })
-        }),
-        ['<ESC>'] = function(fallback)
-            if cmp.visible() then
-                cmp.close()
-            else
-                fallback()
             end
-        end
+        })
     })
 }
 
---[[
--- Set configuration for specific filetype.
+-- Configure setup for specific filetype.
 cmp.setup.filetype('gitcommit', {
+    completion = { completeopt = 'menu,menuone,noinsert' },
     sources = cmp.config.sources({
-        { name = 'cmp_git' }, -- You can specify the `cmp_git` source if you were installed it.
+        { name = 'ultisnips' },
+        { name = 'path', option = {trailing_slash = true} },
     }, {
         { name = 'buffer' },
     })
 })
-]]
--- Use buffer source for `/`.
+
+-- Configure setup for `/`.
 cmp.setup.cmdline({'/', '?'}, {
-    --completion = { autocomplete = true },
+    completion = { completeopt = 'menu,menuone,noselect' },
     sources = {
-        { name = 'buffer' },
-        -- { name = 'buffer', opts = { keyword_pattern = [=[[^[:blank:]].*]=] } }
+        { name = 'buffer', option = { keyword_pattern = [=[[^[:blank:]].*]=] } }
     }
 })
 
--- Use cmdline & path source for ':'.
+--  Configure setup for ':'.
 cmp.setup.cmdline(':', {
-    --completion = { autocomplete = true },
+    completion = { completeopt = 'menu,menuone,noselect' },
     sources = cmp.config.sources({
-        { name = 'path' },
+        { name = 'path', option = {trailing_slash = true} },
     }, {
         { name = 'cmdline' },
     })
