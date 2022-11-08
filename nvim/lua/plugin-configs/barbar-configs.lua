@@ -11,10 +11,22 @@
 
 -- ================================================== --
 -- Check error.
-local status_ok, bufferline = pcall(require, "bufferline")
-if not status_ok then
+local status1_ok, bufferline = pcall(require, "bufferline")
+if not status1_ok then
     return
 end
+local status2_ok, nvim_tree_events = pcall(require, "nvim-tree.events")
+if not status2_ok then
+    return
+end
+
+-- Local functions for config.
+local get_tree_size = function()
+    return require"nvim-tree.view".View.width + 2
+end
+
+-- Local variables for config.
+local bufferline_api = require("bufferline.api")
 -- ================================================== --
 
 
@@ -96,14 +108,7 @@ bufferline.setup {
     no_name_title = nil,
 }
 
-
-local nvim_tree_events = require("nvim-tree.events")
-local bufferline_api = require("bufferline.api")
-
-local function get_tree_size()
-    return require"nvim-tree.view".View.width + 2
-end
-
+-- Configure nvim-tree offset.
 nvim_tree_events.subscribe('TreeOpen', function()
     bufferline_api.set_offset(get_tree_size(), '')
     vim.api.nvim_command('TagbarOpen')

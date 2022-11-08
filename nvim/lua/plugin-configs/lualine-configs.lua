@@ -17,15 +17,15 @@ if not status_ok then
 end
 
 -- Local functions for config.
-local function get_words()
+local get_words = function()
     return tostring(vim.fn.wordcount().words) .. ' words'
 end
 
-local function get_time()
-    return tostring(vim.fn.strftime('%H:%M'))
+local get_time = function()
+    return os.date('%H:%M')
 end
 
-local function get_lines()
+local get_lines = function()
     local line_value = '' .. tostring(vim.fn.line('.'))
     local column_value = '' .. tostring(vim.fn.col('.'))
     return ' ' .. line_value .. column_value .. ' '

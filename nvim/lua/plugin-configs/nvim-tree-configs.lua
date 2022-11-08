@@ -8,12 +8,6 @@
 ]]
 
 
--- reposition tagbar
---vim.g.tagbar_left = 1
---vim.g.tagbar_width = 20
-vim.g.tagbar_position = 'rightbelow'
-
-
 
 -- ================================================== --
 -- Check error.
@@ -23,9 +17,13 @@ if not status_ok then
 end
 
 -- Local variables for config.
--- disable netrw at the very start of your init.lua (strongly advised)
+-- disable netrw at the very start of your init.lua (strongly advised) --
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
+-- reposition tagbar --
+--vim.g.tagbar_left = 1
+--vim.g.tagbar_width = 20
+vim.g.tagbar_position = 'rightbelow'
 -- ================================================== --
 
 

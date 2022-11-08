@@ -11,10 +11,17 @@
 
 -- ================================================== --
 -- Check error.
-local status_ok, nvim_autopairs = pcall(require, "nvim-autopairs")
-if not status_ok then
+local status1_ok, nvim_autopairs = pcall(require, "nvim-autopairs")
+if not status1_ok then
     return
 end
+local status2_ok, cmp = pcall(require, "cmp")
+if not status2_ok then
+    return
+end
+
+-- Local variables for config.
+local cmp_autopairs = require('nvim-autopairs.completion.cmp')
 -- ================================================== --
 
 
@@ -30,11 +37,9 @@ nvim_autopairs.get_rule('"').not_filetypes = { 'vim' }
 nvim_autopairs.get_rule('`').not_filetypes = { 'verilog', 'systemverilog' }
 
 -- Fix <CR> in nvim-cmp.
-local cmp_autopairs = require('nvim-autopairs.completion.cmp')
-local cmp = require('cmp')
 cmp.event:on(
-  'confirm_done',
-  cmp_autopairs.on_confirm_done()
+    'confirm_done',
+    cmp_autopairs.on_confirm_done()
 )
 
 

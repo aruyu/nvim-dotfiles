@@ -16,25 +16,25 @@ if not status_ok then
     return
 end
 
--- Dark theme.
-vim.o.background = 'dark'
-vscode.change_style('dark')
-
--- Light theme.
---[[
-vim.o.background = 'light'
-vscode.change_style('light')
-]]
+-- Local variables for config.
+local colors = require("vscode.colors")
+local hl = vim.api.nvim_set_hl
 -- ================================================== --
-
 
 
 -- =========================== --
 --   Additional User Configs   --
 -- =========================== --
--- Local variables for config.
-local colors = require("vscode.colors")
-local hl = vim.api.nvim_set_hl
+-- Dark theme.
+vim.o.background = 'dark'
+vscode.change_style('dark')
+
+--[[
+-- Light theme.
+vim.o.background = 'light'
+vscode.change_style('light')
+]]
+
 
 -- Syntax colors.
 --[[

@@ -39,7 +39,6 @@ vimset.expandtab = true         --insert space instead tab
 vimset.shiftwidth = 4           --shift size 4 columns
 vimset.softtabstop = 4          --tab size 4 columns
 vimset.numberwidth = 5          --number off set size 5
-vimset.completeopt= 'menu,menuone,noselect'
 
 --set visualbell                --show visually when bell was rung
 --set laststatus                --remember 2 last status
@@ -53,6 +52,7 @@ vimset.fencs = 'utf-8,cp949,cp932,euc-jp,shift-jis,ucs-2le,latin1,big5'
 vimset.clipboard = 'unnamedplus'
 --set t_Co=256                  --theme settings
 --set t_ut=
+--vimset.completeopt = 'menu,menuone,noselect'
 
 
 

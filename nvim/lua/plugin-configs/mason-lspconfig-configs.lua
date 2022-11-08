@@ -10,7 +10,7 @@
 
 
 -- ================================================== --
--- Check errors.
+-- Check error.
 local status1_ok, mason = pcall(require, "mason")
 if not status1_ok then
     return
@@ -122,7 +122,7 @@ lspconfig.verible.setup {
 -- Neovim's diagnostic config.
 vim.diagnostic.config({
     virtual_text = true,
-    signs = true,
+    signs = false,
     underline = true,
     update_in_insert = true
 })
