@@ -1,9 +1,9 @@
 #!/bin/bash
 #==
-#   NOTE      - buildtags.sh
+#   NOTE      - update.sh
 #   Author    - Eira Chae
 #
-#   Created   - 2022.10.19
+#   Created   - 2022.10.21
 #   Github    - https://github.com/vine91
 #   Contact   - vine9151@gmail.com
 #/
@@ -118,99 +118,28 @@ function progress()
 #   Starting Code in below.
 #/
 
-UBUNTU=Ubuntu
-MACOS=Mac
-
-read -p "Enter the OS that you want to init: " CURRENT_OS
-echo -ne "Selected OS: $CURRENT_OS\n"
-
-if [ $CURRENT_OS = $UBUNTU ]; then
-
-    echo `sudo apt-get install software-properties-common -y`
-    echo `sudo apt-get install curl -y`
-    echo -ne "\n\n\n\n\n"
-    progress 5 "Update OS"
-
-
-    echo `sudo add-apt-repository ppa:neovim-ppa/unstable -y`
-    echo `sudo apt-get update -y`
-    echo `sudo apt-get install neovim -y`
-    git clone --depth 1 https://github.com/wbthomason/packer.nvim\
-     ~/.local/share/nvim/site/pack/packer/start/packer.nvim
-    #echo `sudo apt-get install powerline fonts-powerline -y`
-    echo -ne "\n\n\n\n\n"
-    progress 25 "Install NEOVIM"
-
-
-    #echo `sudo apt-get install llvm -y`
-    echo `sudo apt-get install clangd -y`
-    echo `sudo apt-get install clang-format -y`
-    echo `sudo apt-get install gcc -y`
-    echo `sudo apt-get install make -y`
-    echo `sudo apt-get install bear -y`
-    echo -ne "\n\n\n\n\n"
-    progress 45 "Install clang & gcc"
-
-
-    echo `sudo apt-get install universal-ctags -y`
-    echo `sudo apt-get install global -y`
-    echo -ne "\n\n\n\n\n"
-    progress 65 "Install ctags & gtags"
-
-    echo `curl -sL install-node.vercel.app/lts | bash`
-    echo -ne "\n\n\n\n\n"
-    progress 95 "Install node-js"
-
-    echo `nvim --version`
-    echo `clangd --version`
-    echo `clang-format --version`
-    echo `gcc --version`
-    echo `make --version`
-    echo `bear --version`
-    echo `ctags --version`
-    echo `global --version`
-    echo `node --version`
-    echo -ne "\n\n\n\n\n"
-    progress 100 "Done."
-
-    exit 1
-
-else if [ $CURRENT_OS = $MACOS ] then
-
-    echo `brew install neovim`
-    echo `pip3 install neovim`
-    git clone --depth 1 https://github.com/wbthomason/packer.nvim\
-     ~/.local/share/nvim/site/pack/packer/start/packer.nvim
-    echo -ne "\n\n\n\n\n"
-    progress 25 "Install NEOVIM"
-
-    #echo `sudo apt-get install llvm -y`
-    echo `brew install clang-format`
-    echo `brew install bear`
-    echo -ne "\n\n\n\n\n"
-    progress 45 "Install clang & gcc"
-
-    echo `brew install universal-ctags`
-    echo `brew install global`
-    echo -ne "\n\n\n\n\n"
-    progress 65 "Install ctags & gtags"
-
-    echo `brew install node`
-    echo -ne "\n\n\n\n\n"
-    progress 95 "Install node-js"
-
-    echo `nvim --version`
-    echo `clangd --version`
-    echo `clang-format --version`
-    echo `gcc --version`
-    echo `make --version`
-    echo `bear --version`
-    echo `ctags --version`
-    echo `global --version`
-    echo `node --version`
-    echo -ne "\n\n\n\n\n"
-    progress 100 "Done."
-
-    exit 1
-
+if [[ $EUID -ne 0 ]]; then
+   script_print_error "This script must be run as root!\n" 
+   exit 1
 fi
+
+echo `apt-get update && apt-get upgrade -y`
+echo `apt-get dist-upgrade -y`
+echo `apt-get install update-manager-core -y`
+echo `do-release-upgrade -d`
+echo
+echo `lsb_release -a`
+echo `apt-get install software-properties-common -y`
+echo `apt-get install curl -y`
+
+
+# /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+# echo '# Set PATH, MANPATH, etc., for Homebrew.' >> ~/.bashrc
+# echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> ~/.bashrc
+# eval "$(/opt/homebrew/bin/brew shellenv)"
+
+# brew update
+# brew upgrade
+
+# brew install bash
+# bash --version
