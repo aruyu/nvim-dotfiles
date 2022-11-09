@@ -60,6 +60,23 @@ vscode.change_style('light')
 ]]
 
 
+-- Theme Syntax.
+hl(0, 'DiffAdd', { fg = colors.vscLeftMid, bg = colors.vscGreen })
+hl(0, 'GitSignsAdd', { fg = colors.vscGreen, bg = 'NONE' })
+hl(0, 'GitSignsAddNr', { fg = colors.vscGreen, bg = 'NONE' })
+hl(0, 'GitSignsAddLn', { fg = colors.vscGreen, bg = 'NONE' })
+
+hl(0, 'DiffChange', { fg = colors.vscLeftMid, bg = colors.vscBlue })
+hl(0, 'GitSignsChange', { fg = colors.vscBlue, bg = 'NONE' })
+hl(0, 'GitSignsChangeNr', { fg = colors.vscBlue, bg = 'NONE' })
+hl(0, 'GitSignsChangeLn', { fg = colors.vscBlue, bg = 'NONE' })
+
+hl(0, 'DiffDelete', { fg = colors.vscLeftMid, bg = colors.vscRed })
+hl(0, 'GitSignsDelete', { fg = colors.vscRed, bg = 'NONE' })
+hl(0, 'GitSignsDeleteNr', { fg = colors.vscRed, bg = 'NONE' })
+hl(0, 'GitSignsDeleteLn', { fg = colors.vscRed, bg = 'NONE' })
+
+
 -- Universal Syntax.
 hl(0, 'SpecialChar', { fg = colors.vscYellowOrange, bg = 'NONE' })
 

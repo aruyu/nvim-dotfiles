@@ -22,7 +22,8 @@ local noremap_silent_opt = {noremap = true, silent = true}
 -- ========================= --
 -- =      NORMAL MODE      =
 -- ========================= --
-keyset('n', 'fd',       '<CMD>Gitsigns diffthis<CR>', noremap_opt)
+keyset('n', 'fs',       '<CMD>Gitsigns diffthis<CR>', noremap_opt)
+keyset('n', 'fd',       '<CMD>Gitsigns preview_hunk<CR>', noremap_opt)
 keyset('n', 'ff',       '<CMD>Telescope find_files<CR>', noremap_opt)
 keyset('n', 'fg',       '<CMD>Telescope live_grep<CR>', noremap_opt)
 keyset('n', 'fh',       '<CMD>Telescope help_tags<CR>', noremap_opt)

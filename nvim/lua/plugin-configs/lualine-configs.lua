@@ -18,7 +18,7 @@ end
 
 -- Local functions for config lualine.
 local get_words = function()
-    return tostring(vim.fn.wordcount().words) .. ' words'
+    return tostring(vim.fn.wordcount().words) .. ' words '
 end
 
 local get_time = function()
@@ -28,7 +28,7 @@ end
 local get_lines = function()
     local line_value = '' .. tostring(vim.fn.line('.'))
     local column_value = '' .. tostring(vim.fn.col('.'))
-    return ' ' .. line_value .. column_value .. ' '
+    return '' .. line_value .. column_value .. ' '
 end
 -- ================================================== --
 
@@ -41,7 +41,7 @@ lualine.setup {
     options = {
         icons_enabled = true,
         theme = 'vscode',
-        component_separators = { left = '  ', right = '  ' },
+        component_separators = { left = ' ', right = '' },
         section_separators = { left = ' ', right = ' ' },
         disabled_filetypes = {
             'NvimTree',
@@ -62,15 +62,19 @@ lualine.setup {
             {
                 'branch',
                 icon = '',
+            },
+            {
+                'diff',
+                diff_color = {
+                    -- Same color values as the general color option can be used here.
+                    added    = 'DiffAdd',       -- Changes the diff's added color
+                    modified = 'DiffChange',    -- Changes the diff's modified color
+                    removed  = 'DiffDelete',    -- Changes the diff's removed color you
+                },
+                symbols = { added = '  ', modified = '  ', removed = '  ' },
             }
         },
         lualine_b = {
-            {
-                'diff',
-                symbols = { added = ' ', modified = ' ', removed = ' ' },
-            }
-        },
-        lualine_c = {
             {
                 'diagnostics',
                 sources = { 'nvim_diagnostic', 'nvim_lsp' },
@@ -80,7 +84,22 @@ lualine.setup {
                 always_visible = true,
             }
         },
-        lualine_x = { get_words, 'filetype' },
+        lualine_c = {},
+        lualine_x = {
+            get_words,
+            {
+                'filetype',
+                icon_only = true,
+                icon = { align = 'right' },
+            },
+            {
+                'filename',
+                symbols = {
+                    modified = '',             -- Text to show when the file is modified.
+                    readonly = '',             -- Text to show when the file is non-modifiable or readonly.
+                },
+            }
+        },
         lualine_y = { get_time },
         lualine_z = { get_lines },
     },
