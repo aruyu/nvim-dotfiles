@@ -131,6 +131,7 @@ echo
 echo `lsb_release -a`
 echo `apt-get install software-properties-common -y`
 echo `apt-get install curl -y`
+echo `curl -sL install-node.vercel.app/lts | bash`
 
 
 # /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"

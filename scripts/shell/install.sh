@@ -172,6 +172,7 @@ if [ $CURRENT_OS = $UBUNTU ]; then
     echo `ctags --version`
     echo `global --version`
     echo `unzip --version`
+    echo `node --version`
     echo -ne "\n\n\n\n\n"
     progress 100 "Done."
 
@@ -190,24 +191,24 @@ else if [ $CURRENT_OS = $MACOS ] then
     echo `brew install clang-format`
     echo `brew install bear`
     echo -ne "\n\n\n\n\n"
-    progress 35 "Install clang & gcc"
+    progress 25 "Install clang & gcc"
 
 
     echo `brew install universal-ctags`
     echo `brew install global`
     echo -ne "\n\n\n\n\n"
-    progress 65 "Install ctags & gtags"
+    progress 45 "Install ctags & gtags"
 
 
     echo `brew install unzip`
     echo `brew install ripgrep`
     echo -ne "\n\n\n\n\n"
-    progress 95 "Install utils for Neovim"
+    progress 65 "Install utils for Neovim"
 
 
-    #echo `brew install node`
-    #echo -ne "\n\n\n\n\n"
-    #progress 95 "Install node-js"
+    echo `brew install node`
+    echo -ne "\n\n\n\n\n"
+    progress 95 "Install node-js"
 
 
     echo `nvim --version`
@@ -219,6 +220,7 @@ else if [ $CURRENT_OS = $MACOS ] then
     echo `ctags --version`
     echo `global --version`
     echo `unzip --version`
+    echo `node --version`
     echo -ne "\n\n\n\n\n"
     progress 100 "Done."
 

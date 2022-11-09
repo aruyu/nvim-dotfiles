@@ -115,7 +115,7 @@ lspconfig.pyright.setup {
     capabilities = capabilities
 }
 
-lspconfig.verible.setup {
+lspconfig.svlangserver.setup {
     capabilities = capabilities
 }
 
