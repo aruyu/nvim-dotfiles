@@ -36,8 +36,8 @@ vimset.cindent = true           --C style indent
 vimset.autoindent = true        --auto indent
 vimset.smartindent = true       --smart indent
 vimset.expandtab = true         --insert space instead tab
-vimset.shiftwidth = 4           --shift size 4 columns
-vimset.softtabstop = 4          --tab size 4 columns
+vimset.shiftwidth = 2           --shift size 4 columns
+vimset.softtabstop = 2          --tab size 4 columns
 vimset.numberwidth = 5          --number off set size 5
 
 --set visualbell                --show visually when bell was rung
@@ -67,8 +67,22 @@ vimset.tags = '/home/docker/work/gncs/tags'
 -- =     other options     =
 -- ========================= --
 vim.cmd([[
+
+    function! UseTabs()
+      set shiftwidth=4  " Size of an indentation (sw).
+      set softtabstop=0 " Number of spaces a <Tab> counts for. When 0, featuer is off (sts).
+      set noexpandtab   " Always uses tabs instead of space characters (noet).
+      set cindent       " C Style indent
+    endfunction
+
+    function! UseSpaces()
+      set shiftwidth=2  " Size of an indentation (sw).
+      set softtabstop=2 " Number of spaces a <Tab> counts for. When 0, featuer is off (sts).
+      set expandtab     " Always uses spaces instead of tab characters (et).
+    endfunction
+
     autocmd VimEnter * if &filetype ==# 'gitcommit' | echo 'gitcommit' | else | exec "normal \<F48>" | endif
-    autocmd BufNewFile,BufReadPost Makefile set noexpandtab
+    "autocmd BufNewFile,BufReadPost c,cpp call UseTabs()
     "autocmd BufWritePost *.c,*.h silent! !ctags -R &
 
     augroup gitcommit_autoclose
