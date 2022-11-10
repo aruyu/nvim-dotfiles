@@ -32,13 +32,13 @@ vimset.hidden = true            --use fix Buffermove
 vimset.wildmenu = true          --use tab automake list
 vimset.wrap = false             --not use auto window size
 
-vimset.cindent = true           --C style indent
 vimset.autoindent = true        --auto indent
 vimset.smartindent = true       --smart indent
-vimset.expandtab = true         --insert space instead tab
-vimset.shiftwidth = 2           --shift size 4 columns
-vimset.softtabstop = 2          --tab size 4 columns
 vimset.numberwidth = 5          --number off set size 5
+
+vimset.shiftwidth = 2           --shift size 2 columns
+vimset.softtabstop = 2          --tab size 2 columns
+vimset.expandtab = true         --insert space instead tab
 
 --set visualbell                --show visually when bell was rung
 --set laststatus                --remember 2 last status
@@ -68,36 +68,49 @@ vimset.tags = '/home/docker/work/gncs/tags'
 -- ========================= --
 vim.cmd([[
 
-    function! UseTabs()
-      set shiftwidth=4  " Size of an indentation (sw).
-      set softtabstop=0 " Number of spaces a <Tab> counts for. When 0, featuer is off (sts).
-      set noexpandtab   " Always uses tabs instead of space characters (noet).
-      set cindent       " C Style indent
-    endfunction
+  function! UseTabs()
+    setlocal shiftwidth=8     " Size of an indentation (sw).
+    setlocal softtabstop=0    " Number of spaces a <Tab> counts for. When 0, featuer is off (sts).
+    setlocal noexpandtab      " Always uses tabs instead of space characters (noet).
+    setlocal cindent          " C Style indent
+  endfunction
 
-    function! UseSpaces()
-      set shiftwidth=2  " Size of an indentation (sw).
-      set softtabstop=2 " Number of spaces a <Tab> counts for. When 0, featuer is off (sts).
-      set expandtab     " Always uses spaces instead of tab characters (et).
-    endfunction
+  function! UseSpaces()
+    setlocal shiftwidth=2     " Size of an indentation (sw).
+    setlocal softtabstop=2    " Number of spaces a <Tab> counts for. When 0, featuer is off (sts).
+    setlocal expandtab        " Always uses spaces instead of tab characters (et).
+  endfunction
 
-    autocmd VimEnter * if &filetype ==# 'gitcommit' | echo 'gitcommit' | else | exec "normal \<F48>" | endif
-    "autocmd BufNewFile,BufReadPost c,cpp call UseTabs()
-    "autocmd BufWritePost *.c,*.h silent! !ctags -R &
+  function! s:empty_message(timer)
+    if mode() ==# 'n'
+      echon ''
+    endif
+  endfunction
 
-    augroup gitcommit_autoclose
-        autocmd!
-        autocmd FileType gitcommit nnoremap <C-s> :wq<CR>
-        autocmd FileType gitcommit inoremap <C-s> <ESC><ESC>:wq<CR>
-        autocmd FileType gitcommit vnoremap <C-s> <ESC><ESC>:wq<CR>
-    augroup END
 
-    augroup help_as_buffer
-        autocmd!
-        autocmd FileType help exec "normal L"
-        autocmd FileType help set buflisted
-    augroup END
+  filetype plugin indent on
+  syntax on
 
-    syntax on
-    "colorscheme codedark
+  autocmd VimEnter * if &filetype ==# 'gitcommit' | echo 'gitcommit' | else | exec "normal \<F48>" | endif
+  autocmd FileType c,cpp,Makefile call UseTabs()
+  "autocmd BufWritePost *.c,*.h silent! !ctags -R &
+
+  augroup cmd_msg_clear
+    autocmd!
+    autocmd CmdlineLeave : call timer_start(2000, funcref('s:empty_message'))
+  augroup END
+
+  augroup gitcommit_autoclose
+    autocmd!
+    autocmd FileType gitcommit nnoremap <C-s> :wq<CR>
+    autocmd FileType gitcommit inoremap <C-s> <ESC><ESC>:wq<CR>
+    autocmd FileType gitcommit vnoremap <C-s> <ESC><ESC>:wq<CR>
+  augroup END
+
+  augroup help_as_buffer
+    autocmd!
+    autocmd FileType help exec "normal L"
+    autocmd FileType help set buflisted
+  augroup END
+
 ]])
