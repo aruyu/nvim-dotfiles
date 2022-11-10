@@ -1,0 +1,33 @@
+
+
+
+# ---------------------
+# <type>: <subject>
+##### Maximum length of <subject> is 50 ###### -> |
+# <content>
+##### Maximum length of <content> is 72 ############################ -> |
+# <issue> #<issue number>
+# ---------------------
+#
+# ---- <type> list ----
+#   feat      : [Algorithm] New feature
+#   fix       : [Algorithm] Fix bug
+#   refactor  : [Code] Refactor code
+#   style     : [Code] Change style of code (white space, semicolon etc)
+#   build     : [Script] Change in build script
+#   ci        : [Script] Change in ci script
+#
+#   test      : Add/Change/Delete test case
+#   docs      : Add/Change/Delete document
+#   release   : Version release
+#   chore     : etc
+# ---------------------
+#
+# ------- Rules -------
+#     Capitalize the subject line
+#     Use imperitive mood in subject
+#     Do not use period at the end of subject
+#     Seperate subject and content with a blank line
+#     Use the body explain "what" and "why" vs "how"
+#     Use "-" when content contains multiline
+# ---------------------

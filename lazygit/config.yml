@@ -14,5 +14,4 @@ keybinding:
     renameCommit: 'R'
     renameCommitWithEditor: 'r'
 
-# git config --global core.editor "nvim"
 # Mac user : Copy this file to ~/Library/Application Support/lazygit/
