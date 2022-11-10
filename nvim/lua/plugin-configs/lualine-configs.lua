@@ -13,23 +13,98 @@
 -- Check error.
 local status_ok, lualine = pcall(require, "lualine")
 if not status_ok then
-    return
+  return
 end
 
 -- Local functions for config lualine.
 local get_words = function()
-    return tostring(vim.fn.wordcount().words) .. ' words '
+  return tostring(vim.fn.wordcount().words) .. ' words  '
 end
 
 local get_time = function()
-    return os.date('%H:%M')
+  return os.date('%H:%M')
 end
 
 local get_lines = function()
-    local line_value = '' .. tostring(vim.fn.line('.'))
-    local column_value = '' .. tostring(vim.fn.col('.'))
-    return '' .. line_value .. column_value .. ' '
+  local line_value = '' .. tostring(vim.fn.line('.'))
+  local column_value = '' .. tostring(vim.fn.col('.'))
+  return '' .. line_value .. column_value .. ' '
 end
+
+local colors = {
+  vscLeftDark = '#252526',
+  vscLeftMid = '#373737',
+  vscLeftLight = '#636369',
+
+  vscFront = '#D4D4D4',
+  vscGray = '#808080',
+  vscViolet = '#646695',
+  vscBlue = '#569CD6',
+  vscDarkBlue = '#223E55',
+  vscMediumBlue = '#18A2FE',
+  vscLightBlue = '#9CDCFE',
+  vscGreen = '#6A9955',
+  vscBlueGreen = '#4EC9B0',
+  vscLightGreen = '#B5CEA8',
+  vscRed = '#F44747',
+  vscOrange = '#CE9178',
+  vscLightRed = '#D16969',
+  vscYellowOrange = '#D7BA7D',
+  vscYellow = '#DCDCAA',
+  vscPink = '#C586C0',
+}
+
+---apply transitional separator for the component
+local empty = require("lualine.component"):extend()
+function empty:draw(default_highlight)
+  self.status = ''
+  self.applied_separator = ''
+  self:apply_highlights(default_highlight)
+  self:apply_section_separators()
+  return self.status
+end
+
+-- Put proper separators and gaps between components in sections
+local function process_sections(sections)
+  for name, section in pairs(sections) do
+    local left = name:sub(9, 10) < 'x'
+    for pos = 1, name ~= 'lualine_z' and #section or #section - 1 do
+      if #section == 4 then
+        table.insert(section, pos * 2, { empty, color = { fg = '#f3f3f3', bg = '#f3f3f3' } })
+      end
+    end
+    for id, comp in ipairs(section) do
+      if type(comp) ~= 'table' then
+        comp = { comp }
+        section[id] = comp
+      end
+      comp.separator = left and { right = '' }
+    end
+  end
+  return sections
+end
+
+local function search_result()
+  if vim.v.hlsearch == 0 then
+    return ''
+  end
+  local last_search = vim.fn.getreg('/')
+  if not last_search or last_search == '' then
+    return ''
+  end
+  local searchcount = vim.fn.searchcount { maxcount = 9999 }
+  return last_search .. ': ' .. searchcount.current .. ' of ' .. searchcount.total .. '  '
+end
+
+local function modified()
+  if vim.bo.modified then
+    return ''
+  elseif vim.bo.modifiable == false or vim.bo.readonly == true then
+    return ''
+  end
+  return ''
+end
+
 -- ================================================== --
 
 
@@ -38,83 +113,81 @@ end
 -- =========================== --
 -- Configure setup with some options.
 lualine.setup {
-    options = {
-        icons_enabled = true,
-        theme = 'vscode',
-        component_separators = { left = ' ', right = '' },
-        section_separators = { left = ' ', right = ' ' },
-        disabled_filetypes = {
-            'NvimTree',
-            'tagbar',
-        },
-        ignore_focus = {},
-        always_divide_middle = true,
-        globalstatus = false,
-        refresh = {
-            statusline = 1000,
-            tabline = 1000,
-            winbar = 1000,
-        },
+  options = {
+    icons_enabled = true,
+    theme = 'vscode',
+    component_separators = '',
+    section_separators = { left = ' ', right = ' ' },
+    disabled_filetypes = {
+      'NvimTree',
+      'tagbar',
     },
-
-    sections = {
-        lualine_a = {
-            {
-                'branch',
-                icon = '',
-            },
-            {
-                'diff',
-                diff_color = {
-                    -- Same color values as the general color option can be used here.
-                    added    = 'DiffAdd',       -- Changes the diff's added color
-                    modified = 'DiffChange',    -- Changes the diff's modified color
-                    removed  = 'DiffDelete',    -- Changes the diff's removed color you
-                },
-                symbols = { added = '  ', modified = '  ', removed = '  ' },
-            }
-        },
-        lualine_b = {
-            {
-                'diagnostics',
-                sources = { 'nvim_diagnostic', 'nvim_lsp' },
-                sections = { 'error', 'warn' },
-                symbols = { error = ' ', warn = ' ', info = ' ', hint = ' ' },
-                update_in_insert = true,
-                always_visible = true,
-            }
-        },
-        lualine_c = {},
-        lualine_x = {
-            get_words,
-            {
-                'filetype',
-                icon_only = true,
-                icon = { align = 'right' },
-            },
-            {
-                'filename',
-                symbols = {
-                    modified = '',             -- Text to show when the file is modified.
-                    readonly = '',             -- Text to show when the file is non-modifiable or readonly.
-                },
-            }
-        },
-        lualine_y = { get_time },
-        lualine_z = { get_lines },
+    ignore_focus = {},
+    always_divide_middle = true,
+    globalstatus = false,
+    refresh = {
+      statusline = 1000,
+      tabline = 1000,
+      winbar = 1000,
     },
+  },
 
-    inactive_sections = {
-        lualine_a = {},
-        lualine_b = {},
-        lualine_c = {},
-        lualine_x = {},
-        lualine_y = { 'filetype' },
-        lualine_z = {},
+  sections = process_sections {
+    lualine_a = {
+      {
+        'branch',
+        icon = '',
+      },
     },
+    lualine_b = {
+      {
+        'diff',
+        diff_color = {
+          -- Same color values as the general color option can be used here.
+          added    = { fg = colors.vscGreen, bg = colors.vscLeftMid },  -- Changes the diff's added color
+          modified = { fg = colors.vscBlue, bg = colors.vscLeftMid },   -- Changes the diff's modified color
+          removed  = { fg = colors.vscRed, bg = colors.vscLeftMid },    -- Changes the diff's removed color you
+        },
+        symbols = { added = '  ', modified = '  ', removed = '  ' },
+      },
+      {
+        'diagnostics',
+        sources = { 'nvim_diagnostic', 'nvim_lsp' },
+        sections = { 'error' },
+        diagnostics_color = { error = { fg = colors.vscLeftMid, bg = colors.vscRed } },
+        symbols = { error = ' ', warn = ' ', info = ' ', hint = ' ' },
+        update_in_insert = true,
+      },
+      {
+        'diagnostics',
+        sources = { 'nvim_diagnostic', 'nvim_lsp' },
+        sections = { 'warn' },
+        diagnostics_color = { warn = { fg = colors.vscLeftMid, bg = '#fe8019' } },
+        symbols = { error = ' ', warn = ' ', info = ' ', hint = ' ' },
+        update_in_insert = true,
+      },
+      {
+        modified,
+        color = { fg = colors.vscLeftMid, bg = colors.vscGreen }
+      }
+    },
+    lualine_c = {},
+    lualine_x = { search_result, get_words, 'filetype' },
+    lualine_y = { get_time },
+    lualine_z = { get_lines },
+  },
 
-    tabline = {},
-    winbar = {},
-    inactive_winbar = {},
-    extensions = {}
+  inactive_sections = {
+    lualine_a = {},
+    lualine_b = {},
+    lualine_c = {},
+    lualine_x = {},
+    lualine_y = { 'filetype' },
+    lualine_z = {},
+  },
+
+  tabline = {},
+  winbar = {},
+  inactive_winbar = {},
+  extensions = {}
 }
