@@ -127,12 +127,7 @@ return packer.startup(
 
 
     -- Syntax Plugins === --
-    use {
-      'nvim-treesitter/nvim-treesitter',
-      run = function ()
-        require("nvim-treesitter.install").update { with_sync = true }
-      end,
-    }
+    use 'nvim-treesitter/nvim-treesitter'
     use 'nvim-treesitter/playground'
 
 

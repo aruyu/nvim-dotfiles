@@ -118,14 +118,14 @@ function progress()
 #   Starting Code in below.
 #/
 
-UBUNTU=Ubuntu
+LINUX=Linux
 MACOS=Mac
 GIT=Git
 
-read -p "Enter what you want to init: " CURRENT_JOB
+read -p "Enter what you want to install: " CURRENT_JOB
 
 
-if [ $CURRENT_JOB = $UBUNTU ]; then
+if [ $CURRENT_JOB = $LINUX ]; then
   echo -ne "Selected OS: $CURRENT_JOB\n"
 
   echo `sudo add-apt-repository ppa:neovim-ppa/unstable -y`
@@ -180,8 +180,9 @@ if [ $CURRENT_JOB = $UBUNTU ]; then
   progress 100 "Done."
 
   exit 1
+fi
 
-else if [ $CURRENT_JOB = $MACOS ]; then
+if [ $CURRENT_JOB = $MACOS ]; then
   echo -ne "Selected OS: $CURRENT_JOB\n"
 
   echo `brew install neovim`
@@ -229,8 +230,9 @@ else if [ $CURRENT_JOB = $MACOS ]; then
   progress 100 "Done."
 
   exit 1
+fi
 
-else if [ $CURRENT_JOB = $GIT ]; then
+if [ $CURRENT_JOB = $GIT ]; then
   echo -ne "Selected Job: $CURRENT_JOB\n"
 
   echo `git config --global core.editor "nvim"`
@@ -241,9 +243,5 @@ else if [ $CURRENT_JOB = $GIT ]; then
   echo `git config --global core.editor`
   echo `git config --global commit.template`
 
-  exit 1
-
-else
-  script_print_error "Select between 'Ubuntu' or 'Mac', 'Git'!\n"
   exit 1
 fi
