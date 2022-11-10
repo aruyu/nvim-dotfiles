@@ -46,7 +46,7 @@ vimset.wrapscan = true          --auto back when searching
 vimset.ignorecase = true        --ignore CAPS when searching
 vimset.incsearch = false        --disable auto move in searching
 vimset.hlsearch = true          --last search highlighting
-vimset.cursorline = true        --cursor highlighting
+--vimset.cursorline = true        --cursor highlighting
 
 vimset.encoding = 'utf-8'       --file encoding settings
 vimset.fencs = 'utf-8,cp949,cp932,euc-jp,shift-jis,ucs-2le,latin1,big5'
