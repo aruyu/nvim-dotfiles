@@ -131,6 +131,7 @@ if [ $CURRENT_JOB = $UBUNTU ]; then
   echo `sudo add-apt-repository ppa:neovim-ppa/unstable -y`
   echo `sudo apt-get update -y`
   echo `sudo apt-get install neovim -y`
+  echo `pip3 install neovim`
   #git clone --depth 1 https://github.com/wbthomason/packer.nvim\
   # ~/.local/share/nvim/site/pack/packer/start/packer.nvim
   #echo `sudo apt-get install powerline fonts-powerline -y`

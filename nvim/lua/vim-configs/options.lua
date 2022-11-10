@@ -46,6 +46,7 @@ vimset.wrapscan = true          --auto back when searching
 vimset.ignorecase = true        --ignore CAPS when searching
 vimset.incsearch = false        --disable auto move in searching
 vimset.hlsearch = true          --last search highlighting
+vimset.cursorline = true        --cursor highlighting
 
 vimset.encoding = 'utf-8'       --file encoding settings
 vimset.fencs = 'utf-8,cp949,cp932,euc-jp,shift-jis,ucs-2le,latin1,big5'
@@ -69,16 +70,16 @@ vimset.tags = '/home/docker/work/gncs/tags'
 vim.cmd([[
 
   function! UseTabs()
-    setlocal shiftwidth=8     " Size of an indentation (sw).
-    setlocal softtabstop=0    " Number of spaces a <Tab> counts for. When 0, featuer is off (sts).
-    setlocal noexpandtab      " Always uses tabs instead of space characters (noet).
-    setlocal cindent          " C Style indent
+    set shiftwidth=8     " Size of an indentation (sw).
+    set softtabstop=0    " Number of spaces a <Tab> counts for. When 0, featuer is off (sts).
+    set noexpandtab      " Always uses tabs instead of space characters (noet).
+    set cindent          " C Style indent
   endfunction
 
   function! UseSpaces()
-    setlocal shiftwidth=2     " Size of an indentation (sw).
-    setlocal softtabstop=2    " Number of spaces a <Tab> counts for. When 0, featuer is off (sts).
-    setlocal expandtab        " Always uses spaces instead of tab characters (et).
+    set shiftwidth=2     " Size of an indentation (sw).
+    set softtabstop=2    " Number of spaces a <Tab> counts for. When 0, featuer is off (sts).
+    set expandtab        " Always uses spaces instead of tab characters (et).
   endfunction
 
   function! s:empty_message(timer)
@@ -87,12 +88,14 @@ vim.cmd([[
     endif
   endfunction
 
-
-  filetype plugin indent on
+  " verbose set? -find where is the last [set]
+  filetype plugin indent off
   syntax on
 
   autocmd VimEnter * if &filetype ==# 'gitcommit' | echo 'gitcommit' | else | exec "normal \<F48>" | endif
-  autocmd FileType c,cpp,Makefile call UseTabs()
+  autocmd FileType Makefile call UseTabs()
+  autocmd FileType c call UseTabs()
+  autocmd FileType cpp call UseTabs()
   "autocmd BufWritePost *.c,*.h silent! !ctags -R &
 
   augroup cmd_msg_clear

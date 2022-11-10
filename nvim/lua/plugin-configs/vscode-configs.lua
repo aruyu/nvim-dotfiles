@@ -38,6 +38,7 @@ vscode.change_style('dark')
 
 -- Syntax colors.
 --[[
+  vscLeftDark = '#252526',
   vscLeftMid = '#373737',
   vscLeftLight = '#636369',
 
