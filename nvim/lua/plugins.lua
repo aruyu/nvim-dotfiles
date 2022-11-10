@@ -102,8 +102,9 @@ return packer.startup(
     }
     use {
       'lewis6991/gitsigns.nvim',
-      -- tag = 'release' -- To use the latest release (do not use this if you run Neovim nightly or dev builds!)
+      --tag = 'release' -- To use the latest release (do not use this if you run Neovim nightly or dev builds!)
     }
+    use "lukas-reineke/indent-blankline.nvim"
 
 
     -- === LSP & Snips Plugins === --
@@ -128,7 +129,7 @@ return packer.startup(
     -- Syntax Plugins === --
     use {
       'nvim-treesitter/nvim-treesitter',
-      run = 'TSUpdate'
+      --run = 'TSUpdate'
     }
     use 'nvim-treesitter/playground'
 
