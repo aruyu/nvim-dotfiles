@@ -7,9 +7,9 @@
 "return" @keyword.return
 
 [
- "goto"
- "in"
- "local"
+  "goto"
+  "in"
+  "local"
 ] @keyword
 
 (label_statement) @label
@@ -79,9 +79,9 @@
 ;; Operators
 
 [
- "and"
- "not"
- "or"
+  "and"
+  "not"
+  "or"
 ] @keyword.operator
 
 [
@@ -120,12 +120,12 @@
 ;; Brackets
 
 [
- "("
- ")"
- "["
- "]"
- "{"
- "}"
+  "("
+  ")"
+  "["
+  "]"
+  "{"
+  "}"
 ] @punctuation.bracket
 
 ;; Variables
@@ -133,17 +133,17 @@
 (identifier) @variable
 
 ((identifier) @variable.builtin
- (#eq? @variable.builtin "self"))
+  (#eq? @variable.builtin "self"))
 
 (variable_list
-   attribute: (attribute
-     (["<" ">"] @punctuation.bracket
+  attribute: (attribute
+    (["<" ">"] @punctuation.bracket
       (identifier) @attribute)))
 
 ;; Constants
 
 ((identifier) @constant
- (#lua-match? @constant "^[A-Z][A-Z_0-9]*$"))
+  (#lua-match? @constant "^[A-Z][A-Z_0-9]*$"))
 
 (vararg_expression) @constant
 

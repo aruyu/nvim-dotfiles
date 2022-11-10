@@ -13,7 +13,7 @@
 -- Check error.
 local status_ok, nvim_tree = pcall(require, "nvim-tree")
 if not status_ok then
-    return
+  return
 end
 
 -- Local variables for config.
@@ -31,62 +31,62 @@ nvim_tree.setup()
 
 -- Configure setup with some options.
 nvim_tree.setup({
-    view = {
-        width = 40,
+  view = {
+    width = 40,
 
-        mappings = {
-            list = {
-                { key = 'u', action = 'dir_up' },
-                { key = '1', action = 'refresh' },
-                { key = '2', action = 'refresh' },
-                { key = '3', action = 'refresh' },
-                { key = '4', action = 'refresh' },
-                { key = '5', action = 'refresh' },
-                { key = '6', action = 'refresh' },
-                { key = '7', action = 'refresh' },
-                { key = '8', action = 'refresh' },
-                { key = '9', action = 'refresh' },
-                { key = '0', action = 'refresh' },
-            },
-        },
+    mappings = {
+      list = {
+        { key = 'u', action = 'dir_up' },
+        { key = '1', action = 'refresh' },
+        { key = '2', action = 'refresh' },
+        { key = '3', action = 'refresh' },
+        { key = '4', action = 'refresh' },
+        { key = '5', action = 'refresh' },
+        { key = '6', action = 'refresh' },
+        { key = '7', action = 'refresh' },
+        { key = '8', action = 'refresh' },
+        { key = '9', action = 'refresh' },
+        { key = '0', action = 'refresh' },
+      },
     },
+  },
 
-    renderer = {
-        icons = {
-            symlink_arrow = '  ',
-            glyphs = {
-                default = '',
-                symlink = '',
-                bookmark = '',
-                folder = {
-                    arrow_closed = '',
-                    arrow_open = '',
-                    default = '',
-                    open = '',
-                    empty = '',
-                    empty_open = '',
-                    symlink = '',
-                    symlink_open = '',
-                },
-                git = {
-                    unstaged = '',
-                    staged = '',
-                    unmerged = '',
-                    renamed = '',
-                    untracked = '',
-                    deleted = '',
-                    ignored = '',
-                },
-            },
+  renderer = {
+    icons = {
+      symlink_arrow = '  ',
+      glyphs = {
+        default = '',
+        symlink = '',
+        bookmark = '',
+        folder = {
+          arrow_closed = '',
+          arrow_open = '',
+          default = '',
+          open = '',
+          empty = '',
+          empty_open = '',
+          symlink = '',
+          symlink_open = '',
         },
+        git = {
+          unstaged = '',
+          staged = '',
+          unmerged = '',
+          renamed = '',
+          untracked = '',
+          deleted = '',
+          ignored = '',
+        },
+      },
     },
+  },
 
-    diagnostics = {
-        icons = {
-            hint = '',
-            info = '',
-            warning = '',
-            error = '',
-        },
-    }
+  diagnostics = {
+    icons = {
+      hint = '',
+      info = '',
+      warning = '',
+      error = '',
+    },
+  }
 })

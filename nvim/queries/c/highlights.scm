@@ -5,10 +5,10 @@
 ;; FIRST
 
 ((identifier) @c_variable
-    (#set! "priority" 95))
+  (#set! "priority" 95))
 [
-    (field_identifier)
-    (statement_identifier)
+  (field_identifier)
+  (statement_identifier)
 ] @c_variable
 
 
@@ -20,17 +20,17 @@ name: (type_identifier) @c_keyword_value
 declarator: (type_identifier) @c_keyword_value
 
 [
-    "__attribute__"
-    "__cdecl"
-    "__clrcall"
-    "__stdcall"
-    "__fastcall"
-    "__thiscall"
-    "__vectorcall"
-    "_unaligned"
-    "__unaligned"
-    "__declspec"
-    (attribute_declaration)
+  "__attribute__"
+  "__cdecl"
+  "__clrcall"
+  "__stdcall"
+  "__fastcall"
+  "__thiscall"
+  "__vectorcall"
+  "_unaligned"
+  "__unaligned"
+  "__declspec"
+  (attribute_declaration)
 ] @c_attribute
 
 
@@ -39,32 +39,32 @@ declarator: (type_identifier) @c_keyword_value
 ;; Blue
 
 [
-    (type_qualifier)
-    (primitive_type)
-    (sized_type_specifier)
-    (storage_class_specifier)
+  (type_qualifier)
+  (primitive_type)
+  (sized_type_specifier)
+  (storage_class_specifier)
 ] @c_type
 
 [
-    (null)
-    (true)
-    (false)
+  (null)
+  (true)
+  (false)
 ] @c_boolean
 
 [
-    "struct"
-    "typedef"
-    "union"
-    "enum"
-    "sizeof"
-    "volatile"
-    "extern"
+  "struct"
+  "typedef"
+  "union"
+  "enum"
+  "sizeof"
+  "volatile"
+  "extern"
 ] @c_keyword
 
 ((identifier) @c_constant
-    (#lua-match? @c_constant "^[A-Z][A-Z0-9_]+$"))
+  (#lua-match? @c_constant "^[A-Z][A-Z0-9_]+$"))
 ((type_identifier) @c_constant
-    (#lua-match? @c_constant "^[A-Z][A-Z0-9_]+$"))
+  (#lua-match? @c_constant "^[A-Z][A-Z0-9_]+$"))
 
 
 
@@ -72,19 +72,19 @@ declarator: (type_identifier) @c_keyword_value
 ;; Yellow
 
 [
-    (preproc_arg)
-    (preproc_defined)
+  (preproc_arg)
+  (preproc_defined)
 ] @c_function_macro
 
 (call_expression
-    function: (identifier) @c_function_call)
+  function: (identifier) @c_function_call)
 (call_expression
-    function: (field_expression
-        field: (field_identifier) @c_function_call))
+  function: (field_expression
+    field: (field_identifier) @c_function_call))
 (function_declarator
-    declarator: (identifier) @c_function)
+  declarator: (identifier) @c_function)
 (preproc_function_def
-    name: (identifier) @c_function)
+  name: (identifier) @c_function)
 
 
 
@@ -92,32 +92,32 @@ declarator: (type_identifier) @c_keyword_value
 ;; Pink
 
 [
-    "while"
-    "for"
-    "do"
-    "continue"
-    "break"
+  "while"
+  "for"
+  "do"
+  "continue"
+  "break"
 ] @c_repeat
 
 [
-    "if"
-    "else"
-    "goto"
-    "switch"
-    "case"
-    "default"
-    "return"
+  "if"
+  "else"
+  "goto"
+  "switch"
+  "case"
+  "default"
+  "return"
 ] @c_conditional
 
 [
-    "#if"
-    "#ifdef"
-    "#ifndef"
-    "#else"
-    "#elif"
-    "#endif"
-    "#define"
-    "#include"
+  "#if"
+  "#ifdef"
+  "#ifndef"
+  "#else"
+  "#elif"
+  "#endif"
+  "#define"
+  "#include"
   (preproc_directive)
 ] @c_preproc
 
@@ -127,66 +127,66 @@ declarator: (type_identifier) @c_keyword_value
 ;; Others
 
 [
-    "(" ")"
+  "(" ")"
 
-    "[" "]"
+  "[" "]"
 
-    "{" "}"
+  "{" "}"
 ] @c_bracket
 
 [
-    "="
+  "="
 
-    "-"
-    "*"
-    "/"
-    "+"
-    "%"
+  "-"
+  "*"
+  "/"
+  "+"
+  "%"
 
-    "~"
-    "|"
-    "&"
-    "^"
-    "<<"
-    ">>"
+  "~"
+  "|"
+  "&"
+  "^"
+  "<<"
+  ">>"
 
-    "->"
-    "."
+  "->"
+  "."
 
-    "<"
-    "<="
-    ">="
-    ">"
-    "=="
-    "!="
+  "<"
+  "<="
+  ">="
+  ">"
+  "=="
+  "!="
 
-    "!"
-    "&&"
-    "||"
+  "!"
+  "&&"
+  "||"
 
-    "-="
-    "+="
-    "*="
-    "/="
-    "%="
-    "|="
-    "&="
-    "^="
-    ">>="
-    "<<="
-    "--"
-    "++"
+  "-="
+  "+="
+  "*="
+  "/="
+  "%="
+  "|="
+  "&="
+  "^="
+  ">>="
+  "<<="
+  "--"
+  "++"
 ] @c_operator
 
 [
-    ";" ":"
-    "," "..."
+  ";" ":"
+  "," "..."
 ] @c_punctuation
 
 (comma_expression
-    [ "," ] @c_punctuation)
+  [ "," ] @c_punctuation)
 (conditional_expression
-    [ "?" ":" ] @c_punctuation)
+  [ "?" ":" ] @c_punctuation)
 
 
 
@@ -194,8 +194,8 @@ declarator: (type_identifier) @c_keyword_value
 ;; FINAL
 
 [
-    (string_literal)
-    (system_lib_string)
+  (string_literal)
+  (system_lib_string)
 ] @c_string
 
 (number_literal) @number

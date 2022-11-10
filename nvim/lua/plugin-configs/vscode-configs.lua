@@ -11,9 +11,9 @@
 
 -- ================================================== --
 -- Check error.
-local status_ok,vscode = pcall(require, "vscode")
+local status_ok, vscode = pcall(require, "vscode")
 if not status_ok then
-    return
+  return
 end
 
 -- Local variables for config.
@@ -31,47 +31,44 @@ vscode.change_style('dark')
 
 --[[
 -- Light theme.
-vim.o.background = 'light'
-vscode.change_style('light')
+  vim.o.background = 'light'
+  vscode.change_style('light')
 ]]
 
 
 -- Syntax colors.
 --[[
-    vscLeftMid = '#373737',
-    vscLeftLight = '#636369',
+  vscLeftMid = '#373737',
+  vscLeftLight = '#636369',
 
-    vscFront = '#D4D4D4',
-    vscGray = '#808080',
-    vscViolet = '#646695',
-    vscBlue = '#569CD6',
-    vscDarkBlue = '#223E55',
-    vscMediumBlue = '#18A2FE',
-    vscLightBlue = '#9CDCFE',
-    vscGreen = '#6A9955',
-    vscBlueGreen = '#4EC9B0',
-    vscLightGreen = '#B5CEA8',
-    vscRed = '#F44747',
-    vscOrange = '#CE9178',
-    vscLightRed = '#D16969',
-    vscYellowOrange = '#D7BA7D',
-    vscYellow = '#DCDCAA',
-    vscPink = '#C586C0',
+  vscFront = '#D4D4D4',
+  vscGray = '#808080',
+  vscViolet = '#646695',
+  vscBlue = '#569CD6',
+  vscDarkBlue = '#223E55',
+  vscMediumBlue = '#18A2FE',
+  vscLightBlue = '#9CDCFE',
+  vscGreen = '#6A9955',
+  vscBlueGreen = '#4EC9B0',
+  vscLightGreen = '#B5CEA8',
+  vscRed = '#F44747',
+  vscOrange = '#CE9178',
+  vscLightRed = '#D16969',
+  vscYellowOrange = '#D7BA7D',
+  vscYellow = '#DCDCAA',
+  vscPink = '#C586C0',
 ]]
 
 
 -- Theme Syntax.
-hl(0, 'DiffAdd', { fg = colors.vscLeftMid, bg = colors.vscGreen })
 hl(0, 'GitSignsAdd', { fg = colors.vscGreen, bg = 'NONE' })
 hl(0, 'GitSignsAddNr', { fg = colors.vscGreen, bg = 'NONE' })
 hl(0, 'GitSignsAddLn', { fg = colors.vscGreen, bg = 'NONE' })
 
-hl(0, 'DiffChange', { fg = colors.vscLeftMid, bg = colors.vscBlue })
 hl(0, 'GitSignsChange', { fg = colors.vscBlue, bg = 'NONE' })
 hl(0, 'GitSignsChangeNr', { fg = colors.vscBlue, bg = 'NONE' })
 hl(0, 'GitSignsChangeLn', { fg = colors.vscBlue, bg = 'NONE' })
 
-hl(0, 'DiffDelete', { fg = colors.vscLeftMid, bg = colors.vscRed })
 hl(0, 'GitSignsDelete', { fg = colors.vscRed, bg = 'NONE' })
 hl(0, 'GitSignsDeleteNr', { fg = colors.vscRed, bg = 'NONE' })
 hl(0, 'GitSignsDeleteLn', { fg = colors.vscRed, bg = 'NONE' })
