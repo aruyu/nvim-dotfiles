@@ -44,7 +44,7 @@ toggleterm.setup({
 -- Configure terminal keymaps.
 function _G.set_terminal_keymaps()
   local opts = { buffer = 0 }
-  vim.keymap.set('t', '<F1>', '<CMD>close<CR>', opts)
+  vim.keymap.set('t', '<F10>', '<CMD>close<CR>', opts)
 end
 
 vim.cmd('autocmd! TermOpen term://* lua set_terminal_keymaps()')
