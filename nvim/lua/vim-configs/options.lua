@@ -35,11 +35,11 @@ vimset.wrap = false             --not use auto window size
 vimset.autoindent = true        --auto indent
 vimset.smartindent = true       --smart indent
 vimset.numberwidth = 5          --number off set size 5
-
+--[[
 vimset.shiftwidth = 2           --shift size 2 columns
 vimset.softtabstop = 2          --tab size 2 columns
 vimset.expandtab = true         --insert space instead tab
-
+]]
 --set visualbell                --show visually when bell was rung
 --set laststatus                --remember 2 last status
 vimset.wrapscan = true          --auto back when searching
@@ -65,7 +65,7 @@ vimset.tags = '/home/docker/work/gncs/tags'
 
 
 -- ========================= --
--- =     other options     =
+-- =   vim script options  =
 -- ========================= --
 vim.cmd([[
 
@@ -93,9 +93,12 @@ vim.cmd([[
   syntax on
 
   autocmd VimEnter * if &filetype ==# 'gitcommit' | echo 'gitcommit' | else | exec "normal \<F48>" | endif
-  autocmd FileType Makefile call UseTabs()
-  autocmd FileType c call UseTabs()
-  autocmd FileType cpp call UseTabs()
+
+  autocmd FileType *          call UseSpaces()
+  autocmd FileType Makefile   call UseTabs()
+  autocmd FileType c          call UseTabs()
+  autocmd FileType cpp        call UseTabs()
+  autocmd FileType gitcommit  call UseTabs()
   "autocmd BufWritePost *.c,*.h silent! !ctags -R &
 
   augroup cmd_msg_clear
