@@ -70,16 +70,16 @@ vimset.tags = '/home/docker/work/gncs/tags'
 vim.cmd([[
 
   function! UseTabs()
-    set shiftwidth=8     " Size of an indentation (sw).
-    set softtabstop=0    " Number of spaces a <Tab> counts for. When 0, featuer is off (sts).
-    set noexpandtab      " Always uses tabs instead of space characters (noet).
-    set cindent          " C Style indent
+    set shiftwidth=8      " Size of an indentation (sw).
+    set softtabstop=0     " Number of spaces a <Tab> counts for. When 0, featuer is off (sts).
+    set noexpandtab       " Always uses tabs instead of space characters (noet).
+    set cindent           " C Style indent
   endfunction
 
   function! UseSpaces()
-    set shiftwidth=2     " Size of an indentation (sw).
-    set softtabstop=2    " Number of spaces a <Tab> counts for. When 0, featuer is off (sts).
-    set expandtab        " Always uses spaces instead of tab characters (et).
+    set shiftwidth=2      " Size of an indentation (sw).
+    set softtabstop=2     " Number of spaces a <Tab> counts for. When 0, featuer is off (sts).
+    set expandtab         " Always uses spaces instead of tab characters (et).
   endfunction
 
   function! s:empty_message(timer)
@@ -95,7 +95,7 @@ vim.cmd([[
   autocmd VimEnter * if &filetype ==# 'gitcommit' | echo 'gitcommit' | else | exec "normal \<F48>" | endif
 
   autocmd FileType *          call UseSpaces()
-  autocmd FileType Makefile   call UseTabs()
+  autocmd FileType make       call UseTabs()
   autocmd FileType c          call UseTabs()
   autocmd FileType cpp        call UseTabs()
   autocmd FileType gitcommit  call UseTabs()
