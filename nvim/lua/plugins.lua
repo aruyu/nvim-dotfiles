@@ -136,6 +136,8 @@ return packer.startup(
     use 'windwp/nvim-autopairs'
     use 'svermeulen/vim-cutlass'
     use 'lambdalisue/suda.vim'
+    --use 'anuvyklack/pretty-fold.nvim'
+    --use 'karb94/neoscroll.nvim'
 
     -- ================= --
     --    Plugins End    --
