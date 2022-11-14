@@ -1,8 +1,7 @@
 
 wslu
 iterm2
+.nvim
 
 lazygit/state.yml
 nvim/plugin/packer_compiled.lua
-
-.nvim/svlangserver
