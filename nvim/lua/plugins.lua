@@ -106,6 +106,7 @@ return packer.startup(
     }
     use 'lukas-reineke/indent-blankline.nvim'
     use 'nmac427/guess-indent.nvim'
+    --use 'anuvyklack/pretty-fold.nvim'
 
 
     -- === LSP & Snips Plugins === --
@@ -137,8 +138,6 @@ return packer.startup(
     use 'vine91/nvim-autoindents'
     use 'svermeulen/vim-cutlass'
     use 'lambdalisue/suda.vim'
-    --use 'anuvyklack/pretty-fold.nvim'
-    --use 'karb94/neoscroll.nvim'
 
     -- ================= --
     --    Plugins End    --
