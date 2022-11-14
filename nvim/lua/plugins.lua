@@ -134,6 +134,7 @@ return packer.startup(
 
     -- === Others === --
     use 'windwp/nvim-autopairs'
+    use 'vine91/nvim-autoindents'
     use 'svermeulen/vim-cutlass'
     use 'lambdalisue/suda.vim'
     --use 'anuvyklack/pretty-fold.nvim'

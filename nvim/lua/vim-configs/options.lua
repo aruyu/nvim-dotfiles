@@ -76,7 +76,6 @@ vim.cmd([[
   endfunction
 
   " verbose set? -find where is the last [set]
-  "filetype plugin indent on
   syntax on
 
   autocmd VimEnter * if &filetype ==# 'gitcommit' | echo 'gitcommit' | else | exec "normal \<F48>" | endif
