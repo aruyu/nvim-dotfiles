@@ -1,7 +1,7 @@
 #!/bin/bash
 #==
 #   NOTE      - buildtags.sh
-#   Author    - Eira Chae
+#   Author    - Ista
 #
 #   Created   - 2022.10.19
 #   Github    - https://github.com/vine91

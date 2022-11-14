@@ -1,6 +1,6 @@
 --[[
 -   NOTE      - bufferline-configs.lua
--   Author    - Eira Chae
+-   Author    - Ista
 -
 -   Created   - 2022.10.31
 -   Github    - https://github.com/vine91

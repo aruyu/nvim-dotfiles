@@ -1,6 +1,6 @@
 --[[
 -   NOTE      - configs.lua
--   Author    - Eira Chae
+-   Author    - Ista
 -
 -   Created   - 2022.10.21
 -   Github    - https://github.com/vine91
@@ -17,6 +17,7 @@ require("plugin-configs.guess-indent-configs")
 require("plugin-configs.indent-blankline-configs")
 require("plugin-configs.lualine-configs")
 require("plugin-configs.mason-lspconfig-configs")
+--require("plugin-configs.nvim-autoindents-configs")
 require("plugin-configs.nvim-autopairs-configs")
 require("plugin-configs.nvim-cmp-configs")
 require("plugin-configs.nvim-tree-configs")

@@ -1,6 +1,6 @@
 --[[
 -   NOTE      - vim-airline-configs.lua
--   Author    - Eira Chae
+-   Author    - Ista
 -
 -   Created   - 2022.10.22
 -   Github    - https://github.com/vine91

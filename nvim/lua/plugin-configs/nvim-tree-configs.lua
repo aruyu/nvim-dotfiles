@@ -1,6 +1,6 @@
 --[[
 -   NOTE      - nvim-tree-configs.lua
--   Author    - Eira Chae
+-   Author    - Ista
 -
 -   Created   - 2022.10.21
 -   Github    - https://github.com/vine91

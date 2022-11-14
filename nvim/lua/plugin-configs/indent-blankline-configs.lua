@@ -1,6 +1,6 @@
 --[[
 -   NOTE      - indent-blankline-configs.lua
--   Author    - Eira Chae
+-   Author    - Ista
 -
 -   Created   - 2022.11.10
 -   Github    - https://github.com/vine91

@@ -1,7 +1,7 @@
 #!/bin/bash
 #==
 #   NOTE      - update.sh
-#   Author    - Eira Chae
+#   Author    - Ista
 #
 #   Created   - 2022.10.21
 #   Github    - https://github.com/vine91

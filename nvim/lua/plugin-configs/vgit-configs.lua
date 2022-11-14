@@ -1,6 +1,6 @@
 --[[
 -   NOTE      - vgit-configs.lua
--   Author    - Eira Chae
+-   Author    - Ista
 -
 -   Created   - 2022.11.04
 -   Github    - https://github.com/vine91

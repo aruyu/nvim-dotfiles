@@ -1,6 +1,6 @@
 --[[
 -   NOTE      - coc-nvim-configs.lua
--   Author    - Eira Chae
+-   Author    - Ista
 -
 -   Created   - 2022.10.27
 -   Github    - https://github.com/vine91

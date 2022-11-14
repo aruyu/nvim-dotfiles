@@ -1,6 +1,6 @@
 --[[
 -   NOTE      - options.lua
--   Author    - Eira Chae
+-   Author    - Ista
 -
 -   Created   - 2022.10.27
 -   Github    - https://github.com/vine91
@@ -35,11 +35,11 @@ vimset.wrap = false             --not use auto window size
 vimset.autoindent = true        --auto indent
 vimset.smartindent = true       --smart indent
 vimset.numberwidth = 5          --number off set size 5
---[[
+
 vimset.shiftwidth = 2           --shift size 2 columns
 vimset.softtabstop = 2          --tab size 2 columns
 vimset.expandtab = true         --insert space instead tab
-]]
+
 --set visualbell                --show visually when bell was rung
 --set laststatus                --remember 2 last status
 vimset.wrapscan = true          --auto back when searching
@@ -69,19 +69,6 @@ vimset.tags = '/home/docker/work/gncs/tags'
 -- ========================= --
 vim.cmd([[
 
-  function! UseTabs()
-    set shiftwidth=8      " Size of an indentation (sw).
-    set softtabstop=0     " Number of spaces a <Tab> counts for. When 0, featuer is off (sts).
-    set noexpandtab       " Always uses tabs instead of space characters (noet).
-    set cindent           " C Style indent
-  endfunction
-
-  function! UseSpaces()
-    set shiftwidth=2      " Size of an indentation (sw).
-    set softtabstop=2     " Number of spaces a <Tab> counts for. When 0, featuer is off (sts).
-    set expandtab         " Always uses spaces instead of tab characters (et).
-  endfunction
-
   function! s:empty_message(timer)
     if mode() ==# 'n'
       echon ''
@@ -89,16 +76,10 @@ vim.cmd([[
   endfunction
 
   " verbose set? -find where is the last [set]
-  filetype plugin indent off
+  "filetype plugin indent on
   syntax on
 
   autocmd VimEnter * if &filetype ==# 'gitcommit' | echo 'gitcommit' | else | exec "normal \<F48>" | endif
-
-  autocmd FileType *          call UseSpaces()
-  autocmd FileType make       call UseTabs()
-  autocmd FileType c          call UseTabs()
-  autocmd FileType cpp        call UseTabs()
-  autocmd FileType gitcommit  call UseTabs()
   "autocmd BufWritePost *.c,*.h silent! !ctags -R &
 
   augroup cmd_msg_clear

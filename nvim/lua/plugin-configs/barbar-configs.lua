@@ -1,6 +1,6 @@
 --[[
 -   NOTE      - barbar-configs.lua
--   Author    - Eira Chae
+-   Author    - Ista
 -
 -   Created   - 2022.11.01
 -   Github    - https://github.com/vine91

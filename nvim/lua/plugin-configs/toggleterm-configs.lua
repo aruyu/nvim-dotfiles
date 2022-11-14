@@ -1,6 +1,6 @@
 --[[
 -   NOTE      - toggleterm-configs.lua
--   Author    - Eira Chae
+-   Author    - Ista
 -
 -   Created   - 2022.11.03
 -   Github    - https://github.com/vine91

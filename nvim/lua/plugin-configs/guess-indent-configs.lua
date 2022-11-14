@@ -1,6 +1,6 @@
 --[[
 -   NOTE      - guess-indent-configs.lua
--   Author    - Eira Chae
+-   Author    - Ista
 -
 -   Created   - 2022.11.11
 -   Github    - https://github.com/vine91

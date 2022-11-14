@@ -4,3 +4,5 @@ iterm2
 
 lazygit/state.yml
 nvim/plugin/packer_compiled.lua
+
+.nvim/svlangserver

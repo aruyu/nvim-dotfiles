@@ -1,6 +1,6 @@
 --[[
 -   NOTE      - telescope-configs.lua
--   Author    - Eira Chae
+-   Author    - Ista
 -
 -   Created   - 2022.11.02
 -   Github    - https://github.com/vine91

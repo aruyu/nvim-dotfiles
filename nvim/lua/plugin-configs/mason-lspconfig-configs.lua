@@ -1,6 +1,6 @@
 --[[
 -   NOTE      - mason-lspconfig-configs.lua
--   Author    - Eira Chae
+-   Author    - Ista
 -
 -   Created   - 2022.11.07
 -   Github    - https://github.com/vine91
