@@ -65,7 +65,7 @@ cmp.setup {
       end,
       i = function(fallback)
         if cmp.visible() then
-          cmp.confirm({ behavior = cmp.ConfirmBehavior.Insert, select = false })
+          cmp.confirm({ behavior = cmp.ConfirmBehavior.Insert })
         elseif vim.fn['UltiSnips#CanJumpForwards']() == 1 then
           vim.api.nvim_feedkeys(t('<Plug>(ultisnips_jump_forward)'), 'm', true)
         else
@@ -149,7 +149,7 @@ cmp.setup {
     ['<C-f>'] = cmp.mapping(cmp.mapping.scroll_docs(4), { 'i', 'c' }),
     ['<C-Space>'] = cmp.mapping(cmp.mapping.complete(), { 'i', 'c' }),
     ['<C-e>'] = cmp.mapping({ i = cmp.mapping.close(), c = cmp.mapping.close() }),
-    ['<CR>'] = cmp.mapping({ i = cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Insert, select = false }) }),
+    ['<CR>'] = cmp.mapping({ i = cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Insert }) }),
     ['<ESC>'] = cmp.mapping({
       i = function(fallback)
         if cmp.visible() then
