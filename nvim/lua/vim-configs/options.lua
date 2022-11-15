@@ -50,7 +50,7 @@ vimset.hlsearch = true          --last search highlighting
 
 vimset.encoding = 'utf-8'       --file encoding settings
 vimset.fencs = 'utf-8,cp949,cp932,euc-jp,shift-jis,ucs-2le,latin1,big5'
-vimset.clipboard = 'unnamedplus'
+vimset.clipboard:append { 'unnamedplus' }
 --set t_Co=256                  --theme settings
 --set t_ut=
 --set completeopt=menu,menuone,noselect

@@ -17,6 +17,26 @@ local remap_silent_opt = { remap = true, silent = true }
 local noremap_opt = { noremap = true }
 local noremap_silent_opt = { noremap = true, silent = true }
 
+local t = function(str)
+  return vim.api.nvim_replace_termcodes(str, true, true, true)
+end
+
+function _G.visual_paste()
+  if vim.fn.getline('.'):sub(vim.fn.col('.'), vim.fn.col('.')) == '' then
+    vim.api.nvim_feedkeys(t('<Left>'), 'n', true)
+  end
+
+  vim.api.nvim_feedkeys(t('"_d'), 'n', true)
+
+  local col = vim.fn.col('.') + 1
+  local is_cr = vim.fn.getline('.'):sub(col, col) == '' -- is '\n' ?
+
+  if is_cr then
+    vim.api.nvim_feedkeys(t('<ESC><ESC>p'), 'n', true)
+  else
+    vim.api.nvim_feedkeys(t('<ESC><ESC>P'), 'n', true)
+  end
+end
 
 
 -- ========================= --
@@ -29,6 +49,7 @@ keyset('n', 'ff',     '<CMD>Telescope find_files<CR>', noremap_opt)
 keyset('n', 'fg',     '<CMD>Telescope live_grep<CR>', noremap_opt)
 keyset('n', 'fh',     '<CMD>Telescope help_tags<CR>', noremap_opt)
 keyset('n', 'fb',     '<CMD>Telescope buffers<CR>', noremap_opt)
+keyset('n', 'dd',     '"_d', noremap_opt)
 
 keyset('n', 'ZZ',     'zz', noremap_opt)
 keyset('n', '<C-S>',  ':w<CR>', noremap_opt)
@@ -100,12 +121,15 @@ keyset('i', '<F48>',  '<ESC><ESC><CMD>NvimTreeClose<CR><CMD>NvimTreeOpen<CR>15-
 -- ========================= --
 -- =      VISUAL MODE      =
 -- ========================= --
+keyset('v', 'd',      '"_d', noremap_opt)
+keyset('v', 'c',      '"_c', noremap_opt)
+
 keyset('v', '<BS>',   'd<ESC><ESC>i', noremap_opt)
 keyset('v', '<C-S>',  '<ESC><ESC>:w<CR>', noremap_opt)
 keyset('v', '<C-Z>',  '<ESC><ESC>u', noremap_opt)
 keyset('v', '<C-X>',  'd<ESC><ESC>', noremap_opt)
 keyset('v', '<C-C>',  'y<ESC><ESC>', noremap_opt)
-keyset('v', '<C-V>',  'd<ESC><ESC>P<ESC><ESC>', remap_opt)
+keyset('v', '<C-V>',  '<CMD>lua visual_paste()<CR>', noremap_opt)
 keyset('v', 'v',      '<C-V>', noremap_opt)
 keyset('v', '<S-TAB>', '<C-V>:s/^/  /g<CR>:noh<CR>', noremap_opt)
 
@@ -128,7 +152,7 @@ keyset('v', '<F48>',  '<ESC><ESC><CMD>NvimTreeClose<CR><CMD>NvimTreeOpen<CR>15-
 -- =         Others        =
 -- ========================= --
 vim.cmd([[
-  nnoremap <F12>  :lua require('telescope.builtin').grep_string({layout_strategy='cursor',layout_config={width=0.5, height=0.45}})<CR>
+  nnoremap <F12>  :lua require("telescope.builtin").grep_string({layout_strategy='cursor',layout_config={width=0.5, height=0.45}})<CR>
   inoremap <F12>  <ESC><ESC>:lua require('telescope.builtin').grep_string({layout_strategy='cursor',layout_config={width=0.5, height=0.45}})<CR>
   vnoremap <F12>  <ESC><ESC>:lua require('telescope.builtin').grep_string({layout_strategy='cursor',layout_config={width=0.5, height=0.45}})<CR>
 
