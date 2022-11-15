@@ -1,5 +1,5 @@
 --[[
--   NOTE      - nvim-autoindents-configs.lua
+-   NOTE      - nvim-indentconfig-configs.lua
 -   Author    - Ista
 -
 -   Created   - 2022.11.14
@@ -11,7 +11,7 @@
 
 -- ================================================== --
 -- Check error.
-local status_ok, nvim_autoindents = pcall(require, "nvim-autoindents")
+local status_ok, nvim_autoindents = pcall(require, "nvim-indentconfig")
 if not status_ok then
   return
 end
