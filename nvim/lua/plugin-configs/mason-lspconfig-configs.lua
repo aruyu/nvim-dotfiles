@@ -111,7 +111,7 @@ lspconfig.sumneko_lua.setup {
   capabilities = capabilities
 }
 
-lspconfig.pyright.setup {
+lspconfig.jedi_language_server.setup {
   capabilities = capabilities
 }
 

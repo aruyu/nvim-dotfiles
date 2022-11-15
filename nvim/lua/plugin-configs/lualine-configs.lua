@@ -17,8 +17,14 @@ if not status_ok then
 end
 
 -- Local functions for config lualine.
-local get_words = function()
-  return tostring(vim.fn.wordcount().words) .. ' words  '
+local get_total_line = function()
+  local total_line = tostring(vim.api.nvim_buf_line_count(0))
+
+  if total_line == 1 then
+    return total_line .. ' line  '
+  else
+    return total_line .. ' lines  '
+  end
 end
 
 local get_time = function()
@@ -172,7 +178,7 @@ lualine.setup {
       }
     },
     lualine_c = {},
-    lualine_x = { search_result, get_words, 'filetype' },
+    lualine_x = { search_result, get_total_line, 'filetype' },
     lualine_y = { get_time },
     lualine_z = { get_lines },
   },
