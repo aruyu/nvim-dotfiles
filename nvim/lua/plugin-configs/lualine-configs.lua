@@ -11,19 +11,33 @@
 
 -- ================================================== --
 -- Check error.
-local status_ok, lualine = pcall(require, "lualine")
-if not status_ok then
+local status1_ok, lualine = pcall(require, "lualine")
+if not status1_ok then
+  return
+end
+local status2_ok, colors = pcall(require, "vscode.colors")
+if not status2_ok then
   return
 end
 
 -- Local functions for config lualine.
-local get_total_line = function()
-  local total_line = tostring(vim.api.nvim_buf_line_count(0))
+local get_info = function()
+  --local total_line = tostring(vim.api.nvim_buf_line_count(0)) .. ' lines  '
+  local total_indent_size = tostring(vim.api.nvim_eval('&shiftwidth'))
+  local is_expandtab = vim.api.nvim_eval('&expandtab') == 1
+  local is_blank_buffer = vim.api.nvim_eval('&filetype') == ''
 
-  if total_line == 1 then
-    return total_line .. ' line  '
+  local bar = ''
+  if is_blank_buffer then
+    bar = ''
   else
-    return total_line .. ' lines  '
+    bar = '  '
+  end
+
+  if is_expandtab then
+    return 'spaces: ' .. total_indent_size .. bar
+  else
+    return 'tabs: ' .. total_indent_size .. bar
   end
 end
 
@@ -31,34 +45,11 @@ local get_time = function()
   return os.date('%H:%M')
 end
 
-local get_lines = function()
+local get_present_line = function()
   local line_value = '' .. tostring(vim.fn.line('.'))
   local column_value = '' .. tostring(vim.fn.col('.'))
   return '' .. line_value .. column_value .. ' '
 end
-
-local colors = {
-  vscLeftDark = '#252526',
-  vscLeftMid = '#373737',
-  vscLeftLight = '#636369',
-
-  vscFront = '#D4D4D4',
-  vscGray = '#808080',
-  vscViolet = '#646695',
-  vscBlue = '#569CD6',
-  vscDarkBlue = '#223E55',
-  vscMediumBlue = '#18A2FE',
-  vscLightBlue = '#9CDCFE',
-  vscGreen = '#6A9955',
-  vscBlueGreen = '#4EC9B0',
-  vscLightGreen = '#B5CEA8',
-  vscRed = '#F44747',
-  vscOrange = '#CE9178',
-  vscLightRed = '#D16969',
-  vscYellowOrange = '#D7BA7D',
-  vscYellow = '#DCDCAA',
-  vscPink = '#C586C0',
-}
 
 ---apply transitional separator for the component
 local empty = require("lualine.component"):extend()
@@ -99,7 +90,7 @@ local function search_result()
     return ''
   end
   local searchcount = vim.fn.searchcount { maxcount = 9999 }
-  return last_search .. ': ' .. searchcount.current .. ' of ' .. searchcount.total .. '  '
+  return last_search .. ': ' .. searchcount.current .. ' of ' .. searchcount.total .. '  '
 end
 
 local function modified()
@@ -110,7 +101,6 @@ local function modified()
   end
   return ''
 end
-
 -- ================================================== --
 
 
@@ -178,9 +168,9 @@ lualine.setup {
       }
     },
     lualine_c = {},
-    lualine_x = { search_result, get_total_line, 'filetype' },
+    lualine_x = { search_result, get_info, 'filetype' },
     lualine_y = { get_time },
-    lualine_z = { get_lines },
+    lualine_z = { get_present_line },
   },
 
   inactive_sections = {
