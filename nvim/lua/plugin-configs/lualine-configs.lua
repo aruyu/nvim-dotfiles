@@ -22,12 +22,12 @@ end
 
 -- Local functions for config lualine.
 local get_info = function()
+  local is_blank_buffer = vim.api.nvim_eval('&filetype') == ''
+  local is_expandtab = vim.api.nvim_eval('&expandtab') == 1
   --local total_line = tostring(vim.api.nvim_buf_line_count(0)) .. ' lines  '
   local total_indent_size = tostring(vim.api.nvim_eval('&shiftwidth'))
-  local is_expandtab = vim.api.nvim_eval('&expandtab') == 1
-  local is_blank_buffer = vim.api.nvim_eval('&filetype') == ''
+  local bar
 
-  local bar = ''
   if is_blank_buffer then
     bar = ''
   else

@@ -48,6 +48,7 @@ nvim_autoindents.setup({
       size = 4,
       filetype = {
         'verilog',
+        'systemverilog'
       }
     },
   }
