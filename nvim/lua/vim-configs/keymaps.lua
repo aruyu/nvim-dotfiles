@@ -22,21 +22,23 @@ local t = function(str)
 end
 
 function _G.visual_paste()
-  if vim.fn.getline('.'):sub(vim.fn.col('.'), vim.fn.col('.')) == '' then
+  local present_column = vim.fn.col('.')
+  local forward_column = vim.fn.col('.') + 1
+
+  if vim.fn.getline('.'):sub(present_column, present_column) == '' then   -- check '\n'
     vim.api.nvim_feedkeys(t('<Left>'), 'n', true)
+    vim.api.nvim_feedkeys(t('"_d'), 'n', true)
+  else
+    vim.api.nvim_feedkeys(t('"_d'), 'n', true)
   end
 
-  vim.api.nvim_feedkeys(t('"_d'), 'n', true)
-
-  local col = vim.fn.col('.') + 1
-  local is_cr = vim.fn.getline('.'):sub(col, col) == '' -- is '\n' ?
-
-  if is_cr then
+  if vim.fn.getline('.'):sub(forward_column, forward_column) == '' then
     vim.api.nvim_feedkeys(t('<ESC><ESC>p'), 'n', true)
   else
     vim.api.nvim_feedkeys(t('<ESC><ESC>P'), 'n', true)
   end
 end
+
 
 
 -- ========================= --
@@ -49,7 +51,7 @@ keyset('n', 'ff',     '<CMD>Telescope find_files<CR>', noremap_opt)
 keyset('n', 'fg',     '<CMD>Telescope live_grep<CR>', noremap_opt)
 keyset('n', 'fh',     '<CMD>Telescope help_tags<CR>', noremap_opt)
 keyset('n', 'fb',     '<CMD>Telescope buffers<CR>', noremap_opt)
-keyset('n', 'dd',     '"_d', noremap_opt)
+keyset('n', 'dd',     '"_dd', noremap_opt)
 
 keyset('n', 'ZZ',     'zz', noremap_opt)
 keyset('n', '<C-S>',  ':w<CR>', noremap_opt)
@@ -129,7 +131,7 @@ keyset('v', '<C-S>',  '<ESC><ESC>:w<CR>', noremap_opt)
 keyset('v', '<C-Z>',  '<ESC><ESC>u', noremap_opt)
 keyset('v', '<C-X>',  'd<ESC><ESC>', noremap_opt)
 keyset('v', '<C-C>',  'y<ESC><ESC>', noremap_opt)
-keyset('v', '<C-V>',  '<CMD>lua visual_paste()<CR>', noremap_opt)
+keyset('v', '<C-V>',  '<CMD>lua visual_paste()<CR>', noremap_silent_opt)
 keyset('v', 'v',      '<C-V>', noremap_opt)
 keyset('v', '<S-TAB>', '<C-V>:s/^/  /g<CR>:noh<CR>', noremap_opt)
 
