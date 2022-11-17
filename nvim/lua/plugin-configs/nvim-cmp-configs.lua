@@ -38,11 +38,11 @@ cmp.setup {
     end,
   },
   sources = cmp.config.sources({
-    { name = 'nvim_lsp' },
     { name = 'ultisnips' }, -- For ultisnips users.
     --{ name = 'vsnip' }, -- For vsnip users.
     --{ name = 'luasnip' }, -- For luasnip users.
     --{ name = 'snippy' }, -- For snippy users.
+    { name = 'nvim_lsp' },
   }, {
     { name = 'buffer' },
   }),
@@ -173,7 +173,7 @@ cmp.setup.filetype('gitcommit', {
   })
 })
 
--- Configure setup for `/`.
+-- Configure setup for '/'.
 cmp.setup.cmdline({ '/', '?' }, {
   completion = { completeopt = 'menu,menuone,noselect' },
   sources = {
