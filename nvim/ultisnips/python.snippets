@@ -45,14 +45,14 @@ endsnippet
 
 snippet def
 def ${1}(${2:parameter}):
-  """ Function of ${3:$1} """
+  """ Function to ${3:$1} """
   
   $0
 endsnippet
 
 snippet "def .. (self, ..)"
 def ${1}(self${2:, parameter}):
-  """ Function of ${3:$1} """
+  """ Function to ${3:$1} """
   
   $0
 endsnippet
@@ -120,8 +120,8 @@ snippet "try .. except as"
 try:
   ${1}
 
-except Exception as ${2:error}:
-  ${4:print}("${3}".format($2))
+except ${2:Exception} as ${3:error}:
+  ${4:print}("${5}".format($3))
   $0
 endsnippet
 
