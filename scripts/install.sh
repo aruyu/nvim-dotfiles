@@ -131,7 +131,7 @@ if [ $CURRENT_JOB = $LINUX ]; then
   sudo add-apt-repository ppa:neovim-ppa/unstable
   sudo apt-get -y update
   sudo apt-get -y install neovim
-  pip3 install neovim
+  python3.10 -m pip install neovim
   echo -ne "\n\n\n\n\n"
   progress 15 "Install Neovim"
 

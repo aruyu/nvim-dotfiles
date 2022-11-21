@@ -118,11 +118,6 @@ function progress()
 #   Starting Code in below.
 #/
 
-if [[ $EUID -ne 0 ]]; then
-  script_print_error "This script must be run as root!\n"
-  exit 1
-fi
-
 UPGRADE=y
 UPGRADE_UPPER=Y
 NOUPGRADE=n
@@ -132,45 +127,45 @@ read -p "Do you want to upgrade your Ubuntu latest? (Y/n): " SELECTION
 
 
 if [ $SELECTION = $UPGRADE ]; then
-  apt-get -y update
-  apt-get -y upgrade
-  apt-get -y dist-upgrade
-  apt-get -y install update-manager-core
-  do-release-upgrade -d
+  sudo apt-get -y update
+  sudo apt-get -y upgrade
+  sudo apt-get -y dist-upgrade
+  sudo apt-get -y install update-manager-core
+  sudo do-release-upgrade -d
   
-  lsb_release -a
-  apt-get -y update
-  apt-get -y install software-properties-common
-  apt-get -y install curl
+  sudo lsb_release -a
+  sudo apt-get -y update
+  sudo apt-get -y install software-properties-common
+  sudo apt-get -y install curl
 
-  add-apt-repository ppa:deadsnakes/ppa
-  apt-get -y install python3.10
-  update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.10 1
-  curl https://bootstrap.pypa.io/get-pip.py -o ~/get-pip.py
-  python3 ~/get-pip.py
+  sudo add-apt-repository ppa:deadsnakes/ppa
+  sudo apt-get -y install python3.10
+  sudo update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.10 1
+  sudo curl https://bootstrap.pypa.io/get-pip.py -o ~/get-pip.py
+  sudo python3 ~/get-pip.py
 
-  curl -sL https://deb.nodesource.com/setup_14.x -o ~/nodesource_setup.sh
-  bash ~/nodesource_setup.sh
+  sudo curl -sL https://deb.nodesource.com/setup_14.x -o ~/nodesource_setup.sh
+  sudo bash ~/nodesource_setup.sh
 
-  rm ~/get-pip.py ~/nodesource_setup.sh
+  sudo rm ~/get-pip.py ~/nodesource_setup.sh
 fi
 
 if [ $SELECTION = $NOUPGRADE ]; then
-  lsb_release -a
-  apt-get -y update
-  apt-get -y install software-properties-common
-  apt-get -y install curl
+  sudo lsb_release -a
+  sudo apt-get -y update
+  sudo apt-get -y install software-properties-common
+  sudo apt-get -y install curl
 
-  add-apt-repository ppa:deadsnakes/ppa
-  apt-get -y install python3.10
-  update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.10 1
-  curl https://bootstrap.pypa.io/get-pip.py -o ~/get-pip.py
-  python3 ~/get-pip.py
+  sudo add-apt-repository ppa:deadsnakes/ppa
+  sudo apt-get -y install python3.10
+  #sudo update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.10 1
+  sudo curl https://bootstrap.pypa.io/get-pip.py -o ~/get-pip.py
+  sudo python3.10 ~/get-pip.py
 
-  curl -sL https://deb.nodesource.com/setup_14.x -o ~/nodesource_setup.sh
-  bash ~/nodesource_setup.sh
+  sudo curl -sL https://deb.nodesource.com/setup_14.x -o ~/nodesource_setup.sh
+  sudo bash ~/nodesource_setup.sh
 
-  rm ~/get-pip.py ~/nodesource_setup.sh
+  sudo rm ~/get-pip.py ~/nodesource_setup.sh
 fi
 
 
