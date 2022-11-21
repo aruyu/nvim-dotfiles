@@ -60,7 +60,7 @@ vimset.clipboard:append { 'unnamedplus' }
 -- ========================= --
 -- =     ctags options     =
 -- ========================= --
-vimset.tags = '/home/docker/work/gncs/tags'
+vimset.tags = '/home/user/work/gncs/tags'
 
 
 
