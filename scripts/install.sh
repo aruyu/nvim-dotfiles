@@ -126,54 +126,54 @@ read -p "Enter what you want to install (Linux, Mac, Git): " CURRENT_JOB
 
 
 if [ $CURRENT_JOB = $LINUX ]; then
-  echo -ne "Selected OS: $CURRENT_JOB\n"
+  progress 5 "Selected OS: $CURRENT_JOB\n"
 
-  echo `sudo add-apt-repository ppa:neovim-ppa/unstable`
-  echo `sudo apt-get -y update`
-  echo `sudo apt-get -y install neovim`
-  echo `pip3 install neovim`
+  sudo add-apt-repository ppa:neovim-ppa/unstable
+  sudo apt-get -y update
+  sudo apt-get -y install neovim
+  pip3 install neovim
   echo -ne "\n\n\n\n\n"
-  progress 5 "Install Neovim"
+  progress 15 "Install Neovim"
 
 
-  echo `sudo apt-get install llvm`
-  echo `sudo apt-get -y install clangd`
-  echo `sudo apt-get -y install clang-format`
-  echo `sudo apt-get -y install gcc`
-  echo `sudo apt-get -y install make`
-  echo `sudo apt-get -y install bear`
+  sudo apt-get install llvm
+  sudo apt-get -y install clangd
+  sudo apt-get -y install clang-format
+  sudo apt-get -y install gcc
+  sudo apt-get -y install make
+  sudo apt-get -y install bear
   echo -ne "\n\n\n\n\n"
-  progress 25 "Install clang & gcc"
+  progress 35 "Install clang & gcc"
 
 
-  echo `sudo apt-get -y install universal-ctags`
-  echo `sudo apt-get -y install global`
+  sudo apt-get -y install universal-ctags
+  sudo apt-get -y install global
   echo -ne "\n\n\n\n\n"
-  progress 45 "Install ctags & gtags"
+  progress 55 "Install ctags & gtags"
 
 
-  echo `sudo apt-get -y install unzip`
-  echo `sudo apt-get -y install ripgrep`
+  sudo apt-get -y install unzip
+  sudo apt-get -y install ripgrep
   echo -ne "\n\n\n\n\n"
-  progress 65 "Install utils for Neovim"
+  progress 75 "Install utils for Neovim"
 
 
-  echo `sudo apt-get -y install nodejs`
+  sudo apt-get -y install nodejs
   echo -ne "\n\n\n\n\n"
   progress 95 "Install node-js"
 
 
-  echo `nvim --version`
-  echo `llvm --version`
-  echo `clangd --version`
-  echo `clang-format --version`
-  echo `gcc --version`
-  echo `make --version`
-  echo `bear --version`
-  echo `ctags --version`
-  echo `global --version`
-  echo `unzip --version`
-  echo `node --version`
+  nvim --version
+  llvm --version
+  clangd --version
+  clang-format --version
+  gcc --version
+  make --version
+  bear --version
+  ctags --version
+  global --version
+  unzip --version
+  node --version
   echo -ne "\n\n\n\n\n"
   progress 100 "Done."
 
@@ -181,48 +181,48 @@ if [ $CURRENT_JOB = $LINUX ]; then
 fi
 
 if [ $CURRENT_JOB = $MACOS ]; then
-  echo -ne "Selected OS: $CURRENT_JOB\n"
+  progress 5 "Selected OS: $CURRENT_JOB\n"
 
-  echo `brew install neovim`
-  echo `pip3 install neovim`
+  brew install neovim
+  pip3 install neovim
   echo -ne "\n\n\n\n\n"
-  progress 5 "Install Neovim"
+  progress 15 "Install Neovim"
 
 
-  echo `brew install clang-format`
-  echo `brew install bear`
+  brew install clang-format
+  brew install bear
   echo -ne "\n\n\n\n\n"
-  progress 25 "Install clang & gcc"
+  progress 35 "Install clang & gcc"
 
 
-  echo `brew install universal-ctags`
-  echo `brew install global`
+  brew install universal-ctags
+  brew install global
   echo -ne "\n\n\n\n\n"
-  progress 45 "Install ctags & gtags"
+  progress 55 "Install ctags & gtags"
 
 
-  echo `brew install unzip`
-  echo `brew install ripgrep`
+  brew install unzip
+  brew install ripgrep
   echo -ne "\n\n\n\n\n"
-  progress 65 "Install utils for Neovim"
+  progress 75 "Install utils for Neovim"
 
 
-  echo `brew install node`
+  brew install node
   echo -ne "\n\n\n\n\n"
   progress 95 "Install node-js"
 
 
-  echo `nvim --version`
-  echo `llvm --version`
-  echo `clangd --version`
-  echo `clang-format --version`
-  echo `gcc --version`
-  echo `make --version`
-  echo `bear --version`
-  echo `ctags --version`
-  echo `global --version`
-  echo `unzip --version`
-  echo `node --version`
+  nvim --version
+  llvm --version
+  clangd --version
+  clang-format --version
+  gcc --version
+  make --version
+  bear --version
+  ctags --version
+  global --version
+  unzip --version
+  node --version
   echo -ne "\n\n\n\n\n"
   progress 100 "Done."
 
@@ -232,13 +232,13 @@ fi
 if [ $CURRENT_JOB = $GIT ]; then
   echo -ne "Selected Job: $CURRENT_JOB\n"
 
-  echo `git config --global core.editor "nvim"`
-  echo `git config --global commit.template "~/.config/.gitconfig"`
+  git config --global core.editor "nvim"
+  git config --global commit.template "~/.config/.gitconfig"
 
-  echo `git config --global user.name`
-  echo `git config --global user.email`
-  echo `git config --global core.editor`
-  echo `git config --global commit.template`
+  git config --global user.name
+  git config --global user.email
+  git config --global core.editor
+  git config --global commit.template
 
   exit 1
 fi
