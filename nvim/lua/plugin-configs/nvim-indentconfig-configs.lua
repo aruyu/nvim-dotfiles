@@ -38,6 +38,13 @@ nvim_autoindents.setup({
       size = 8,
       filetype = {
         'make',
+      }
+    },
+
+    {
+      expandtab = false,
+      size = 4,
+      filetype = {
         'c',
         'cpp',
       }
