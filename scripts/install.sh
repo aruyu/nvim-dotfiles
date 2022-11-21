@@ -126,7 +126,7 @@ read -p "Enter what you want to install (Linux, Mac, Git): " CURRENT_JOB
 
 
 if [ $CURRENT_JOB = $LINUX ]; then
-  progress 5 "Selected OS: $CURRENT_JOB\n"
+  progress 5 "Selected OS: $CURRENT_JOB"
 
   echo -ne "Progressing...                                                                                "
   sudo add-apt-repository ppa:neovim-ppa/unstable
@@ -188,7 +188,7 @@ if [ $CURRENT_JOB = $LINUX ]; then
 fi
 
 if [ $CURRENT_JOB = $MACOS ]; then
-  progress 5 "Selected OS: $CURRENT_JOB\n"
+  progress 5 "Selected OS: $CURRENT_JOB"
 
   echo -ne "Progressing...                                                                                "
   brew install neovim

@@ -151,7 +151,7 @@ if [ $CURRENT_JOB = $LINUX ]; then
     add-apt-repository ppa:deadsnakes/ppa
     apt-get -y install python3.10
     curl https://bootstrap.pypa.io/get-pip.py -o ~/get-pip.py
-    python3.10 ~/get-pip.py
+    sudo -H python3.10 ~/get-pip.py
 
     curl -sL https://deb.nodesource.com/setup_14.x -o ~/nodesource_setup.sh
     bash ~/nodesource_setup.sh
@@ -172,7 +172,7 @@ if [ $CURRENT_JOB = $LINUX ]; then
     add-apt-repository ppa:deadsnakes/ppa
     apt-get -y install python3.10
     curl https://bootstrap.pypa.io/get-pip.py -o ~/get-pip.py
-    python3.10 ~/get-pip.py
+    sudo -H python3.10 ~/get-pip.py
 
     curl -sL https://deb.nodesource.com/setup_14.x -o ~/nodesource_setup.sh
     bash ~/nodesource_setup.sh
