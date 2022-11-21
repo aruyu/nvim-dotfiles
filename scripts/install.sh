@@ -128,15 +128,15 @@ read -p "Enter what you want to install (Linux, Mac, Git): " CURRENT_JOB
 if [ $CURRENT_JOB = $LINUX ]; then
   progress 5 "Selected OS: $CURRENT_JOB"
 
-  echo -ne "Progressing...                                                                                "
+  echo -ne "Progressing...                                                                                \n"
   sudo add-apt-repository ppa:neovim-ppa/unstable
-  sudo apt-get -y update
+  sudo apt-get update
   sudo apt-get -y install neovim
   echo -ne "\n\n\n\n\n"
   progress 15 "Install Neovim"
 
 
-  echo -ne "Progressing...                                                                                "
+  echo -ne "Progressing...                                                                                \n"
   sudo apt-get -y install llvm
   sudo apt-get -y install clangd
   sudo apt-get -y install clang-format
@@ -147,30 +147,32 @@ if [ $CURRENT_JOB = $LINUX ]; then
   progress 35 "Install clang & gcc"
 
 
-  echo -ne "Progressing...                                                                                "
+  echo -ne "Progressing...                                                                                \n"
   sudo apt-get -y install universal-ctags
   sudo apt-get -y install global
   echo -ne "\n\n\n\n\n"
   progress 55 "Install ctags & gtags"
 
 
-  echo -ne "Progressing...                                                                                "
+  echo -ne "Progressing...                                                                                \n"
   sudo apt-get -y install unzip
   sudo apt-get -y install ripgrep
+  sudo add-apt-repository ppa:lazygit-team/release
+  sudo apt-get update
   sudo apt-get -y install lazygit
   echo -ne "\n\n\n\n\n"
   progress 75 "Install utils for Neovim"
 
 
-  echo -ne "Progressing...                                                                                "
-  sudo apt-get install python3-venv
+  echo -ne "Progressing...                                                                                \n"
+  sudo apt-get -y install python3-venv
   sudo npm install -g neovim
   pip3 install neovim
   echo -ne "\n\n\n\n\n"
   progress 95 "Install extras for Neovim"
 
 
-  echo -ne "Progressing...                                                                                "
+  echo -ne "Progressing...                                                                                \n"
   nvim --version
   llvm --version
   clangd --version
@@ -190,27 +192,27 @@ fi
 if [ $CURRENT_JOB = $MACOS ]; then
   progress 5 "Selected OS: $CURRENT_JOB"
 
-  echo -ne "Progressing...                                                                                "
+  echo -ne "Progressing...                                                                                \n"
   brew install neovim
   echo -ne "\n\n\n\n\n"
   progress 15 "Install Neovim"
 
 
-  echo -ne "Progressing...                                                                                "
+  echo -ne "Progressing...                                                                                \n"
   brew install clang-format
   brew install bear
   echo -ne "\n\n\n\n\n"
   progress 35 "Install clang & gcc"
 
 
-  echo -ne "Progressing...                                                                                "
+  echo -ne "Progressing...                                                                                \n"
   brew install universal-ctags
   brew install global
   echo -ne "\n\n\n\n\n"
   progress 55 "Install ctags & gtags"
 
 
-  echo -ne "Progressing...                                                                                "
+  echo -ne "Progressing...                                                                                \n"
   brew install unzip
   brew install ripgrep
   brew install lazygit
@@ -218,14 +220,14 @@ if [ $CURRENT_JOB = $MACOS ]; then
   progress 75 "Install utils for Neovim"
 
 
-  echo -ne "Progressing...                                                                                "
+  echo -ne "Progressing...                                                                                \n"
   sudo npm install -g neovim
   pip3 install neovim
   echo -ne "\n\n\n\n\n"
   progress 95 "Install extras for Neovim"
 
 
-  echo -ne "Progressing...                                                                                "
+  echo -ne "Progressing...                                                                                \n"
   nvim --version
   llvm --version
   clangd --version
