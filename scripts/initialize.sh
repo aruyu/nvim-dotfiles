@@ -132,45 +132,45 @@ read -p "Do you want to upgrade your Ubuntu latest? (Y/n): " SELECTION
 
 
 if [ $SELECTION = $UPGRADE ]; then
-  echo `apt-get -y update`
-  echo `apt-get -y upgrade`
-  echo `apt-get -y dist-upgrade`
-  echo `apt-get -y install update-manager-core`
-  echo `do-release-upgrade -d`
-  echo
-  echo `lsb_release -a`
-  echo `apt-get -y update`
-  echo `apt-get -y install software-properties-common`
-  echo `apt-get -y install curl`
+  apt-get -y update
+  apt-get -y upgrade
+  apt-get -y dist-upgrade
+  apt-get -y install update-manager-core
+  do-release-upgrade -d
+  
+  lsb_release -a
+  apt-get -y update
+  apt-get -y install software-properties-common
+  apt-get -y install curl
 
-  echo `add-apt-repository ppa:deadsnakes/ppa`
-  echo `apt-get -y install python3.10`
-  echo `update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.10 1`
-  echo `curl https://bootstrap.pypa.io/get-pip.py -o ~/get-pip.py`
-  echo `python3 ~/get-pip.py`
+  add-apt-repository ppa:deadsnakes/ppa
+  apt-get -y install python3.10
+  update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.10 1
+  curl https://bootstrap.pypa.io/get-pip.py -o ~/get-pip.py
+  python3 ~/get-pip.py
 
-  echo `curl -sL https://deb.nodesource.com/setup_14.x -o ~/nodesource_setup.sh`
-  echo `bash ~/nodesource_setup.sh`
+  curl -sL https://deb.nodesource.com/setup_14.x -o ~/nodesource_setup.sh
+  bash ~/nodesource_setup.sh
 
-  echo `rm ~/get-pip.py ~/nodesource_setup.sh`
+  rm ~/get-pip.py ~/nodesource_setup.sh
 fi
 
 if [ $SELECTION = $NOUPGRADE ]; then
-  echo `lsb_release -a`
-  echo `apt-get -y update`
-  echo `apt-get -y install software-properties-common`
-  echo `apt-get -y install curl`
+  lsb_release -a
+  apt-get -y update
+  apt-get -y install software-properties-common
+  apt-get -y install curl
 
-  echo `add-apt-repository ppa:deadsnakes/ppa`
-  echo `apt-get -y install python3.10`
-  echo `update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.10 1`
-  echo `curl https://bootstrap.pypa.io/get-pip.py -o ~/get-pip.py`
-  echo `python3 ~/get-pip.py`
+  add-apt-repository ppa:deadsnakes/ppa
+  apt-get -y install python3.10
+  update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.10 1
+  curl https://bootstrap.pypa.io/get-pip.py -o ~/get-pip.py
+  python3 ~/get-pip.py
 
-  echo `curl -sL https://deb.nodesource.com/setup_14.x -o ~/nodesource_setup.sh`
-  echo `bash ~/nodesource_setup.sh`
+  curl -sL https://deb.nodesource.com/setup_14.x -o ~/nodesource_setup.sh
+  bash ~/nodesource_setup.sh
 
-  echo `rm ~/get-pip.py ~/nodesource_setup.sh`
+  rm ~/get-pip.py ~/nodesource_setup.sh
 fi
 
 
