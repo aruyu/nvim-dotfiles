@@ -122,51 +122,49 @@ LINUX=Linux
 MACOS=Mac
 GIT=Git
 
-read -p "Enter what you want to install: " CURRENT_JOB
+read -p "Enter what you want to install (Linux, Mac, Git): " CURRENT_JOB
 
 
 if [ $CURRENT_JOB = $LINUX ]; then
   echo -ne "Selected OS: $CURRENT_JOB\n"
 
-  echo `sudo add-apt-repository ppa:neovim-ppa/unstable -y`
-  echo `sudo apt-get update -y`
-  echo `sudo apt-get install neovim -y`
+  echo `sudo add-apt-repository ppa:neovim-ppa/unstable`
+  echo `sudo apt-get -y update`
+  echo `sudo apt-get -y install neovim`
   echo `pip3 install neovim`
-  #git clone --depth 1 https://github.com/wbthomason/packer.nvim\
-  # ~/.local/share/nvim/site/pack/packer/start/packer.nvim
-  #echo `sudo apt-get install powerline fonts-powerline -y`
   echo -ne "\n\n\n\n\n"
   progress 5 "Install Neovim"
 
 
-  #echo `sudo apt-get install llvm -y`
-  echo `sudo apt-get install clangd -y`
-  echo `sudo apt-get install clang-format -y`
-  echo `sudo apt-get install gcc -y`
-  echo `sudo apt-get install make -y`
-  echo `sudo apt-get install bear -y`
+  echo `sudo apt-get install llvm`
+  echo `sudo apt-get -y install clangd`
+  echo `sudo apt-get -y install clang-format`
+  echo `sudo apt-get -y install gcc`
+  echo `sudo apt-get -y install make`
+  echo `sudo apt-get -y install bear`
   echo -ne "\n\n\n\n\n"
-  progress 35 "Install clang & gcc"
+  progress 25 "Install clang & gcc"
 
 
-  echo `sudo apt-get install universal-ctags -y`
-  echo `sudo apt-get install global -y`
+  echo `sudo apt-get -y install universal-ctags`
+  echo `sudo apt-get -y install global`
   echo -ne "\n\n\n\n\n"
-  progress 65 "Install ctags & gtags"
+  progress 45 "Install ctags & gtags"
 
 
-  echo `sudo apt-get install unzip -y`
-  echo `sudo apt-get install ripgrep -y`
+  echo `sudo apt-get -y install unzip`
+  echo `sudo apt-get -y install ripgrep`
   echo -ne "\n\n\n\n\n"
-  progress 95 "Install utils for Neovim"
+  progress 65 "Install utils for Neovim"
 
 
-  #echo `curl -sL install-node.vercel.app/lts | bash`
-  #echo -ne "\n\n\n\n\n"
-  #progress 95 "Install node-js"
+  echo `sudo apt-get -y install nodejs`
+  echo -ne "\n\n\n\n\n"
+  progress 95 "Install node-js"
 
 
   echo `nvim --version`
+  echo `llvm --version`
   echo `clangd --version`
   echo `clang-format --version`
   echo `gcc --version`
@@ -187,8 +185,6 @@ if [ $CURRENT_JOB = $MACOS ]; then
 
   echo `brew install neovim`
   echo `pip3 install neovim`
-  #git clone --depth 1 https://github.com/wbthomason/packer.nvim\
-  # ~/.local/share/nvim/site/pack/packer/start/packer.nvim
   echo -ne "\n\n\n\n\n"
   progress 5 "Install Neovim"
 
@@ -217,6 +213,7 @@ if [ $CURRENT_JOB = $MACOS ]; then
 
 
   echo `nvim --version`
+  echo `llvm --version`
   echo `clangd --version`
   echo `clang-format --version`
   echo `gcc --version`

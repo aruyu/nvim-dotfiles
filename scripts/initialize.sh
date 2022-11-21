@@ -123,16 +123,60 @@ if [[ $EUID -ne 0 ]]; then
   exit 1
 fi
 
+UPGRADE=y
+UPGRADE_UPPER=Y
+NOUPGRADE=n
+NOUPGRADE_UPPER=N
 
-echo `apt-get update && apt-get upgrade -y`
-echo `apt-get dist-upgrade -y`
-echo `apt-get install update-manager-core -y`
-echo `do-release-upgrade -d`
-echo
-echo `lsb_release -a`
-echo `apt-get install software-properties-common -y`
-echo `apt-get install curl -y`
-echo `curl -sL install-node.vercel.app/lts | bash`
+read -p "Do you want to upgrade your Ubuntu latest? (Y/n): " SELECTION
+
+
+if [ $SELECTION = $UPGRADE ]; then
+  echo `apt-get -y update`
+  echo `apt-get -y upgrade`
+  echo `apt-get -y dist-upgrade`
+  echo `apt-get -y install update-manager-core`
+  echo `do-release-upgrade -d`
+  echo
+  echo `lsb_release -a`
+  echo `apt-get -y update`
+  echo `apt-get -y install software-properties-common`
+  echo `apt-get -y install curl`
+
+  echo `add-apt-repository ppa:deadsnakes/ppa`
+  echo `apt-get -y install python3.10`
+  echo `update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.10 1`
+  echo `curl https://bootstrap.pypa.io/get-pip.py -o ~/get-pip.py`
+  echo `python3 ~/get-pip.py`
+
+  echo `curl -sL https://deb.nodesource.com/setup_14.x -o ~/nodesource_setup.sh`
+  echo `bash ~/nodesource_setup.sh`
+
+  echo `rm ~/get-pip.py ~/nodesource_setup.sh`
+fi
+
+if [ $SELECTION = $NOUPGRADE ]; then
+  echo `lsb_release -a`
+  echo `apt-get -y update`
+  echo `apt-get -y install software-properties-common`
+  echo `apt-get -y install curl`
+
+  echo `add-apt-repository ppa:deadsnakes/ppa`
+  echo `apt-get -y install python3.10`
+  echo `update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.10 1`
+  echo `curl https://bootstrap.pypa.io/get-pip.py -o ~/get-pip.py`
+  echo `python3 ~/get-pip.py`
+
+  echo `curl -sL https://deb.nodesource.com/setup_14.x -o ~/nodesource_setup.sh`
+  echo `bash ~/nodesource_setup.sh`
+
+  echo `rm ~/get-pip.py ~/nodesource_setup.sh`
+fi
+
+
+
+
+#echo `curl -sL install-node.vercel.app/lts | bash`
 
 
 # /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
