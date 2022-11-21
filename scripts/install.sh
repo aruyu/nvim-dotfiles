@@ -154,6 +154,7 @@ if [ $CURRENT_JOB = $LINUX ]; then
 
   sudo apt-get -y install unzip
   sudo apt-get -y install ripgrep
+  sudo apt-get -y install lazygit
   echo -ne "\n\n\n\n\n"
   progress 75 "Install utils for Neovim"
 
@@ -203,6 +204,7 @@ if [ $CURRENT_JOB = $MACOS ]; then
 
   brew install unzip
   brew install ripgrep
+  brew install lazygit
   echo -ne "\n\n\n\n\n"
   progress 75 "Install utils for Neovim"
 
