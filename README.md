@@ -3,24 +3,25 @@ Custom configs for Neovim written by Lua Script.
 
 ## Installation
 > Clone the repository
-
 ```shell
 git clone https://github.com/vine91/neovim_configs.git ~/.config
 ```
 
-> Run install.sh for utils
-
+> If you don't have python3(pip3) & node-js, run initialize.sh first
 ```shell
-~/.config/script/install.sh
+sudo bash ~/.config/script/initialize.sh
 ```
 
+> Run install.sh for utils
+```shell
+bash ~/.config/script/install.sh
+```
 Type one of belows
 - Linux
 - Mac
-- Git (set gitcommit templete)
+- Git (set gitcommit templete for optional)
 
 > Start Neovim once for Bootstraping Packer
-
 **NOTE:** If you have some problems with 'nvim-treesitter', you should update 'nvim-treesitter' with
 ```vim
 :TSUpdate

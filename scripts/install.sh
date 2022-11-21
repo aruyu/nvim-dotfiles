@@ -128,15 +128,16 @@ read -p "Enter what you want to install (Linux, Mac, Git): " CURRENT_JOB
 if [ $CURRENT_JOB = $LINUX ]; then
   progress 5 "Selected OS: $CURRENT_JOB\n"
 
+  echo -ne "Progressing...                                                                                "
   sudo add-apt-repository ppa:neovim-ppa/unstable
   sudo apt-get -y update
   sudo apt-get -y install neovim
-  python3.10 -m pip install neovim
   echo -ne "\n\n\n\n\n"
   progress 15 "Install Neovim"
 
 
-  sudo apt-get install llvm
+  echo -ne "Progressing...                                                                                "
+  sudo apt-get -y install llvm
   sudo apt-get -y install clangd
   sudo apt-get -y install clang-format
   sudo apt-get -y install gcc
@@ -146,12 +147,14 @@ if [ $CURRENT_JOB = $LINUX ]; then
   progress 35 "Install clang & gcc"
 
 
+  echo -ne "Progressing...                                                                                "
   sudo apt-get -y install universal-ctags
   sudo apt-get -y install global
   echo -ne "\n\n\n\n\n"
   progress 55 "Install ctags & gtags"
 
 
+  echo -ne "Progressing...                                                                                "
   sudo apt-get -y install unzip
   sudo apt-get -y install ripgrep
   sudo apt-get -y install lazygit
@@ -159,11 +162,15 @@ if [ $CURRENT_JOB = $LINUX ]; then
   progress 75 "Install utils for Neovim"
 
 
-  sudo apt-get -y install nodejs
+  echo -ne "Progressing...                                                                                "
+  sudo apt-get install python3-venv
+  sudo npm install -g neovim
+  pip3 install neovim
   echo -ne "\n\n\n\n\n"
-  progress 95 "Install node-js"
+  progress 95 "Install extras for Neovim"
 
 
+  echo -ne "Progressing...                                                                                "
   nvim --version
   llvm --version
   clangd --version
@@ -174,7 +181,6 @@ if [ $CURRENT_JOB = $LINUX ]; then
   ctags --version
   global --version
   unzip --version
-  node --version
   echo -ne "\n\n\n\n\n"
   progress 100 "Done."
 
@@ -184,24 +190,27 @@ fi
 if [ $CURRENT_JOB = $MACOS ]; then
   progress 5 "Selected OS: $CURRENT_JOB\n"
 
+  echo -ne "Progressing...                                                                                "
   brew install neovim
-  pip3 install neovim
   echo -ne "\n\n\n\n\n"
   progress 15 "Install Neovim"
 
 
+  echo -ne "Progressing...                                                                                "
   brew install clang-format
   brew install bear
   echo -ne "\n\n\n\n\n"
   progress 35 "Install clang & gcc"
 
 
+  echo -ne "Progressing...                                                                                "
   brew install universal-ctags
   brew install global
   echo -ne "\n\n\n\n\n"
   progress 55 "Install ctags & gtags"
 
 
+  echo -ne "Progressing...                                                                                "
   brew install unzip
   brew install ripgrep
   brew install lazygit
@@ -209,11 +218,14 @@ if [ $CURRENT_JOB = $MACOS ]; then
   progress 75 "Install utils for Neovim"
 
 
-  brew install node
+  echo -ne "Progressing...                                                                                "
+  sudo npm install -g neovim
+  pip3 install neovim
   echo -ne "\n\n\n\n\n"
-  progress 95 "Install node-js"
+  progress 95 "Install extras for Neovim"
 
 
+  echo -ne "Progressing...                                                                                "
   nvim --version
   llvm --version
   clangd --version
@@ -224,7 +236,6 @@ if [ $CURRENT_JOB = $MACOS ]; then
   ctags --version
   global --version
   unzip --version
-  node --version
   echo -ne "\n\n\n\n\n"
   progress 100 "Done."
 
@@ -233,7 +244,11 @@ fi
 
 if [ $CURRENT_JOB = $GIT ]; then
   echo -ne "Selected Job: $CURRENT_JOB\n"
+  read -p "Git user.name: " USERNAME
+  read -p "Git user.email: " USEREMAIL
 
+  git config --global user.name "$USERNAME"
+  git config --global user.email "$USEREMAIL"
   git config --global core.editor "nvim"
   git config --global commit.template "~/.config/.gitconfig"
 

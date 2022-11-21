@@ -118,69 +118,94 @@ function progress()
 #   Starting Code in below.
 #/
 
+if [[ $EUID -ne 0 ]]; then
+  script_print_error "This script must be run as root!\n"
+  exit 1
+fi
+
+LINUX=Linux
+MACOS=Mac
+
 UPGRADE=y
-UPGRADE_UPPER=Y
 NOUPGRADE=n
-NOUPGRADE_UPPER=N
 
-read -p "Do you want to upgrade your Ubuntu latest? (Y/n): " SELECTION
+read -p "Enter what you want to initialize (Linux, Mac): " CURRENT_JOB
 
 
-if [ $SELECTION = $UPGRADE ]; then
-  sudo apt-get -y update
-  sudo apt-get -y upgrade
-  sudo apt-get -y dist-upgrade
-  sudo apt-get -y install update-manager-core
-  sudo do-release-upgrade -d
-  
-  sudo lsb_release -a
-  sudo apt-get -y update
-  sudo apt-get -y install software-properties-common
-  sudo apt-get -y install curl
+if [ $CURRENT_JOB = $LINUX ]; then
+  echo -ne "Selected Job: $CURRENT_JOB\n"
+  read -p "Do you want to upgrade your Ubuntu latest? (y/n): " SELECTION
 
-  sudo add-apt-repository ppa:deadsnakes/ppa
-  sudo apt-get -y install python3.10
-  sudo update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.10 1
-  sudo curl https://bootstrap.pypa.io/get-pip.py -o ~/get-pip.py
-  sudo python3 ~/get-pip.py
+  if [ $SELECTION = $UPGRADE ]; then
+    apt-get -y update
+    apt-get -y upgrade
+    apt-get -y dist-upgrade
+    apt-get -y install update-manager-core
+    do-release-upgrade -d
 
-  sudo curl -sL https://deb.nodesource.com/setup_14.x -o ~/nodesource_setup.sh
-  sudo bash ~/nodesource_setup.sh
+    lsb_release -a
+    apt-get -y update
+    apt-get -y install software-properties-common
+    apt-get -y install curl
 
-  sudo rm ~/get-pip.py ~/nodesource_setup.sh
+    add-apt-repository ppa:deadsnakes/ppa
+    apt-get -y install python3.10
+    curl https://bootstrap.pypa.io/get-pip.py -o ~/get-pip.py
+    python3.10 ~/get-pip.py
+
+    curl -sL https://deb.nodesource.com/setup_14.x -o ~/nodesource_setup.sh
+    bash ~/nodesource_setup.sh
+    apt-get -y install nodejs
+
+    rm ~/get-pip.py ~/nodesource_setup.sh
+    pip --version
+    pip3 --version
+    node --version
+  fi
+
+  if [ $SELECTION = $NOUPGRADE ]; then
+    lsb_release -a
+    apt-get -y update
+    apt-get -y install software-properties-common
+    apt-get -y install curl
+
+    add-apt-repository ppa:deadsnakes/ppa
+    apt-get -y install python3.10
+    curl https://bootstrap.pypa.io/get-pip.py -o ~/get-pip.py
+    python3.10 ~/get-pip.py
+
+    curl -sL https://deb.nodesource.com/setup_14.x -o ~/nodesource_setup.sh
+    bash ~/nodesource_setup.sh
+    apt-get -y install nodejs
+
+    rm ~/get-pip.py ~/nodesource_setup.sh
+    pip --version
+    pip3 --version
+    node --version
+    npm --version
+  fi
+
+  exit 1
 fi
 
-if [ $SELECTION = $NOUPGRADE ]; then
-  sudo lsb_release -a
-  sudo apt-get -y update
-  sudo apt-get -y install software-properties-common
-  sudo apt-get -y install curl
+if [ $CURRENT_JOB = $MACOS ]; then
+  echo -ne "Selected Job: $CURRENT_JOB\n"
 
-  sudo add-apt-repository ppa:deadsnakes/ppa
-  sudo apt-get -y install python3.10
-  #sudo update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.10 1
-  sudo curl https://bootstrap.pypa.io/get-pip.py -o ~/get-pip.py
-  sudo python3.10 ~/get-pip.py
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+  echo '# Set PATH, MANPATH, etc., for Homebrew.' >> ~/.bashrc
+  echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> ~/.bashrc
+  eval "$(/opt/homebrew/bin/brew shellenv)"
+  brew update
+  brew upgrade
 
-  sudo curl -sL https://deb.nodesource.com/setup_14.x -o ~/nodesource_setup.sh
-  sudo bash ~/nodesource_setup.sh
+  brew install bash
+  brew install node
 
-  sudo rm ~/get-pip.py ~/nodesource_setup.sh
+  bash --version
+  pip --version
+  pip3 --version
+  node --version
+  npm --version
+
+  exit 1
 fi
-
-
-
-
-#echo `curl -sL install-node.vercel.app/lts | bash`
-
-
-# /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-# echo '# Set PATH, MANPATH, etc., for Homebrew.' >> ~/.bashrc
-# echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> ~/.bashrc
-# eval "$(/opt/homebrew/bin/brew shellenv)"
-
-# brew update
-# brew upgrade
-
-# brew install bash
-# bash --version
