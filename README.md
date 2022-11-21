@@ -9,12 +9,12 @@ git clone https://github.com/vine91/neovim_configs.git ~/.config
 
 > If you don't have python3(pip3) & node-js, run initialize.sh first
 ```shell
-sudo bash ~/.config/script/initialize.sh
+sudo bash ~/.configs/script/initialize.sh
 ```
 
 > Run install.sh for utils
 ```shell
-bash ~/.config/script/install.sh
+bash ~/.config/scripts/install.sh
 ```
 Type one of belows
 - Linux
