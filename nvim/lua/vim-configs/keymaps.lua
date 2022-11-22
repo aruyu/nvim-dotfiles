@@ -249,6 +249,9 @@ vim.cmd([[
   vnoremap <F2>   y/<C-R>=escape(@",'/\')<CR><CR>N:%s/<C-R>=escape(@",'/\')<CR>/<C-R>=escape(@",'/\')<CR>/g<Left><Left>
   vnoremap <F3>   y/<C-R>=escape(@",'/\')<CR><CR>N
 
+  map <Home>      5z<Left>5z<Left>5z<Left>5z<Left>5z<Left>
+  map <End>       5z<Right>5z<Right>5z<Right>5z<Right>5z<Right>
+
   ca ff Telescope find_files
   ca fg Telescope grep_string
   ca fh Telescope help_tags
