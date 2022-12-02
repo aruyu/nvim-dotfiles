@@ -88,6 +88,7 @@ return packer.startup(
       tag = 'nightly' -- optional, updated every week. (see issue #1193)
     }
     use 'preservim/tagbar'
+    --use 'liuchengxu/vista.vim'
     --use 'puremourning/vimspector'
 
 
