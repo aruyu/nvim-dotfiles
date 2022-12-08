@@ -89,15 +89,29 @@ mason_lspconfig.setup({
   automatic_installation = true
 })
 
--- LSP server setup.
+-- Neovim's diagnostic config.
+vim.diagnostic.config({
+  virtual_text = true,
+  signs = false,
+  underline = true,
+  update_in_insert = true
+})
+
+
+-- =========================== --
+--         LSP Configs         --
+-- =========================== --
+-- LSP for bash.
 lspconfig.bashls.setup {
   capabilities = capabilities
 }
 
+-- LSP for clangd.
 lspconfig.clangd.setup {
   capabilities = capabilities
 }
 
+-- LSP for lua.
 lspconfig.sumneko_lua.setup {
   settings = {
     Lua = {
@@ -111,18 +125,17 @@ lspconfig.sumneko_lua.setup {
   capabilities = capabilities
 }
 
+-- LSP for python.
 lspconfig.jedi_language_server.setup {
   capabilities = capabilities
 }
 
-lspconfig.svlangserver.setup {
+-- LSP for ruby.
+lspconfig.solargraph.setup {
   capabilities = capabilities
 }
 
--- Neovim's diagnostic config.
-vim.diagnostic.config({
-  virtual_text = true,
-  signs = false,
-  underline = true,
-  update_in_insert = true
-})
+-- LSP for system verilog.
+lspconfig.svlangserver.setup {
+  capabilities = capabilities
+}
