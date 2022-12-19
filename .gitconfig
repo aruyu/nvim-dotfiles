@@ -11,8 +11,11 @@
 # ---- <type> list ----
 #   feat      : [Algorithm] New feature
 #   fix       : [Algorithm] Fix bug
-#   refactor  : [Code] Refactor code
-#   style     : [Code] Change style of code (white space, semicolon etc)
+#   perf      : [Algorithm] Improve performance
+#   design    : [Algorithm] Change GUI Design
+#
+#   refactor  : [Code] Refactor code (logical changes which doesn't change any features)
+#   style     : [Code] Change style of code (white space, semicolon, name etc)
 #   build     : [Script] Change in build script
 #   ci        : [Script] Change in ci script
 #
@@ -23,10 +26,12 @@
 # ---------------------
 #
 # ------- Rules -------
-#     Capitalize the subject line
-#     Use imperitive mood in subject
-#     Do not use period at the end of subject
-#     Seperate subject and content with a blank line
-#     Use the body explain "what" and "why" vs "how"
-#     Use "-" when content contains multiline
+#   Capitalize the subject line
+#   Use imperitive mood in subject
+#   Do not use period at the end of subject
+#   Seperate subject and content with a blank line
+#
+#   Use the body explain "what" and "why" vs "how"
+#   Use "-" when content contains multiline
+#   Try not to use past sentences such as "Added" vs "Add"
 # ---------------------
