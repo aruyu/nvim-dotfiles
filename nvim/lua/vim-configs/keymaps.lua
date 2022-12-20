@@ -11,7 +11,6 @@
 
 -- Local variables for keymap
 local keyset = vim.keymap.set
-
 local remap_opt = { remap = true }
 local remap_silent_opt = { remap = true, silent = true }
 local noremap_opt = { noremap = true }
@@ -131,7 +130,7 @@ end
 -- =      NORMAL MODE      =
 -- ========================= --
 keyset('n', 'fq',     'l:q<CR>', noremap_opt)
-keyset('n', 'fs',     '<CMD>Gitsigns diffthis<CR>L', noremap_opt)
+keyset('n', 'fs',     '<CMD>Gitsigns diffthis<CR>', noremap_opt)
 keyset('n', 'fd',     '<CMD>Gitsigns preview_hunk<CR>', noremap_opt)
 keyset('n', 'ff',     '<CMD>Telescope find_files<CR>', noremap_opt)
 keyset('n', 'fg',     '<CMD>Telescope live_grep<CR>', noremap_opt)
