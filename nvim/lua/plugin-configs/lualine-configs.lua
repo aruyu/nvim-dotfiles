@@ -18,6 +18,8 @@ end
 local status2_ok, colors = pcall(require, "vscode.colors")
 if not status2_ok then
   return
+else
+  colors = colors.get_colors()
 end
 
 -- Local functions for config lualine.

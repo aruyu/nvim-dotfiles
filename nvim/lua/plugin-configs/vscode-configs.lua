@@ -17,7 +17,7 @@ if not status_ok then
 end
 
 -- Local variables for config.
-local colors = require("vscode.colors")
+local colors = require("vscode.colors").get_colors()
 local hl = vim.api.nvim_set_hl
 -- ================================================== --
 
