@@ -126,6 +126,7 @@ function _G.visual_group_test()
 end
 
 
+
 -- ========================= --
 -- =      NORMAL MODE      =
 -- ========================= --
