@@ -23,7 +23,7 @@ end
 function _G.visual_copy()
   local present_column = vim.fn.col('.')
 
-  if vim.fn.getline('.'):sub(present_column, present_column) == '' then   -- check '\n'
+  if (vim.fn.getline('.'):sub(present_column, present_column)) == '' and (present_column ~= 1) then   -- check '\n'
     vim.api.nvim_feedkeys(t('<Left>'), 'n', true)
     vim.api.nvim_feedkeys(t('y<ESC><ESC>'), 'n', true)
   else
@@ -35,14 +35,14 @@ function _G.visual_paste()
   local present_column = vim.fn.col('.')
   local forward_column = vim.fn.col('.') + 1
 
-  if vim.fn.getline('.'):sub(present_column, present_column) == '' then   -- check '\n'
+  if (vim.fn.getline('.'):sub(present_column, present_column)) == '' and (present_column ~= 1) then   -- check '\n'
     vim.api.nvim_feedkeys(t('<Left>'), 'n', true)
     vim.api.nvim_feedkeys(t('"_d'), 'n', true)
   else
     vim.api.nvim_feedkeys(t('"_d'), 'n', true)
   end
 
-  if vim.fn.getline('.'):sub(forward_column, forward_column) == '' then
+  if (vim.fn.getline('.'):sub(forward_column, forward_column)) == '' and (present_column ~= 1) then
     vim.api.nvim_feedkeys(t('<ESC><ESC>p'), 'n', true)
   else
     vim.api.nvim_feedkeys(t('<ESC><ESC>P'), 'n', true)
@@ -217,7 +217,7 @@ keyset('v', '<C-S>',  '<ESC><ESC>:w<CR>', noremap_opt)
 keyset('v', '<C-Z>',  '<ESC><ESC>u', noremap_opt)
 keyset('v', '<C-X>',  'd<ESC><ESC>', noremap_opt)
 keyset('v', '<C-C>',  '<CMD>lua visual_copy()<CR>', noremap_opt)
-keyset('v', '<C-V>',  '<CMD>lua visual_paste()<CR>', noremap_silent_opt)
+keyset('v', '<C-V>',  '<CMD>lua visual_paste()<CR>', noremap_opt)
 keyset('v', 'v',      '<C-V>', noremap_opt)
 keyset('v', '<S-TAB>', ':<ESC>:lua visual_group_indent()<CR>', noremap_opt)
 keyset('v', '{',      '<CMD>lua visual_group_test()<CR>', noremap_opt)
