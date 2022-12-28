@@ -196,11 +196,15 @@ declarator: (type_identifier) @c_keyword_value
 [
   (string_literal)
   (system_lib_string)
+  (char_literal)
 ] @c_string
 
-(number_literal) @number
-(char_literal) @character
+[
+  (string_literal)
+  (char_literal)
+] (escape_sequence) @c_special_string
 
+(number_literal) @number
 (comment) @comment @spell
 (ERROR) @error
 

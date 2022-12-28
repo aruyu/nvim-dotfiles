@@ -97,11 +97,12 @@ hl(0, '@c_repeat', { fg = colors.vscPink, bg = 'NONE' })
 hl(0, '@c_conditional', { fg = colors.vscPink, bg = 'NONE' })
 hl(0, '@c_preproc', { fg = colors.vscPink, bg = 'NONE' })
 
-hl(0, '@c_bracket', { fg = colors.vscYellowOrange, bg = 'NONE' })
+hl(0, '@c_bracket', { fg = colors.vscFront, bg = 'NONE' })
 hl(0, '@c_operator', { fg = colors.vscFront, bg = 'NONE' })
 hl(0, '@c_punctuation', { fg = colors.vscFront, bg = 'NONE' })
 
 hl(0, '@c_string', { fg = colors.vscOrange, bg = 'NONE' })
+hl(0, '@c_special_string', { fg = colors.vscYellowOrange, bg = 'NONE' })
 
 
 -- Verilog Syntax.
