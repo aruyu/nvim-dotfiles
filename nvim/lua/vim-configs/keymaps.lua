@@ -185,7 +185,7 @@ keyset('i', '<C-S>',  '<ESC><ESC>:w<CR>', noremap_opt)
 keyset('i', '<C-Z>',  '<ESC><ESC>ua', noremap_opt)
 keyset('i', '<C-X>',  '<ESC><ESC>dda', noremap_opt)
 keyset('i', '<C-C>',  '<ESC><ESC>yya', noremap_opt)
-keyset('i', '<C-V>',  '<ESC><ESC>pa', noremap_opt)
+keyset('i', '<C-V>',  '<Space><BS><ESC>pa', noremap_opt)
 keyset('i', '<C-L>',  '<C-V>', noremap_opt)
 keyset('i', '<S-TAB>', '<C-V><TAB>', noremap_opt)
 
