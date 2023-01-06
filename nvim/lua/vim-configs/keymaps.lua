@@ -130,8 +130,8 @@ end
 -- ========================= --
 -- =      NORMAL MODE      =
 -- ========================= --
-keyset('n', 'fq',     ':q<CR>', noremap_opt)
-keyset('n', 'fs',     '<CMD>Gitsigns diffthis<CR>', noremap_opt)
+keyset('n', 'fq',     'h:q<CR>', noremap_opt)
+keyset('n', 'fs',     '<CMD>Gitsigns diffthis<CR>l', noremap_opt)
 keyset('n', 'fd',     '<CMD>Gitsigns preview_hunk<CR>', noremap_opt)
 keyset('n', 'ff',     '<CMD>Telescope find_files<CR>', noremap_opt)
 keyset('n', 'fg',     '<CMD>Telescope live_grep<CR>', noremap_opt)
