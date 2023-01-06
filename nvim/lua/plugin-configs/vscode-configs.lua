@@ -74,8 +74,17 @@ hl(0, 'GitSignsDelete', { fg = colors.vscRed, bg = 'NONE' })
 hl(0, 'GitSignsDeleteNr', { fg = colors.vscRed, bg = 'NONE' })
 hl(0, 'GitSignsDeleteLn', { fg = colors.vscRed, bg = 'NONE' })
 
+hl(0, 'DiagnosticUnderlineError', { fg = colors.vscRed, bg = '#1e1e1e', sp = colors.vscRed, undercurl = true })
+hl(0, 'DiagnosticUnderlineWarn', { fg = '#fe8019',      bg = '#1e1e1e', sp = colors.vscRed, undercurl = true })
+hl(0, 'DiagnosticUnderlineInfo', { fg = 'NONE',         bg = '#1e1e1e', sp = colors.vscRed, undercurl = true })
+hl(0, 'DiagnosticUnderlineHint', { fg = 'NONE',         bg = '#1e1e1e', sp = colors.vscRed, undercurl = true })
+
+hl(0, 'DiagnosticError', { fg = colors.vscRed })
+hl(0, 'DiagnosticWarn', { fg = '#fe8019' })
+
 
 -- Universal Syntax.
+hl(0, 'NonText', { fg = '#5a5a5a', bg = 'NONE', italic = true })
 hl(0, 'SpecialChar', { fg = colors.vscYellowOrange, bg = 'NONE' })
 
 

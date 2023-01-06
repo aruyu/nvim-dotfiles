@@ -50,8 +50,12 @@ cmp.setup {
     --completion = cmp.config.window.bordered(),
     --documentation = cmp.config.window.bordered(),
   },
+  experimental = {
+    ghost_text = { hl_group = 'NonText' },
+    native_menu = false,
+  },
   completion = {
-    completeopt = 'menu,menuone,noinsert'
+    completeopt = 'menu,menuone'
   },
 
   mapping = cmp.mapping.preset.insert({
@@ -164,7 +168,7 @@ cmp.setup {
 
 -- Configure setup for specific filetype.
 cmp.setup.filetype('gitcommit', {
-  completion = { completeopt = 'menu,menuone,noinsert' },
+  completion = { completeopt = 'menu,menuone' },
   sources = cmp.config.sources({
     { name = 'ultisnips' },
     { name = 'path', option = { trailing_slash = true } },

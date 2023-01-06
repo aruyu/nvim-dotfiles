@@ -93,8 +93,8 @@ mason_lspconfig.setup({
 vim.diagnostic.config({
   virtual_text = true,
   signs = false,
-  underline = true,
-  update_in_insert = true
+  --underline = true,
+  --update_in_insert = false
 })
 
 
@@ -126,7 +126,7 @@ lspconfig.sumneko_lua.setup {
 }
 
 -- LSP for python.
-lspconfig.jedi_language_server.setup {
+lspconfig.ruff_lsp.setup {
   capabilities = capabilities
 }
 
