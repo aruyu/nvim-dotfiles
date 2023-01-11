@@ -111,14 +111,14 @@ function _G.visual_group_test()
   local present_column = vim.fn.col('.')
   local forward_column = vim.fn.col('.') + 1
 
-  if vim.fn.getline('.'):sub(present_column, present_column) == '' then   -- check '\n'
+  if (vim.fn.getline('.'):sub(present_column, present_column)) == '' and (present_column ~= 1) then   -- check '\n'
     vim.api.nvim_feedkeys(t('<Left>'), 'n', true)
     vim.api.nvim_feedkeys(t('d'), 'n', true)
   else
     vim.api.nvim_feedkeys(t('d'), 'n', true)
   end
 
-  if vim.fn.getline('.'):sub(forward_column, forward_column) == '' then
+  if (vim.fn.getline('.'):sub(forward_column, forward_column)) == '' and (present_column ~= 1) then
     vim.api.nvim_feedkeys(t('a{}<ESC><ESC>P'), 'n', true)
   else
     vim.api.nvim_feedkeys(t('i{}<ESC><ESC>P'), 'n', true)
