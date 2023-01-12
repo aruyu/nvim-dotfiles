@@ -4,7 +4,7 @@ Custom configs for Neovim written by Lua Script.
 ## Installation
 > Clone the repository
 ```shell
-git clone https://github.com/vine91/neovim_configs.git ~/.config
+git clone https://github.com/astaos/neovim_configs.git ~/.config
 ```
 
 > If you don't have python3(pip3) & node-js, run initialize.sh first

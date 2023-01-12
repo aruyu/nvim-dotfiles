@@ -1,9 +1,9 @@
 --[[
 -   NOTE      - plugins.lua
--   Author    - Ista
+-   Author    - Asta
 -
 -   Created   - 2022.10.21
--   Github    - https://github.com/vine91
+-   Github    - https://github.com/astaos
 -   Contact   - vine9151@gmail.com
 ]]
 
@@ -136,7 +136,7 @@ return packer.startup(
 
     -- === Others === --
     use 'windwp/nvim-autopairs'
-    use 'vine91/nvim-indentconfig'
+    use 'astaos/nvim-indentconfig'
     use 'lambdalisue/suda.vim'
 
     -- ================= --

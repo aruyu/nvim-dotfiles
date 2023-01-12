@@ -1,9 +1,9 @@
 --[[
 -   NOTE      - keymaps.lua
--   Author    - Ista
+-   Author    - Asta
 -
 -   Created   - 2022.10.27
--   Github    - https://github.com/vine91
+-   Github    - https://github.com/astaos
 -   Contact   - vine9151@gmail.com
 ]]
 
