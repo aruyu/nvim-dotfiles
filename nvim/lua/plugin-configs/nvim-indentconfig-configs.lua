@@ -36,27 +36,23 @@ nvim_autoindents.setup({
     {
       expandtab = false,
       size = 8,
-      filetype = {
-        'make',
-      }
+      filetype = { 'make' }
     },
 
     {
       expandtab = false,
       size = 4,
-      filetype = {
-        'c',
-        'cpp',
-      }
+      filetype = { 'c','cpp' }
     },
 
     {
       expandtab = true,
       size = 4,
-      filetype = {
-        'verilog',
-        'systemverilog'
-      }
+      filetype = { 'verilog','systemverilog' }
     },
-  }
+  },
+
+  ft_preset = {
+    { filename = '*.h', filetype = 'c' },
+  },
 })
