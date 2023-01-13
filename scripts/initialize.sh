@@ -185,6 +185,8 @@ if [ $CURRENT_JOB = $LINUX ]; then
     npm --version
   fi
 
+  sudo apt-get -y install zsh
+  sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
   exit 1
 fi
 
@@ -207,5 +209,6 @@ if [ $CURRENT_JOB = $MACOS ]; then
   node --version
   npm --version
 
+  sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
   exit 1
 fi
