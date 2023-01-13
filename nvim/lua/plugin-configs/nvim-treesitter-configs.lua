@@ -23,7 +23,7 @@ end
 -- =========================== --
 -- Configure setup with some options.
 nvim_treesitter.setup({
-  ensure_installed = { 'bash', 'c', 'dart', 'lua', 'make', 'python', 'query', 'verilog' },
+  ensure_installed = { 'bash', 'c', 'cpp', 'dart', 'lua', 'make', 'markdown', 'python', 'query', 'verilog' },
   sync_install = false,
   auto_install = true,
   ignore_install = { '' },
@@ -34,7 +34,12 @@ nvim_treesitter.setup({
 
   highlight = {
     enable = true,
-    disable = { '' },
+    --disable = { '' },
+
+    -- Setting this to true will run `:h syntax` and tree-sitter at the same time.
+    -- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).
+    -- Using this option may slow down your editor, and you may see some duplicate highlights.
+    -- Instead of true it can also be a list of languages
     additional_vim_regex_highlighting = false,
   },
 

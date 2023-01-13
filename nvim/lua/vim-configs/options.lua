@@ -75,7 +75,7 @@ vim.cmd([[
     endif
   endfunction
 
-  " verbose set? -find where is the last [set]
+  " verbose set -find where is the last [set]
   syntax on
 
   autocmd VimEnter * if &filetype ==# 'gitcommit' | echo 'gitcommit' | else | exec "normal \<F48>" | endif

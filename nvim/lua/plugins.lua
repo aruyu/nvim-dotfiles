@@ -130,7 +130,10 @@ return packer.startup(
 
 
     -- Syntax Plugins === --
-    use 'nvim-treesitter/nvim-treesitter'
+    use {
+      'nvim-treesitter/nvim-treesitter',
+      tag = 'v0.8.1'
+    }
     use 'nvim-treesitter/playground'
 
 
