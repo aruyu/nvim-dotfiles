@@ -185,7 +185,9 @@ if [ $CURRENT_JOB = $LINUX ]; then
     npm --version
   fi
 
+  cp $HOME/.config/zsh/.zshrc $HOME
   sudo apt-get -y install zsh
+  git clone https://github.com/zsh-users/zsh-autosuggestions $HOME/.oh-my-zsh/custom/plugins/zsh-autosuggestions
   sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
   exit 1
 fi
@@ -209,6 +211,8 @@ if [ $CURRENT_JOB = $MACOS ]; then
   node --version
   npm --version
 
+  cp $HOME/.config/zsh/.zshrc $HOME
+  git clone https://github.com/zsh-users/zsh-autosuggestions $HOME/.oh-my-zsh/custom/plugins/zsh-autosuggestions
   sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
   exit 1
 fi
