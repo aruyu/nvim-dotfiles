@@ -127,14 +127,13 @@ declarator: (type_identifier) @c_keyword_value
 ;; Others
 
 [
-  "(" ")"
-
-  "[" "]"
-
   "{" "}"
 ] @c_bracket
 
 [
+  "(" ")"
+  "[" "]"
+
   "="
 
   "-"
