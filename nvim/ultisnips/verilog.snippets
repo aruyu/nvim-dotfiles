@@ -20,21 +20,21 @@ endsnippet
 
 snippet module
 module ${1} #(
-    ${2}
+	${2}
 )(
-    ${3}
+	${3}
 );
 
-    $0
+	$0
 
 endmodule
 endsnippet
 
 snippet submodule
 ${1} #(
-    ${2}
+	${2}
 ) $1(
-    $0
+	$0
 );
 endsnippet
 
@@ -64,54 +64,54 @@ endsnippet
 
 snippet always
 always @(${1:posedge} ${2:clock}) begin
-    $0
+	$0
 end
 endsnippet
 
 snippet if
 if (${1}) begin
-    $0
+	$0
 end
 endsnippet
 
 snippet else
 else begin
-    $0
+	$0
 end
 endsnippet
 
 snippet elif
 else if (${1}) begin
-    $0
+	$0
 end
 endsnippet
 
 snippet ifelse
 if (${1}) begin
-    ${2}
+	${2}
 end
 
 else begin
-    $0
+	$0
 end
 endsnippet
 
 snippet case
 case (${1})
-    (${2:0}): ${3} <= ${4};
-    default: $0
+	(${2:0}): ${3} <= ${4};
+	default: $0
 endcase
 endsnippet
 
 snippet casebegin
 case (${1})
-    (${2:0}): begin
-        ${3} <= ${4};
-    end
+	(${2:0}): begin
+		${3} <= ${4};
+	end
 
-    default: begin
-        $0
-    end
+	default: begin
+		$0
+	end
 endcase
 endsnippet
 

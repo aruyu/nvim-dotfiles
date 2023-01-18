@@ -27,7 +27,7 @@ nvim_autoindents.setup({
   -- This option would set all the filetyps.
   default = {
     expandtab = true,
-    size = 2,
+    size = 2
   },
 
   -- The exclusion indent settings here.
@@ -42,13 +42,16 @@ nvim_autoindents.setup({
     {
       expandtab = false,
       size = 4,
-      filetype = { 'c','cpp' }
+      filetype = { 'verilog' }
     },
 
     {
       expandtab = true,
       size = 4,
-      filetype = { 'verilog','systemverilog' }
+      filetype = {
+        'c','cpp','html',
+        'systemverilog',
+      }
     },
   },
 
