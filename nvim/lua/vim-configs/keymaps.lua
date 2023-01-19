@@ -137,6 +137,8 @@ keyset('n', 'ff',     '<CMD>Telescope find_files<CR>', noremap_opt)
 keyset('n', 'fg',     '<CMD>Telescope live_grep<CR>', noremap_opt)
 keyset('n', 'fh',     '<CMD>Telescope help_tags<CR>', noremap_opt)
 keyset('n', 'fb',     '<CMD>Telescope buffers<CR>', noremap_opt)
+keyset('n', 'dy',     '<CMD>lua vim.diagnostic.config({virtual_text = true})<CR>', noremap_opt)
+keyset('n', 'dn',     '<CMD>lua vim.diagnostic.config({virtual_text = false})<CR>', noremap_opt)
 keyset('n', 'dd',     '"_dd', noremap_opt)
 
 keyset('n', 'ZZ',     'zz', noremap_opt)
@@ -262,4 +264,6 @@ vim.cmd([[
   ca fch Telescope command_history
   ca fsh Telescope search_history
   ca ww SudaWrite
+  ca dy lua vim.diagnostic.config({virtual_text = true})
+  ca dn lua vim.diagnostic.config({virtual_text = false})
 ]])

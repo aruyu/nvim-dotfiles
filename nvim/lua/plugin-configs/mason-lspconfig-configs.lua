@@ -126,14 +126,14 @@ lspconfig.sumneko_lua.setup {
 }
 
 -- LSP for python.
-lspconfig.ruff_lsp.setup {
+lspconfig.jedi_language_server.setup {
   capabilities = capabilities
 }
 
 -- LSP for ruby.
-lspconfig.solargraph.setup {
+--[[lspconfig.solargraph.setup {
   capabilities = capabilities
-}
+}]]
 
 -- LSP for system verilog.
 lspconfig.svlangserver.setup {

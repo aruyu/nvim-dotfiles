@@ -79,8 +79,10 @@ hl(0, 'DiagnosticUnderlineWarn', { fg = '#fe8019',      bg = '#1e1e1e', sp = '#f
 hl(0, 'DiagnosticUnderlineInfo', { fg = 'NONE',         bg = '#1e1e1e', sp = 'NONE',        undercurl = true })
 hl(0, 'DiagnosticUnderlineHint', { fg = 'NONE',         bg = '#1e1e1e', sp = 'NONE',        undercurl = true })
 
-hl(0, 'DiagnosticError', { fg = colors.vscRed })
-hl(0, 'DiagnosticWarn', { fg = '#fe8019' })
+hl(0, 'DiagnosticError', { fg = colors.vscRed, bg = 'NONE' })
+hl(0, 'DiagnosticWarn', { fg = '#fe8019', bg = 'NONE' })
+hl(0, 'DiagnosticInfo', { fg = '#5a5a5a', bg = 'NONE' })
+hl(0, 'DiagnosticHint', { fg = '#5a5a5a', bg = 'NONE' })
 
 
 -- Universal Syntax.
