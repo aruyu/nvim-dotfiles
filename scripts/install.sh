@@ -246,8 +246,8 @@ fi
 
 if [ $CURRENT_JOB = $GIT ]; then
   echo -ne "Selected Job: $CURRENT_JOB\n"
-  read -p "Git user.name: " USERNAME
-  read -p "Git user.email: " USEREMAIL
+  read -p "Enter the git user.name: " USERNAME
+  read -p "Enter the git user.email: " USEREMAIL
 
   git config --global user.name "$USERNAME"
   git config --global user.email "$USEREMAIL"
