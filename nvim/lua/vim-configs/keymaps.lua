@@ -259,10 +259,10 @@ vim.cmd([[
   ca fh Telescope help_tags
   ca fb Telescope buffers
   ca fk Telescope keymaps
-  ca fhl Telescope highlights
   ca fc Telescope commands
   ca fch Telescope command_history
   ca fsh Telescope search_history
+  ca fhl Telescope highlights
   ca ww SudaWrite
   ca dy lua vim.diagnostic.config({virtual_text = true})
   ca dn lua vim.diagnostic.config({virtual_text = false})
