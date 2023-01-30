@@ -60,7 +60,7 @@ vimset.fencs = 'utf-8,cp949,cp932,euc-jp,shift-jis,ucs-2le,latin1,big5'
 -- ========================= --
 -- =     ctags options     =
 -- ========================= --
-vimset.tags = '/home/user/work/gncs/tags'
+--vimset.tags = '/home/user/work/gncs/tags'
 
 
 
