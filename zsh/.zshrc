@@ -106,8 +106,9 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 # some more aliases
-alias ll='ls -ahlF'
-alias la='ls -A'
 alias l='ls -CF'
+alias la='ls -A'
+alias ll='ls -ahlF'
 alias vi='nvim'
 alias vim='nvim'
+alias lg='lazygit'
