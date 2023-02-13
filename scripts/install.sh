@@ -252,7 +252,7 @@ if [ $CURRENT_JOB = $GIT ]; then
   git config --global user.name "$USERNAME"
   git config --global user.email "$USEREMAIL"
   git config --global core.editor "nvim"
-  git config --global commit.template "~/.config/.gitconfig"
+  git config --global commit.template "~/.config/scripts/.gitconfig"
 
   git config --global user.name
   git config --global user.email
