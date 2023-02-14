@@ -1,24 +1,24 @@
-# Neovim Configs
+# Neovim Dotfiles
 
-Custom configs for Neovim written by Lua Script.
+Custom config dotfiles for Neovim written by Lua Script.
 
 ## Installation
 
 > Clone the repository
 
-```shell
+```bash
 git clone https://github.com/astaos/neovim_configs.git ~/.config
 ```
 
 > If you don't have python3(pip3) & node-js, or want to install oh-my-zsh, run initialize.sh first
 
-```shell
+```bash
 sudo bash ~/.config/scripts/initialize.sh
 ```
 
 > Run install.sh for utils
 
-```shell
+```bash
 bash ~/.config/scripts/install.sh
 ```
 
