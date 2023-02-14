@@ -1,0 +1,17 @@
+snippet __comment=
+# ${1:`!v expand('%:p:h:t')`}
+
+`!p
+def format_import_name(path):
+  parts = path.split('.')
+
+  if len(parts) > 1:
+    return re.sub(r'[_\-]', ' ', parts[-1].title())
+  else:
+    return re.sub(r'[_\-]', ' ', parts[0].title())
+
+snip.rv = format_import_name(t[1])
+` $2
+
+## $0
+endsnippet
