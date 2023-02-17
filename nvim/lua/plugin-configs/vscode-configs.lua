@@ -60,6 +60,8 @@ vscode.change_style('dark')
   vscPink = '#C586C0',
 ]]
 
+local vscNontext = '#5a5a5a'
+
 
 -- Theme Syntax.
 hl(0, 'GitSignsAdd', { fg = colors.vscGreen, bg = 'NONE' })
@@ -81,12 +83,12 @@ hl(0, 'DiagnosticUnderlineHint', { fg = 'NONE',         bg = '#1e1e1e', sp = 'NO
 
 hl(0, 'DiagnosticError', { fg = colors.vscRed, bg = 'NONE' })
 hl(0, 'DiagnosticWarn', { fg = '#fe8019', bg = 'NONE' })
-hl(0, 'DiagnosticInfo', { fg = '#5a5a5a', bg = 'NONE' })
-hl(0, 'DiagnosticHint', { fg = '#5a5a5a', bg = 'NONE' })
+hl(0, 'DiagnosticInfo', { fg = vscNontext, bg = 'NONE' })
+hl(0, 'DiagnosticHint', { fg = vscNontext, bg = 'NONE' })
 
 
 -- Universal Syntax.
-hl(0, 'NonText', { fg = '#5a5a5a', bg = 'NONE', italic = true })
+hl(0, 'NonText', { fg = vscNontext, bg = 'NONE', italic = true })
 hl(0, 'SpecialChar', { fg = colors.vscYellowOrange, bg = 'NONE' })
 
 

@@ -106,13 +106,13 @@ lspconfig.bashls.setup {
   capabilities = capabilities
 }
 
--- LSP for clangd.
+-- LSP for C/C++.
 lspconfig.clangd.setup {
   capabilities = capabilities
 }
 
 -- LSP for lua.
-lspconfig.sumneko_lua.setup {
+lspconfig.lua_ls.setup {
   settings = {
     Lua = {
       diagnostics = {
@@ -130,10 +130,12 @@ lspconfig.jedi_language_server.setup {
   capabilities = capabilities
 }
 
+--[[
 -- LSP for ruby.
---[[lspconfig.solargraph.setup {
+lspconfig.solargraph.setup {
   capabilities = capabilities
-}]]
+}
+]]
 
 -- LSP for system verilog.
 lspconfig.svlangserver.setup {

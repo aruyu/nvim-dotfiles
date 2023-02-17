@@ -182,8 +182,8 @@ lualine.setup {
     lualine_b = {},
     lualine_c = {},
     lualine_x = {},
-    lualine_y = { 'filetype' },
-    lualine_z = {},
+    lualine_y = {},
+    lualine_z = { 'filetype' },
   },
 
   tabline = {},
