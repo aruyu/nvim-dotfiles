@@ -139,3 +139,14 @@ hl(0, '@v_operator', { fg = colors.vscFront, bg = 'NONE' })
 hl(0, '@v_punctuation', { fg = colors.vscFront, bg = 'NONE' })
 
 hl(0, '@v_string', { fg = colors.vscOrange, bg = 'NONE' })
+
+
+-- XML Syntax.
+hl(0, 'xmlTag', { fg = colors.vscGray, bg = 'NONE' })
+hl(0, 'xmlTagName', { fg = colors.vscGray, bg = 'NONE' })
+hl(0, 'xmlNamespace', { fg = colors.vscGray, bg = 'NONE' })
+
+hl(0, 'xmlAttrib', { fg = colors.vscLightBlue, bg = 'NONE' })
+hl(0, 'xmlString', { fg = colors.vscBlue, bg = 'NONE' })
+hl(0, 'xmlEqual', { fg = colors.vscFront, bg = 'NONE' })
+hl(0, 'xmlAttribPunct', { fg = colors.vscFront, bg = 'NONE' })

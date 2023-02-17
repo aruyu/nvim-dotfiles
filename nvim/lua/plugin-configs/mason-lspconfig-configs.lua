@@ -111,6 +111,23 @@ lspconfig.clangd.setup {
   capabilities = capabilities
 }
 
+--[[
+-- LSP for C#.
+lspconfig.csharp_ls.setup {
+  capabilities = capabilities
+}
+]]
+
+-- LSP for css.
+lspconfig.cssls.setup {
+  capabilities = capabilities
+}
+
+-- LSP for html.
+lspconfig.html.setup {
+  capabilities = capabilities
+}
+
 -- LSP for lua.
 lspconfig.lua_ls.setup {
   settings = {

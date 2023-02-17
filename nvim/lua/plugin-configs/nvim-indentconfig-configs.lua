@@ -49,7 +49,7 @@ nvim_autoindents.setup({
       expandtab = true,
       size = 4,
       filetype = {
-        'c','cpp','html',
+        'c','cpp','php',
         'systemverilog',
       }
     },
@@ -57,5 +57,6 @@ nvim_autoindents.setup({
 
   ft_preset = {
     { filename = '*.h', filetype = 'c' },
+    { filename = '*.xaml', filetype = 'xml' },
   },
 })
