@@ -6,6 +6,7 @@ Custom config dotfiles for Neovim written by Lua Script.
 
 <details>
 <summary><b>Direct installation</b></summary>
+
 > Clone the repository to *'.config'* directly.
 
 ```bash
@@ -17,10 +18,12 @@ git clone https://github.com/astaos/nvim-dotfiles.git ~/.config
 ```bash
 bash ~/.config/.scripts/install.sh
 ```
+
 </details>
 
 <details>
 <summary><b>Install with rsync</b></summary>
+
 > I highly recommend to clone the repository to *'Document'* with rsync.
 
 ```bash
@@ -36,6 +39,7 @@ rsync -avxHAXP --exclude={'.git*','.script','LICENSE','*.md'} nvim-dotfiles/* ~/
 ``` bash
 bash ~/Document/nvim-dotfiles/.scripts/install.sh
 ```
+
 </details>
 
 Type one of belows.
