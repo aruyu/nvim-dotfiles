@@ -4,33 +4,50 @@ Custom config dotfiles for Neovim written by Lua Script.
 
 ## Installation
 
-> Clone the repository
+<details>
+<summary><b>Direct installation</b></summary>
+> Clone the repository to *'.config'* directly.
 
 ```bash
-git clone https://github.com/astaos/neovim_configs.git ~/.config
+git clone https://github.com/astaos/nvim-dotfiles.git ~/.config
 ```
 
-> If you don't have python3(pip3) & node-js, or want to install oh-my-zsh, run initialize.sh first
+> Run *'install.sh'* to install essentials.
 
 ```bash
-sudo bash ~/.config/scripts/initialize.sh
+bash ~/.config/.scripts/install.sh
 ```
+</details>
 
-> Run install.sh for utils
+<details>
+<summary><b>Install with rsync</b></summary>
+> I highly recommend to clone the repository to *'Document'* with rsync.
 
 ```bash
-bash ~/.config/scripts/install.sh
+git clone https://github.com/astaos/nvim-dotfiles.git ~/Document/nvim-dotfiles/
 ```
 
-Type one of belows
+```bash
+rsync -avxHAXP --exclude={'.git*','.script','LICENSE','*.md'} nvim-dotfiles/* ~/.config/
+```
 
-- Linux
+> Run *'install.sh'* to install essentials.
+
+``` bash
+bash ~/Document/nvim-dotfiles/.scripts/install.sh
+```
+</details>
+
+Type one of belows.
+
+- Arch
+- Ubuntu
 - Mac
 - Git (set gitcommit templete for optional)
 
-> Start Neovim once for Bootstraping Packer
+> Restart Neovim twice for Bootstraping Packer.
 
-**NOTE:** If you have some problems with 'nvim-treesitter', you should update 'nvim-treesitter' with
+**NOTE:** If you have some problems with *'nvim-treesitter'*, you should update *'nvim-treesitter'* with
 
 ```vim
 :TSUpdate
