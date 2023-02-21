@@ -1,6 +1,6 @@
 #!/bin/bash
 #==
-#   NOTE      - buildtags.sh
+#   NOTE      - install.sh
 #   Author    - Asta
 #
 #   Created   - 2022.10.19
@@ -118,54 +118,67 @@ function progress()
 #   Starting Code in below.
 #/
 
-LINUX=Linux
-MACOS=Mac
+if [[ $EUID -eq 0 ]]; then
+  script_print_error "This script must be run as user!\n"
+  exit 1
+fi
+
+ARCH=Arch
+UBUNTU=Ubuntu
+MAC=Mac
 GIT=Git
 
-read -p "Enter what you want to install (Linux, Mac, Git): " CURRENT_JOB
+read -p "Enter what you want to install (Arch, Ubuntu, Mac, Git): " CURRENT_JOB
 
 
-if [ $CURRENT_JOB = $LINUX ]; then
+if [ $CURRENT_JOB = $ARCH ]; then
   progress 5 "Selected OS: $CURRENT_JOB"
 
   echo -ne "Progressing...                                                                                \n"
-  sudo add-apt-repository ppa:neovim-ppa/unstable
-  sudo apt-get update
-  sudo apt-get -y install neovim
+  sudo pacman -S --needed python
+  sudo pacman -S --needed pip
+  sudo pacman -S --needed nodejs
+  pip --version
+  pip3 --version
+  node --version
+  npm --version
   echo -ne "\n\n\n\n\n"
-  progress 15 "Install Neovim"
+  progress 25 "Install essentials"
 
 
   echo -ne "Progressing...                                                                                \n"
-  sudo apt-get -y install llvm
-  sudo apt-get -y install clangd
-  sudo apt-get -y install clang-format
-  sudo apt-get -y install gcc
-  sudo apt-get -y install make
-  sudo apt-get -y install bear
+  sudo pacman -S --needed install neovim
   echo -ne "\n\n\n\n\n"
-  progress 35 "Install clang & gcc"
+  progress 35 "Install Neovim"
 
 
   echo -ne "Progressing...                                                                                \n"
-  sudo apt-get -y install universal-ctags
-  sudo apt-get -y install global
+  sudo pacman -S --needed install llvm
+  sudo pacman -S --needed install clangd
+  sudo pacman -S --needed install clang-format
+  sudo pacman -S --needed install gcc
+  sudo pacman -S --needed install make
+  sudo pacman -S --needed install bear
   echo -ne "\n\n\n\n\n"
-  progress 55 "Install ctags & gtags"
+  progress 55 "Install clang & gcc"
 
 
   echo -ne "Progressing...                                                                                \n"
-  sudo apt-get -y install unzip
-  sudo apt-get -y install ripgrep
-  sudo add-apt-repository ppa:lazygit-team/release
-  sudo apt-get update
-  sudo apt-get -y install lazygit
+  sudo pacman -S --needed install universal-ctags
+  sudo pacman -S --needed install global
+  echo -ne "\n\n\n\n\n"
+  progress 65 "Install ctags & gtags"
+
+
+  echo -ne "Progressing...                                                                                \n"
+  sudo pacman -S --needed install unzip
+  sudo pacman -S --needed install ripgrep
+  sudo pacman -S --needed install lazygit
   echo -ne "\n\n\n\n\n"
   progress 75 "Install utils for Neovim"
 
 
   echo -ne "Progressing...                                                                                \n"
-  sudo apt-get -y install python3-venv
   sudo npm install -g neovim
   pip3 install neovim
   echo -ne "\n\n\n\n\n"
@@ -189,27 +202,141 @@ if [ $CURRENT_JOB = $LINUX ]; then
   exit 1
 fi
 
-if [ $CURRENT_JOB = $MACOS ]; then
+if [ $CURRENT_JOB = $UBUNTU ]; then
   progress 5 "Selected OS: $CURRENT_JOB"
+  read -p "Do you want to upgrade your Ubuntu latest? (y/n): " SELECTION
+
+  if [ $SELECTION = y ]; then
+    sudo apt-get update
+    sudo apt-get upgrade
+    sudo apt-get dist-upgrade
+    sudo apt-get install update-manager-core
+    sudo do-release-upgrade -d
+    lsb_release -a
+  fi
+
+
+  echo -ne "Progressing...                                                                                \n"
+  sudo apt-get update
+  sudo apt-get install software-properties-common
+  sudo apt-get install curl
+
+  sudo add-apt-repository ppa:deadsnakes/ppa
+  sudo apt-get install python3.10
+  sudo curl https://bootstrap.pypa.io/get-pip.py -o ~/get-pip.py
+  sudo sudo -H python3.10 ~/get-pip.py
+  sudo curl -sL https://deb.nodesource.com/setup_14.x -o ~/nodesource_setup.sh
+  sudo bash ~/nodesource_setup.sh
+  sudo apt-get install nodejs
+
+  sudo rm ~/get-pip.py ~/nodesource_setup.sh
+  sudo pip --version
+  sudo pip3 --version
+  sudo node --version
+  sudo npm --version
+  echo -ne "\n\n\n\n\n"
+  progress 25 "Install essentials"
+
+
+  echo -ne "Progressing...                                                                                \n"
+  sudo add-apt-repository ppa:neovim-ppa/unstable
+  sudo apt-get update
+  sudo apt-get install neovim
+  echo -ne "\n\n\n\n\n"
+  progress 35 "Install Neovim"
+
+
+  echo -ne "Progressing...                                                                                \n"
+  sudo apt-get install llvm
+  sudo apt-get install clangd
+  sudo apt-get install clang-format
+  sudo apt-get install gcc
+  sudo apt-get install make
+  sudo apt-get install bear
+  echo -ne "\n\n\n\n\n"
+  progress 55 "Install clang & gcc"
+
+
+  echo -ne "Progressing...                                                                                \n"
+  sudo apt-get install universal-ctags
+  sudo apt-get install global
+  echo -ne "\n\n\n\n\n"
+  progress 65 "Install ctags & gtags"
+
+
+  echo -ne "Progressing...                                                                                \n"
+  sudo apt-get install unzip
+  sudo apt-get install ripgrep
+  sudo add-apt-repository ppa:lazygit-team/release
+  sudo apt-get update
+  sudo apt-get install lazygit
+  echo -ne "\n\n\n\n\n"
+  progress 75 "Install utils for Neovim"
+
+
+  echo -ne "Progressing...                                                                                \n"
+  sudo apt-get install python3-venv
+  sudo npm install -g neovim
+  pip3 install neovim
+  echo -ne "\n\n\n\n\n"
+  progress 95 "Install extras for Neovim"
+
+
+  echo -ne "Progressing...                                                                                \n"
+  nvim --version
+  llvm --version
+  clangd --version
+  clang-format --version
+  gcc --version
+  make --version
+  bear --version
+  ctags --version
+  global --version
+  unzip --version
+  echo -ne "\n\n\n\n\n"
+  progress 100 "Done."
+
+  exit 1
+fi
+
+if [ $CURRENT_JOB = $MAC ]; then
+  progress 5 "Selected OS: $CURRENT_JOB"
+
+  echo -ne "Progressing...                                                                                \n"
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+  echo '# Set PATH, MANPATH, etc., for Homebrew.' >> ~/.bashrc
+  echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> ~/.bashrc
+  eval "$(/opt/homebrew/bin/brew shellenv)"
+  brew update
+  brew upgrade
+  brew install node
+
+  pip --version
+  pip3 --version
+  node --version
+  npm --version
+  echo -ne "\n\n\n\n\n"
+  progress 25 "Install essentials"
+
 
   echo -ne "Progressing...                                                                                \n"
   brew install neovim
   echo -ne "\n\n\n\n\n"
-  progress 15 "Install Neovim"
+  progress 35 "Install Neovim"
 
 
   echo -ne "Progressing...                                                                                \n"
   brew install clang-format
   brew install bear
   echo -ne "\n\n\n\n\n"
-  progress 35 "Install clang & gcc"
+  progress 55 "Install clang & gcc"
 
 
   echo -ne "Progressing...                                                                                \n"
   brew install universal-ctags
   brew install global
   echo -ne "\n\n\n\n\n"
-  progress 55 "Install ctags & gtags"
+  progress 65 "Install ctags & gtags"
 
 
   echo -ne "Progressing...                                                                                \n"
@@ -252,7 +379,7 @@ if [ $CURRENT_JOB = $GIT ]; then
   git config --global user.name "$USERNAME"
   git config --global user.email "$USEREMAIL"
   git config --global core.editor "nvim"
-  git config --global commit.template "~/.config/scripts/.gitconfig"
+  git config --global commit.template "~/.config/gitconfig/.gitconfig"
 
   git config --global user.name
   git config --global user.email
