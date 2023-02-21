@@ -91,6 +91,9 @@ vim.cmd([[
     autocmd FileType gitcommit nnoremap <C-s> :wq<CR>
     autocmd FileType gitcommit inoremap <C-s> <ESC><ESC>:wq<CR>
     autocmd FileType gitcommit vnoremap <C-s> <ESC><ESC>:wq<CR>
+    autocmd FileType gitcommit nnoremap <C-a> :qa!<CR>
+    autocmd FileType gitcommit inoremap <C-a> <ESC><ESC>:qa!<CR>
+    autocmd FileType gitcommit vnoremap <C-a> <ESC><ESC>:qa!<CR>
   augroup END
 
   augroup help_as_buffer
