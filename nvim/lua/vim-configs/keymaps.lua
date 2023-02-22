@@ -125,6 +125,16 @@ function _G.visual_group_test()
   end
 end
 
+function _G.sync_to()
+  vim.cmd([[
+    !rsync -avxHAXP ~/.config/nvim/queries/* ~/Documents/nvim-dotfiles/nvim/queries/
+    !rsync -avxHAXP ~/.config/nvim/ultisnips/* ~/Documents/nvim-dotfiles/nvim/ultisnips/
+  ]])
+end
+
+function _G.sync_from()
+  vim.cmd([[ !rsync -avxHAXP --exclude={'.git*/','.script','*.git','LICENSE','*.md'} ~/Documents/nvim-dotfiles/* ~/.config/ ]])
+end
 
 
 -- ========================= --
@@ -264,6 +274,6 @@ vim.cmd([[
   ca fsh Telescope search_history
   ca fhl Telescope highlights
   ca ww SudaWrite
-  ca dy lua vim.diagnostic.config({virtual_text = true})
-  ca dn lua vim.diagnostic.config({virtual_text = false})
+  ca synct lua sync_to()<CR>
+  ca syncf lua sync_from()<CR>
 ]])
