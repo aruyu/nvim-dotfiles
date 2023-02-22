@@ -119,7 +119,7 @@ function progress()
 #/
 
 if [[ $EUID -eq 0 ]]; then
-  script_print_error "This script must be run as user!\n"
+  script_print_error "This script must be run as USER!\n"
   exit 1
 fi
 
@@ -135,9 +135,10 @@ if [ $CURRENT_JOB = $ARCH ]; then
   progress 5 "Selected OS: $CURRENT_JOB"
 
   echo -ne "Progressing...                                                                                \n"
-  sudo pacman -S --needed python
-  sudo pacman -S --needed pip
-  sudo pacman -S --needed nodejs
+  sudo pacman -S --needed --noconfirm python
+  sudo pacman -S --needed --noconfirm pip
+  sudo pacman -S --needed --noconfirm nodejs
+  sudo pacman -S --needed --noconfirm npm
   pip --version
   pip3 --version
   node --version
@@ -147,33 +148,32 @@ if [ $CURRENT_JOB = $ARCH ]; then
 
 
   echo -ne "Progressing...                                                                                \n"
-  sudo pacman -S --needed neovim
+  sudo pacman -S --needed --noconfirm neovim
   echo -ne "\n\n\n\n\n"
   progress 35 "Install Neovim"
 
 
   echo -ne "Progressing...                                                                                \n"
-  sudo pacman -S --needed llvm
-  sudo pacman -S --needed clangd
-  sudo pacman -S --needed clang-format
-  sudo pacman -S --needed gcc
-  sudo pacman -S --needed make
-  sudo pacman -S --needed bear
+  sudo pacman -S --needed --noconfirm llvm
+  sudo pacman -S --needed --noconfirm clang
+  sudo pacman -S --needed --noconfirm gcc
+  sudo pacman -S --needed --noconfirm make
+  sudo pacman -S --needed --noconfirm bear
   echo -ne "\n\n\n\n\n"
   progress 55 "Install clang & gcc"
 
 
   echo -ne "Progressing...                                                                                \n"
-  sudo pacman -S --needed universal-ctags
-  sudo pacman -S --needed global
+  sudo pacman -S --needed --noconfirm universal-ctags
+  sudo pacman -S --needed --noconfirm global
   echo -ne "\n\n\n\n\n"
   progress 65 "Install ctags & gtags"
 
 
   echo -ne "Progressing...                                                                                \n"
-  sudo pacman -S --needed unzip
-  sudo pacman -S --needed ripgrep
-  sudo pacman -S --needed lazygit
+  sudo pacman -S --needed --noconfirm unzip
+  sudo pacman -S --needed --noconfirm ripgrep
+  sudo pacman -S --needed --noconfirm lazygit
   echo -ne "\n\n\n\n\n"
   progress 75 "Install utils for Neovim"
 
@@ -188,14 +188,14 @@ if [ $CURRENT_JOB = $ARCH ]; then
   echo -ne "Progressing...                                                                                \n"
   nvim --version
   llvm --version
-  clangd --version
-  clang-format --version
+  clang --version
   gcc --version
   make --version
   bear --version
   ctags --version
   global --version
   unzip --version
+  lazygit --version
   echo -ne "\n\n\n\n\n"
   progress 100 "Done."
 
@@ -207,27 +207,27 @@ if [ $CURRENT_JOB = $UBUNTU ]; then
   read -p "Do you want to upgrade your Ubuntu latest? (y/n): " SELECTION
 
   if [ $SELECTION = y ]; then
-    sudo apt-get update
-    sudo apt-get upgrade
-    sudo apt-get dist-upgrade
-    sudo apt-get install update-manager-core
+    sudo apt-get -y update
+    sudo apt-get -y upgrade
+    sudo apt-get -y dist-upgrade
+    sudo apt-get -y install update-manager-core
     sudo do-release-upgrade -d
     lsb_release -a
   fi
 
 
   echo -ne "Progressing...                                                                                \n"
-  sudo apt-get update
-  sudo apt-get install software-properties-common
-  sudo apt-get install curl
+  sudo apt-get -y update
+  sudo apt-get -y install software-properties-common
+  sudo apt-get -y install curl
 
   sudo add-apt-repository ppa:deadsnakes/ppa
-  sudo apt-get install python3.10
+  sudo apt-get -y install python3.10
   sudo curl https://bootstrap.pypa.io/get-pip.py -o ~/get-pip.py
-  sudo sudo -H python3.10 ~/get-pip.py
+  sudo -H python3.10 ~/get-pip.py
   sudo curl -sL https://deb.nodesource.com/setup_14.x -o ~/nodesource_setup.sh
   sudo bash ~/nodesource_setup.sh
-  sudo apt-get install nodejs
+  sudo apt-get -y install nodejs
 
   sudo rm ~/get-pip.py ~/nodesource_setup.sh
   sudo pip --version
@@ -240,42 +240,42 @@ if [ $CURRENT_JOB = $UBUNTU ]; then
 
   echo -ne "Progressing...                                                                                \n"
   sudo add-apt-repository ppa:neovim-ppa/unstable
-  sudo apt-get update
-  sudo apt-get install neovim
+  sudo apt-get -y update
+  sudo apt-get -y install neovim
   echo -ne "\n\n\n\n\n"
   progress 35 "Install Neovim"
 
 
   echo -ne "Progressing...                                                                                \n"
-  sudo apt-get install llvm
-  sudo apt-get install clangd
-  sudo apt-get install clang-format
-  sudo apt-get install gcc
-  sudo apt-get install make
-  sudo apt-get install bear
+  sudo apt-get -y install llvm
+  sudo apt-get -y install clangd
+  sudo apt-get -y install clang-format
+  sudo apt-get -y install gcc
+  sudo apt-get -y install make
+  sudo apt-get -y install bear
   echo -ne "\n\n\n\n\n"
   progress 55 "Install clang & gcc"
 
 
   echo -ne "Progressing...                                                                                \n"
-  sudo apt-get install universal-ctags
-  sudo apt-get install global
+  sudo apt-get -y install universal-ctags
+  sudo apt-get -y install global
   echo -ne "\n\n\n\n\n"
   progress 65 "Install ctags & gtags"
 
 
   echo -ne "Progressing...                                                                                \n"
-  sudo apt-get install unzip
-  sudo apt-get install ripgrep
+  sudo apt-get -y install unzip
+  sudo apt-get -y install ripgrep
   sudo add-apt-repository ppa:lazygit-team/release
-  sudo apt-get update
-  sudo apt-get install lazygit
+  sudo apt-get -y update
+  sudo apt-get -y install lazygit
   echo -ne "\n\n\n\n\n"
   progress 75 "Install utils for Neovim"
 
 
   echo -ne "Progressing...                                                                                \n"
-  sudo apt-get install python3-venv
+  sudo apt-get -y install python3-venv
   sudo npm install -g neovim
   pip3 install neovim
   echo -ne "\n\n\n\n\n"
@@ -293,6 +293,7 @@ if [ $CURRENT_JOB = $UBUNTU ]; then
   ctags --version
   global --version
   unzip --version
+  lazygit --version
   echo -ne "\n\n\n\n\n"
   progress 100 "Done."
 
@@ -365,6 +366,7 @@ if [ $CURRENT_JOB = $MAC ]; then
   ctags --version
   global --version
   unzip --version
+  lazygit --version
   echo -ne "\n\n\n\n\n"
   progress 100 "Done."
 
