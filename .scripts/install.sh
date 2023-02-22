@@ -147,33 +147,33 @@ if [ $CURRENT_JOB = $ARCH ]; then
 
 
   echo -ne "Progressing...                                                                                \n"
-  sudo pacman -S --needed install neovim
+  sudo pacman -S --needed neovim
   echo -ne "\n\n\n\n\n"
   progress 35 "Install Neovim"
 
 
   echo -ne "Progressing...                                                                                \n"
-  sudo pacman -S --needed install llvm
-  sudo pacman -S --needed install clangd
-  sudo pacman -S --needed install clang-format
-  sudo pacman -S --needed install gcc
-  sudo pacman -S --needed install make
-  sudo pacman -S --needed install bear
+  sudo pacman -S --needed llvm
+  sudo pacman -S --needed clangd
+  sudo pacman -S --needed clang-format
+  sudo pacman -S --needed gcc
+  sudo pacman -S --needed make
+  sudo pacman -S --needed bear
   echo -ne "\n\n\n\n\n"
   progress 55 "Install clang & gcc"
 
 
   echo -ne "Progressing...                                                                                \n"
-  sudo pacman -S --needed install universal-ctags
-  sudo pacman -S --needed install global
+  sudo pacman -S --needed universal-ctags
+  sudo pacman -S --needed global
   echo -ne "\n\n\n\n\n"
   progress 65 "Install ctags & gtags"
 
 
   echo -ne "Progressing...                                                                                \n"
-  sudo pacman -S --needed install unzip
-  sudo pacman -S --needed install ripgrep
-  sudo pacman -S --needed install lazygit
+  sudo pacman -S --needed unzip
+  sudo pacman -S --needed ripgrep
+  sudo pacman -S --needed lazygit
   echo -ne "\n\n\n\n\n"
   progress 75 "Install utils for Neovim"
 
