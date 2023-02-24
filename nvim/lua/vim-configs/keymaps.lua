@@ -89,6 +89,56 @@ function _G.visual_group_indent()
   end
 end
 
+function string:startswith(start)
+  return self:sub(1, #start) == start
+end
+
+function string:replace(old, new)
+  local retval
+  local search_start_idx = 1
+
+  while true do
+    local start_idx, end_idx = self:find(old, search_start_idx, true)
+    if (not start_idx) then
+      break
+    end
+
+    local postfix = self:sub(end_idx + 1)
+    retval = self:sub(1, (start_idx - 1)) .. new .. postfix
+
+    search_start_idx = -1 * postfix:len()
+  end
+
+  return retval
+end
+
+function _G.visual_group_indent_del()
+  local is_expandtab = vim.api.nvim_eval('&expandtab') == 1
+  local indent_size = vim.api.nvim_eval('&shiftwidth')
+
+  local select_line_start = vim.fn.line("'<")
+  local select_line_end = vim.fn.line("'>")
+  local select_line_diff = select_line_end - select_line_start
+
+  for line = select_line_start, select_line_end do
+    if is_expandtab then
+      if vim.fn.getline(line):startswith(string.rep(' ', indent_size)) then
+        vim.fn.setline(line, vim.fn.getline(line):replace(string.rep(' ', indent_size), ''))
+      end
+    else
+      if vim.fn.getline(line):startswith('	') then
+        vim.fn.setline(line, vim.fn.getline(line):replace('	', ''))
+      end
+    end
+  end
+
+  if select_line_diff ~= 0 then
+    vim.api.nvim_feedkeys(t('<S-V>'.. select_line_diff .. '-'), 'n', true)
+  else
+    vim.api.nvim_feedkeys(t('<S-V>'), 'n', true)
+  end
+end
+
 function _G.visual_group_delimiter(front_character, back_character)
   local select_line_start = vim.fn.line("'<")
   local select_line_end = vim.fn.line("'>")
@@ -231,7 +281,8 @@ keyset('v', '<C-X>',  'd<ESC><ESC>', noremap_opt)
 keyset('v', '<C-C>',  '<CMD>lua visual_copy()<CR>', noremap_opt)
 keyset('v', '<C-V>',  '<CMD>lua visual_paste()<CR>', noremap_opt)
 keyset('v', 'v',      '<C-V>', noremap_opt)
-keyset('v', '<S-TAB>', ':<ESC>:lua visual_group_indent()<CR>', noremap_opt)
+keyset('v', '<TAB>', ':<ESC>:lua visual_group_indent()<CR>', noremap_opt)
+keyset('v', '<S-TAB>', ':<ESC>:lua visual_group_indent_del()<CR>', noremap_opt)
 keyset('v', '{',      '<CMD>lua visual_group_test()<CR>', noremap_opt)
 keyset('v', '}',      '<CMD>lua visual_group_test()<CR>', noremap_opt)
 
