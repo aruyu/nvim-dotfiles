@@ -34,6 +34,12 @@ function script_print_error()
   echo -ne "$T_CO_BLUE[SCRIPT]$T_CO_NC$T_CO_RED-Error- $1$T_CO_NC"
 }
 
+function error_exit()
+{
+  script_print_error "$1\n\n"
+  exit 1
+}
+
 function delay()
 {
   sleep 0.2;
@@ -119,8 +125,7 @@ function progress()
 #/
 
 if [[ $EUID -eq 0 ]]; then
-  script_print_error "This script must be run as USER!\n"
-  exit 1
+  error_exit "This script must be run as USER!"
 fi
 
 ARCH=Arch
