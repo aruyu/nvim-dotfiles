@@ -41,7 +41,7 @@ rsync -avxHAXP --exclude={'.git*/','.script','*.git','LICENSE','*.md'} ~/Documen
 > Run *'install.sh'* to install essentials.
 
 ``` bash
-bash ~/Document/nvim-dotfiles/.scripts/install.sh
+bash ~/Documents/nvim-dotfiles/.scripts/install.sh
 ```
 
 </details>
@@ -54,7 +54,7 @@ Type one of belows.
 - Ubuntu
 - Mac
 - Git (set gitcommit templete for optional)
-- Font (set fonts to *'JetBrainsMono NerdFont'*)
+- Font (*'JetBrainsMono NerdFont'* fonts installation)
 
 > Restart Neovim ***twice*** for Bootstraping Packer.
 

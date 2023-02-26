@@ -142,7 +142,7 @@ if [ $CURRENT_JOB = $ARCH ]; then
 
   echo -ne "Progressing...                                                                                \n"
   sudo pacman -S --needed --noconfirm python
-  sudo pacman -S --needed --noconfirm pip
+  sudo pacman -S --needed --noconfirm python-pip
   sudo pacman -S --needed --noconfirm nodejs
   sudo pacman -S --needed --noconfirm npm
   pip --version
@@ -204,9 +204,8 @@ if [ $CURRENT_JOB = $ARCH ]; then
   lazygit --version
   echo -ne "\n\n\n\n\n"
   progress 100 "Done."
-fi
 
-if [ $CURRENT_JOB = $UBUNTU ]; then
+elif [ $CURRENT_JOB = $UBUNTU ]; then
   progress 5 "Selected OS: $CURRENT_JOB"
   read -p "Do you want to upgrade your Ubuntu latest? (y/n): " SELECTION
 
@@ -300,9 +299,8 @@ if [ $CURRENT_JOB = $UBUNTU ]; then
   lazygit --version
   echo -ne "\n\n\n\n\n"
   progress 100 "Done."
-fi
 
-if [ $CURRENT_JOB = $MAC ]; then
+elif [ $CURRENT_JOB = $MAC ]; then
   progress 5 "Selected OS: $CURRENT_JOB"
 
   echo -ne "Progressing...                                                                                \n"
@@ -371,9 +369,8 @@ if [ $CURRENT_JOB = $MAC ]; then
   lazygit --version
   echo -ne "\n\n\n\n\n"
   progress 100 "Done."
-fi
 
-if [ $CURRENT_JOB = $GIT ]; then
+elif [ $CURRENT_JOB = $GIT ]; then
   echo -ne "Selected Job: $CURRENT_JOB\n"
   read -p "Enter the git user.name: " USERNAME
   read -p "Enter the git user.email: " USEREMAIL
@@ -387,13 +384,12 @@ if [ $CURRENT_JOB = $GIT ]; then
   git config --global user.email
   git config --global core.editor
   git config --global commit.template
-fi
 
-if [ $CURRENT_JOB = $FONT ]; then
+elif [ $CURRENT_JOB = $FONT ]; then
   echo -ne "Selected Job: $CURRENT_JOB\n"
 
-  wget https://github.com/ryanoasis/nerd-fonts/releases/download/v2.3.3/JetBrainsMono.zip
-  unzip JetBrainsMono.zip -d $HOME/.local/share/fonts/
+  wget https://github.com/ryanoasis/nerd-fonts/releases/download/v2.3.3/JetBrainsMono.zip || error_exit "Installation Faild... wget needed."
+  unzip JetBrainsMono.zip -d $HOME/.local/share/fonts/ || error_exit "Installation Faild... unzip needed."
   rm JetBrainsMono.zip
 
   script_print_notify "Make sure you set the fonts properly.\n"
