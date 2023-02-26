@@ -54,6 +54,7 @@ Type one of belows.
 - Ubuntu
 - Mac
 - Git (set gitcommit templete for optional)
+- Font (set fonts to *'JetBrainsMono NerdFont'*)
 
 > Restart Neovim ***twice*** for Bootstraping Packer.
 
