@@ -60,7 +60,9 @@ vscode.change_style('dark')
   vscPink = '#C586C0',
 ]]
 
-local vscNontext = '#5a5a5a'
+local vsc_nontext = '#5A5A5A'
+local vsc_red = '#CC6666'
+local vsc_yellow = '#F0C674'
 
 
 -- Theme Syntax.
@@ -76,19 +78,19 @@ hl(0, 'GitSignsDelete', { fg = colors.vscRed, bg = 'NONE' })
 hl(0, 'GitSignsDeleteNr', { fg = colors.vscRed, bg = 'NONE' })
 hl(0, 'GitSignsDeleteLn', { fg = colors.vscRed, bg = 'NONE' })
 
-hl(0, 'DiagnosticUnderlineError',{ fg = colors.vscRed,  bg = '#1e1e1e', sp = colors.vscRed, undercurl = true })
-hl(0, 'DiagnosticUnderlineWarn', { fg = '#fe8019',      bg = '#1e1e1e', sp = '#fe8019',     undercurl = true })
-hl(0, 'DiagnosticUnderlineInfo', { fg = 'NONE',         bg = '#1e1e1e', sp = 'NONE',        undercurl = true })
-hl(0, 'DiagnosticUnderlineHint', { fg = 'NONE',         bg = '#1e1e1e', sp = 'NONE',        undercurl = true })
+hl(0, 'DiagnosticUnderlineError',{ fg = vsc_red,    bg = '#1e1e1e', sp = vsc_red,    undercurl = true })
+hl(0, 'DiagnosticUnderlineWarn', { fg = vsc_yellow, bg = '#1e1e1e', sp = vsc_yellow, undercurl = true })
+hl(0, 'DiagnosticUnderlineInfo', { fg = 'NONE',     bg = '#1e1e1e', sp = 'NONE',     undercurl = true })
+hl(0, 'DiagnosticUnderlineHint', { fg = 'NONE',     bg = '#1e1e1e', sp = 'NONE',     undercurl = true })
 
-hl(0, 'DiagnosticError', { fg = colors.vscRed, bg = 'NONE' })
-hl(0, 'DiagnosticWarn', { fg = '#fe8019', bg = 'NONE' })
-hl(0, 'DiagnosticInfo', { fg = vscNontext, bg = 'NONE' })
-hl(0, 'DiagnosticHint', { fg = vscNontext, bg = 'NONE' })
+hl(0, 'DiagnosticError', { fg = vsc_red,    bg = 'NONE' })
+hl(0, 'DiagnosticWarn', { fg = vsc_yellow,  bg = 'NONE' })
+hl(0, 'DiagnosticInfo', { fg = vsc_nontext, bg = 'NONE' })
+hl(0, 'DiagnosticHint', { fg = vsc_nontext, bg = 'NONE' })
 
 
 -- Universal Syntax.
-hl(0, 'NonText', { fg = vscNontext, bg = 'NONE', italic = true })
+hl(0, 'NonText', { fg = vsc_nontext, bg = 'NONE', italic = true })
 hl(0, 'SpecialChar', { fg = colors.vscYellowOrange, bg = 'NONE' })
 
 
