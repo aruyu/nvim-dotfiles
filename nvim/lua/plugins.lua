@@ -106,6 +106,7 @@ return packer.startup(
       --tag = 'release' -- To use the latest release (do not use this if you run Neovim nightly or dev builds!)
     }
     use 'lukas-reineke/indent-blankline.nvim'
+    use 'astaos/nvim-ultivisual'
     --use 'nmac427/guess-indent.nvim'
     --use 'anuvyklack/pretty-fold.nvim'
 

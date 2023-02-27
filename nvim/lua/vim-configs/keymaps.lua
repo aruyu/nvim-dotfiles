@@ -31,150 +31,6 @@ function _G.visual_copy()
   end
 end
 
-function _G.visual_paste()
-  local present_column = vim.fn.col('.')
-  local forward_column = vim.fn.col('.') + 1
-
-  if (vim.fn.getline('.'):sub(present_column, present_column)) == '' and (present_column ~= 1) then   -- check '\n'
-    vim.api.nvim_feedkeys(t('<Left>'), 'n', true)
-    vim.api.nvim_feedkeys(t('"_d'), 'n', true)
-  else
-    vim.api.nvim_feedkeys(t('"_d'), 'n', true)
-  end
-
-  if (vim.fn.getline('.'):sub(forward_column, forward_column)) == '' and (present_column ~= 1) then
-    vim.api.nvim_feedkeys(t('<ESC><ESC>p'), 'n', true)
-  else
-    vim.api.nvim_feedkeys(t('<ESC><ESC>P'), 'n', true)
-  end
-end
-
-function _G.visual_group_indent()
-  local is_expandtab = vim.api.nvim_eval('&expandtab') == 1
-  local indent_size = vim.api.nvim_eval('&shiftwidth')
-  local temp, indent_count, indent_diff
-
-  local select_line_start = vim.fn.line("'<")
-  local select_line_end = vim.fn.line("'>")
-  local select_line_diff = select_line_end - select_line_start
-
-  for line = select_line_start, select_line_end do
-    temp, indent_count = string.find(vim.fn.getline(line), '%s+')
-
-    if indent_count == nil or temp ~= 1 then
-      indent_diff = 0
-    else
-      indent_diff = indent_size - (indent_count % indent_size)
-    end
-
-    if is_expandtab then
-      if indent_diff == 0 then
-        vim.fn.setline(line, string.rep(' ', indent_size) .. vim.fn.getline(line))
-      else
-        vim.fn.setline(line, string.rep(' ', indent_diff) .. vim.fn.getline(line))
-      end
-    else
-      vim.fn.setline(line, '	' .. vim.fn.getline(line))
-    end
-
-    if vim.fn.getline(line) == string.rep(' ', indent_size) or vim.fn.getline(line) == '	' then
-      vim.fn.setline(line, '')
-    end
-  end
-
-  if select_line_diff ~= 0 then
-    vim.api.nvim_feedkeys(t('<S-V>'.. select_line_diff .. '-'), 'n', true)
-  else
-    vim.api.nvim_feedkeys(t('<S-V>'), 'n', true)
-  end
-end
-
-function string:startswith(start)
-  return self:sub(1, #start) == start
-end
-
-function string:replace(old, new)
-  local retval
-  local search_start_idx = 1
-
-  while true do
-    local start_idx, end_idx = self:find(old, search_start_idx, true)
-    if (not start_idx) then
-      break
-    end
-
-    local postfix = self:sub(end_idx + 1)
-    retval = self:sub(1, (start_idx - 1)) .. new .. postfix
-
-    search_start_idx = -1 * postfix:len()
-  end
-
-  return retval
-end
-
-function _G.visual_group_indent_del()
-  local is_expandtab = vim.api.nvim_eval('&expandtab') == 1
-  local indent_size = vim.api.nvim_eval('&shiftwidth')
-
-  local select_line_start = vim.fn.line("'<")
-  local select_line_end = vim.fn.line("'>")
-  local select_line_diff = select_line_end - select_line_start
-
-  for line = select_line_start, select_line_end do
-    if is_expandtab then
-      if vim.fn.getline(line):startswith(string.rep(' ', indent_size)) then
-        vim.fn.setline(line, vim.fn.getline(line):replace(string.rep(' ', indent_size), ''))
-      end
-    else
-      if vim.fn.getline(line):startswith('	') then
-        vim.fn.setline(line, vim.fn.getline(line):replace('	', ''))
-      end
-    end
-  end
-
-  if select_line_diff ~= 0 then
-    vim.api.nvim_feedkeys(t('<S-V>'.. select_line_diff .. '-'), 'n', true)
-  else
-    vim.api.nvim_feedkeys(t('<S-V>'), 'n', true)
-  end
-end
-
-function _G.visual_group_delimiter(front_character, back_character)
-  local select_line_start = vim.fn.line("'<")
-  local select_line_end = vim.fn.line("'>")
-  local temp, indent_count = string.find(vim.fn.getline(select_line_start), '%s+')
-  local front_delimiter, back_delimiter
-
-  if indent_count == nil or temp ~= 1 then
-    front_delimiter = front_character .. vim.fn.getline(select_line_start)
-    back_delimiter = vim.fn.getline(select_line_end) .. back_character
-  else
-    front_delimiter = string.rep(' ', indent_count) .. front_character .. string.sub(vim.fn.getline(select_line_start), indent_count + 1)
-    back_delimiter = vim.fn.getline(select_line_end) .. back_character
-  end
-
-  vim.fn.setline(select_line_start, front_delimiter)
-  vim.fn.setline(select_line_end, back_delimiter)
-end
-
-function _G.visual_group_test()
-  local present_column = vim.fn.col('.')
-  local forward_column = vim.fn.col('.') + 1
-
-  if (vim.fn.getline('.'):sub(present_column, present_column)) == '' and (present_column ~= 1) then   -- check '\n'
-    vim.api.nvim_feedkeys(t('<Left>'), 'n', true)
-    vim.api.nvim_feedkeys(t('d'), 'n', true)
-  else
-    vim.api.nvim_feedkeys(t('d'), 'n', true)
-  end
-
-  if (vim.fn.getline('.'):sub(forward_column, forward_column)) == '' and (present_column ~= 1) then
-    vim.api.nvim_feedkeys(t('a{}<ESC><ESC>P'), 'n', true)
-  else
-    vim.api.nvim_feedkeys(t('i{}<ESC><ESC>P'), 'n', true)
-  end
-end
-
 function _G.sync_to()
   vim.cmd([[
     !rsync -avxHAXP ~/.config/nvim/queries/* ~/Documents/nvim-dotfiles/nvim/queries/
@@ -207,8 +63,6 @@ keyset('n', '<C-Z>',  'u', noremap_opt)
 keyset('n', '<C-X>',  'dd', noremap_opt)
 keyset('n', '<C-C>',  'yy', noremap_opt)
 keyset('n', '<C-V>',  'p', noremap_opt)
-keyset('n', '<TAB>',  '<CMD>BufferNext<CR>', noremap_silent_opt)
-keyset('n', '<S-TAB>', '<CMD>BufferPrevious<CR>', noremap_silent_opt)
 
 keyset('n', '<F1>',   ':stop<CR>', noremap_opt)
 keyset('n', '<F13>',  ':qa<CR>', noremap_opt)
@@ -279,12 +133,7 @@ keyset('v', '<C-S>',  '<ESC><ESC>:w<CR>', noremap_opt)
 keyset('v', '<C-Z>',  '<ESC><ESC>u', noremap_opt)
 keyset('v', '<C-X>',  'd<ESC><ESC>', noremap_opt)
 keyset('v', '<C-C>',  '<CMD>lua visual_copy()<CR>', noremap_opt)
-keyset('v', '<C-V>',  '<CMD>lua visual_paste()<CR>', noremap_opt)
 keyset('v', 'v',      '<C-V>', noremap_opt)
-keyset('v', '<TAB>', ':<ESC>:lua visual_group_indent()<CR>', noremap_opt)
-keyset('v', '<S-TAB>', ':<ESC>:lua visual_group_indent_del()<CR>', noremap_opt)
-keyset('v', '{',      '<CMD>lua visual_group_test()<CR>', noremap_opt)
-keyset('v', '}',      '<CMD>lua visual_group_test()<CR>', noremap_opt)
 
 keyset('v', '<F1>',   '<ESC><ESC>:stop<CR>', noremap_opt)
 keyset('v', '<F13>',  '<ESC><ESC>:qa<CR>', noremap_opt)
