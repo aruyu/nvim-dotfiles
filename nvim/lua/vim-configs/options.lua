@@ -88,12 +88,12 @@ vim.cmd([[
 
   augroup gitcommit_autoclose
     autocmd!
-    autocmd FileType gitcommit nnoremap <C-s> :wq<CR>
-    autocmd FileType gitcommit inoremap <C-s> <ESC><ESC>:wq<CR>
-    autocmd FileType gitcommit vnoremap <C-s> <ESC><ESC>:wq<CR>
-    autocmd FileType gitcommit nnoremap <C-a> :qa!<CR>
-    autocmd FileType gitcommit inoremap <C-a> <ESC><ESC>:qa!<CR>
-    autocmd FileType gitcommit vnoremap <C-a> <ESC><ESC>:qa!<CR>
+    autocmd FileType gitcommit nnoremap <C-S> :wq<CR>
+    autocmd FileType gitcommit inoremap <C-S> <ESC><ESC>:wq<CR>
+    autocmd FileType gitcommit vnoremap <C-S> <ESC><ESC>:wq<CR>
+    autocmd FileType gitcommit nnoremap <C-D> :qa!<CR>
+    autocmd FileType gitcommit inoremap <C-D> <ESC><ESC>:qa!<CR>
+    autocmd FileType gitcommit vnoremap <C-D> <ESC><ESC>:qa!<CR>
   augroup END
 
   augroup help_as_buffer

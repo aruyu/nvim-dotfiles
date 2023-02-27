@@ -59,10 +59,11 @@ keyset('n', 'dd',     '"_dd', noremap_opt)
 
 keyset('n', 'ZZ',     'zz', noremap_opt)
 keyset('n', '<C-S>',  ':w<CR>', noremap_opt)
+keyset('n', '<C-Y>',  '<C-R>', noremap_opt)
+keyset('n', '<C-R>',  '<C-Y>', noremap_opt)
 keyset('n', '<C-Z>',  'u', noremap_opt)
 keyset('n', '<C-X>',  'dd', noremap_opt)
 keyset('n', '<C-C>',  'yy', noremap_opt)
-keyset('n', '<C-V>',  'p', noremap_opt)
 
 keyset('n', '<F1>',   ':stop<CR>', noremap_opt)
 keyset('n', '<F13>',  ':qa<CR>', noremap_opt)
@@ -98,10 +99,10 @@ keyset('n', '0',      '<CMD>BufferLast<CR>', noremap_silent_opt)
 keyset('i', '',     '<ESC><ESC>vbdi', noremap_opt)
 --keyset('i', '<C-BS>', '<ESC><ESC>vbdi', noremap_opt)
 keyset('i', '<C-S>',  '<ESC><ESC>:w<CR>', noremap_opt)
+keyset('i', '<C-Y>',  '<ESC><ESC><C-R>a', noremap_opt)
 keyset('i', '<C-Z>',  '<ESC><ESC>ua', noremap_opt)
 keyset('i', '<C-X>',  '<ESC><ESC>dda', noremap_opt)
 keyset('i', '<C-C>',  '<ESC><ESC>yya', noremap_opt)
-keyset('i', '<C-V>',  '<Space><BS><ESC>pa', noremap_opt)
 keyset('i', '<C-L>',  '<C-V>', noremap_opt)
 keyset('i', '<S-TAB>', '<C-V><TAB>', noremap_opt)
 
@@ -130,6 +131,8 @@ keyset('v', 'c',      '"_c', noremap_opt)
 
 keyset('v', '<BS>',   'd<ESC><ESC>i', noremap_opt)
 keyset('v', '<C-S>',  '<ESC><ESC>:w<CR>', noremap_opt)
+keyset('v', '<C-Y>',  '<ESC><ESC><C-R>', noremap_opt)
+keyset('v', '<C-R>',  '<C-Y>', noremap_opt)
 keyset('v', '<C-Z>',  '<ESC><ESC>u', noremap_opt)
 keyset('v', '<C-X>',  'd<ESC><ESC>', noremap_opt)
 keyset('v', '<C-C>',  '<CMD>lua visual_copy()<CR>', noremap_opt)
@@ -161,8 +164,8 @@ vim.cmd([[
   vnoremap <F2>   y/<C-R>=escape(@",'/\')<CR><CR>N:%s/<C-R>=escape(@",'/\')<CR>/<C-R>=escape(@",'/\')<CR>/g<Left><Left>
   vnoremap <F3>   y/<C-R>=escape(@",'/\')<CR><CR>N
 
-  map <Home>      <CMD>BufferNext<CR>
-  map <End>       <CMD>BufferPrevious<CR>
+  map <Home>      <CMD>BufferPrevious<CR>
+  map <End>       <CMD>BufferNext<CR>
 
   ca ff Telescope find_files
   ca fg Telescope grep_string
