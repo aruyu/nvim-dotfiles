@@ -231,9 +231,9 @@ EOF
   sudo apt-get -y install curl
 
   sudo add-apt-repository ppa:deadsnakes/ppa
-  sudo apt-get -y install python3.11
+  sudo apt-get -y install python3.10
   sudo curl https://bootstrap.pypa.io/get-pip.py -o ~/get-pip.py
-  sudo -H python3.11 ~/get-pip.py
+  sudo -H python3.10 ~/get-pip.py
 
   sudo curl -sL https://deb.nodesource.com/setup_14.x -o ~/nodesource_setup.sh
   sudo bash ~/nodesource_setup.sh
@@ -282,9 +282,11 @@ EOF
   echo -ne "Progressing...                                                                                \n"
   sudo apt-get -y install unzip
   sudo apt-get -y install ripgrep
-  sudo add-apt-repository ppa:lazygit-team/release
-  sudo apt-get -y update
-  sudo apt-get -y install lazygit
+  LAZYGIT_VERSION=$(curl -s "https://api.github.com/repos/jesseduffield/lazygit/releases/latest" | grep -Po '"tag_name": "v\K[^"]*')
+  curl -Lo lazygit.tar.gz "https://github.com/jesseduffield/lazygit/releases/latest/download/lazygit_${LAZYGIT_VERSION}_Linux_x86_64.tar.gz"
+  tar xf lazygit.tar.gz lazygit
+  sudo install lazygit /usr/local/bin
+  rm lazygit.tar.gz lazygit
   echo -ne "\n\n\n\n\n"
   progress 75 "Install utils for Neovim"
 
@@ -405,6 +407,7 @@ elif [ $CURRENT_JOB = $GIT ]; then
 elif [ $CURRENT_JOB = $FONT ]; then
   echo -ne "Selected Job: $CURRENT_JOB\n"
 
+  mkdir -p $HOME/.local/share/fonts/
   wget https://github.com/ryanoasis/nerd-fonts/releases/download/v2.3.3/JetBrainsMono.zip || error_exit "Installation Faild... wget needed."
   unzip JetBrainsMono.zip -d $HOME/.local/share/fonts/ || error_exit "Installation Faild... unzip needed."
   rm JetBrainsMono.zip
