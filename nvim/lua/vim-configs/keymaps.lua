@@ -20,14 +20,21 @@ local t = function(str)
   return vim.api.nvim_replace_termcodes(str, true, true, true)
 end
 
-function _G.visual_copy()
+function _G.visual_do(feature)
   local present_column = vim.fn.col('.')
+  local commands
+
+  if feature == 'cut' then
+    commands = 'd'
+  elseif feature == 'copy' then
+    commands = 'y'
+  end
 
   if (vim.fn.getline('.'):sub(present_column, present_column)) == '' and (present_column ~= 1) then   -- check '\n'
     vim.api.nvim_feedkeys(t('<Left>'), 'n', true)
-    vim.api.nvim_feedkeys(t('y<ESC><ESC>'), 'n', true)
+    vim.api.nvim_feedkeys(t( commands .. '<ESC><ESC>' ), 'n', true)
   else
-    vim.api.nvim_feedkeys(t('y<ESC><ESC>'), 'n', true)
+    vim.api.nvim_feedkeys(t( commands .. '<ESC><ESC>' ), 'n', true)
   end
 end
 
@@ -64,6 +71,7 @@ keyset('n', '<C-R>',  '<C-Y>', noremap_opt)
 keyset('n', '<C-Z>',  'u', noremap_opt)
 keyset('n', '<C-X>',  'dd', noremap_opt)
 keyset('n', '<C-C>',  'yy', noremap_opt)
+keyset('n', '<C-B>',  'p', noremap_opt)
 
 keyset('n', '<F1>',   ':stop<CR>', noremap_opt)
 keyset('n', '<F13>',  ':qa<CR>', noremap_opt)
@@ -97,12 +105,13 @@ keyset('n', '0',      '<CMD>BufferLast<CR>', noremap_silent_opt)
 -- =      INSERT MODE      =
 -- ========================= --
 keyset('i', '',     '<ESC><ESC>vbdi', noremap_opt)
---keyset('i', '<C-BS>', '<ESC><ESC>vbdi', noremap_opt)
+keyset('i', '<C-BS>', '<ESC><ESC>vbdi', noremap_opt)
 keyset('i', '<C-S>',  '<ESC><ESC>:w<CR>', noremap_opt)
 keyset('i', '<C-Y>',  '<ESC><ESC><C-R>a', noremap_opt)
 keyset('i', '<C-Z>',  '<ESC><ESC>ua', noremap_opt)
 keyset('i', '<C-X>',  '<ESC><ESC>dda', noremap_opt)
 keyset('i', '<C-C>',  '<ESC><ESC>yya', noremap_opt)
+keyset('i', '<C-B>',  '<ESC><ESC>pi', noremap_opt)
 keyset('i', '<C-L>',  '<C-V>', noremap_opt)
 keyset('i', '<S-TAB>', '<C-V><TAB>', noremap_opt)
 
@@ -134,8 +143,9 @@ keyset('v', '<C-S>',  '<ESC><ESC>:w<CR>', noremap_opt)
 keyset('v', '<C-Y>',  '<ESC><ESC><C-R>', noremap_opt)
 keyset('v', '<C-R>',  '<C-Y>', noremap_opt)
 keyset('v', '<C-Z>',  '<ESC><ESC>u', noremap_opt)
-keyset('v', '<C-X>',  'd<ESC><ESC>', noremap_opt)
-keyset('v', '<C-C>',  '<CMD>lua visual_copy()<CR>', noremap_opt)
+keyset('v', '<C-X>',  '<CMD>lua visual_do("cut")<CR>', noremap_opt)
+keyset('v', '<C-C>',  '<CMD>lua visual_do("copy")<CR>', noremap_opt)
+keyset('v', '<C-B>',  'p', noremap_opt)
 keyset('v', 'v',      '<C-V>', noremap_opt)
 
 keyset('v', '<F1>',   '<ESC><ESC>:stop<CR>', noremap_opt)
