@@ -145,10 +145,14 @@ if [ $CURRENT_JOB = $ARCH ]; then
   sudo pacman -S --needed --noconfirm python-pip
   sudo pacman -S --needed --noconfirm nodejs
   sudo pacman -S --needed --noconfirm npm
+  sudo pacman -S --needed --noconfirm ruby
+  sudo npm install -g yarn
+
   pip --version
   pip3 --version
-  node --version
   npm --version
+  yarn --version
+  ruby --version
   echo -ne "\n\n\n\n\n"
   progress 25 "Install essentials"
 
@@ -185,10 +189,11 @@ if [ $CURRENT_JOB = $ARCH ]; then
 
 
   echo -ne "Progressing...                                                                                \n"
-  sudo npm install -g neovim
   pip3 install neovim
+  sudo npm install -g neovim
+  sudo gem install neovim
   echo -ne "\n\n\n\n\n"
-  progress 95 "Install extras for Neovim"
+  progress 95 "Install providers for Neovim"
 
 
   echo -ne "Progressing...                                                                                \n"
@@ -210,14 +215,15 @@ elif [ $CURRENT_JOB = $UBUNTU ]; then
   read -p "Do you want to upgrade your Ubuntu latest? (y/n): " SELECTION
 
   if [ $SELECTION = y ]; then
-    sudo apt-get -y update
-    sudo apt-get -y upgrade
-    sudo apt-get -y dist-upgrade
-    sudo apt-get -y install update-manager-core
-    sudo do-release-upgrade -d
-    lsb_release -a
+    sudo su <<-EOF
+		apt-get -y update
+		apt-get -y upgrade
+		apt-get -y dist-upgrade
+		apt-get -y install update-manager-core
+		do-release-upgrade -d
+		lsb_release -a
+EOF
   fi
-
 
   echo -ne "Progressing...                                                                                \n"
   sudo apt-get -y update
@@ -225,18 +231,24 @@ elif [ $CURRENT_JOB = $UBUNTU ]; then
   sudo apt-get -y install curl
 
   sudo add-apt-repository ppa:deadsnakes/ppa
-  sudo apt-get -y install python3.10
+  sudo apt-get -y install python3.11
   sudo curl https://bootstrap.pypa.io/get-pip.py -o ~/get-pip.py
-  sudo -H python3.10 ~/get-pip.py
+  sudo -H python3.11 ~/get-pip.py
+
   sudo curl -sL https://deb.nodesource.com/setup_14.x -o ~/nodesource_setup.sh
   sudo bash ~/nodesource_setup.sh
   sudo apt-get -y install nodejs
+  sudo npm install -g yarn
 
+  sudo apt-get -y install ruby
+  sudo apt-get -y install ruby-dev
+
+  pip --version
+  pip3 --version
+  npm --version
+  yarn --version
+  ruby --version
   sudo rm ~/get-pip.py ~/nodesource_setup.sh
-  sudo pip --version
-  sudo pip3 --version
-  sudo node --version
-  sudo npm --version
   echo -ne "\n\n\n\n\n"
   progress 25 "Install essentials"
 
@@ -279,10 +291,11 @@ elif [ $CURRENT_JOB = $UBUNTU ]; then
 
   echo -ne "Progressing...                                                                                \n"
   sudo apt-get -y install python3-venv
-  sudo npm install -g neovim
   pip3 install neovim
+  sudo npm install -g neovim
+  sudo gem install neovim
   echo -ne "\n\n\n\n\n"
-  progress 95 "Install extras for Neovim"
+  progress 95 "Install providers for Neovim"
 
 
   echo -ne "Progressing...                                                                                \n"
@@ -311,11 +324,14 @@ elif [ $CURRENT_JOB = $MAC ]; then
   brew update
   brew upgrade
   brew install node
+  brew install ruby
+  sudo npm install -g yarn
 
   pip --version
   pip3 --version
-  node --version
   npm --version
+  yarn --version
+  ruby --version
   echo -ne "\n\n\n\n\n"
   progress 25 "Install essentials"
 
@@ -349,10 +365,11 @@ elif [ $CURRENT_JOB = $MAC ]; then
 
 
   echo -ne "Progressing...                                                                                \n"
-  sudo npm install -g neovim
   pip3 install neovim
+  sudo npm install -g neovim
+  sudo gem install neovim
   echo -ne "\n\n\n\n\n"
-  progress 95 "Install extras for Neovim"
+  progress 95 "Install providers for Neovim"
 
 
   echo -ne "Progressing...                                                                                \n"
