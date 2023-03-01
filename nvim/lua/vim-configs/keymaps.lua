@@ -104,8 +104,9 @@ keyset('n', '0',      '<CMD>BufferLast<CR>', noremap_silent_opt)
 -- ========================= --
 -- =      INSERT MODE      =
 -- ========================= --
-keyset('i', '',     '<ESC><ESC>vbdi', noremap_opt)
-keyset('i', '<C-BS>', '<ESC><ESC>vbdi', noremap_opt)
+keyset('i', '',     '<ESC><ESC>vbdi', noremap_opt) -- for wsl (window terminal)
+keyset('i', '<C-BS>', '<ESC><ESC>vbdi', noremap_opt) -- for mac
+keyset('i', '<M-BS>', '<ESC><ESC>vbdi', noremap_opt) -- for alacritty
 keyset('i', '<C-S>',  '<ESC><ESC>:w<CR>', noremap_opt)
 keyset('i', '<C-Y>',  '<ESC><ESC><C-R>a', noremap_opt)
 keyset('i', '<C-Z>',  '<ESC><ESC>ua', noremap_opt)

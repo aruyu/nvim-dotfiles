@@ -191,7 +191,7 @@ if [ $CURRENT_JOB = $ARCH ]; then
   echo -ne "Progressing...                                                                                \n"
   pip3 install neovim
   sudo npm install -g neovim
-  sudo gem install neovim
+  gem install neovim
   echo -ne "\n\n\n\n\n"
   progress 95 "Install providers for Neovim"
 
@@ -295,7 +295,7 @@ EOF
   sudo apt-get -y install python3-venv
   pip3 install neovim
   sudo npm install -g neovim
-  sudo gem install neovim
+  gem install neovim
   echo -ne "\n\n\n\n\n"
   progress 95 "Install providers for Neovim"
 
@@ -369,7 +369,7 @@ elif [ $CURRENT_JOB = $MAC ]; then
   echo -ne "Progressing...                                                                                \n"
   pip3 install neovim
   sudo npm install -g neovim
-  sudo gem install neovim
+  gem install neovim
   echo -ne "\n\n\n\n\n"
   progress 95 "Install providers for Neovim"
 
