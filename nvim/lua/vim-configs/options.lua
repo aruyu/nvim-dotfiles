@@ -9,9 +9,28 @@
 
 
 
--- Local variables for option
+-- Require lua string utils.
+package.path = package.path .. ";../utils"
+require("utils.string")
+
+-- Locals for option.
 local vimset = vim.opt
 
+local t = function(str)
+  return vim.api.nvim_replace_termcodes(str, true, true, true)
+end
+
+function _G.auto_sync()
+  local is_documents = vim.fn.getcwd():contains('Documents')
+
+  if is_documents then
+    vim.cmd([[
+      !rsync -avxHAXP --exclude={'.git*/','.script','*.git','LICENSE','*.md'} ~/Documents/nvim-dotfiles/* ~/.config/
+      !rsync -avxHAXP --exclude={'.git*/','.script','*.git','LICENSE','*.md'} ~/Documents/openbox-dotfiles/* ~/.config/
+    ]])
+    vim.api.nvim_feedkeys(t('<CR>' ), 'n', true)
+  end
+end
 
 
 -- ========================= --
@@ -76,17 +95,25 @@ vim.cmd([[
   endfunction
 
   " verbose set -find where is the last [set]
-  syntax on
+  " syntax on
 
-  autocmd VimEnter * if &filetype ==# 'gitcommit' | echo 'gitcommit' | else | exec "normal \<F48>" | endif
-  "autocmd BufWritePost *.c,*.h silent! !ctags -R &
+  augroup vim_enterposts
+    autocmd!
+    autocmd VimEnter * if &filetype ==# 'gitcommit' | echo 'gitcommit' | else | exec "normal \<F48>" | endif
+    "autocmd BufWritePost *.c,*.h silent! !ctags -R &
+  augroup END
 
-  augroup cmd_msg_clear
+  augroup autoclear_cmd_msg
     autocmd!
     autocmd CmdlineLeave : call timer_start(2000, funcref('s:empty_message'))
   augroup END
 
-  augroup gitcommit_autoclose
+  augroup autosync_nvim
+    autocmd!
+    autocmd BufWritePost * lua auto_sync()
+  augroup END
+
+  augroup autoclose_gitcommit
     autocmd!
     autocmd FileType gitcommit nnoremap <C-S> :wq<CR>
     autocmd FileType gitcommit inoremap <C-S> <ESC><ESC>:wq<CR>

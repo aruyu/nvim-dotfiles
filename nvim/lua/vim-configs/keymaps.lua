@@ -9,7 +9,7 @@
 
 
 
--- Local variables for keymap
+-- Locals for keymap.
 local keyset = vim.keymap.set
 local remap_opt = { remap = true }
 local remap_silent_opt = { remap = true, silent = true }
@@ -43,10 +43,7 @@ function _G.sync_to()
     !rsync -avxHAXP ~/.config/nvim/queries/* ~/Documents/nvim-dotfiles/nvim/queries/
     !rsync -avxHAXP ~/.config/nvim/ultisnips/* ~/Documents/nvim-dotfiles/nvim/ultisnips/
   ]])
-end
-
-function _G.sync_from()
-  vim.cmd([[ !rsync -avxHAXP --exclude={'.git*/','.script','*.git','LICENSE','*.md'} ~/Documents/nvim-dotfiles/* ~/.config/ ]])
+  vim.api.nvim_feedkeys(t('<CR>' ), 'n', true)
 end
 
 
@@ -188,6 +185,5 @@ vim.cmd([[
   ca fsh Telescope search_history
   ca fhl Telescope highlights
   ca ww SudaWrite
-  ca synct lua sync_to()<CR>
-  ca syncf lua sync_from()<CR>
+  ca synct lua sync_to()
 ]])
