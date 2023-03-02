@@ -23,6 +23,7 @@ else
 end
 
 -- Local variables for config lualine.
+local vsc_white = '#F3F3F3'
 local vsc_red = '#EE6666'
 local vsc_yellow = '#F0CF74'
 
@@ -75,7 +76,7 @@ local function process_sections(sections)
     local left = name:sub(9, 10) < 'x'
     for pos = 1, name ~= 'lualine_z' and #section or #section - 1 do
       if #section == 4 then
-        table.insert(section, pos * 2, { empty, color = { fg = '#f3f3f3', bg = '#f3f3f3' } })
+        table.insert(section, pos * 2, { empty, color = { fg = vsc_white, bg = vsc_white } })
       end
     end
     for id, comp in ipairs(section) do
