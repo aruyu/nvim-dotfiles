@@ -22,8 +22,9 @@ end
 
 function _G.auto_sync()
   local is_documents = vim.fn.getcwd():contains('Documents')
+  local filetype = vim.api.nvim_eval('&filetype')
 
-  if is_documents then
+  if is_documents and filetype ~= 'gitcommit' then
     vim.cmd([[
       !rsync -avxHAXP --exclude={'.git*/','.script','*.git','LICENSE','*.md'} ~/Documents/nvim-dotfiles/* ~/.config/
       !rsync -avxHAXP --exclude={'.git*/','.script','*.git','LICENSE','*.md'} ~/Documents/openbox-dotfiles/* ~/.config/

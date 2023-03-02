@@ -90,7 +90,7 @@ hl(0, 'DiagnosticHint', { fg = vsc_nontext, bg = 'NONE' })
 
 
 -- Universal Syntax.
-hl(0, '@error', { fg = vsc_red, bg = 'NONE', undercurl = true })
+hl(0, '@error', { fg = vsc_red, bg = 'NONE' })
 hl(0, 'NonText', { fg = vsc_nontext, bg = 'NONE', italic = true })
 hl(0, 'SpecialChar', { fg = colors.vscYellowOrange, bg = 'NONE' })
 
