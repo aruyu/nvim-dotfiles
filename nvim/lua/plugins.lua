@@ -136,6 +136,7 @@ return packer.startup(
       tag = 'v0.8.1'
     }
     use 'nvim-treesitter/playground'
+    use 'norcalli/nvim-colorizer.lua'
 
 
     -- === Others === --

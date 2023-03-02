@@ -41,6 +41,7 @@ vimset.number = true            --show line number
 vimset.ruler = true             --show advences
 vimset.showmatch = true         --show matching brace
 vimset.laststatus = 2           --show status bar always
+vimset.termguicolors = true
 
 --set bs=indent,eol,start       --use backspace
 --set mouse=a                   --use mouse as VISUAL MODE

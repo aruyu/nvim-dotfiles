@@ -8,10 +8,17 @@
 ]]
 
 
+
+-- Configs for Neovim Editor
+require("vim-configs.keymaps")
+require("vim-configs.options")
+
+
 -- Configs for Plugins
 require("plugin-configs.barbar-configs")
 --require("plugin-configs.bufferline-configs")
 --require("plugin-configs.coc-configs")
+require("plugin-configs.colorizer-configs")
 require("plugin-configs.gitsigns-configs")
 --require("plugin-configs.guess-indent-configs")
 require("plugin-configs.indent-blankline-configs")
@@ -30,7 +37,3 @@ require("plugin-configs.ultisnips-configs")
 --require("plugin-configs.vgit-configs")
 --require("plugin-configs.vim-airline-configs")
 require("plugin-configs.vscode-configs")
-
--- Configs for VIM Editor
-require("vim-configs.keymaps")
-require("vim-configs.options")
