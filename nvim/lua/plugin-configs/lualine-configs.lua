@@ -22,6 +22,10 @@ else
   colors = colors.get_colors()
 end
 
+-- Local variables for config lualine.
+local vsc_red = '#EE6666'
+local vsc_yellow = '#F0CF74'
+
 -- Local functions for config lualine.
 local get_info = function()
   local is_blank_buffer = vim.api.nvim_eval('&filetype') == ''
@@ -55,7 +59,7 @@ local get_present_line = function()
   return '' .. line_value .. column_value .. ' '
 end
 
----apply transitional separator for the component
+-- Apply transitional separator for the component.
 local empty = require("lualine.component"):extend()
 function empty:draw(default_highlight)
   self.status = ''
@@ -65,7 +69,7 @@ function empty:draw(default_highlight)
   return self.status
 end
 
--- Put proper separators and gaps between components in sections
+-- Put proper separators and gaps between components in sections.
 local function process_sections(sections)
   for name, section in pairs(sections) do
     local left = name:sub(9, 10) < 'x'
@@ -154,7 +158,7 @@ lualine.setup {
         'diagnostics',
         sources = { 'nvim_diagnostic', 'nvim_lsp' },
         sections = { 'error' },
-        diagnostics_color = { error = { fg = colors.vscLeftMid, bg = colors.vscRed } },
+        diagnostics_color = { error = { fg = colors.vscLeftMid, bg = vsc_red } },
         symbols = { error = ' ', warn = ' ', info = ' ', hint = ' ' },
         update_in_insert = true,
       },
@@ -162,7 +166,7 @@ lualine.setup {
         'diagnostics',
         sources = { 'nvim_diagnostic', 'nvim_lsp' },
         sections = { 'warn' },
-        diagnostics_color = { warn = { fg = colors.vscLeftMid, bg = '#fe8019' } },
+        diagnostics_color = { warn = { fg = colors.vscLeftMid, bg = vsc_yellow } },
         symbols = { error = ' ', warn = ' ', info = ' ', hint = ' ' },
         update_in_insert = true,
       },

@@ -61,8 +61,8 @@ vscode.change_style('dark')
 ]]
 
 local vsc_nontext = '#5A5A5A'
-local vsc_red = '#CC6666'
-local vsc_yellow = '#F0C674'
+local vsc_red = '#EE6666'
+local vsc_yellow = '#F0CF74'
 
 
 -- Theme Syntax.
@@ -90,6 +90,7 @@ hl(0, 'DiagnosticHint', { fg = vsc_nontext, bg = 'NONE' })
 
 
 -- Universal Syntax.
+hl(0, '@error', { fg = vsc_red, bg = 'NONE', undercurl = true })
 hl(0, 'NonText', { fg = vsc_nontext, bg = 'NONE', italic = true })
 hl(0, 'SpecialChar', { fg = colors.vscYellowOrange, bg = 'NONE' })
 

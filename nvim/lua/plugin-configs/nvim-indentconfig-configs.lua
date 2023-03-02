@@ -42,19 +42,21 @@ nvim_autoindents.setup({
     {
       expandtab = false,
       size = 4,
-      filetype = { 'verilog' }
+      filetype = { 'c','verilog' }
     },
 
     {
       expandtab = true,
       size = 4,
       filetype = {
-        'c','cpp','php',
+        'cpp','php',
         'systemverilog',
       }
     },
   },
 
+  -- The filetype settings by filename here.
+  -- This option would re-set specific filetype by specific filename.
   ft_preset = {
     { filename = '*.h', filetype = 'c' },
     { filename = '*.xaml', filetype = 'xml' },
