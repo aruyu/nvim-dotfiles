@@ -26,8 +26,8 @@ function _G.auto_sync()
 
   if is_documents and filetype ~= 'gitcommit' then
     vim.cmd([[
-      !rsync -avxHAXP --exclude={'.git*/','.script','*.git','LICENSE','*.md'} ~/Documents/nvim-dotfiles/* ~/.config/
-      !rsync -avxHAXP --exclude={'.git*/','.script','*.git','LICENSE','*.md'} ~/Documents/openbox-dotfiles/* ~/.config/
+      !rsync -avxHAXP --exclude={'.git*/','*.git','tools','LICENSE','*.md'} ~/Documents/nvim-dotfiles/* ~/.config/
+      !rsync -avxHAXP --exclude={'.git*/','*.git','tools','LICENSE','*.md'} ~/Documents/openbox-dotfiles/* ~/.config/
     ]])
     vim.api.nvim_feedkeys(t('<CR>' ), 'n', true)
   end
@@ -99,7 +99,7 @@ vim.cmd([[
   " verbose set -find where is the last [set]
   " syntax on
 
-  augroup vim_enterposts
+  augroup vim_posts
     autocmd!
     autocmd VimEnter * if &filetype ==# 'gitcommit' | echo 'gitcommit' | else | exec "normal \<F48>" | endif
     "autocmd BufWritePost *.c,*.h silent! !ctags -R &

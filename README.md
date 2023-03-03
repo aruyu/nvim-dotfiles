@@ -18,7 +18,7 @@ git clone https://github.com/astaos/nvim-dotfiles.git ~/.config
 > Run *'install.sh'* to install essentials.
 
 ```bash
-bash ~/.config/.scripts/install.sh
+bash ~/.config/tools/install.sh
 ```
 
 </details>
@@ -35,13 +35,13 @@ git clone https://github.com/astaos/nvim-dotfiles.git ~/Documents/nvim-dotfiles/
 > Use rsync to sync the dotfiles.
 
 ```bash
-rsync -avxHAXP --exclude={'.git*/','.script','*.git','LICENSE','*.md'} ~/Documents/nvim-dotfiles/* ~/.config/
+rsync -avxHAXP --exclude={'.git*/','*.git','tools','LICENSE','*.md'} ~/Documents/nvim-dotfiles/* ~/.config/
 ```
 
 > Run *'install.sh'* to install essentials.
 
 ``` bash
-bash ~/Documents/nvim-dotfiles/.scripts/install.sh
+bash ~/Documents/nvim-dotfiles/tools/install.sh
 ```
 
 </details>
