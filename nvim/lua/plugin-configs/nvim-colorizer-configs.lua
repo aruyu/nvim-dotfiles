@@ -1,5 +1,5 @@
 --[[
--   NOTE      - colorizer-configs.lua
+-   NOTE      - nvim-colorizer-configs.lua
 -   Author    - Asta
 -
 -   Created   - 2023.03.02
@@ -21,5 +21,11 @@ end
 -- =========================== --
 --   Additional User Configs   --
 -- =========================== --
--- Empty setup using defaults.
-colorizer.setup()
+-- Configure setup with some options.
+colorizer.setup({
+  '*', -- Highlight all files, but customize some others.
+  css = {
+    rgb_fn = true, -- Enable parsing rgb(...) functions in css.
+    names = true, -- "Name" codes like Blue
+  },
+}, { names = false, })
