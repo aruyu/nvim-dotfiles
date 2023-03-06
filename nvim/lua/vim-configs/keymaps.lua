@@ -32,9 +32,9 @@ function _G.visual_do(feature)
 
   if (vim.fn.getline('.'):sub(present_column, present_column)) == '' and (present_column ~= 1) then   -- check '\n'
     vim.api.nvim_feedkeys(t('<Left>'), 'n', true)
-    vim.api.nvim_feedkeys(t( commands .. '<ESC><ESC>' ), 'n', true)
+    vim.api.nvim_feedkeys(t(commands .. '<ESC><ESC>'), 'n', true)
   else
-    vim.api.nvim_feedkeys(t( commands .. '<ESC><ESC>' ), 'n', true)
+    vim.api.nvim_feedkeys(t(commands .. '<ESC><ESC>'), 'n', true)
   end
 end
 
