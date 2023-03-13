@@ -55,7 +55,7 @@ vimset.wrap = false             --not use auto window size
 
 vimset.autoindent = true        --auto indent
 vimset.smartindent = true       --smart indent
-vimset.numberwidth = 5          --number off set size 5
+vimset.numberwidth = 5          --offset size 5
 
 --vimset.shiftwidth = 2           --shift size 2 columns
 --vimset.softtabstop = 2          --tab size 2 columns
