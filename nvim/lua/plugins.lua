@@ -74,7 +74,7 @@ return packer.startup(
     -- === Themes Plugins === --
     use {
       'Mofiqul/vscode.nvim',
-      tag = 'db9ee339b5556aa832ca58871fd18f9467a18520'
+      commit = 'db9ee339b5556aa832ca58871fd18f9467a18520'
     }
     --use 'ryanoasis/vim-devicons'
     use {
