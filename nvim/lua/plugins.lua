@@ -72,10 +72,7 @@ return packer.startup(
     -- ================= --
 
     -- === Themes Plugins === --
-    use {
-      'Mofiqul/vscode.nvim',
-      commit = 'db9ee339b5556aa832ca58871fd18f9467a18520'
-    }
+    use 'Mofiqul/vscode.nvim'
     --use 'ryanoasis/vim-devicons'
     use {
       'nvim-lualine/lualine.nvim',
