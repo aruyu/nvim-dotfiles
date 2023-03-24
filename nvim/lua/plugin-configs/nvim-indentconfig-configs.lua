@@ -59,6 +59,7 @@ nvim_autoindents.setup({
   -- This option would re-set specific filetype by specific filename.
   ft_preset = {
     { filename = '*.h', filetype = 'c' },
+    { filename = '*.veo', filetype = 'verilog' },
     { filename = '*.xaml', filetype = 'xml' },
   },
 })
