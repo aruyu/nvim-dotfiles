@@ -107,6 +107,7 @@ return packer.startup(
     }
     use 'lukas-reineke/indent-blankline.nvim'
     use 'astaos/nvim-ultivisual'
+    use 'karb94/neoscroll.nvim'
     --use 'nmac427/guess-indent.nvim'
     --use 'anuvyklack/pretty-fold.nvim'
 
