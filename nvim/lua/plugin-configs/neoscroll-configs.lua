@@ -29,8 +29,8 @@ neoscroll.setup {
 }
 
 local t = {}
-t['<C-r>'] = {'scroll', {'-0.10', 'false', '60'}}
-t['<C-e>'] = {'scroll', { '0.10', 'false', '60'}}
+t['<C-r>'] = {'scroll', {'-0.08', 'false', '60'}}
+t['<C-e>'] = {'scroll', { '0.08', 'false', '60'}}
 t['zz']    = {'zz', {'250'}}
 
 require('neoscroll.config').set_mappings(t)
