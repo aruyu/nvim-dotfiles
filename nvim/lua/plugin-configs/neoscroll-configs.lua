@@ -23,21 +23,23 @@ end
 -- =========================== --
 -- Configure setup with some options.
 neoscroll.setup {
-  mappings = { '<C-r>', '<C-e>', 'zt', 'zz', 'zb' },
+  mappings = { "<C-;>","<C-'>", 'zt','zz','zb' },
   hide_cursor = true,          -- Hide cursor while scrolling
   cursor_scrolls_alone = true, -- The cursor will keep on scrolling even if the window cannot scroll further
+  performance_mode = false,    -- Disable "Performance Mode" on all buffers.
 }
 
 local t = {}
-t['<C-r>'] = {'scroll', {'-0.08', 'false', '60'}}
-t['<C-e>'] = {'scroll', { '0.08', 'false', '60'}}
-t['zz']    = {'zz', {'250'}}
+t["<C-;>"] = {'scroll', {'-0.05', 'false', '20'}}
+t["<C-'>"] = {'scroll', { '0.05', 'false', '20'}}
 
 require('neoscroll.config').set_mappings(t)
 
-vim.keymap.set('n', '<ScrollWheelUp>', '<C-r>', { remap = true })
-vim.keymap.set('n', '<ScrollWheelDown>', '<C-e>', { remap = true })
-vim.keymap.set('i', '<ScrollWheelUp>', '<C-r>', { remap = true })
-vim.keymap.set('i', '<ScrollWheelDown>', '<C-e>', { remap = true })
-vim.keymap.set('v', '<ScrollWheelUp>', '<C-r>', { remap = true })
-vim.keymap.set('v', '<ScrollWheelDown>', '<C-e>', { remap = true })
+
+
+vim.keymap.set('n', '<ScrollWheelUp>', "<C-;>", { remap = true })
+vim.keymap.set('n', '<ScrollWheelDown>', "<C-'>", { remap = true })
+--vim.keymap.set('i', '<ScrollWheelUp>', "<C-;>", { remap = true })
+--vim.keymap.set('i', '<ScrollWheelDown>', "<C-'>", { remap = true })
+vim.keymap.set('v', '<ScrollWheelUp>', "<C-;>", { remap = true })
+vim.keymap.set('v', '<ScrollWheelDown>', "<C-'>", { remap = true })
