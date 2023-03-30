@@ -80,7 +80,8 @@ return packer.startup(
     }
     use {
       'romgrk/barbar.nvim',
-      requires = 'kyazdani42/nvim-web-devicons'
+      requires = 'kyazdani42/nvim-web-devicons',
+      commit = '51a5284ac74dc16a8808c4406823d9c15eb238f8'
     }
     use {
       'nvim-tree/nvim-tree.lua',
