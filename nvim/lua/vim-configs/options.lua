@@ -125,6 +125,14 @@ vim.cmd([[
     autocmd FileType gitcommit vnoremap <C-D> <ESC><ESC>:qa!<CR>
   augroup END
 
+  augroup default_map_nvimtree
+    autocmd!
+    autocmd FileType NvimTree nnoremap <buffer> <ScrollWheelUp> <ScrollWheelUp>
+    autocmd FileType NvimTree nnoremap <buffer> <ScrollWheelDown> <ScrollWheelDown>
+    autocmd FileType NvimTree vnoremap <buffer> <ScrollWheelUp> <ScrollWheelUp>
+    autocmd FileType NvimTree vnoremap <buffer> <ScrollWheelDown> <ScrollWheelDown>
+  augroup END
+
   augroup help_as_buffer
     autocmd!
     autocmd FileType help exec "normal L"

@@ -25,12 +25,12 @@ end
 neoscroll.setup {
   mappings = { "<C-;>","<C-'>", 'zt','zz','zb' },
   hide_cursor = true,          -- Hide cursor while scrolling
-  cursor_scrolls_alone = true, -- The cursor will keep on scrolling even if the window cannot scroll further
+  cursor_scrolls_alone = false, -- The cursor will keep on scrolling even if the window cannot scroll further
 }
 
 local t = {}
-t["<C-;>"] = {'scroll', {'-0.05', 'false', '20'}}
-t["<C-'>"] = {'scroll', { '0.05', 'false', '20'}}
+t["<C-;>"] = {'scroll', {'-0.1', 'false', '40'}}
+t["<C-'>"] = {'scroll', { '0.1', 'false', '40'}}
 
 require('neoscroll.config').set_mappings(t)
 
