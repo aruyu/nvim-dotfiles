@@ -26,7 +26,6 @@ neoscroll.setup {
   mappings = { "<C-;>","<C-'>", 'zt','zz','zb' },
   hide_cursor = true,          -- Hide cursor while scrolling
   cursor_scrolls_alone = true, -- The cursor will keep on scrolling even if the window cannot scroll further
-  performance_mode = false,    -- Disable "Performance Mode" on all buffers.
 }
 
 local t = {}
