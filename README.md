@@ -6,27 +6,12 @@ VSCode style custom dotfiles for Neovim written by Lua Script.
 
 ## Installation
 
-<details>
-<summary><b>Direct installation</b></summary>
-
-#### Clone the repository to *'~/.config'* directly.
-
-```bash
-git clone https://github.com/astaos/nvim-dotfiles.git ~/.config
-```
-
-> Run *'install.sh'* to install essentials.
-
-```bash
-bash ~/.config/tools/install.sh
-```
-
-</details>
+> I highly recommend to use **'rsync'** for installation.
 
 <details>
 <summary><b>Install with rsync</b></summary>
 
-#### I highly recommend to clone the repository to *'~/Documents'* with rsync.
+#### Clone the repository to *'~/Documents'* and install with rsync.
 
 ```bash
 git clone https://github.com/astaos/nvim-dotfiles.git ~/Documents/nvim-dotfiles/
@@ -42,6 +27,23 @@ rsync -avxHAXP --exclude={'.git*/','*.git','tools','LICENSE','*.md'} ~/Documents
 
 ``` bash
 bash ~/Documents/nvim-dotfiles/tools/install.sh
+```
+
+</details>
+
+<details>
+<summary><b>Direct installation</b></summary>
+
+#### Clone the repository to *'~/.config'* directly.
+
+```bash
+git clone https://github.com/astaos/nvim-dotfiles.git ~/.config
+```
+
+> Run *'install.sh'* to install essentials.
+
+```bash
+bash ~/.config/tools/install.sh
 ```
 
 </details>
