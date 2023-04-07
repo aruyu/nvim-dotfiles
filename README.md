@@ -6,7 +6,7 @@ VSCode style custom dotfiles for Neovim written by Lua Script.
 
 ## Installation
 
-> I highly recommend to use **'rsync'** for installation.
+> I highly recommend to use ***'rsync'*** for installation.
 
 <details>
 <summary><b>Install with rsync</b></summary>
