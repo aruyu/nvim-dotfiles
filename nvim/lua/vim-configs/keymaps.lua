@@ -43,7 +43,7 @@ function _G.sync_to()
     !rsync -avxHAXP ~/.config/nvim/queries/* ~/Documents/nvim-dotfiles/nvim/queries/
     !rsync -avxHAXP ~/.config/nvim/ultisnips/* ~/Documents/nvim-dotfiles/nvim/ultisnips/
   ]])
-  vim.api.nvim_feedkeys(t('<CR>' ), 'n', true)
+  vim.api.nvim_feedkeys(t('<CR>'), 'n', true)
 end
 
 
