@@ -137,7 +137,10 @@ return packer.startup(
       'nvim-treesitter/nvim-treesitter',
       tag = 'v0.8.1'
     }
-    use 'nvim-treesitter/playground'
+    use {
+      'nvim-treesitter/playground',
+      commit = '4044b53c4d4fcd7a78eae20b8627f78ce7dc6f56' --Bug found. (#120)
+    }
     use 'norcalli/nvim-colorizer.lua'
 
 

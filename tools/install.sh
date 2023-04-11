@@ -279,9 +279,9 @@ EOF
 
   echo -ne "Progressing...                                                                                \n"
   sudo apt-get -y install llvm
-  sudo apt-get -y install clangd
+  sudo apt-get -y install clang clangd
   sudo apt-get -y install clang-format
-  sudo apt-get -y install gcc
+  sudo apt-get -y install g++ gcc
   sudo apt-get -y install make
   sudo apt-get -y install bear
   echo -ne "\n\n\n\n\n"
@@ -319,8 +319,10 @@ EOF
   echo -ne "Progressing...                                                                                \n"
   nvim --version
   llvm --version
+  clang --version
   clangd --version
   clang-format --version
+  g++ --version
   gcc --version
   make --version
   bear --version
