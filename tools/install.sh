@@ -134,7 +134,17 @@ MAC=Mac
 GIT=Git
 FONT=Font
 
-read -p "Enter what you want to install (Arch, Ubuntu, Mac, Git, Font): " CURRENT_JOB
+while true; do
+  read -p "Enter what you want to install (Arch, Ubuntu, Mac, Git, Font): " SELECTION
+  case $SELECTION in
+    [Aa][Rr][Cc][Hh] )          CURRENT_JOB=Arch; break;;
+    [Uu][Bb][Uu][Nn][Tt][Uu] )  CURRENT_JOB=Ubuntu; break;;
+    [Mm][Aa][Cc] )              CURRENT_JOB=Mac; break;;
+    [Gg][Ii][Tt] )              CURRENT_JOB=Git; break;;
+    [Ff][Oo][Nn][Tt] )          CURRENT_JOB=Font; break;;
+    * )                         echo "Wrong answer.";;
+  esac
+done
 
 
 if [ $CURRENT_JOB = $ARCH ]; then
@@ -212,10 +222,12 @@ if [ $CURRENT_JOB = $ARCH ]; then
 
 elif [ $CURRENT_JOB = $UBUNTU ]; then
   progress 5 "Selected OS: $CURRENT_JOB"
-  read -p "Do you want to upgrade your Ubuntu latest? (y/n): " SELECTION
 
-  if [ $SELECTION = y ]; then
-    sudo su <<-EOF
+  while true; do
+    read -p "Do you want to upgrade your Ubuntu latest? (y/n): " yn
+    case $yn in
+      [Yy]| [Yy][Ee][Ss] )
+        sudo su <<-EOF
 		apt-get -y update
 		apt-get -y upgrade
 		apt-get -y dist-upgrade
@@ -223,7 +235,11 @@ elif [ $CURRENT_JOB = $UBUNTU ]; then
 		do-release-upgrade -d
 		lsb_release -a
 EOF
-  fi
+        break;;
+      [Nn]| [Nn][Oo] )  break;;
+      * )               echo "Wrong answer.";;
+    esac
+  done
 
   echo -ne "Progressing...                                                                                \n"
   sudo apt-get -y update
