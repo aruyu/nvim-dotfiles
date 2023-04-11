@@ -309,6 +309,7 @@ EOF
 
   echo -ne "Progressing...                                                                                \n"
   sudo apt-get -y install python3-venv
+  sudo apt-get -y install python3-neovim
   pip3 install neovim
   sudo npm install -g neovim
   gem install neovim
