@@ -135,11 +135,11 @@ return packer.startup(
     -- Syntax Plugins === --
     use {
       'nvim-treesitter/nvim-treesitter',
-      tag = 'v0.8.1'
+      tag = 'v0.9.0'
     }
     use {
       'nvim-treesitter/playground',
-      commit = '4044b53c4d4fcd7a78eae20b8627f78ce7dc6f56' --Bug found. (#120)
+      commit = '934cb4c4adc2e7f4f351846a63c9532018c996ed' --Only for NVIM v0.9.0 (#120)
     }
     use 'norcalli/nvim-colorizer.lua'
 
