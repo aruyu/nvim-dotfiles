@@ -1,9 +1,9 @@
 --[[
 -   NOTE      - nvim-colorizer-configs.lua
--   Author    - Asta
+-   Author    - Aru
 -
 -   Created   - 2023.03.02
--   Github    - https://github.com/astaos
+-   Github    - https://github.com/aruyu
 -   Contact   - vine9151@gmail.com
 ]]
 

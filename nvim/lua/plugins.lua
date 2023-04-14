@@ -1,9 +1,9 @@
 --[[
 -   NOTE      - plugins.lua
--   Author    - Asta
+-   Author    - Aru
 -
 -   Created   - 2022.10.21
--   Github    - https://github.com/astaos
+-   Github    - https://github.com/aruyu
 -   Contact   - vine9151@gmail.com
 ]]
 
@@ -107,7 +107,7 @@ return packer.startup(
       --tag = 'release' -- To use the latest release (do not use this if you run Neovim nightly or dev builds!)
     }
     use 'lukas-reineke/indent-blankline.nvim'
-    use 'astaos/nvim-ultivisual'
+    use 'aruyu/nvim-ultivisual'
     use 'karb94/neoscroll.nvim'
     --use 'nmac427/guess-indent.nvim'
     --use 'anuvyklack/pretty-fold.nvim'
@@ -146,7 +146,7 @@ return packer.startup(
 
     -- === Others === --
     use 'windwp/nvim-autopairs'
-    use 'astaos/nvim-indentconfig'
+    use 'aruyu/nvim-indentconfig'
     use 'lambdalisue/suda.vim'
 
     -- ================= --
