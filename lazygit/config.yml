@@ -1,6 +1,27 @@
 gui:
   showIcons: true
 
+  # use the frappe catpuccin theme
+  theme:
+    lightTheme: false
+    activeBorderColor:
+      - green     # Green
+      - bold
+    inactiveBorderColor:
+      - "#c6d0ed" # Text
+    optionsTextColor:
+      - "#8caaee" # Blue
+    selectedLineBgColor:
+      - "#414551" # Surface0
+    selectedRangeBgColor:
+      - "#414551" # Surface0
+    cherryPickedCommitBgColor:
+      - "#81c8be" # Teal
+    cherryPickedCommitFgColor:
+      - "#8caaee" # Blue
+    unstagedChangesColor:
+      - red       # Red
+
 keybinding:
   universal:
     undo: '<C-Z>'
