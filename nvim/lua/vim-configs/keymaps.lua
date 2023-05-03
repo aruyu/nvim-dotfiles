@@ -62,6 +62,7 @@ keyset('n', 'dn',     '<CMD>lua vim.diagnostic.config({virtual_text = false})<CR
 keyset('n', 'dd',     '"_dd', noremap_opt)
 
 keyset('n', 'ZZ',     'zz', noremap_opt)
+keyset('n', '<C-A>',  'gg<S-V>G', noremap_opt)
 keyset('n', '<C-S>',  ':w<CR>', noremap_opt)
 keyset('n', '<C-Y>',  '<C-R>', noremap_opt)
 keyset('n', '<C-R>',  '<C-Y>', noremap_opt)
@@ -104,6 +105,7 @@ keyset('n', '0',      '<CMD>BufferLast<CR>', noremap_silent_opt)
 keyset('i', '',     '<ESC><ESC>vbdi', noremap_opt) -- for wsl (window terminal)
 keyset('i', '<C-BS>', '<ESC><ESC>vbdi', noremap_opt) -- for mac
 keyset('i', '<M-BS>', '<ESC><ESC>vbdi', noremap_opt) -- for alacritty
+keyset('i', '<C-A>',  '<ESC><ESC>gg<S-V>G', noremap_opt)
 keyset('i', '<C-S>',  '<ESC><ESC>:w<CR>', noremap_opt)
 keyset('i', '<C-Y>',  '<ESC><ESC><C-R>a', noremap_opt)
 keyset('i', '<C-Z>',  '<ESC><ESC>ua', noremap_opt)
@@ -137,6 +139,7 @@ keyset('v', 'd',      '"_d', noremap_opt)
 keyset('v', 'c',      '"_c', noremap_opt)
 
 keyset('v', '<BS>',   'd<ESC><ESC>i', noremap_opt)
+keyset('v', '<C-A>',  '<ESC><ESC>gg<S-V>G', noremap_opt)
 keyset('v', '<C-S>',  '<ESC><ESC>:w<CR>', noremap_opt)
 keyset('v', '<C-Y>',  '<ESC><ESC><C-R>', noremap_opt)
 keyset('v', '<C-R>',  '<C-Y>', noremap_opt)
