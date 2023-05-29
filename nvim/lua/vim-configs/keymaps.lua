@@ -175,8 +175,8 @@ vim.cmd([[
   vnoremap <F2>   y/<C-R>=escape(@",'/\')<CR><CR>N:%s/<C-R>=escape(@",'/\')<CR>/<C-R>=escape(@",'/\')<CR>/g<Left><Left>
   vnoremap <F3>   y/<C-R>=escape(@",'/\')<CR><CR>N
 
-  map <ScrollWheelLeft>  <CMD>BufferNext<CR>
-  map <ScrollWheelRight> <CMD>BufferPrevious<CR>
+  "map <ScrollWheelLeft>  <CMD>BufferNext<CR>
+  "map <ScrollWheelRight> <CMD>BufferPrevious<CR>
 
   ca ff Telescope find_files
   ca fg Telescope grep_string
