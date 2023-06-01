@@ -84,7 +84,7 @@ keyset('n', '<F11>',  'vL', noremap_opt)
 keyset('n', '<F23>',  'L', noremap_opt)
 keyset('n', '<F24>',  '<CMD>UltiSnipsEdit<CR><CMD>BufferPrevious<CR>vL<CMD>BufferNext<CR>', noremap_opt)
 keyset('n', '<F36>',  '<CMD>TSPlaygroundToggle<CR><CMD>TSEditQuery highlights<CR><CMD>BufferPrevious<CR>', noremap_opt)
-keyset('n', '<F48>',  '<CMD>NvimTreeClose<CR><CMD>NvimTreeOpen<CR>15-l', noremap_opt)
+keyset('n', '<F48>',  '<CMD>NvimTreeToggle<CR>', noremap_opt)
 
 keyset('n', '1',      '<CMD>BufferGoto1<CR>', noremap_silent_opt)
 keyset('n', '2',      '<CMD>BufferGoto2<CR>', noremap_silent_opt)
@@ -128,7 +128,7 @@ keyset('i', '<F11>',  '<ESC><ESC>vL', noremap_opt)
 keyset('i', '<F23>',  '<ESC><ESC>L', noremap_opt)
 keyset('i', '<F24>',  '<ESC><ESC><CMD>UltiSnipsEdit<CR><CMD>BufferPrevious<CR>vL<CMD>BufferNext<CR>', noremap_opt)
 keyset('i', '<F36>',  '<ESC><ESC><CMD>TSPlaygroundToggle<CR><CMD>TSEditQuery highlights<CR><CMD>BufferPrevious<CR>', noremap_opt)
-keyset('i', '<F48>',  '<ESC><ESC><CMD>NvimTreeClose<CR><CMD>NvimTreeOpen<CR>15-l', noremap_opt)
+keyset('i', '<F48>',  '<ESC><ESC><CMD>NvimTreeToggle<CR>', noremap_opt)
 
 
 
@@ -160,7 +160,7 @@ keyset('v', '<F11>',  '<ESC><ESC>vL', noremap_opt)
 keyset('v', '<F23>',  '<ESC><ESC>L', noremap_opt)
 keyset('v', '<F24>',  '<ESC><ESC><CMD>UltiSnipsEdit<CR><CMD>BufferPrevious<CR>vL<CMD>BufferNext<CR>', noremap_opt)
 keyset('v', '<F36>',  '<ESC><ESC><CMD>TSPlaygroundToggle<CR><CMD>TSEditQuery highlights<CR><CMD>BufferPrevious<CR>', noremap_opt)
-keyset('v', '<F48>',  '<ESC><ESC><CMD>NvimTreeClose<CR><CMD>NvimTreeOpen<CR>15-l', noremap_opt)
+keyset('v', '<F48>',  '<ESC><ESC><CMD>NvimTreeToggle<CR>', noremap_opt)
 
 
 
