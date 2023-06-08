@@ -154,9 +154,8 @@ if [ $CURRENT_JOB = $ARCH ]; then
   sudo pacman -S --needed --noconfirm python
   sudo pacman -S --needed --noconfirm python-pip
   sudo pacman -S --needed --noconfirm nodejs
-  sudo pacman -S --needed --noconfirm npm
+  sudo pacman -S --needed --noconfirm npm yarn
   sudo pacman -S --needed --noconfirm ruby
-  sudo npm install -g yarn
 
   pip --version
   pip3 --version
