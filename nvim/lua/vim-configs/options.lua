@@ -27,7 +27,7 @@ function _G.auto_sync()
   if is_documents and filetype ~= 'gitcommit' then
     vim.cmd([[
       !rsync -avxHAXP --include={'gitconfig','.gitconfig'} --exclude={'.*','tools','LICENSE','*.md'} ~/Documents/nvim-dotfiles/* ~/.config/
-      !rsync -avxHAXP --exclude={'.git*','tools','LICENSE','*.md'} ~/Documents/hyprland-dotfiles/. ~/
+      !rsync -avxHAXP --exclude={'.git*','tools','LICENSE','*.md'} ~/Documents/sway-dotfiles/. ~/
     ]])
     vim.api.nvim_feedkeys(t('<CR>'), 'n', true)
   end
