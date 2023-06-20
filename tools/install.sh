@@ -198,7 +198,7 @@ if [ $CURRENT_JOB = $ARCH ]; then
 
 
   echo -ne "Progressing...                                                                                \n"
-  pip3 install neovim
+  sudo pacman -S --needed --noconfirm python-neovim
   sudo npm install -g neovim
   gem install neovim
   echo -ne "\n\n\n\n\n"
