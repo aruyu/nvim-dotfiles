@@ -64,7 +64,7 @@ vimset.numberwidth = 5          --offset size 5
 --set visualbell                --show visually when bell was rung
 --set laststatus                --remember 2 last status
 vimset.wrapscan = true          --auto back when searching
-vimset.ignorecase = true        --ignore CAPS when searching
+vimset.ignorecase = false       --do not ignore CAPS when searching
 vimset.incsearch = false        --disable auto move in searching
 vimset.hlsearch = true          --last search highlighting
 --vimset.cursorline = true        --cursor highlighting
