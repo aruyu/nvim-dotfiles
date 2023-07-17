@@ -39,6 +39,7 @@ end
 -- ========================= --
 vimset.title = true             --show title
 vimset.number = true            --show line number
+vimset.relativenumber = true    --show relative line number
 vimset.ruler = true             --show advences
 vimset.showmatch = true         --show matching brace
 vimset.laststatus = 2           --show status bar always
