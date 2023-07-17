@@ -86,16 +86,16 @@ keyset('n', '<F24>',  '<CMD>UltiSnipsEdit<CR><CMD>BufferPrevious<CR>vL<CMD>Buf
 keyset('n', '<F36>',  '<CMD>TSPlaygroundToggle<CR><CMD>TSEditQuery highlights<CR><CMD>BufferPrevious<CR>', noremap_opt)
 keyset('n', '<F48>',  '<CMD>NvimTreeToggle<CR>', noremap_opt)
 
-keyset('n', '1',      '<CMD>BufferGoto1<CR>', noremap_silent_opt)
-keyset('n', '2',      '<CMD>BufferGoto2<CR>', noremap_silent_opt)
-keyset('n', '3',      '<CMD>BufferGoto3<CR>', noremap_silent_opt)
-keyset('n', '4',      '<CMD>BufferGoto4<CR>', noremap_silent_opt)
-keyset('n', '5',      '<CMD>BufferGoto5<CR>', noremap_silent_opt)
-keyset('n', '6',      '<CMD>BufferGoto6<CR>', noremap_silent_opt)
-keyset('n', '7',      '<CMD>BufferGoto7<CR>', noremap_silent_opt)
-keyset('n', '8',      '<CMD>BufferGoto8<CR>', noremap_silent_opt)
-keyset('n', '9',      '<CMD>BufferGoto9<CR>', noremap_silent_opt)
-keyset('n', '0',      '<CMD>BufferLast<CR>', noremap_silent_opt)
+keyset('n', '<C-1>',  '<CMD>BufferGoto1<CR>', noremap_silent_opt)
+keyset('n', '<C-2>',  '<CMD>BufferGoto2<CR>', noremap_silent_opt)
+keyset('n', '<C-3>',  '<CMD>BufferGoto3<CR>', noremap_silent_opt)
+keyset('n', '<C-4>',  '<CMD>BufferGoto4<CR>', noremap_silent_opt)
+keyset('n', '<C-5>',  '<CMD>BufferGoto5<CR>', noremap_silent_opt)
+keyset('n', '<C-6>',  '<CMD>BufferGoto6<CR>', noremap_silent_opt)
+keyset('n', '<C-7>',  '<CMD>BufferGoto7<CR>', noremap_silent_opt)
+keyset('n', '<C-8>',  '<CMD>BufferGoto8<CR>', noremap_silent_opt)
+keyset('n', '<C-9>',  '<CMD>BufferGoto9<CR>', noremap_silent_opt)
+keyset('n', '<C-0>',  '<CMD>BufferLast<CR>', noremap_silent_opt)
 
 
 

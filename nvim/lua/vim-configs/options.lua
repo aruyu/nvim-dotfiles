@@ -105,10 +105,10 @@ vim.cmd([[
     "autocmd BufWritePost *.c,*.h silent! !ctags -R &
   augroup END
 
-  augroup autoclear_cmd_msg
-    autocmd!
-    autocmd CmdlineLeave : call timer_start(2000, funcref('s:empty_message'))
-  augroup END
+  "augroup autoclear_cmd_msg
+  "  autocmd!
+  "  autocmd CmdlineLeave : call timer_start(2000, funcref('s:empty_message'))
+  "augroup END
 
   augroup autosync_nvim
     autocmd!
