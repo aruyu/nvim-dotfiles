@@ -59,6 +59,8 @@ keyset('n', 'fh',     '<CMD>Telescope help_tags<CR>', noremap_opt)
 keyset('n', 'fb',     '<CMD>Telescope buffers<CR>', noremap_opt)
 keyset('n', 'dy',     '<CMD>lua vim.diagnostic.config({virtual_text = true})<CR>', noremap_opt)
 keyset('n', 'dn',     '<CMD>lua vim.diagnostic.config({virtual_text = false})<CR>', noremap_opt)
+--keyset('n', 'dy',     '<CMD>LspStart clangd<CR>', noremap_opt)
+--keyset('n', 'dn',     '<CMD>LspStop clangd<CR>', noremap_opt)
 keyset('n', 'dd',     '"_dd', noremap_opt)
 
 keyset('n', 'ZZ',     'zz', noremap_opt)
