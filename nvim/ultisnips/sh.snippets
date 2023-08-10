@@ -44,22 +44,37 @@ CURRENT_PROGRESS=0
 
 function script_print()
 {
-  echo -ne "$T_CO_BLUE[SCRIPT]$T_CO_NC\$1"
+  echo -ne "${T_CO_BLUE}[SCRIPT]${T_CO_NC}\$1"
 }
 
-function script_print_notify()
+function script_notify_print()
 {
-  echo -ne "$T_CO_BLUE[SCRIPT]$T_CO_NC$T_CO_GREEN-Notify- \$1$T_CO_NC"
+  echo -ne "${T_CO_BLUE}[SCRIPT]${T_CO_NC}${T_CO_GREEN}-Notify- \$1${T_CO_NC}"
 }
 
-function script_print_error()
+function script_error_print()
 {
-  echo -ne "$T_CO_BLUE[SCRIPT]$T_CO_NC$T_CO_RED-Error- \$1$T_CO_NC"
+  echo -ne "${T_CO_BLUE}[SCRIPT]${T_CO_NC}${T_CO_RED}-Error- \$1${T_CO_NC}"
+}
+
+function script_println()
+{
+  echo -ne "${T_CO_BLUE}[SCRIPT]${T_CO_NC}\$1\n"
+}
+
+function script_notify_println()
+{
+  echo -ne "${T_CO_BLUE}[SCRIPT]${T_CO_NC}${T_CO_GREEN}-Notify- \$1${T_CO_NC}\n"
+}
+
+function script_error_println()
+{
+  echo -ne "${T_CO_BLUE}[SCRIPT]${T_CO_NC}${T_CO_RED}-Error- \$1${T_CO_NC}\n"
 }
 
 function error_exit()
 {
-  script_print_error "\$1\n\n"
+  script_error_println "\$1\n"
   exit 1
 }
 
