@@ -22,6 +22,8 @@ end
 --   Additional User Configs   --
 -- =========================== --
 -- Configure setup with some options.
+vim.g.indent_blankline_filetype_exclude = { 'dashboard' }
+
 indent_blankline.setup {
   -- for example, context is off by default, use this to turn it on
   char = '▏',
