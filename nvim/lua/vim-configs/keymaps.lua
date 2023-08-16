@@ -192,7 +192,7 @@ vim.cmd([[
   "map <ScrollWheelRight> <CMD>BufferPrevious<CR>
 
   ca ff Telescope find_files
-  ca fg Telescope grep_string
+  ca fg Telescope live_grep
   ca fh Telescope help_tags
   ca fb Telescope buffers
   ca fk Telescope keymaps

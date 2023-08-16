@@ -102,7 +102,9 @@ vim.cmd([[
 
   augroup vim_posts
     autocmd!
-    autocmd VimEnter * if &filetype ==# 'gitcommit' | echo 'gitcommit' | else | exec "normal \<F48>" | endif
+    autocmd BufNewFile,BufReadPost * NvimTreeOpen
+    autocmd BufNewFile,BufReadPost * noautocmd wincmd p
+    autocmd BufNewFile,BufReadPost COMMIT_EDITMSG NvimTreeClose | set filetype=gitcommit
     "autocmd BufWritePost *.c,*.h silent! !ctags -R &
   augroup END
 
@@ -141,3 +143,30 @@ vim.cmd([[
   augroup END
 
 ]])
+
+
+--[[
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = '*',
+  callback = function()
+    if vim.bo.filetype == "gitcommit" or vim.bo.filetype == "dashboard" then
+      return
+    end
+    vim.cmd "noautocmd NvimTreeOpen"
+    vim.cmd "noautocmd wincmd p"
+    -- do the rest of the callback
+  end,
+})
+
+vim.api.nvim_create_autocmd({"BufNewFile", "BufReadPost"}, {
+  callback = function(args)
+    local filetype = vim.api.nvim_eval('&filetype')
+
+    if filetype ~= 'gitcommit' then
+      vim.api.nvim_del_autocmd(args.id)
+      vim.cmd "noautocmd NvimTreeOpen"
+      vim.cmd "noautocmd wincmd p"
+    end
+  end,
+})
+]]
