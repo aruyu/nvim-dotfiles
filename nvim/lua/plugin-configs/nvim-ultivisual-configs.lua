@@ -26,7 +26,7 @@ nvim_ultivisual.setup({
   -- You can switch the ultimate visual features.
   features = {
     indent = true,
-    brackets = true,
+    brackets = false,
     paste = true,
   },
 

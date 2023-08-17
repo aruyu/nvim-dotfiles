@@ -103,8 +103,8 @@ vim.cmd([[
   augroup vim_posts
     autocmd!
     autocmd BufNewFile,BufReadPost * NvimTreeOpen
-    autocmd BufNewFile,BufReadPost * noautocmd wincmd p
-    autocmd BufNewFile,BufReadPost COMMIT_EDITMSG NvimTreeClose | set filetype=gitcommit
+    autocmd BufNewFile,BufReadPost COMMIT_EDITMSG NvimTreeClose
+    autocmd BufNewFile,BufReadPost * noautocmd wincmd p | e
     "autocmd BufWritePost *.c,*.h silent! !ctags -R &
   augroup END
 

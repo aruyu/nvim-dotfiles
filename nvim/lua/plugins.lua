@@ -136,7 +136,7 @@ return packer.startup(
     }
 
 
-    -- Syntax Plugins === --
+    -- === Syntax Plugins === --
     use {
       'nvim-treesitter/nvim-treesitter',
       tag = 'v0.9.0' --Only for NVIM v0.9.0
