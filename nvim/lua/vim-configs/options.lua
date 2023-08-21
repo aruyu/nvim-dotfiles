@@ -58,9 +58,9 @@ vimset.autoindent = true        --auto indent
 vimset.smartindent = true       --smart indent
 vimset.numberwidth = 5          --offset size 5
 
---vimset.shiftwidth = 2           --shift size 2 columns
---vimset.softtabstop = 2          --tab size 2 columns
---vimset.expandtab = true         --insert space instead tab
+--vimset.shiftwidth = 2         --shift size 2 columns
+--vimset.softtabstop = 2        --tab size 2 columns
+--vimset.expandtab = true       --insert space instead tab
 
 --set visualbell                --show visually when bell was rung
 --set laststatus                --remember 2 last status
@@ -68,7 +68,7 @@ vimset.wrapscan = true          --auto back when searching
 vimset.ignorecase = false       --do not ignore CAPS when searching
 vimset.incsearch = false        --disable auto move in searching
 vimset.hlsearch = true          --last search highlighting
---vimset.cursorline = true        --cursor highlighting
+--vimset.cursorline = true      --cursor highlighting
 
 vimset.encoding = 'utf-8'       --file encoding settings
 vimset.fencs = 'utf-8,cp949,cp932,euc-jp,shift-jis,ucs-2le,latin1,big5'

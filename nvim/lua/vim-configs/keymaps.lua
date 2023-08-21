@@ -126,7 +126,7 @@ keyset('i', '<C-X>',  '<ESC><ESC>dda', noremap_opt)
 keyset('i', '<C-C>',  '<ESC><ESC>yya', noremap_opt)
 keyset('i', '<C-B>',  '<ESC><ESC>pi', noremap_opt)
 keyset('i', '<C-L>',  '<C-V>', noremap_opt)
-keyset('i', '<S-TAB>', '<C-V><TAB>', noremap_opt)
+keyset('i', '<S-TAB>','<C-V><TAB>', noremap_opt)
 
 keyset('i', '<F1>',   '<ESC><ESC>:stop<CR>', noremap_opt)
 keyset('i', '<F13>',  '<ESC><ESC>:qa<CR>', noremap_opt)
@@ -181,12 +181,12 @@ keyset('v', '<F48>',  '<ESC><ESC><CMD>NvimTreeToggle<CR>', noremap_opt)
 -- =         Others        =
 -- ========================= --
 vim.cmd([[
-  nnoremap <F12>  :lua require("telescope.builtin").grep_string({layout_strategy='cursor',layout_config={width=0.5, height=0.45}})<CR>
-  inoremap <F12>  <ESC><ESC>:lua require('telescope.builtin').grep_string({layout_strategy='cursor',layout_config={width=0.5, height=0.45}})<CR>
-  vnoremap <F12>  <ESC><ESC>:lua require('telescope.builtin').grep_string({layout_strategy='cursor',layout_config={width=0.5, height=0.45}})<CR>
+  nnoremap <F12> :lua require("telescope.builtin").grep_string({layout_strategy='cursor',layout_config={width=0.5, height=0.45}})<CR>
+  inoremap <F12> <ESC><ESC>:lua require('telescope.builtin').grep_string({layout_strategy='cursor',layout_config={width=0.5, height=0.45}})<CR>
+  vnoremap <F12> <ESC><ESC>:lua require('telescope.builtin').grep_string({layout_strategy='cursor',layout_config={width=0.5, height=0.45}})<CR>
 
-  vnoremap <F2>   y/<C-R>=escape(@",'/\')<CR><CR>N:%s/<C-R>=escape(@",'/\')<CR>/<C-R>=escape(@",'/\')<CR>/g<Left><Left>
-  vnoremap <F3>   y/<C-R>=escape(@",'/\')<CR><CR>N
+  vnoremap <F2>  y/<C-R>=escape(@",'/\')<CR><CR>N:%s/<C-R>=escape(@",'/\')<CR>/<C-R>=escape(@",'/\')<CR>/g<Left><Left>
+  vnoremap <F3>  y/<C-R>=escape(@",'/\')<CR><CR>N
 
   "map <ScrollWheelLeft>  <CMD>BufferNext<CR>
   "map <ScrollWheelRight> <CMD>BufferPrevious<CR>
