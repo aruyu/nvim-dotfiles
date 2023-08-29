@@ -14,5 +14,57 @@ snippet __comment=
 #   Contact   - vine9151@gmail.com
 #/
 
+
+
+$0
+endsnippet
+
+
+snippet __comment_all=
+#==
+#   NOTE      - `!v expand('%:t')`
+#   Author    - ${1:Aru}
+#
+#   Created   - `date +%Y.%m.%d`
+#   Github    - https://github.com/aruyu
+#   Contact   - vine9151@gmail.com
+#/
+
+
+
+CC=${1:gcc}
+CFLAGS=${2:-std=c11 -g}
+LDFLAGS=
+LDLIBS=
+OBJS=${3}
+TARGET=${4}
+
+
+all: $(TARGET)
+
+$(TARGET): $(OBJS)
+	$(CC) $(CFLAGS) -o $@ $^
+
+#%.o : %.c %.h
+#	$(CC) $(CFLAGS) -c -o $@ $<
+
+`!p
+def format_parameter_name(path):
+  parts = path.split(' ')
+  retval = ''
+
+  for part in parts:
+    if part.endswith('.o'):
+      temp = part.split('.')[0]
+      retval += part + ': ' + temp + '.c' + '\n	$(CC) $(CFLAGS) -c -o $@ $<' + '\n\n'
+
+  return retval
+
+snip.rv = format_parameter_name(t[3])
+`
+.PHONY : clean
+clean:
+	rm -f $(OBJS)
+	rm -f $(TARGET)
 $0
 endsnippet
