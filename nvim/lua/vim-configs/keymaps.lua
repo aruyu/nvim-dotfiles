@@ -63,7 +63,7 @@ keyset('n', 'dn',     '<CMD>lua vim.diagnostic.config({virtual_text = false})<CR
 --keyset('n', 'dn',     '<CMD>LspStop clangd<CR>', noremap_opt)
 keyset('n', 'dd',     '"_dd', noremap_opt)
 
-keyset('n', 'ZZ',     'zz', noremap_opt)
+--keyset('n', 'ZZ',     'zz', noremap_opt)
 keyset('n', '<C-A>',  'gg<S-V>G', noremap_opt)
 keyset('n', '<C-S>',  ':w<CR>', noremap_opt)
 keyset('n', '<C-Y>',  '<C-R>', noremap_opt)
