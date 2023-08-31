@@ -13,23 +13,25 @@ function string:contains(sub)
   return self:find(sub, 1, true) ~= nil
 end
 
-function string:startswith(start)
-  return self:sub(1, #start) == start
+function string:startswith(starts)
+  return self:sub(1, #starts) == starts
 end
 
-function string:endswith(ending)
-  return ending == "" or self:sub(-#ending) == ending
+function string:endswith(ends)
+  return ends == "" or self:sub(-#ends) == ends
 end
 
 function string:split(delimiter)
   local retval = {}
   local from = 1
   local delim_from, delim_to = self:find(delimiter, from)
+
   while delim_from do
     table.insert(retval, self:sub(from , delim_from-1))
     from = delim_to + 1
     delim_from, delim_to = self:find(delimiter, from)
   end
+
   table.insert(retval, self:sub(from))
   return retval
 end
