@@ -25,7 +25,7 @@ end
 colorizer.setup({
   '*', -- Highlight all files, but customize some others.
   css = {
-    RGB = true; -- #RGB hex codes
+    RGB = true, -- #RGB hex codes
     names = true, -- "Name" codes like Blue
     rgb_fn = true, -- Enable parsing rgb(...) functions in css.
   },
