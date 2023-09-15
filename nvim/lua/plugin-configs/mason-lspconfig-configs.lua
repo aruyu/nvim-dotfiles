@@ -128,6 +128,11 @@ lspconfig.html.setup {
   capabilities = capabilities
 }
 
+-- LSP for java.
+lspconfig.jdtls.setup {
+  capabilities = capabilities
+}
+
 -- LSP for lua.
 lspconfig.lua_ls.setup {
   settings = {
