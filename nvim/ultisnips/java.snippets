@@ -1,0 +1,30 @@
+snippet //=
+/*
+ *  $0
+ */
+endsnippet
+
+snippet __comment=
+/*
+ *  NOTE      - `!v expand('%:t')`
+ *  Author    - ${1:Aru}
+ *
+ *  Created   - `date +%Y.%m.%d`
+ *  Github    - https://github.com/aruyu
+ *  Contact   - vine9151@gmail.com
+ */
+
+$0
+endsnippet
+
+snippet main
+public class `!v expand('%:t:r')` {
+  public static void main(String[] args) {
+    $0
+  }
+}
+endsnippet
+
+snippet "([\S]+(\-[\S]+)+)" "kebab-case to snake_case" r
+`!p snip.rv = re.sub('-','_', match.group(1))`$0
+endsnippet
