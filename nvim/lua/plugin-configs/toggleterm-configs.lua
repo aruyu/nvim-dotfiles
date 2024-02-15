@@ -74,5 +74,3 @@ function _G.toggle_lazygit()
 end
 
 vim.api.nvim_set_keymap('n', '<F8>', '<CMD>lua toggle_lazygit()<CR>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('i', '<F8>', '<ESC><ESC><CMD>lua toggle_lazygit()<CR>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('v', '<F8>', '<ESC><ESC><CMD>lua toggle_lazygit()<CR>', { noremap = true, silent = true })

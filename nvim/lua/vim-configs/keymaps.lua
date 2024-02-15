@@ -73,21 +73,6 @@ keyset('n', '<C-X>',  'dd', noremap_opt)
 keyset('n', '<C-C>',  'yy', noremap_opt)
 keyset('n', '<C-B>',  'p', noremap_opt)
 
-keyset('n', '<F1>',   ':stop<CR>', noremap_opt)
-keyset('n', '<F13>',  ':qa<CR>', noremap_opt)
-keyset('n', '<F2>',   '/<CR>N:%s///g<Left><Left>', noremap_opt)
-keyset('n', '<F3>',   '/<CR>N', noremap_opt)
-keyset('n', '<F4>',   ':noh<CR>', noremap_opt)
-keyset('n', '<F9>',   '<CMD>BufferClose<CR>', noremap_silent_opt)
-keyset('n', '<F21>',  '<CMD>BufferClose!<CR>', noremap_silent_opt)
-keyset('n', '<F10>',  '<CMD>NvimTreeClose<CR>:silent! close<CR><CMD>NvimTreeOpen<CR>', noremap_silent_opt)
-keyset('n', '<F22>',  '<CMD>NvimTreeClose<CR>:silent! close!<CR><CMD>NvimTreeOpen<CR>', noremap_silent_opt)
-keyset('n', '<F11>',  'vL', noremap_opt)
-keyset('n', '<F23>',  'L', noremap_opt)
-keyset('n', '<F24>',  '<CMD>UltiSnipsEdit<CR><CMD>BufferPrevious<CR>vL<CMD>BufferNext<CR>', noremap_opt)
-keyset('n', '<F36>',  '<CMD>TSPlaygroundToggle<CR><CMD>TSEditQuery highlights<CR><CMD>BufferPrevious<CR>', noremap_opt)
-keyset('n', '<F48>',  '<CMD>NvimTreeToggle<CR>', noremap_opt)
-
 keyset('n', '1',      '<CMD>BufferGoto1<CR>', noremap_silent_opt)
 keyset('n', '2',      '<CMD>BufferGoto2<CR>', noremap_silent_opt)
 keyset('n', '3',      '<CMD>BufferGoto3<CR>', noremap_silent_opt)
@@ -110,6 +95,27 @@ keyset('n', '<C-8>',  '8', noremap_opt)
 keyset('n', '<C-9>',  '9', noremap_opt)
 keyset('n', '<C-0>',  '0', noremap_opt)
 
+keyset('n', '<F1>',   ':stop<CR>', noremap_opt)
+keyset('n', '<F13>',  ':qa<CR>', noremap_opt)
+keyset('n', '<F2>',   '/<CR>N:%s///g<Left><Left>', noremap_opt)
+keyset('n', '<F3>',   '/<CR>N', noremap_opt)
+keyset('n', '<F4>',   ':noh<CR>', noremap_opt)
+
+keyset('n', '<F7>',   ':%!xxd -g4<CR>', noremap_opt)
+keyset('n', '<F19>',  ':%!xxd -g4 -c 32<CR>', noremap_opt)
+keyset('n', '<F31>',  ':%!xxd -g4 -c 64<CR>', noremap_opt)
+keyset('n', '<F43>',  ':%!xxd -r<CR>', noremap_opt)
+
+keyset('n', '<F9>',   '<CMD>BufferClose<CR>', noremap_silent_opt)
+keyset('n', '<F21>',  '<CMD>BufferClose!<CR>', noremap_silent_opt)
+keyset('n', '<F10>',  '<CMD>NvimTreeClose<CR>:silent! close<CR><CMD>NvimTreeOpen<CR>', noremap_silent_opt)
+keyset('n', '<F22>',  '<CMD>NvimTreeClose<CR>:silent! close!<CR><CMD>NvimTreeOpen<CR>', noremap_silent_opt)
+keyset('n', '<F11>',  'vL', noremap_opt)
+keyset('n', '<F23>',  'L', noremap_opt)
+keyset('n', '<F24>',  '<CMD>UltiSnipsEdit<CR><CMD>BufferPrevious<CR>vL<CMD>BufferNext<CR>', noremap_opt)
+keyset('n', '<F36>',  '<CMD>TSPlaygroundToggle<CR><CMD>TSEditQuery highlights<CR><CMD>BufferPrevious<CR>', noremap_opt)
+keyset('n', '<F48>',  '<CMD>NvimTreeToggle<CR>', noremap_opt)
+
 
 
 -- ========================= --
@@ -117,7 +123,7 @@ keyset('n', '<C-0>',  '0', noremap_opt)
 -- ========================= --
 keyset('i', '',     '<ESC><ESC>vbdi', noremap_opt) -- for wsl (window terminal)
 keyset('i', '<C-BS>', '<ESC><ESC>vbdi', noremap_opt) -- for mac
-keyset('i', '<M-BS>', '<ESC><ESC>vbdi', noremap_opt) -- for alacritty
+keyset('i', '<M-BS>', '<ESC><ESC>vbdi', noremap_opt) -- for linux
 keyset('i', '<C-A>',  '<ESC><ESC>gg<S-V>G', noremap_opt)
 keyset('i', '<C-S>',  '<ESC><ESC>:w<CR>', noremap_opt)
 keyset('i', '<C-Y>',  '<ESC><ESC><C-R>a', noremap_opt)
@@ -127,21 +133,6 @@ keyset('i', '<C-C>',  '<ESC><ESC>yya', noremap_opt)
 keyset('i', '<C-B>',  '<ESC><ESC>pi', noremap_opt)
 keyset('i', '<C-L>',  '<C-V>', noremap_opt)
 keyset('i', '<S-TAB>','<C-V><TAB>', noremap_opt)
-
-keyset('i', '<F1>',   '<ESC><ESC>:stop<CR>', noremap_opt)
-keyset('i', '<F13>',  '<ESC><ESC>:qa<CR>', noremap_opt)
-keyset('i', '<F2>',   '<ESC><ESC>/<CR>N:%s///g<Left><Left>', noremap_opt)
-keyset('i', '<F3>',   '<ESC><ESC>/<CR>N', noremap_opt)
-keyset('i', '<F4>',   '<ESC><ESC>:noh<CR>', noremap_opt)
-keyset('i', '<F9>',   '<ESC><ESC><CMD>BufferClose<CR>', noremap_silent_opt)
-keyset('i', '<F21>',  '<ESC><ESC><CMD>BufferClose!<CR>', noremap_silent_opt)
-keyset('i', '<F10>',  '<ESC><ESC><CMD>NvimTreeClose<CR>:silent! close<CR><CMD>NvimTreeOpen<CR>', noremap_silent_opt)
-keyset('i', '<F22>',  '<ESC><ESC><CMD>NvimTreeClose<CR>:silent! close!<CR><CMD>NvimTreeOpen<CR>', noremap_silent_opt)
-keyset('i', '<F11>',  '<ESC><ESC>vL', noremap_opt)
-keyset('i', '<F23>',  '<ESC><ESC>L', noremap_opt)
-keyset('i', '<F24>',  '<ESC><ESC><CMD>UltiSnipsEdit<CR><CMD>BufferPrevious<CR>vL<CMD>BufferNext<CR>', noremap_opt)
-keyset('i', '<F36>',  '<ESC><ESC><CMD>TSPlaygroundToggle<CR><CMD>TSEditQuery highlights<CR><CMD>BufferPrevious<CR>', noremap_opt)
-keyset('i', '<F48>',  '<ESC><ESC><CMD>NvimTreeToggle<CR>', noremap_opt)
 
 
 
@@ -162,19 +153,6 @@ keyset('v', '<C-C>',  '<CMD>lua visual_do("copy")<CR>', noremap_opt)
 keyset('v', '<C-B>',  'p', noremap_opt)
 keyset('v', 'v',      '<C-V>', noremap_opt)
 
-keyset('v', '<F1>',   '<ESC><ESC>:stop<CR>', noremap_opt)
-keyset('v', '<F13>',  '<ESC><ESC>:qa<CR>', noremap_opt)
-keyset('v', '<F4>',   '<ESC><ESC>:noh<CR>', noremap_opt)
-keyset('v', '<F9>',   '<ESC><ESC><CMD>BufferClose<CR>', noremap_silent_opt)
-keyset('v', '<F21>',  '<ESC><ESC><CMD>BufferClose!<CR>', noremap_silent_opt)
-keyset('v', '<F10>',  '<ESC><ESC><CMD>NvimTreeClose<CR>:silent! close<CR><CMD>NvimTreeOpen<CR>', noremap_silent_opt)
-keyset('v', '<F22>',  '<ESC><ESC><CMD>NvimTreeClose<CR>:silent! close!<CR><CMD>NvimTreeOpen<CR>', noremap_silent_opt)
-keyset('v', '<F11>',  '<ESC><ESC>vL', noremap_opt)
-keyset('v', '<F23>',  '<ESC><ESC>L', noremap_opt)
-keyset('v', '<F24>',  '<ESC><ESC><CMD>UltiSnipsEdit<CR><CMD>BufferPrevious<CR>vL<CMD>BufferNext<CR>', noremap_opt)
-keyset('v', '<F36>',  '<ESC><ESC><CMD>TSPlaygroundToggle<CR><CMD>TSEditQuery highlights<CR><CMD>BufferPrevious<CR>', noremap_opt)
-keyset('v', '<F48>',  '<ESC><ESC><CMD>NvimTreeToggle<CR>', noremap_opt)
-
 
 
 -- ========================= --
@@ -183,7 +161,6 @@ keyset('v', '<F48>',  '<ESC><ESC><CMD>NvimTreeToggle<CR>', noremap_opt)
 vim.cmd([[
   nnoremap <F12> :lua require("telescope.builtin").grep_string({layout_strategy='cursor',layout_config={width=0.5, height=0.45}})<CR>
   inoremap <F12> <ESC><ESC>:lua require('telescope.builtin').grep_string({layout_strategy='cursor',layout_config={width=0.5, height=0.45}})<CR>
-  vnoremap <F12> <ESC><ESC>:lua require('telescope.builtin').grep_string({layout_strategy='cursor',layout_config={width=0.5, height=0.45}})<CR>
 
   vnoremap <F2>  y/<C-R>=escape(@",'/\')<CR><CR>N:%s/<C-R>=escape(@",'/\')<CR>/<C-R>=escape(@",'/\')<CR>/g<Left><Left>
   vnoremap <F3>  y/<C-R>=escape(@",'/\')<CR><CR>N
