@@ -31,23 +31,36 @@ local vsc_yellow = '#F0CF74'
 local get_info = function()
   local is_blank_buffer = vim.api.nvim_eval('&filetype') == ''
   local is_expandtab = vim.api.nvim_eval('&expandtab') == 1
-  local total_line = tostring(vim.api.nvim_buf_line_count(0))
-  local total_indent_size = tostring(vim.api.nvim_eval('&shiftwidth'))
-  local line_string, bar
+  local total_line = vim.api.nvim_buf_line_count(0)
+  local total_indent = tostring(vim.api.nvim_eval('&shiftwidth'))
+  local file_format = tostring(vim.api.nvim_eval('&fileformat'))
+  local line_string, indent_string, format_string, bar_string
 
-  if is_blank_buffer then
-    line_string = ' line  '
-    bar = ''
+  if total_line <= 1 then
+    line_string = total_line .. ' line  '
   else
-    line_string = ' lines  '
-    bar = '  '
+    line_string = total_line .. ' lines  '
   end
 
   if is_expandtab then
-    return total_line .. line_string .. '  spaces: ' .. total_indent_size .. bar
+    indent_string = '  spaces: ' .. total_indent
   else
-    return total_line .. line_string .. '  tabs: ' .. total_indent_size .. bar
+    indent_string = '  tabs: ' .. total_indent
   end
+
+  if file_format == 'unix' then
+    format_string = '    LF'
+  elseif file_format == 'dos' then
+    format_string = '    CRLF'
+  end
+
+  if is_blank_buffer then
+    bar_string = ''
+  else
+    bar_string = '  '
+  end
+
+  return line_string .. indent_string .. format_string .. bar_string
 end
 
 local get_time = function()
@@ -141,7 +154,7 @@ lualine.setup {
     lualine_a = {
       {
         'branch',
-        icon = '',
+        icon = '',
       },
     },
     lualine_b = {
