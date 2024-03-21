@@ -72,7 +72,10 @@ return packer.startup(
     -- ================= --
 
     -- === Themes Plugins === --
-    use 'Mofiqul/vscode.nvim'
+    use {
+      'Mofiqul/vscode.nvim',
+      commit = '22a2177f6556b8b8dcbafeb873a40c64c7214491'
+    }
     --use 'ryanoasis/vim-devicons'
     use {
       'nvim-lualine/lualine.nvim',
@@ -86,7 +89,7 @@ return packer.startup(
     use {
       'nvim-tree/nvim-tree.lua',
       requires = 'nvim-tree/nvim-web-devicons', -- optional, for file icons
-      tag = 'nightly' -- optional, updated every week. (see issue #1193)
+      tag = 'v1.1'
     }
     use 'preservim/tagbar'
     --use 'simrat39/symbols-outline.nvim'
@@ -110,7 +113,10 @@ return packer.startup(
       'lewis6991/gitsigns.nvim',
       --tag = 'release' -- To use the latest release (do not use this if you run Neovim nightly or dev builds!)
     }
-    use 'lukas-reineke/indent-blankline.nvim'
+    use {
+      'lukas-reineke/indent-blankline.nvim',
+      tag = 'v2.20.8'
+    }
     use 'aruyu/nvim-ultivisual'
     use 'karb94/neoscroll.nvim'
     --use 'nmac427/guess-indent.nvim'

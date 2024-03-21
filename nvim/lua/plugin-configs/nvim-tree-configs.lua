@@ -11,15 +11,65 @@
 
 -- ================================================== --
 -- Check error.
-local status_ok, nvim_tree = pcall(require, "nvim-tree")
-if not status_ok then
+local status1_ok, nvim_tree = pcall(require, "nvim-tree")
+if not status1_ok then
   return
+end
+local status2_ok, colors = pcall(require, "vscode.colors")
+if not status2_ok then
+  return
+else
+  colors = colors.get_colors()
 end
 
 -- Local variables for config.
 -- disable netrw at the very start of your init.lua (strongly advised) --
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
+
+-- Local functions for config.
+local function my_on_attach(bufnr)
+  local api = require "nvim-tree.api"
+  local hl = vim.api.nvim_set_hl
+
+  local function opts(desc)
+    return { desc = "nvim-tree: " .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true }
+  end
+
+  -- default mappings
+  api.config.mappings.default_on_attach(bufnr)
+
+  -- custom mappings
+  vim.keymap.set('n', '1',     api.tree.reload,                opts('Refresh'))
+  vim.keymap.set('n', '2',     api.tree.reload,                opts('Refresh'))
+  vim.keymap.set('n', '3',     api.tree.reload,                opts('Refresh'))
+  vim.keymap.set('n', '4',     api.tree.reload,                opts('Refresh'))
+  vim.keymap.set('n', '5',     api.tree.reload,                opts('Refresh'))
+  vim.keymap.set('n', '6',     api.tree.reload,                opts('Refresh'))
+  vim.keymap.set('n', '7',     api.tree.reload,                opts('Refresh'))
+  vim.keymap.set('n', '8',     api.tree.reload,                opts('Refresh'))
+  vim.keymap.set('n', '9',     api.tree.reload,                opts('Refresh'))
+  vim.keymap.set('n', '0',     api.tree.reload,                opts('Refresh'))
+
+  vim.keymap.set('n', '<C-t>', api.tree.change_root_to_parent, opts('Up'))
+  vim.keymap.set('n', '?',     api.tree.toggle_help,           opts('Help'))
+
+  -- custom highlights
+  hl(0, 'NvimTreeExecFile', { fg = colors.vscYellowOrange, bg = 'NONE', undercurl = true })
+  hl(0, 'NvimTreeSpecialFile', { fg = colors.vscPink, bg = 'NONE', undercurl = true })
+  hl(0, 'NvimTreeSymlink', { fg = colors.vscPink, bg = 'NONE', undercurl = true })
+  hl(0, 'NvimTreeCutHL', { fg = colors.vscPink, bg = 'NONE', undercurl = true })
+  hl(0, 'NvimTreeCopiedHL', { fg = colors.vscPink, bg = 'NONE', undercurl = true })
+  hl(0, 'NvimTreeBookmarkHL', { fg = colors.vscPink, bg = 'NONE', undercurl = true })
+
+  hl(0, 'NvimTreeGitDeletedIcon', { fg = colors.vscRed, bg = 'NONE' })
+  hl(0, 'NvimTreeGitDirtyIcon', { fg = colors.vscYellowOrange, bg = 'NONE' })
+  hl(0, 'NvimTreeGitIgnoredIcon', { fg = colors.vscGray, bg = 'NONE' })
+  hl(0, 'NvimTreeGitMergeIcon', { fg = colors.vscPink, bg = 'NONE' })
+  hl(0, 'NvimTreeGitNewIcon', { fg = colors.vscGreen, bg = 'NONE' })
+  hl(0, 'NvimTreeGitRenamedIcon', { fg = colors.vscBlue, bg = 'NONE' })
+  hl(0, 'NvimTreeGitStagedIcon', { fg = colors.vscYellowOrange, bg = 'NONE' })
+end
 -- ================================================== --
 
 
@@ -33,22 +83,6 @@ nvim_tree.setup()
 nvim_tree.setup({
   view = {
     width = 40,
-
-    mappings = {
-      list = {
-        { key = 'u', action = 'dir_up' },
-        { key = '1', action = 'refresh' },
-        { key = '2', action = 'refresh' },
-        { key = '3', action = 'refresh' },
-        { key = '4', action = 'refresh' },
-        { key = '5', action = 'refresh' },
-        { key = '6', action = 'refresh' },
-        { key = '7', action = 'refresh' },
-        { key = '8', action = 'refresh' },
-        { key = '9', action = 'refresh' },
-        { key = '0', action = 'refresh' },
-      },
-    },
   },
 
   renderer = {
@@ -96,4 +130,5 @@ nvim_tree.setup({
   --},
 
   update_cwd = true,
+  on_attach = my_on_attach,
 })
