@@ -46,13 +46,13 @@ dashboard.setup({
       {
         desc = ' Quit Dashboard',
         group = 'DiagnosticHint',
-        action = 'e! ./new_file',
+        action = 'e! ./new_file | BufferClose',
         key = 'q',
       },
       {
         desc = ' Dotfiles',
         group = 'Number',
-        action = 'e! ~/Documents/new_file | cd ~/Documents',
+        action = 'e! ~/Documents/new_file | cd ~/Documents | BufferClose',
         key = 'd',
       },
     },
