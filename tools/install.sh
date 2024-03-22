@@ -146,6 +146,15 @@ while true; do
   esac
 done
 
+while true; do
+  read -p "Enter which version you want to install (v0.9.5, nightly): " SELECTION
+  case $SELECTION in
+    v0.9.5 | 0.9.5 )            NVIM_VERSION=${SELECTION}; break;;
+    nightly )                   NVIM_VERSION=${SELECTION}; break;;
+    * )                         echo "Wrong answer.";;
+  esac
+done
+
 
 if [ $CURRENT_JOB = $ARCH ]; then
   progress 5 "Selected OS: $CURRENT_JOB"
@@ -167,7 +176,19 @@ if [ $CURRENT_JOB = $ARCH ]; then
 
 
   echo -ne "Progressing...                                                                                \n"
-  sudo pacman -S --needed --noconfirm neovim
+
+  if [[ ${NVIM_VERSION} == "v0.9.5" ]]; then
+    sudo pacman -S --needed --noconfirm libluv libtermkey libvterm msgpack-c tree-sitter unibilium
+
+    curl -sL https://github.com/neovim/neovim/releases/download/v0.9.5/nvim-linux64.tar.gz -o ~/.cache/nvim-linux64.tar.gz
+    tar xzvf ~/.cache/nvim-linux64.tar.gz
+    sudo ln -s ~/.cache/nvim-linux64/bin/nvim /bin/nvim
+    rm ~/nvim-linux64.tar.gz
+
+  elif [[ ${NVIM_VERSION} == "nightly" ]]; then
+    sudo pacman -S --needed --noconfirm neovim
+  fi
+
   echo -ne "\n\n\n\n\n"
   progress 35 "Install Neovim"
 
@@ -198,7 +219,7 @@ if [ $CURRENT_JOB = $ARCH ]; then
 
 
   echo -ne "Progressing...                                                                                \n"
-  sudo pacman -S --needed --noconfirm python-neovim
+  sudo pacman -S --needed --noconfirm python-pynvim
   sudo npm install -g neovim
   gem install neovim
   echo -ne "\n\n\n\n\n"
@@ -269,9 +290,19 @@ EOF
 
 
   echo -ne "Progressing...                                                                                \n"
-  sudo add-apt-repository ppa:neovim-ppa/unstable
-  sudo apt-get -y update
-  sudo apt-get -y install neovim
+
+  if [[ ${NVIM_VERSION} == "v0.9.5" ]]; then
+    curl -sL https://github.com/neovim/neovim/releases/download/v0.9.5/nvim-linux64.tar.gz -o ~/.cache/nvim-linux64.tar.gz
+    tar xzvf ~/.cache/nvim-linux64.tar.gz
+    sudo ln -s ~/.cache/nvim-linux64/bin/nvim /bin/nvim
+    rm ~/nvim-linux64.tar.gz
+
+  elif [[ ${NVIM_VERSION} == "nightly" ]]; then
+    sudo add-apt-repository ppa:neovim-ppa/unstable
+    sudo apt-get -y update
+    sudo apt-get -y install neovim
+  fi
+
   echo -ne "\n\n\n\n\n"
   progress 35 "Install Neovim"
 
@@ -308,7 +339,7 @@ EOF
 
   echo -ne "Progressing...                                                                                \n"
   sudo apt-get -y install python3-venv
-  sudo apt-get -y install python3-neovim
+  sudo apt-get -y install python3-pynvim
   pip3 install neovim
   sudo npm install -g neovim
   gem install neovim
