@@ -146,14 +146,16 @@ while true; do
   esac
 done
 
-while true; do
-  read -p "Enter which version you want to install (v0.9.5, nightly): " SELECTION
-  case $SELECTION in
-    v0.9.5 | 0.9.5 )            NVIM_VERSION=${SELECTION}; break;;
-    nightly )                   NVIM_VERSION=${SELECTION}; break;;
-    * )                         echo "Wrong answer.";;
-  esac
-done
+if [[ ${CURRENT_JOB} == ${ARCH} || ${CURRENT_JOB} == ${UBUNTU} ]]; then
+  while true; do
+    read -p "Enter which version you want to install (v0.9.5, nightly): " SELECTION
+    case ${SELECTION} in
+      v0.9.5 | 0.9.5 )          NVIM_VERSION=${SELECTION}; break;;
+      nightly )                 NVIM_VERSION=${SELECTION}; break;;
+      * )                       echo "Wrong answer.";;
+    esac
+  done
+fi
 
 
 if [ $CURRENT_JOB = $ARCH ]; then
@@ -180,8 +182,8 @@ if [ $CURRENT_JOB = $ARCH ]; then
   if [[ ${NVIM_VERSION} == "v0.9.5" ]]; then
     sudo pacman -S --needed --noconfirm libluv libtermkey libvterm msgpack-c tree-sitter unibilium
 
-    curl -sL https://github.com/neovim/neovim/releases/download/v0.9.5/nvim-linux64.tar.gz -o ~/.cache/nvim-linux64.tar.gz
-    tar xzvf ~/.cache/nvim-linux64.tar.gz
+    curl -sL https://github.com/neovim/neovim/releases/download/v0.9.5/nvim-linux64.tar.gz -o ~/nvim-linux64.tar.gz
+    tar xzvf ~/nvim-linux64.tar.gz -C ~/.cache/
     sudo ln -s ~/.cache/nvim-linux64/bin/nvim /bin/nvim
     rm ~/nvim-linux64.tar.gz
 
@@ -292,8 +294,10 @@ EOF
   echo -ne "Progressing...                                                                                \n"
 
   if [[ ${NVIM_VERSION} == "v0.9.5" ]]; then
-    curl -sL https://github.com/neovim/neovim/releases/download/v0.9.5/nvim-linux64.tar.gz -o ~/.cache/nvim-linux64.tar.gz
-    tar xzvf ~/.cache/nvim-linux64.tar.gz
+    sudo apt-get -y install libluajit-5.1-2 libluajit-5.1-common
+
+    curl -sL https://github.com/neovim/neovim/releases/download/v0.9.5/nvim-linux64.tar.gz -o ~/nvim-linux64.tar.gz
+    tar xzvf ~/nvim-linux64.tar.gz -C ~/.cache/
     sudo ln -s ~/.cache/nvim-linux64/bin/nvim /bin/nvim
     rm ~/nvim-linux64.tar.gz
 
@@ -340,6 +344,7 @@ EOF
   echo -ne "Progressing...                                                                                \n"
   sudo apt-get -y install python3-venv
   sudo apt-get -y install python3-pynvim
+  sudo apt-get -y install python3-neovim
   pip3 install neovim
   sudo npm install -g neovim
   gem install neovim
