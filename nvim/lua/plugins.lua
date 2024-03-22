@@ -79,7 +79,8 @@ return packer.startup(
     --use 'ryanoasis/vim-devicons'
     use {
       'nvim-lualine/lualine.nvim',
-      requires = 'kyazdani42/nvim-web-devicons'
+      requires = 'kyazdani42/nvim-web-devicons',
+      commit = 'b5e8bb642138f787a2c1c5aedc2a78cb2cebbd67'
     }
     use {
       'romgrk/barbar.nvim',
@@ -145,12 +146,13 @@ return packer.startup(
     -- === Syntax Plugins === --
     use {
       'nvim-treesitter/nvim-treesitter',
-      tag = 'v0.9.0' --Only for NVIM v0.9.0
-      --commit = '7b04e8b67eec7d92daadf9f0717dd272ddfc81a3' --for NVIM v0.10.0
+      tag = 'v0.9.0' --Only for NVIM <= v0.9.5
+      --tag = 'v0.9.1' --for NVIM v0.10.0
+      --commit = '7b04e8b67eec7d92daadf9f0717dd272ddfc81a3' --Nightly version has bug
     }
     use {
       'nvim-treesitter/playground',
-      commit = '934cb4c4adc2e7f4f351846a63c9532018c996ed' --Only for NVIM v0.9.0 (#120)
+      commit = '934cb4c4adc2e7f4f351846a63c9532018c996ed' --Only for NVIM <= v0.9.5 (#120)
       --commit = '2b81a018a49f8e476341dfcb228b7b808baba68b' --for NVIM v0.10.0
     }
     use 'norcalli/nvim-colorizer.lua'
