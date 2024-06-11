@@ -119,7 +119,10 @@ return packer.startup(
       tag = 'v3.5.4'
     }
     use 'aruyu/nvim-ultivisual'
-    use 'karb94/neoscroll.nvim'
+    use {
+      'karb94/neoscroll.nvim',
+      commit = 'e78657719485c5663b88e5d96ffcfb6a2fe3eec0'
+    }
     --use 'nmac427/guess-indent.nvim'
     --use 'anuvyklack/pretty-fold.nvim'
 
