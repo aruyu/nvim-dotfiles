@@ -61,6 +61,7 @@ nvim_autoindents.setup({
     { filename = '*.h', filetype = 'c' },
     { filename = '*.veo', filetype = 'verilog' },
     { filename = '*.xaml', filetype = 'xml' },
+    { filename = '*.scr', filetype = 'sh' },
     { filename = '*.swayconf', filetype = 'swayconfig' },
   },
 })
