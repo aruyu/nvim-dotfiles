@@ -5,14 +5,24 @@ snippet ##=
 endsnippet
 
 snippet __comment=
-#!/bin/python
+#!/bin/python3
 """
  *  NOTE      - `!v expand('%:t')`
  *  Author    - ${1:Aru}
  *
  *  Created   - `date +%Y.%m.%d`
- *  Github    - https://github.com/aruyu
- *  Contact   - vine9151@gmail.com
+`!p
+def format_comment(path):
+  if path.startswith("Chae"):
+    retval = " *  Website   - http://www.solidwintech.co.kr\n" \
+             " *  Contact   - chaelj@solidwt.co.kr"
+  else:
+    retval = " *  Github    - https://github.com/aruyu\n" \
+             " *  Contact   - vine9151@gmail.com"
+  return retval
+
+snip.rv = format_comment(t[1])
+`
 """
 
 $0
@@ -24,7 +34,7 @@ class ${1}:
   
   def __init__(self${3:, parameter}):
     `!p
-def format_parameter_name(path):
+def format_class(path):
   parts = path.split(',')
   basic = 'self.'
   cr = '\n    '
@@ -40,17 +50,17 @@ def format_parameter_name(path):
 
   return retval
 
-snip.rv = format_parameter_name(t[3])
+snip.rv = format_class(t[3])
 `$0
 endsnippet
 
 snippet def
 def ${1}(${2:parameter}):
   """ Function to ${3:`!p
-def format_import_name(path):
+def format_method(path):
   return re.sub(r'[_\-]', ' ', path.title())
 
-snip.rv = format_import_name(t[1])
+snip.rv = format_method(t[1])
 `} """
   
   $0
@@ -59,10 +69,10 @@ endsnippet
 snippet "def .. (self, ..)"
 def ${1}(self${2:, parameter}):
   """ Function to ${3:`!p
-def format_import_name(path):
+def format_method(path):
   return re.sub(r'[_\-]', ' ', path.title())
 
-snip.rv = format_import_name(t[1])
+snip.rv = format_method(t[1])
 `} """
   
   $0
