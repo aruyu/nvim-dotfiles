@@ -13,12 +13,13 @@ snippet __comment=
 #   Created   - `date +%Y.%m.%d`
 `!p
 def format_comment(path):
+  front = "#   "
   if path.startswith("Chae"):
-    retval = "#   Website   - http://www.solidwintech.co.kr\n" \
-             "#   Contact   - chaelj@solidwt.co.kr"
+    retval = front + "Website   - http://www.solidwintech.co.kr\n" + \
+             front + "Contact   - chaelj@solidwt.co.kr"
   else:
-    retval = "#   Github    - https://github.com/aruyu\n" \
-             "#   Contact   - vine9151@gmail.com"
+    retval = front + "Github    - https://github.com/aruyu\n" + \
+             front + "Contact   - vine9151@gmail.com"
   return retval
 
 snip.rv = format_comment(t[1])
