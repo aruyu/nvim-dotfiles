@@ -111,12 +111,10 @@ lspconfig.clangd.setup {
   capabilities = capabilities
 }
 
---[[
 -- LSP for C#.
-lspconfig.csharp_ls.setup {
+lspconfig.omnisharp.setup {
   capabilities = capabilities
 }
-]]
 
 -- LSP for css.
 lspconfig.cssls.setup {
