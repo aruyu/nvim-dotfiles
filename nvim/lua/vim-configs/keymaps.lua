@@ -20,24 +20,6 @@ local t = function(str)
   return vim.api.nvim_replace_termcodes(str, true, true, true)
 end
 
-function _G.visual_do(feature)
-  local present_column = vim.fn.col('.')
-  local commands
-
-  if feature == 'cut' then
-    commands = 'd'
-  elseif feature == 'copy' then
-    commands = 'y'
-  end
-
-  if (vim.fn.getline('.'):sub(present_column, present_column)) == '' and (present_column ~= 1) then   -- check '\n'
-    vim.api.nvim_feedkeys(t('<Left>'), 'n', true)
-    vim.api.nvim_feedkeys(t(commands .. '<ESC><ESC>'), 'n', true)
-  else
-    vim.api.nvim_feedkeys(t(commands .. '<ESC><ESC>'), 'n', true)
-  end
-end
-
 function _G.sync_to()
   vim.cmd([[
     !rsync -avxHAXP ~/.config/nvim/queries/* ~/Documents/nvim-dotfiles/nvim/queries/
@@ -121,9 +103,9 @@ keyset('n', '<F48>',  '<CMD>NvimTreeToggle<CR>', noremap_opt)
 -- ========================= --
 -- =      INSERT MODE      =
 -- ========================= --
-keyset('i', '',     '<ESC><ESC>vbdi', noremap_opt) -- for wsl (window terminal)
-keyset('i', '<C-BS>', '<ESC><ESC>vbdi', noremap_opt) -- for mac
-keyset('i', '<M-BS>', '<ESC><ESC>vbdi', noremap_opt) -- for linux
+--keyset('i', '',     '<ESC><ESC>vbdi', noremap_opt) -- for wsl (window terminal)
+--keyset('i', '<C-BS>', '<ESC><ESC>vbdi', noremap_opt) -- for mac
+--keyset('i', '<M-BS>', '<ESC><ESC>vbdi', noremap_opt) -- for linux
 keyset('i', '<C-A>',  '<ESC><ESC>gg<S-V>G', noremap_opt)
 keyset('i', '<C-S>',  '<ESC><ESC>:w<CR>', noremap_opt)
 keyset('i', '<C-Y>',  '<ESC><ESC><C-R>a', noremap_opt)
@@ -148,8 +130,8 @@ keyset('v', '<C-S>',  '<ESC><ESC>:w<CR>', noremap_opt)
 keyset('v', '<C-Y>',  '<ESC><ESC><C-R>', noremap_opt)
 keyset('v', '<C-R>',  '<C-Y>', noremap_opt)
 keyset('v', '<C-Z>',  '<ESC><ESC>u', noremap_opt)
-keyset('v', '<C-X>',  '<CMD>lua visual_do("cut")<CR>', noremap_opt)
-keyset('v', '<C-C>',  '<CMD>lua visual_do("copy")<CR>', noremap_opt)
+--keyset('v', '<C-X>',  '<CMD>lua visual_do("cut")<CR>', noremap_opt)
+--keyset('v', '<C-C>',  '<CMD>lua visual_do("copy")<CR>', noremap_opt)
 keyset('v', '<C-B>',  'p', noremap_opt)
 keyset('v', 'v',      '<C-V>', noremap_opt)
 
