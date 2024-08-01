@@ -112,7 +112,7 @@ return packer.startup(
     }
     use {
       'lewis6991/gitsigns.nvim',
-      --tag = 'release' -- To use the latest release (do not use this if you run Neovim nightly or dev builds!)
+      tag = 'v0.9.0' -- To use the latest release (do not use this if you run Neovim nightly or dev builds!)
     }
     use {
       'lukas-reineke/indent-blankline.nvim',
