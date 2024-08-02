@@ -49,8 +49,8 @@ nvim_autoindents.setup({
       expandtab = true,
       size = 4,
       filetype = {
-        'cpp','xml','php',
-        'systemverilog',
+        'cpp','php','rust',
+        'systemverilog','xml'
       }
     },
   },

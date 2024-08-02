@@ -157,6 +157,11 @@ lspconfig.solargraph.setup {
 }
 ]]
 
+-- LSP for rust.
+lspconfig.rust_analyzer.setup {
+  capabilities = capabilities,
+}
+
 -- LSP for system verilog.
 lspconfig.svlangserver.setup {
   capabilities = capabilities
