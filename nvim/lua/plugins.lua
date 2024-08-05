@@ -144,6 +144,13 @@ return packer.startup(
       'quangnguyen30192/cmp-nvim-ultisnips',
       requires = 'SirVer/ultisnips'
     }
+    use {
+      'simrat39/rust-tools.nvim',
+      requires = {
+        'nvim-lua/plenary.nvim',
+        'mfussenegger/nvim-dap'
+      }
+    }
 
 
     -- === Syntax Plugins === --
