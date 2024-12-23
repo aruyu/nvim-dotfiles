@@ -150,7 +150,7 @@ if [[ ${CURRENT_JOB} == ${ARCH} || ${CURRENT_JOB} == ${UBUNTU} ]]; then
   while true; do
     read -p "Enter which version you want to install (v0.9.5, nightly): " SELECTION
     case ${SELECTION} in
-      v0.9.5 | 0.9.5 )          NVIM_VERSION=${SELECTION}; break;;
+      v0.9.5 )                  NVIM_VERSION=${SELECTION}; break;;
       nightly )                 NVIM_VERSION=${SELECTION}; break;;
       * )                       echo "Wrong answer.";;
     esac
@@ -342,12 +342,13 @@ EOF
 
 
   echo -ne "Progressing...                                                                                \n"
-  sudo apt-get -y install python3-venv
+  sudo apt-get -y install python3.10-venv
   sudo apt-get -y install python3-pynvim
   sudo apt-get -y install python3-neovim
+  pip3 install pynvim
   pip3 install neovim
   sudo npm install -g neovim
-  gem install neovim
+  sudo gem install neovim
   echo -ne "\n\n\n\n\n"
   progress 95 "Install providers for Neovim"
 
@@ -423,7 +424,7 @@ elif [ $CURRENT_JOB = $MAC ]; then
   echo -ne "Progressing...                                                                                \n"
   pip3 install neovim
   sudo npm install -g neovim
-  gem install neovim
+  sudo gem install neovim
   echo -ne "\n\n\n\n\n"
   progress 95 "Install providers for Neovim"
 
