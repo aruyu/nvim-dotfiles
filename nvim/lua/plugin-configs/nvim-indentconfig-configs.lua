@@ -50,7 +50,7 @@ nvim_autoindents.setup({
       size = 4,
       filetype = {
         'cpp','php','rust',
-        'systemverilog','xml'
+        'systemverilog','vhdl','xml'
       }
     },
   },

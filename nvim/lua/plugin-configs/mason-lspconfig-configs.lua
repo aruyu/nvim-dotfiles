@@ -163,6 +163,6 @@ lspconfig.rust_analyzer.setup {
 }
 
 -- LSP for system verilog.
-lspconfig.svlangserver.setup {
+lspconfig.hdl_checker.setup {
   capabilities = capabilities
 }
