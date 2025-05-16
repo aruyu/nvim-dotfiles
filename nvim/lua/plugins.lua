@@ -130,8 +130,15 @@ return packer.startup(
     -- === LSP & Snips Plugins === --
     use {
       "williamboman/mason.nvim",
+      tag = 'v1.11.0' --Only for NVIM <= v0.9.5
+    }
+    use {
       "williamboman/mason-lspconfig.nvim",
+      tag = 'v1.32.0' --Only for NVIM <= v0.9.5
+    }
+    use {
       "neovim/nvim-lspconfig",
+      tag = 'v1.8.0' --Only for NVIM <= v0.9.5
     }
     use {
       'hrsh7th/cmp-nvim-lsp',
