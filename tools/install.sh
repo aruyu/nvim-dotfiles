@@ -269,9 +269,9 @@ EOF
   sudo apt-get -y install curl
 
   sudo add-apt-repository ppa:deadsnakes/ppa
-  sudo apt-get -y install python3.10
-  sudo curl https://bootstrap.pypa.io/get-pip.py -o ~/get-pip.py
-  sudo -H python3.10 ~/get-pip.py
+  sudo apt-get -y install python3.8 python3.8-distutils
+  sudo curl https://bootstrap.pypa.io/pip/3.8/get-pip.py -o ~/get-pip.py
+  sudo -H python3.8 ~/get-pip.py
 
   sudo curl -sL https://deb.nodesource.com/setup_14.x -o ~/nodesource_setup.sh
   sudo bash ~/nodesource_setup.sh
@@ -282,7 +282,7 @@ EOF
   sudo apt-get -y install ruby-dev
 
   pip --version
-  pip3 --version
+  pip3.8 --version
   npm --version
   yarn --version
   ruby --version
@@ -342,11 +342,11 @@ EOF
 
 
   echo -ne "Progressing...                                                                                \n"
-  sudo apt-get -y install python3.10-venv
+  sudo apt-get -y install python3.8-venv
   sudo apt-get -y install python3-pynvim
   sudo apt-get -y install python3-neovim
-  pip3 install pynvim
-  pip3 install neovim
+  pip3.8 install pynvim
+  pip3.8 install neovim
   sudo npm install -g neovim
   sudo gem install neovim
   echo -ne "\n\n\n\n\n"
