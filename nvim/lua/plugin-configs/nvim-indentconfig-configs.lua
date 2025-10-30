@@ -42,7 +42,7 @@ nvim_autoindents.setup({
     {
       expandtab = false,
       size = 4,
-      filetype = { 'c','verilog' }
+      filetype = { 'c','verilog','asm' }
     },
 
     {
