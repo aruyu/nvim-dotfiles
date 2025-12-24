@@ -1,0 +1,32 @@
+snippet ##=
+#==
+#   $0
+#/
+endsnippet
+
+snippet __comment=
+#!/bin/bash
+#==
+#   NOTE      - `!v expand('%:t')`
+#   Author    - ${1:Aru}
+#
+#   Created   - `date +%Y.%m.%d`
+`!p
+def format_comment(path):
+  front = "#   "
+  if path.startswith("Chae"):
+    retval = front + "Website   - http://www.solidwintech.co.kr\n" + \
+             front + "Contact   - chaelj@solidwt.co.kr"
+  else:
+    retval = front + "Github    - https://github.com/aruyu\n" + \
+             front + "Contact   - vine9151@gmail.com"
+  return retval
+
+snip.rv = format_comment(t[1])
+`
+#/
+
+
+
+$0
+endsnippet

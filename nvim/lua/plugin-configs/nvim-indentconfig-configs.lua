@@ -42,7 +42,7 @@ nvim_autoindents.setup({
     {
       expandtab = false,
       size = 4,
-      filetype = { 'c','verilog','asm' }
+      filetype = { 'c','asm' }
     },
 
     {
@@ -50,7 +50,7 @@ nvim_autoindents.setup({
       size = 4,
       filetype = {
         'cpp','php','rust',
-        'systemverilog','vhdl','xml'
+        'systemverilog','verilog','vhdl','xml'
       }
     },
   },
@@ -59,9 +59,10 @@ nvim_autoindents.setup({
   -- This option would re-set specific filetype by specific filename.
   ft_preset = {
     { filename = '*.h', filetype = 'c' },
-    { filename = '*.veo', filetype = 'verilog' },
-    { filename = '*.xaml', filetype = 'xml' },
     { filename = '*.scr', filetype = 'sh' },
     { filename = '*.swayconf', filetype = 'swayconfig' },
+    { filename = '*.do', filetype = 'tcl' },
+    { filename = '*.veo', filetype = 'verilog' },
+    { filename = '*.xaml', filetype = 'xml' },
   },
 })
