@@ -100,7 +100,8 @@ return packer.startup(
     -- === Editor Plugins === --
     use {
       'nvim-telescope/telescope.nvim',
-      requires = 'nvim-lua/plenary.nvim'
+      requires = 'nvim-lua/plenary.nvim',
+      tag = 'v0.1.9' --Only for NVIM <= v0.9.5
     }
     use {
       'akinsho/toggleterm.nvim',
@@ -129,11 +130,11 @@ return packer.startup(
 
     -- === LSP & Snips Plugins === --
     use {
-      "williamboman/mason.nvim",
+      "mason-org/mason.nvim",
       tag = 'v1.11.0' --Only for NVIM <= v0.9.5
     }
     use {
-      "williamboman/mason-lspconfig.nvim",
+      "mason-org/mason-lspconfig.nvim",
       tag = 'v1.32.0' --Only for NVIM <= v0.9.5
     }
     use {
