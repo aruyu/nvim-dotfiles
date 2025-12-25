@@ -11,7 +11,7 @@
 
 -- ================================================== --
 -- Check error.
-local status_ok, nvim_autoindents = pcall(require, "nvim-indentconfig")
+local status_ok, nvim_indentconfig = pcall(require, "nvim-indentconfig")
 if not status_ok then
   return
 end
@@ -22,7 +22,7 @@ end
 --   Additional User Configs   --
 -- =========================== --
 -- Configure setup with some options.
-nvim_autoindents.setup({
+nvim_indentconfig.setup({
   -- The global indent settings here.
   -- This option would set all the filetyps.
   default = {

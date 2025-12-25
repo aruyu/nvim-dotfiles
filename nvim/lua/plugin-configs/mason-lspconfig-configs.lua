@@ -161,3 +161,15 @@ lspconfig.solargraph.setup {
 lspconfig.rust_analyzer.setup {
   capabilities = capabilities
 }
+
+-- LSP for systemverilog.
+lspconfig.svlangserver.setup {
+  filetypes = { "systemverilog" },
+  settings = {
+    systemverilog = {
+      includeIndexing = { "*.{sv,svh}", "**/*.{sv,svh}" },
+    },
+  },
+
+  capabilities = capabilities
+}
