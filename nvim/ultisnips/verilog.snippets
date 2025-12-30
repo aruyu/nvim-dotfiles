@@ -1,6 +1,7 @@
 snippet //=
-/*
- *  $0
+/**
+ * @${1:brief} $0
+ * [C; `date +%Y.%m.%d`, M;]
  */
 endsnippet
 
@@ -44,9 +45,53 @@ endsnippet
 snippet submodule
 ${1} #(
     ${2}
-) $1(
+) $1_i (
     $0
 );
+endsnippet
+
+snippet interface
+interface ${1} #(
+    ${2}
+)(
+    ${3}
+);
+
+    $0
+
+endinterface
+endsnippet
+
+snippet clocking
+clocking ${1:cb} @(${2:posedge} ${3:clock}) (
+    ${4}
+);
+
+    $0
+
+endclocking
+endsnippet
+
+snippet modport
+modport ${1:tb} (
+    $0
+);
+endsnippet
+
+snippet task
+task ${1:automatic} ${2} (
+    ${3}
+);
+
+    $0
+
+endtask
+endsnippet
+
+snippet initial
+initial begin
+    $0
+end
 endsnippet
 
 snippet parameter
@@ -83,6 +128,24 @@ always @(${1:posedge} ${2:clock}) begin
 end
 endsnippet
 
+snippet always_comb
+always_comb begin
+    $0
+end
+endsnippet
+
+snippet always_ff
+always_ff @(${1:posedge} ${2:clock}) begin
+    $0
+end
+endsnippet
+
+snippet always_latch
+always_latch begin
+    $0
+end
+endsnippet
+
 snippet if
 if (${1}) begin
     $0
@@ -105,7 +168,6 @@ snippet ifelse
 if (${1}) begin
     ${2}
 end
-
 else begin
     $0
 end
