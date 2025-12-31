@@ -1,18 +1,19 @@
 snippet <!-->=
 <!-->
-    $0
+ -  @${1:brief} $0
+ -  [C; `date +%Y.%m.%d`, M;]
 <!-->
 endsnippet
 
 snippet __comment=
 <!-->
--   NOTE      - `!v expand('%:t')`
--   Author    - ${1:Aru}
--
--   Created   - `date +%Y.%m.%d`
+ -  NOTE      - `!v expand('%:t')`
+ -  Author    - ${1:Aru}
+ -
+ -  Created   - `date +%Y.%m.%d`
 `!p
 def format_comment(path):
-  front = "-   "
+  front = " -  "
   if path.startswith("Chae"):
     retval = front + "Website   - http://www.solidwintech.co.kr\n" + \
              front + "Contact   - chaelj@solidwt.co.kr"
