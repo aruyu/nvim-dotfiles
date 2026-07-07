@@ -50,7 +50,7 @@ end $1;
 endsnippet
 
 snippet architecture
-architecture ${1:Behavioral} of ${2} is
+architecture ${1:rtl} of ${2} is
     ${3}
 begin
     $0
@@ -65,7 +65,13 @@ port (
     -- Inputs
     -- Outputs
 );
-end component;
+end component $1;
+endsnippet
+
+snippet package
+package ${1} is
+    $0
+end package $1;
 endsnippet
 
 snippet port
@@ -87,12 +93,6 @@ snippet type
 type ${1} is (
     $0
 );
-endsnippet
-
-snippet package
-package ${1} is (
-    $0
-end package;
 endsnippet
 
 snippet signal
