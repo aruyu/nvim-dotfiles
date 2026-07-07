@@ -173,16 +173,28 @@ snip.rv = format_class(t[1])
 end process $2;
 endsnippet
 
-snippet "for .. downto 0"
+snippet "for .. downto 0 loop"
 for ${1:i} in ${2} downto 0 loop
     $0
 end loop;
 endsnippet
 
-snippet "for 0 to .."
+snippet "for 0 to .. loop"
 for ${1:i} in 0 to ${2} loop
     $0
 end loop;
+endsnippet
+
+snippet "for .. downto 0 generate"
+for ${1:i} in ${2} downto 0 generate
+    $0
+end generate;
+endsnippet
+
+snippet "for 0 to .. generate"
+for ${1:i} in 0 to ${2} generate
+    $0
+end generate;
 endsnippet
 
 snippet if
