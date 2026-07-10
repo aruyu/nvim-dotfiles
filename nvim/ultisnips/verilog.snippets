@@ -1,8 +1,8 @@
 snippet //=
 // =================================== //
-//  $0
+//  ${1}
 // =================================== //
-
+$0
 /* -----------------------------------
  */
 endsnippet
@@ -39,10 +39,8 @@ endsnippet
 snippet module
 module ${1} #(
 )(
-    // CLK,RST
+    // CLK RST
     $0
-    // Inputs
-    // Outputs
 );
 endmodule
 endsnippet
@@ -62,7 +60,7 @@ endsnippet
 snippet interface
 interface ${1} #(
 )(
-    // CLK,RST
+    // CLK RST
     $0
 );
 endinterface
@@ -89,10 +87,8 @@ endsnippet
 
 snippet modport
 modport ${1:tb} (
-    // CLK,RST
+    // CLK RST
     $0
-    // Inputs
-    // Outputs
 );
 endsnippet
 
