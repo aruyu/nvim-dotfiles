@@ -120,7 +120,7 @@ def format_class(path):
     for part in parts:
       part = part.strip()
 
-      if part != '' and part.endswith("clk"):
+      if part != '' and "clk" in part:
         return "seq"
 
   return "comb"
@@ -136,7 +136,7 @@ def format_class(path):
     for i in range(len(parts)):
       part = parts[i].strip()
 
-      if part != '' and part.endswith("clk"):
+      if part != '' and "clk" in part:
         return "if (" + parts[ 1 if (i == 0) else 0 ].strip() + " = '0') then"
 
   return ''
@@ -152,7 +152,7 @@ def format_class(path):
     for part in parts:
       part = part.strip()
 
-      if part != '' and part.endswith("clk"):
+      if part != '' and "clk" in part:
         return "elsif rising_edge (" + part + ") then\n"
 
   return ''
@@ -167,7 +167,7 @@ def format_class(path):
     for part in parts:
       part = part.strip()
 
-      if part != '' and part.endswith("clk"):
+      if part != '' and "clk" in part:
         return "end if;"
 
   return ''
