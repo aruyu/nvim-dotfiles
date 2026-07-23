@@ -132,43 +132,75 @@ begin
 def format_class(path):
   parts     = path.split(',')
 
+  if len(parts) == 1:
+    part       = parts[0].strip()
+    if part != '' and "clk" in part:
+      return "if rising_edge (" + part + ") then"
+
+  elif len(parts) == 2:
+    for i in range(len(parts)):
+      part       = parts[i].strip()
+      part_other = parts[ 1 if (i == 0) else 0 ]
+
+      if part != '' and "clk" in part and "rstn" in part_other:
+        return "if (" + part_other.strip() + " = '0') then"
+
+  return ''
+
+snip.rv = format_class(t[1])
+`
+`!p
+def format_class(path):
+  parts     = path.split(',')
+
+  if len(parts) == 1:
+    part       = parts[0].strip()
+    if part != '' and "clk" in part:
+      return "    "
+
+  elif len(parts) == 2:
+    for i in range(len(parts)):
+      part       = parts[i].strip()
+      part_other = parts[ 1 if (i == 0) else 0 ]
+
+      if part != '' and "clk" in part and "rstn" in part_other:
+        return "    "
+
+  return ''
+
+snip.rv = format_class(t[1])
+`$0
+    `!p
+def format_class(path):
+  parts     = path.split(',')
+
   if len(parts) == 2:
     for i in range(len(parts)):
-      part = parts[i].strip()
+      part       = parts[i].strip()
+      part_other = parts[ 1 if (i == 0) else 0 ]
 
-      if part != '' and "clk" in part:
-        return "if (" + parts[ 1 if (i == 0) else 0 ].strip() + " = '0') then"
-
-  return ''
-
-snip.rv = format_class(t[1])
-`
-    $0
-    `!p
-def format_class(path):
-  parts     = path.split(',')
-
-  if len(parts) == 2:
-    for part in parts:
-      part = part.strip()
-
-      if part != '' and "clk" in part:
-        return "elsif rising_edge (" + part + ") then\n"
+      if part != '' and "clk" in part and "rstn" in part_other:
+        return "elsif rising_edge (" + part + ") then\n\n"
 
   return ''
 
 snip.rv = format_class(t[1])
-`
-    `!p
+``!p
 def format_class(path):
   parts     = path.split(',')
 
-  if len(parts) == 2:
-    for part in parts:
-      part = part.strip()
+  if len(parts) == 1:
+    part       = parts[0].strip()
+    if part != '' and "clk" in part:
+      return "end if;"
 
-      if part != '' and "clk" in part:
-        return "end if;"
+  elif len(parts) == 2:
+    for i in range(len(parts)):
+      part       = parts[i].strip()
+      part_other = parts[ 1 if (i == 0) else 0 ]
+
+      if part != '' and "clk" in part and "rstn" in part_other:
+        return "    end if;"
 
   return ''
 
