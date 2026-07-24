@@ -116,11 +116,17 @@ ${2:`!p
 def format_class(path):
   parts     = path.split(',')
 
-  if len(parts) == 2:
-    for part in parts:
-      part = part.strip()
+  if len(parts) == 1:
+    part       = parts[0].strip()
+    if part != '' and "clk" in part:
+      return "seq"
 
-      if part != '' and "clk" in part:
+  elif len(parts) == 2:
+    for i in range(len(parts)):
+      part       = parts[i].strip()
+      part_other = parts[ 1 if (i == 0) else 0 ]
+
+      if part != '' and "clk" in part and "rstn" in part_other:
         return "seq"
 
   return "comb"
