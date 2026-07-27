@@ -132,7 +132,7 @@ def format_class(path):
   return "comb"
 
 snip.rv = format_class(t[1])
-`}: process (${1:clk, rstn})
+`}: process (${1:clk})
 begin
     `!p
 def format_class(path):
@@ -175,7 +175,7 @@ def format_class(path):
   return ''
 
 snip.rv = format_class(t[1])
-`$0
+`    $0
     `!p
 def format_class(path):
   parts     = path.split(',')
