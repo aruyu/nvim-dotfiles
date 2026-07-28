@@ -132,7 +132,8 @@ def format_class(path):
   return "comb"
 
 snip.rv = format_class(t[1])
-`}: process (${1:clk})
+`}:
+process (${1:clk})
 begin
     `!p
 def format_class(path):
@@ -213,7 +214,8 @@ def format_class(path):
 
 snip.rv = format_class(t[1])
 `
-end process $2;
+end process
+$2;
 endsnippet
 
 snippet generate
@@ -239,9 +241,11 @@ def format_class(path):
   return ""
 
 snip.rv = format_class(t[3])
-`}: for ${1:i} in ${2} downto 0 ${3:generate}
+`}:
+for ${1:i} in ${2} downto 0 ${3:generate}
     $0
-end $3 $4;
+end $3
+$4;
 endsnippet
 
 snippet "for 0 to .."
@@ -261,9 +265,11 @@ def format_class(path):
   return ""
 
 snip.rv = format_class(t[3])
-`}: for ${1:i} in 0 to ${2} ${3:generate}
+`}:
+for ${1:i} in 0 to ${2} ${3:generate}
     $0
-end $3 $4;
+end $3
+$4;
 endsnippet
 
 snippet if
