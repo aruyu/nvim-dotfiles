@@ -186,12 +186,13 @@ def format_class(path):
       part_other = parts[ 1 if (i == 0) else 0 ]
 
       if part != '' and "clk" in part and "rstn" in part_other:
-        return "elsif rising_edge (" + part + ") then\n\n"
+        return "elsif rising_edge (" + part + ") then\n"
 
-  return ''
+  return '    '
 
 snip.rv = format_class(t[1])
-``!p
+`
+    `!p
 def format_class(path):
   parts     = path.split(',')
 
@@ -206,7 +207,7 @@ def format_class(path):
       part_other = parts[ 1 if (i == 0) else 0 ]
 
       if part != '' and "clk" in part and "rstn" in part_other:
-        return "    end if;"
+        return "end if;"
 
   return ''
 
