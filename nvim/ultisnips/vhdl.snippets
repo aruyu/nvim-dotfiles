@@ -133,9 +133,9 @@ def format_class(path):
 
 snip.rv = format_class(t[1])
 `}:
-process (${1:clk})
-begin
-    `!p
+    process (${1:clk})
+    begin
+        `!p
 def format_class(path):
   parts     = path.split(',')
 
@@ -176,10 +176,15 @@ def format_class(path):
   return ''
 
 snip.rv = format_class(t[1])
-`    $0
-    `!p
+`        $0
+        `!p
 def format_class(path):
   parts     = path.split(',')
+
+  if len(parts) == 1:
+    part       = parts[0].strip()
+    if part != '' and "clk" in part:
+      return "    "
 
   if len(parts) == 2:
     for i in range(len(parts)):
@@ -189,11 +194,11 @@ def format_class(path):
       if part != '' and "clk" in part and "rstn" in part_other:
         return "elsif rising_edge (" + part + ") then\n"
 
-  return '    '
+  return ''
 
 snip.rv = format_class(t[1])
 `
-    `!p
+        `!p
 def format_class(path):
   parts     = path.split(',')
 
@@ -214,7 +219,7 @@ def format_class(path):
 
 snip.rv = format_class(t[1])
 `
-end process
+    end process
 $2;
 endsnippet
 
