@@ -126,7 +126,8 @@ def format_class(path):
       part       = parts[i].strip()
       part_other = parts[ 1 if (i == 0) else 0 ]
 
-      if part != '' and "clk" in part and "rstn" in part_other:
+      if part != '' and "clk" in part \
+        and ("rstn" in part_other or "resetn" in part_other):
         return "seq"
 
   return "comb"
@@ -149,7 +150,8 @@ def format_class(path):
       part       = parts[i].strip()
       part_other = parts[ 1 if (i == 0) else 0 ]
 
-      if part != '' and "clk" in part and "rstn" in part_other:
+      if part != '' and "clk" in part \
+        and ("rstn" in part_other or "resetn" in part_other):
         return "if (" + part_other.strip() + " = '0') then"
 
   return ''
@@ -170,7 +172,8 @@ def format_class(path):
       part       = parts[i].strip()
       part_other = parts[ 1 if (i == 0) else 0 ]
 
-      if part != '' and "clk" in part and "rstn" in part_other:
+      if part != '' and "clk" in part \
+        and ("rstn" in part_other or "resetn" in part_other):
         return "    "
 
   return ''
@@ -191,7 +194,8 @@ def format_class(path):
       part       = parts[i].strip()
       part_other = parts[ 1 if (i == 0) else 0 ]
 
-      if part != '' and "clk" in part and "rstn" in part_other:
+      if part != '' and "clk" in part \
+        and ("rstn" in part_other or "resetn" in part_other):
         return "elsif rising_edge (" + part + ") then\n"
 
   return ''
@@ -212,7 +216,8 @@ def format_class(path):
       part       = parts[i].strip()
       part_other = parts[ 1 if (i == 0) else 0 ]
 
-      if part != '' and "clk" in part and "rstn" in part_other:
+      if part != '' and "clk" in part \
+        and ("rstn" in part_other or "resetn" in part_other):
         return "end if;"
 
   return ''
