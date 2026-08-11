@@ -244,9 +244,9 @@ def format_class(path):
       part = part.strip()
 
       if part == "generate":
-        return "gen"
+        return "gen_"
       elif part == "loop":
-        return "loop"
+        return "lp_"
 
   return ""
 
@@ -268,9 +268,9 @@ def format_class(path):
       part = part.strip()
 
       if part == "generate":
-        return "gen"
+        return "gen_"
       elif part == "loop":
-        return "loop"
+        return "lp_"
 
   return ""
 
@@ -292,9 +292,9 @@ def format_class(path):
       part = part.strip()
 
       if part == "generate":
-        return "gen"
+        return "gen_"
       elif part == "loop":
-        return "loop"
+        return "lp_"
 
   return ""
 
@@ -316,9 +316,9 @@ def format_class(path):
       part = part.strip()
 
       if part == "generate":
-        return "gen"
+        return "gen_"
       elif part == "loop":
-        return "loop"
+        return "lp_"
 
   return ""
 
@@ -331,7 +331,7 @@ $4;
 endsnippet
 
 snippet while
-${3:loop}:
+${3:lp_}:
     while ${1:i} ${2:loop}
         $0
     end $2
