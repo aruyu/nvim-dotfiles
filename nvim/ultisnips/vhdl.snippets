@@ -75,7 +75,7 @@ endsnippet
 snippet port
 ${2:`!p
 def format_import_name(path):
-  return path + "_inst_0"
+  return "u_" + path
 
 snip.rv = format_import_name(t[1])
 `} : ${1}
@@ -125,7 +125,7 @@ def format_class(path):
   if len(parts) == 1:
     part       = parts[0].strip()
     if part != '' and "clk" in part:
-      return "seq"
+      return "p_seq_"
 
   elif len(parts) == 2:
     for i in range(len(parts)):
@@ -134,9 +134,9 @@ def format_class(path):
 
       if part != '' and "clk" in part \
         and ("rstn" in part_other or "resetn" in part_other):
-        return "seq"
+        return "p_seq_"
 
-  return "comb"
+  return "p_comb_"
 
 snip.rv = format_class(t[1])
 `}:
