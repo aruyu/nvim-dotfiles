@@ -49,7 +49,7 @@ snippet submodule
 ${1} #(
 ) ${2:`!p
 def format_import_name(path):
-  return path + "_inst_0"
+  return "u_" + path
 
 snip.rv = format_import_name(t[1])
 `} (
