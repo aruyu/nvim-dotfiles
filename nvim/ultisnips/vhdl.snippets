@@ -33,7 +33,10 @@ snip.rv = format_comment(t[1])
 --
 
 library ieee;
+
 use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+
 
 $0
 endsnippet
@@ -44,16 +47,21 @@ generic (
 );
 port (
     -- CLK RST
-    $0
 );
 end $1;
+
+$0
 endsnippet
 
 snippet architecture
 architecture ${1:rtl} of ${2} is
+
     ${3}
+
 begin
+
     $0
+
 end $1;
 endsnippet
 
