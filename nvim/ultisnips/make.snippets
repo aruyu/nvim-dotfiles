@@ -54,6 +54,7 @@ CFLAGS  = ${4:-std=c11 -g}
 LDFLAGS =
 LDLIBS  =
 OBJS    = ${5}
+LIBS    =
 TARGETS = `!p
 def format_parameter_name(path):
   parts = path.split(' ')
@@ -65,7 +66,7 @@ def format_parameter_name(path):
 
   return retval
 
-snip.rv = format_parameter_name(t[4])
+snip.rv = format_parameter_name(t[5])
 `
 
 BOARD      ?= ${6}
@@ -81,7 +82,7 @@ help:
 all: $(TARGETS)
 
 $(TARGETS): $(OBJS)
-	$(CC) $(CFLAGS) -o $@ $^
+	$(CC) $(CFLAGS) -o $@ $^ $(LIBS)
 
 #%.o : %.c %.h
 #	$(CC) $(CFLAGS) -c -o $@ $<
@@ -98,7 +99,7 @@ def format_parameter_name(path):
 
   return retval
 
-snip.rv = format_parameter_name(t[4])
+snip.rv = format_parameter_name(t[5])
 `
 .PHONY : clean
 clean:
