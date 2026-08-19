@@ -157,7 +157,7 @@ def format_class(path):
   if len(parts) == 1:
     part       = parts[0].strip()
     if part != '' and "clk" in part:
-      return "if rising_edge (" + part + ") then"
+      return "if rising_edge(" + part + ") then"
 
   elif len(parts) == 2:
     for i in range(len(parts)):
@@ -166,7 +166,7 @@ def format_class(path):
 
       if part != '' and "clk" in part \
         and ("rstn" in part_other or "resetn" in part_other):
-        return "if (" + part_other.strip() + " = '0') then"
+        return "if " + part_other.strip() + " = '0' then"
 
   return ''
 
@@ -210,7 +210,7 @@ def format_class(path):
 
       if part != '' and "clk" in part \
         and ("rstn" in part_other or "resetn" in part_other):
-        return "elsif rising_edge (" + part + ") then\n"
+        return "elsif rising_edge(" + part + ") then\n"
 
   return ''
 
@@ -358,7 +358,7 @@ else
 endsnippet
 
 snippet elif
-elsif (${1}) then
+elsif ${1} then
     $0
 endsnippet
 
