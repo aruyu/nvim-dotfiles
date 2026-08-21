@@ -65,7 +65,7 @@ proc compile_file {src_file target} {
 
     if { [string match "*.vhd" ${src_file}] || [string match "*.vhdl" ${src_file}] } {
       # Case for VHDL. [ -autoorder, -just p/b/e/a ]
-      vcom -quiet -${version} -work work ${src_file}
+      vcom -quiet -mixedsvvh l -${version} -work work ${src_file}
     } elseif { [string match "*.v" ${src_file}] || [string match "*.sv" ${src_file}] } {
       # Case for Verilog/SystemVerilog. [ -mfcu ]
       vlog -quiet -work work ${src_file}
@@ -204,13 +204,13 @@ set tb_top ${3}
 vsim -t 1ps           \
      -L work          \
      -voptargs="+acc" \
+     -onfinish stop   \
      work.${tb_top}
 
 
 # =====
 # 3. Create waves
 # =====
-#add wave -divider ""
 #write format wave -window .main_pane.wave.interior.cs.body.pw.wf ./wave.do
 #do wave.do
 
@@ -219,7 +219,12 @@ vsim -t 1ps           \
 # 4. Run
 # =====
 puts "\n=== Start Simulation ${tb_top} ===\n"
-#run -all
+#do ../bind.tcl
+
+#set run_flag 1
+#live_simulation
+
+run -all
 $0
 endsnippet
 
@@ -251,7 +256,7 @@ proc compile_file {src_file target} {
   try {
     if { [string match "*.vhd" ${src_file}] || [string match "*.vhdl" ${src_file}] } {
       # Case for VHDL. [ -autoorder, -just p/b/e/a ]
-      vcom -quiet -93 -work ${target} ${src_file}
+      vcom -quiet -mixedsvvh l -93 -work ${target} ${src_file}
     } elseif { [string match "*.v" ${src_file}] || [string match "*.sv" ${src_file}] } {
       # Case for Verilog/SystemVerilog. [ -mfcu ]
       vlog -quiet -work ${target} ${src_file}
