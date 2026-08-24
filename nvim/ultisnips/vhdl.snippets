@@ -380,3 +380,12 @@ case ${1} is
 end case;
 endsnippet
 
+snippet function
+function ${1} return ${2} is
+    variable v_retval   : $2;
+begin
+    $0
+    return v_retval;
+end function;
+endsnippet
+
