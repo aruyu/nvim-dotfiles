@@ -113,6 +113,17 @@ type ${1} is (
 );
 endsnippet
 
+snippet "type .. record"
+type ${1} is record
+    $0
+end record;
+endsnippet
+
+snippet "type .. array"
+type ${1} is
+    array (${2:natural range <>}) of $0;
+endsnippet
+
 snippet signal
 signal $0 : ${1:std_logic};
 endsnippet
