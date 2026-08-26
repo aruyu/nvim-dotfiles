@@ -124,6 +124,18 @@ type ${1} is
     array (${2:natural range <>}) of $0;
 endsnippet
 
+snippet map
+$0 : ${1:in}    ${1:std_logic};
+endsnippet
+
+snippet "map .. downto 0"
+$0 : ${1:in}    ${1:std_logic_vector}(${2} downto 0);
+endsnippet
+
+snippet "map 0 to .."
+$0 : ${1:in}    ${1:std_logic_vector}( 0 to ${2});
+endsnippet
+
 snippet signal
 signal $0 : ${1:std_logic};
 endsnippet
