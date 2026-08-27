@@ -125,15 +125,15 @@ type ${1} is
 endsnippet
 
 snippet map
-$0 : ${1:in}    ${1:std_logic};
+$0 : ${1:in}    ${2:std_logic};
 endsnippet
 
 snippet "map .. downto 0"
-$0 : ${1:in}    ${1:std_logic_vector}(${2} downto 0);
+$0 : ${1:in}    ${2:std_logic_vector}(${3} downto 0);
 endsnippet
 
 snippet "map 0 to .."
-$0 : ${1:in}    ${1:std_logic_vector}( 0 to ${2});
+$0 : ${1:in}    ${2:std_logic_vector}( 0 to ${3});
 endsnippet
 
 snippet signal
