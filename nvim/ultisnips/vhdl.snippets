@@ -125,15 +125,51 @@ type ${1} is
 endsnippet
 
 snippet port
-$0 : ${1:in}    ${2:std_logic};
+`!p
+def format_class(path):
+  if path == "in":
+    return "i_"
+  elif path == "out":
+    return "o_"
+  elif path == "inout":
+    return "io_"
+  else:
+    return ""
+
+snip.rv = format_class(t[1])
+`$0 : ${1:in}    ${2:std_logic};
 endsnippet
 
 snippet "port .. downto 0"
-$0 : ${1:in}    ${2:std_logic_vector}(${3} downto 0);
+`!p
+def format_class(path):
+  if path == "in":
+    return "i_"
+  elif path == "out":
+    return "o_"
+  elif path == "inout":
+    return "io_"
+  else:
+    return ""
+
+snip.rv = format_class(t[1])
+`$0 : ${1:in}    ${2:std_logic_vector}(${3} downto 0);
 endsnippet
 
 snippet "port 0 to .."
-$0 : ${1:in}    ${2:std_logic_vector}( 0 to ${3});
+`!p
+def format_class(path):
+  if path == "in":
+    return "i_"
+  elif path == "out":
+    return "o_"
+  elif path == "inout":
+    return "io_"
+  else:
+    return ""
+
+snip.rv = format_class(t[1])
+`$0 : ${1:in}    ${2:std_logic_vector}( 0 to ${3});
 endsnippet
 
 snippet signal
