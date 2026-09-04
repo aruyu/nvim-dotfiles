@@ -194,5 +194,5 @@ vim.cmd([[
   ca fhl Telescope highlights
   ca ww SudaWrite
   ca synct lua sync_to()
-  ca restart lua dofile(vim.env.MYVIMRC)
+  ca restart lua dofile(vim.env.MYVIMRC) ; vim.fn["UltiSnips#RefreshSnippets"]()
 ]])
